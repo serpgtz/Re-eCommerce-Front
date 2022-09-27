@@ -1,7 +1,8 @@
 import { GET_ALL_PRODUCTS } from "./actions";
 
 const initialState = {
-    products : []
+    products : [],
+    detail: [],
 }
 
 
@@ -13,6 +14,16 @@ export default function rootReducer(state = initialState , action) {
             ...state,
             products : action.payload
           }
+        case GET_DETAILS :
+          return {
+              ...state,
+              detail: action.payload,
+          }
+        case RESET :
+            return {
+                ...state,
+                detail: []
+            }
 
           default : return {
             ...state
