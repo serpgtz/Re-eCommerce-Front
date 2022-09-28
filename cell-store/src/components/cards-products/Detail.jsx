@@ -38,7 +38,7 @@ function Detail(props) {
 
 
               <div className={styles.cardDetail}>
-                <img src={myProduct.imgage} alt="not fount" />
+                <img src={myProduct.image} alt="not fount" />
                 <h3 className={styles.titleone} >{myProduct.name}</h3>
                 <p className={styles.letter}><strong>$</strong>{myProduct.price}</p>
                 <p className={styles.letter}><strong>Description : </strong>{myProduct.description}</p>
