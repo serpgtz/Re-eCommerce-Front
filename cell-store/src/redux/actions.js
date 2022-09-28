@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
-
+//
 axios.defaults.baseURL = 'http://localhost:3001'
 
 export const getAllProducts = () => {
