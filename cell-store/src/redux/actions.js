@@ -23,7 +23,6 @@ export const getAllProducts = () => {
     }
 }
 
-
 export function getProductByName(name){
     return async function (dispatch){
 
