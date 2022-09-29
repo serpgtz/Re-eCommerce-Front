@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-import { GET_ALL_PRODUCTS, GET_DETAILS, RESET } from "./actions";
-=======
 import {
   GET_ALL_PRODUCTS,
   GET_PRODUCT_BY_NAME,
   GET_DETAILS,
   RESET,
 } from "./actions";
->>>>>>> 51a7b1571c891498c8b49fd0951547689d4c34b8
 
 const initialState = {
   products: [],

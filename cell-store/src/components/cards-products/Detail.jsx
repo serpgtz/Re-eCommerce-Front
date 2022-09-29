@@ -1,26 +1,14 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetailId, resetState } from '../../redux/actions';
 import { useEffect } from 'react';
 import styles from './Detail.module.css';
 
-function Detail() {
+function Detail(props) {
 
   const dispatch = useDispatch();
 
-<<<<<<< HEAD
-    const { _id } = useParams();
-
-    useEffect(() => {
-        dispatch(getDetailId(_id));
-    
-        return ()=> {
-        dispatch(resetState())
-        };
-      
-    },[dispatch, _id])
-=======
   useEffect(() => {
     dispatch(getDetailId(props.match.params._id));
 
@@ -29,7 +17,6 @@ function Detail() {
     };
 
   }, [dispatch, props.match.params._id])
->>>>>>> 51a7b1571c891498c8b49fd0951547689d4c34b8
 
   const myProduct = useSelector((state) => state.detail)
 

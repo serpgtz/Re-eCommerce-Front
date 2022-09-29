@@ -23,12 +23,7 @@ export const getAllProducts = () => {
     }
 }
 
-<<<<<<< HEAD
-export function getDetailId (_id) {
-  return async function (dispatch) {
-   try {
-       let json = await axios.get('/products/' + _id);
-=======
+
 export function getProductByName(name){
     return async function (dispatch){
 
@@ -51,7 +46,6 @@ export function getDetailId (id) {
   return async function (dispatch) {
    try {
        let json = await axios.get('/products/' + id);
->>>>>>> 51a7b1571c891498c8b49fd0951547689d4c34b8
        return dispatch({
            type: GET_DETAILS,
            payload: json.data
