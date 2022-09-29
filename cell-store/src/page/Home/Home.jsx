@@ -1,20 +1,19 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import SearchBar from '../../components/searchBar/searchBar'
-import { getAllProducts } from '../../redux/actions'
-import * as s from '../Home/Home.module.css';
-import Card from '../../components/cards-products/Card';
-
+import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import SearchBar from "../../components/searchBar/searchBar";
+import { getAllProducts } from "../../redux/actions";
+import * as s from "../Home/Home.module.css";
+import Card from "../../components/cards-products/Card";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const dispatch = useDispatch()
-  const products = useSelector(state => state.products)
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(getAllProducts())
-
-  }, [dispatch])
+    dispatch(getAllProducts());
+  }, [dispatch]);
 
   return (
     <div>
@@ -22,27 +21,24 @@ const Home = () => {
       <div className={s.container}>
         <h1>Productos</h1>
         <div className={s.cards}>
-          {products?.map(el => {
+          {products?.map((el) => {
             return (
               <div key={el._id}>
-                {/* <Link key={el._id} to={`/detail/${el._id}`}>  //cuando esté la ruta de detail, agregar */}
-                <Card
-                  key={el._id}
-                  name={el.name}
-                  image={el.image}
-                  price={el.price}
-
-                />
-                {/* </Link> */}
-              </div >
-
-            )
+                <Link key={el._id} to={`/detail/${el._id}`}>
+                  <Card
+                    key={el._id}
+                    name={el.name}
+                    image={el.image}
+                    price={el.price}
+                  />
+                </Link>
+              </div>
+            );
           })}
         </div>
+      </div>
+    </div>
+  );
+};
 
-      </div >
-    </div >
-  )
-}
-
-export default Home
+export default Home;
