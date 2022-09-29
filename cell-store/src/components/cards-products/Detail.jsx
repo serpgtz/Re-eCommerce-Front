@@ -1,22 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDetailId, resetState } from '../redux/actions';
+import { getDetailId, resetState } from '../../redux/actions';
 import { useEffect } from 'react';
 import styles from './Detail.module.css';
 
-function Detail(props) {
+function Detail() {
 
     const dispatch = useDispatch();
 
+    const { _id } = useParams();
+
     useEffect(() => {
-        dispatch(getDetailId(props.match.params._id));
+        dispatch(getDetailId(_id));
     
         return ()=> {
         dispatch(resetState())
         };
       
-    },[dispatch, props.match.params._id])
+    },[dispatch, _id])
 
   const myProduct = useSelector((state) => state.detail)
 
