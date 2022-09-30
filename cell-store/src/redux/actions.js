@@ -64,7 +64,8 @@ export function postProduct(form, navigate) {
       .then((payload) => {
         alert("Se a Creado un Producto Correctamente", payload);
         //Planear redirigir a ruta con el id de reponse para la carga de category.
-        navigate("/");
+        console.log(payload)
+        navigate(`/interForm/${payload._id}`);
       })
       .catch((e) => {
         console.error(e);
