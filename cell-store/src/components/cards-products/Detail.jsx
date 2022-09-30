@@ -22,45 +22,59 @@ function Detail() {
   return (
     <div>
       <div className={styles.nav}>
-        <li className={styles.li}>
-          <Link to="/">BACK TO HOME</Link>
+        <li >
+          <Link className={styles.link} to="/">BACK TO HOME</Link>
         </li>
       </div>
       <div className={styles.container}>
-        {myProduct.err ? (
-          <div className={styles.error404}>
-            <Link to="/">
-              <img
-                src="https://png.pngtree.com/png-clipart/20190925/original/pngtree-404-error-or-not-found-button-icon--in-gray-background-png-image_4962266.jpg"
-                alt="Not found"
-              />
-            </Link>
-          </div>
-        ) : myProduct ? (
-          <div>
-            <div className={styles.cardDetail}>
-              <img src={myProduct.image} alt="not found" />
-              <h3 className={styles.titleone}>{myProduct.name}</h3>
-              <p className={styles.letter}>
-                <strong>$</strong>
-                {myProduct.price}
-              </p>
-              <p className={styles.letter}>
-                <strong>Description : </strong>
-                {myProduct.description}
-              </p>
-              <p className={styles.letter}>
-                <strong>stock : </strong>
-                {myProduct.stock}unids.
-              </p>
+        <div className={styles.caja}>
+          {myProduct.err ? (
+            <div className={styles.error404}>
+              <Link to="/">
+                <img
+                  src="https://png.pngtree.com/png-clipart/20190925/original/pngtree-404-error-or-not-found-button-icon--in-gray-background-png-image_4962266.jpg"
+                  alt="Not found"
+                />
+              </Link>
             </div>
-          </div>
-        ) : (
-          <img
-            src="https://aquamarineexotic.com/adminpanel/assets/images/page-loading-old.gif"
-            alt="loading"
-          />
-        )}
+          ) : myProduct ? (
+            <div className={styles.cajaDividida}>
+              <div className={styles.cardImage}>
+                <img src={myProduct.image} alt="not found" />
+              </div>
+              <div className={styles.cardDetail}>
+                
+                <h3 className={styles.titleone}>{myProduct.name}</h3>
+                <p className={styles.price}>
+                  $
+                  {myProduct.price}
+                </p>
+                <p className={styles.letter}>
+                  <strong>Description : </strong>
+                  {myProduct.description}
+                </p>
+              </div>
+              <div className={styles.buy}>
+                <p className={styles.letter}>
+                  <strong>stock : </strong>
+                  {myProduct.stock} unidades.
+                </p>
+                <div className={styles.btnBuy}>
+                  Comprar ahora
+                </div>
+                <div className={styles.btnCar}>
+                  Agregar al carrito
+                </div>
+              </div>
+            </div>
+          ) : (
+            <img
+              src="https://aquamarineexotic.com/adminpanel/assets/images/page-loading-old.gif"
+              alt="loading"
+            />
+          )}
+
+        </div>
       </div>
     </div>
   );
