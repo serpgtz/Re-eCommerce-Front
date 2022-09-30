@@ -67,7 +67,7 @@ function ProductForm() {
         }
         if((value > 500000 || value < 0 )&& target === 'price'){
             return setError({
-                [target] : 'limite exedido'
+                [target] : 'Limite exedido'
             })
         }
         if(value.length > 250 && target === 'description' || value.length < 50 && target === 'description'){
@@ -76,6 +76,16 @@ function ProductForm() {
                 [target] : 'Excede los limites de 50 a 250 Caracteres para descripcion.'
             })
 
+        }
+        if(!/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(value) && target === 'image'){
+            return setError({
+                [target] : 'Debe ingresar un url valido.'
+            })
+        }
+        if( value < 0 && (target === 'stock' || target === 'countInStock')){
+            return setError({
+                [target] : 'No se aceptan numero negativos'
+            })
         }
 
 
