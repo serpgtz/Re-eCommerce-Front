@@ -6,6 +6,7 @@ import { getAllProducts } from "../../redux/actions";
 import * as s from "../Home/Home.module.css";
 import Card from "../../components/cards-products/Card";
 import { Link } from "react-router-dom";
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -32,11 +33,14 @@ const Home = () => {
                     price={el.price}
                   />
                 </Link>
+                
               </div>
             );
           })}
+            <Footer/>
         </div>
       </div>
+    
     </div>
   );
 };
