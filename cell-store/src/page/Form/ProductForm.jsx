@@ -109,33 +109,33 @@ function ProductForm() {
 
                 <form  name='product' onSubmit={handleSubmit}>
                     <p>
-                        <span>Modelo</span><br />
-                        <input id="nameProduct" type={'text'} name={'name'} placeholder={'Nombre de la actividad'} onChange={handleChange}/><br />
+                        <span>Modelo</span>
+                        <input id="nameProduct" type={'text'} name={'name'} placeholder={'Nombre de la actividad'} onChange={handleChange}/>
                         {error.name && <span className={styles.error}> {error.name}</span>}
                     </p>
                     <p>
-                        <span>Precio</span><br />
-                        <input id='priceProduct' type={'number'} name={'price'} placeholder={'$$$'} onChange={handleChange} /><br />
+                        <span>Precio</span>
+                        <input id='priceProduct' type={'number'} name={'price'} placeholder={'$$$'} onChange={handleChange} />
                         {error.price && <span className={styles.error}> {error.price}</span>}
                     
                     </p>
                     <p>
-                        <span>Descripcion</span><br />
-                        <textarea id='descriptionProduct' name='description' placeholder='Descripcion' onChange={handleChange} ></textarea><br />
+                        <span>Descripcion</span>
+                        <textarea id='descriptionProduct' name='description' placeholder='Descripcion' onChange={handleChange} ></textarea>
                         {error.description && <span className={styles.error}> {error.description}</span>}
                     </p>
                     <p>
-                        <span >Stock</span><br />
+                        <span >Stock</span>
                         <input id='stockProduct' name='stock' type={'number'} placeholder={'N° de Unidades'} onChange={handleChange}/>
                         
                     </p>
                     <p>
-                        <span >En Stock</span><br />
+                        <span >En Stock</span>
                         <input id='countInStockProduct' name='countInStock'  type={'number'} placeholder={'N° de Unidades'} onChange={handleChange}/>
                         
                     </p>
                     <p>
-                        <span>URL Imagen</span><br />
+                        <span>URL Imagen</span>
                         <input id='imageProduct' name='image' type={'url'} placeholder={'URL...'} onChange={handleChange} />
                         {
                             /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(form.image) ?

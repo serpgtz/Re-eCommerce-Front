@@ -30,7 +30,7 @@
     place-items: center;
     background-color: white;
     margin: 50px 0px 50px 50px;
-    width: 700px;
+    width: 650px;
     height: 580px;
     padding-left: 2rem;
      border: gray dotted 2px;
@@ -47,6 +47,7 @@
     height: 580px;
     padding-left: 2rem;
     border: gray dotted 2px;
+    overflow: auto;
 }
 
 .price{
@@ -54,7 +55,7 @@
 }
 .buy{
     background-color: white;
-    margin: 50px 0px 50px 0;
+    margin: 50px 50px 50px 0;
     width: 240px;
     height: 580px;
     padding-left: 2rem;
