@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import style from './Auth.module.css'
+import icon_eyes_on from '../../image/show.png'
+import icon_eyes_off from '../../image/hide.png'
+
 const Auth = () => {
+  const [click , setClick] = useState(false)
   const dispatch = useDispatch()
   const [input, setInput] = useState({
     username : '',
@@ -28,13 +32,14 @@ const Auth = () => {
             <label>name</label>
             <input type='text' name='username' placeholder=' name' onChange={handleOnChange}></input>
             <label>password</label>
-            <input type='password' name='password' placeholder=' password' onChange={handleOnChange}></input>
+            <input type={click ? 'text' : 'password'} name='password' placeholder=' password' onChange={handleOnChange}></input>
+            <img onClick={()=> setClick(!click)} className={style.icon_eyes} src={click ? icon_eyes_on : icon_eyes_off}></img>
             <div className={style.div_forgot_password}>
-              <Link className={style.link} to='/'><p>Forgor password?</p></Link>
+              <Link className={style.link} to=''><p>Forgor password?</p></Link>
             </div>
             <input type='submit' value='Login'></input>
-            <Link to='/' className={style.link_button}><button className={style.button}>Register</button></Link>
-           
+            <Link to='/account/register' className={style.link_button}><button className={style.button}>Register</button></Link>
+            
           </div>
       </form>
     </div>

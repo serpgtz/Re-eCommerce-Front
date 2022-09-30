@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import * as actions from '../../redux/actions';
+import * as actions from '../../redux/actions/productActions';
 
 import Card from '../../components/cards-products/Card';
 

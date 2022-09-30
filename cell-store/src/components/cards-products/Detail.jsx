@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailId, resetState } from "../../redux/actions";
+import { getDetailId, resetState } from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css";
 

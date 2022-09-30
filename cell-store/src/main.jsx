@@ -15,7 +15,12 @@ import CategoryForm from './page/Form/CategoryForm'
 
 
 import Auth from "./page/login/Auth"
+import Register from "./page/register/register"
+
 ReactDOM.createRoot(document.getElementById("root")).render(
+
+
+
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
@@ -26,6 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/interForm/:id" element={<InterForm/>} />
           <Route path="/categoryForm/:id" element={<CategoryForm/>}/>
           <Route path="/account/login" element={<Auth />} />
+          <Route path="/account/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </Provider>
