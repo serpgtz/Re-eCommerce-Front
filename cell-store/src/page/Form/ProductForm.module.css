@@ -1,0 +1,66 @@
+.container {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+
+h2{
+    font-size: 40px;
+    margin: 5px;
+}
+
+.form{
+    margin: 50px;
+    background-color: gold;
+    width: 400px;
+    height: 580px;
+    padding-left: 2rem;
+    color: black;
+}
+
+.form p{
+    font-size: 17px;
+}
+.form input{
+    outline: none; 
+    /* outline-color: cyan; */
+    width: 340px;
+    height: 25px;
+    border-radius: 3px;
+}
+
+.form textarea{
+    outline: none;
+    width: 340px;
+    height: 50px;
+    border-radius: 3px;
+}
+
+.btn{
+    border-radius: 3px;
+    display: inline-block;
+    /* text-decoration: none; */
+    font-size: 20px;
+    text-shadow: 0 1px rgba(255,255,255,0.3);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    background-color: orange;
+    border: none;
+    color: black;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+.error{
+    color: red;
+    font-size: 15px;
+}
+
+.btnEstado{
+    width: 150px;
+    outline: none;
+}

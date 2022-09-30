@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import * as actions from '../../redux/actions';
+import styles from './ProductForm.module.css';
 
 
 
@@ -102,57 +103,60 @@ function ProductForm() {
   return (
 
     <section>
-        <div>
-        <h2>Nuevo Producto</h2>
-            <form name='product' onSubmit={handleSubmit}>
-                <p>
-                    <span>Modelo</span>
-                    <input id="nameProduct" type={'text'} name={'name'} placeholder={'Nombre de la actividad'} onChange={handleChange}/>
-                    {error.name && <span> {error.name}</span>}
-                </p>
-                <p>
-                    <span>Precio</span>
-                    <input id='priceProduct' type={'number'} name={'price'} placeholder={'$$$'} onChange={handleChange} />
-                    {error.price && <span> {error.price}</span>}
-                
-                </p>
-                <p>
-                    <span>Descripcion</span>
-                    <textarea id='descriptionProduct' name='description' placeholder='Descripcion' onChange={handleChange} ></textarea>
-                    {error.description && <span> {error.description}</span>}
-                </p>
-                <p>
-                    <span >Stock</span>
-                    <input id='stockProduct' name='stock' type={'number'} placeholder={'N° de Unidades'} onChange={handleChange}/>
+        <div className={styles.container} >
+            <h2>Nuevo Producto</h2>
+            <div className={styles.form}>
+
+                <form  name='product' onSubmit={handleSubmit}>
+                    <p>
+                        <span>Modelo</span><br />
+                        <input id="nameProduct" type={'text'} name={'name'} placeholder={'Nombre de la actividad'} onChange={handleChange}/><br />
+                        {error.name && <span className={styles.error}> {error.name}</span>}
+                    </p>
+                    <p>
+                        <span>Precio</span><br />
+                        <input id='priceProduct' type={'number'} name={'price'} placeholder={'$$$'} onChange={handleChange} /><br />
+                        {error.price && <span className={styles.error}> {error.price}</span>}
                     
-                </p>
-                <p>
-                    <span >En Stock</span>
-                    <input id='countInStockProduct' name='countInStock'  type={'number'} placeholder={'N° de Unidades'} onChange={handleChange}/>
-                    
-                </p>
-                <p>
-                    <span>URL Imagen</span>
-                    <input id='imageProduct' name='image' type={'url'} onChange={handleChange} />
-                    {
-                        /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(form.image) ?
-                         <img id='showImage' src={form.image} alt={`Foto de ${form.name}`}></img> 
-                         : <></>
-                    }
-                    
-                </p>
-                <p>
-                    <span>Estado</span>
-                    <select id='existProduct' name='exist' onChange={handleChange}>
-                        <option value={true}>Visible</option>
-                        <option value={false}>Oculto</option>
-                    </select>
-                    
-                </p>
-                <p>
-                    <input type={'submit'} value={'Guardar Producto'}/>
-                </p>
-            </form>
+                    </p>
+                    <p>
+                        <span>Descripcion</span><br />
+                        <textarea id='descriptionProduct' name='description' placeholder='Descripcion' onChange={handleChange} ></textarea><br />
+                        {error.description && <span className={styles.error}> {error.description}</span>}
+                    </p>
+                    <p>
+                        <span >Stock</span><br />
+                        <input id='stockProduct' name='stock' type={'number'} placeholder={'N° de Unidades'} onChange={handleChange}/>
+                        
+                    </p>
+                    <p>
+                        <span >En Stock</span><br />
+                        <input id='countInStockProduct' name='countInStock'  type={'number'} placeholder={'N° de Unidades'} onChange={handleChange}/>
+                        
+                    </p>
+                    <p>
+                        <span>URL Imagen</span><br />
+                        <input id='imageProduct' name='image' type={'url'} placeholder={'URL...'} onChange={handleChange} />
+                        {
+                            /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(form.image) ?
+                            <img id='showImage' src={form.image} alt={`Foto de ${form.name}`}></img> 
+                            : <></>
+                        }
+                        
+                    </p>
+                    <p>
+                        <span>Estado </span>
+                        <select className={styles.btnEstado} id='existProduct' name='exist' onChange={handleChange}>
+                            <option value={true}>Visible</option>
+                            <option value={false}>Oculto</option>
+                        </select>
+                        
+                    </p>
+                    <p>
+                        <input className={styles.btn} type={'submit'} value={'Guardar Producto'}/>
+                    </p>
+                </form>
+            </div>
         </div>
     </section>
     
