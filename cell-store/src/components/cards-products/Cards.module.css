@@ -1,0 +1,10 @@
+.cards {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.link {
+    text-decoration: none;
+}
