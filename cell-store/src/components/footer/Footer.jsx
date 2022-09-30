@@ -15,7 +15,7 @@ export default function Footer(){
 
                 <ul className={s.redeslist}>
                     <li><img src={face}width="40px"/></li>
-                    <li><img src={insta}width="23px"/></li>
+                    <li><img src={insta}width="25px"/></li>
                     <li><img src={twit}width="32px"/></li>
                </ul>
 
