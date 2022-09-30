@@ -1,11 +1,13 @@
 import axios from "axios";
 
+
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const GET_DETAILS = "GET_DETAILS";
 export const RESET = "RESET";
 
 axios.defaults.baseURL = "http://localhost:3001";
+
 
 export const getAllProducts = () => {
   return async (dispatch) => {
@@ -64,7 +66,8 @@ export function postProduct(form, navigate) {
       .then((payload) => {
         alert("Se a Creado un Producto Correctamente", payload);
         //Planear redirigir a ruta con el id de reponse para la carga de category.
-        navigate("/");
+        console.log(payload)
+        navigate(`/interForm/${payload._id}`);
       })
       .catch((e) => {
         console.error(e);
