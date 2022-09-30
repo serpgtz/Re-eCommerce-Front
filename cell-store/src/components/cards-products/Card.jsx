@@ -4,13 +4,12 @@ import s from './Card.module.css';
 const Card = (p) => {
 
   return (
-    <div className={s.wrapper}>
-      <img className={s.card} src={p.image} alt="img" />
-      <div clasname={s.info}>
-        <h3>{p.name}</h3>
-        <p>{p.price}</p>
+    <div className={s.card}>
+      <img src={p.image} alt="image not found" />
+      <div className={s.info}>
+        <div><h3>{p.name}</h3></div>
+        <p>${p.price}</p>
       </div>
-
     </div>
   )
 }
