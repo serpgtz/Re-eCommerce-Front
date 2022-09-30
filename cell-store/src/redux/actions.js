@@ -1,17 +1,13 @@
 import axios from "axios";
 
-<<<<<<< HEAD
-export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
-//
-axios.defaults.baseURL = 'http://localhost:3001'
-=======
+
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const GET_DETAILS = "GET_DETAILS";
 export const RESET = "RESET";
 
 axios.defaults.baseURL = "http://localhost:3001";
->>>>>>> 041bafa2ce16e99bd533e016569308bd08d8dee4
+
 
 export const getAllProducts = () => {
   return async (dispatch) => {
