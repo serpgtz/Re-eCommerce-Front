@@ -1,13 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
-import {Provider} from 'react-redux'
-import store from './redux/store'
-ReactDOM.createRoot(document.getElementById('root')).render(
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./page/Home/Home";
+import ProductForm from "./page/Form/ProductForm";
+import Detail from "./components/cards-products/Detail";
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-       <App />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/newproduct" element={<ProductForm />} />
+        </Routes>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
-)
+);
