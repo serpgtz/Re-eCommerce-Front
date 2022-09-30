@@ -12,12 +12,12 @@ h2{
 }
 
 .form{
-    margin: 50px;
-    background-color: gold;
+    background-color: #EDEDED;
     width: 400px;
-    height: 580px;
+    height: 650px;
     padding-left: 2rem;
     color: black;
+    border: gray solid 2px;
 }
 
 .form p{
@@ -25,7 +25,6 @@ h2{
 }
 .form input{
     outline: none; 
-    /* outline-color: cyan; */
     width: 340px;
     height: 25px;
     border-radius: 3px;
@@ -41,7 +40,6 @@ h2{
 .btn{
     border-radius: 3px;
     display: inline-block;
-    /* text-decoration: none; */
     font-size: 20px;
     text-shadow: 0 1px rgba(255,255,255,0.3);
     box-shadow: 0 1px 1px rgba(0,0,0,0.3);
