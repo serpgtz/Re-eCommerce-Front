@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import SearchBar from "../../components/searchBar/searchBar";
 import { getAllProducts } from "../../redux/actions";
 import * as s from "../Home/Home.module.css";
 import Card from "../../components/cards-products/Card";
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
+import NavBar from "../../components/NavBar/NavBar";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,9 +18,8 @@ const Home = () => {
 
   return (
     <div>
-      <SearchBar />
+      <NavBar />
       <div className={s.container}>
-        <h1>Productos</h1>
         <div className={s.cards}>
           {products?.map((el) => {
             return (
@@ -33,14 +32,12 @@ const Home = () => {
                     price={el.price}
                   />
                 </Link>
-                
               </div>
             );
           })}
-            <Footer/>
+          <Footer />
         </div>
       </div>
-    
     </div>
   );
 };
