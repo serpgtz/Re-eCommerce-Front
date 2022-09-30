@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getProductByName } from "../../redux/actions";
+import { getProductByName } from "../../redux/actions/productActions";
 import s from "./searchBar.module.css"
 
 

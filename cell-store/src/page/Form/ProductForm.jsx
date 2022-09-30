@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import * as actions from '../../redux/actions';
+import * as actions from '../../redux/actions/productActions';
 import styles from './ProductForm.module.css';
 
 
