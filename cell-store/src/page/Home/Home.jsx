@@ -11,13 +11,14 @@ const Home = () => {
       <NavBar />
       <div className={s.container}>
         <Cards />
-        <div>
-        <Paginado/>
         </div>
+        <Paginado/>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+     
+    
   );
 };
+  
 
 export default Home;
