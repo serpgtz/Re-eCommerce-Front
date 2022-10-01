@@ -7,20 +7,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./page/Home/Home";
 import ProductForm from "./page/Form/ProductForm";
 import Detail from "./components/cards-products/Detail";
-
-
-import InterForm from './page/Form/InterForm';
-import CategoryForm from './page/Form/CategoryForm'
-
-
-
-import Auth from "./page/login/Auth"
-import Register from "./page/register/register"
+import InterForm from "./page/Form/InterForm";
+import CategoryForm from "./page/Form/CategoryForm";
+import Auth from "./page/login/Auth";
+import Register from "./page/register/register";
+import About from "./page/About/About";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-
-
-
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
@@ -28,8 +21,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/" element={<Home />} />
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/newproduct" element={<ProductForm />} />
-          <Route path="/interForm/:id" element={<InterForm/>} />
-          <Route path="/categoryForm/:id" element={<CategoryForm/>}/>
+          <Route path="/interForm/:id" element={<InterForm />} />
+          <Route path="/categoryForm/:id" element={<CategoryForm />} />
+          <Route path="/about" element={<About />} />
           <Route path="/account/login" element={<Auth />} />
           <Route path="/account/register" element={<Register />} />
         </Routes>
