@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import * as actions from '../../redux/actions/productActions';
 
@@ -19,6 +19,11 @@ function CategoryForm() {
 
     const dispatch = useDispatch();
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    location.pathname
+
     const [form ,setForm] = useState({
         product: product.id,
         brand: '',
@@ -29,7 +34,7 @@ function CategoryForm() {
         charger: false,
         screen: '',
         freeShipping: false,
-        ram: false,
+        ram: '',
         storageSsd: '',
         systemOp: 'Android',
         onSale: false,
@@ -52,18 +57,25 @@ function CategoryForm() {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
+        let data = {
+            ...form,
+            cell : !!form.cell,
+            case : !!form.case,
+            headphones: !!form.headphones,
+            charger: !!form.charger,
+            freeShipping: !!form.freeShipping,
+            onSale: !!form.onSale,
 
-
-
+        }
+        dispatch(actions.postCategory(data, navigate, location))
 
     }
 
 
 
 
-    console.log(form)
-    console.log(product)
-    console.log(data )
+    console.log(form.ram)
+
 
   return (
     <section>
@@ -94,19 +106,19 @@ function CategoryForm() {
                     </p>
                     <p>
                         <span>Celular</span>
-                        <input id='cellCategory' name='cell' type={'checkbox'} value={true} onChange={handleChange}/>
+                        <input id='cellCategory' name='cell' type={'radio'} value={true} onChange={handleChange}/>
                     </p>
                     <p>
                         <span>Funda</span>
-                        <input id='caseCategory' name='case' type={'checkbox'} value={true} onChange={handleChange}/>
+                        <input id='caseCategory' name='case' type={'radio'} value={true} onChange={handleChange}/>
                     </p>
                     <p>
                         <span>Auriculares</span>
-                        <input id='headphonesCategory' name='headphones' type={'checkbox'} value={true} onChange={handleChange}/>
+                        <input id='headphonesCategory' name='headphones' type={'radio'} value={true} onChange={handleChange}/>
                     </p>
                     <p>
                         <span>Cargador</span>
-                        <input id='chargerCategory' name='charger'  type={'checkbox'} value={true} onChange={handleChange}/>
+                        <input id='chargerCategory' name='charger'  type={'radio'} value={true} onChange={handleChange}/>
                     </p>
                     <p>
                         <span>Pantalla</span>
@@ -114,7 +126,8 @@ function CategoryForm() {
                     </p>
                     <p>
                         <span>Ram</span>
-                       <input id='ramCategory' name='ram' type={'number'} onChange={handleChange}/>
+                       <input id='ramCategory' name='ram' type={'range'} min={0} max={16} step={2} onChange={handleChange}/>
+                       <output>{form.ram}</output>
                     </p>
                     <p>
                         <span>SD</span>
@@ -126,7 +139,7 @@ function CategoryForm() {
                     </p>
                     <p>
                         <span>Envio gratis</span>
-                        <input id='freeShippingCategory' name='freeShipping' type={'checkbox'} onChange={handleChange} />
+                        <input id='freeShippingCategory' name='freeShipping' type={'radio'} value={true} onChange={handleChange} />
                     </p>
                     <p>
                         <span>Sistema operativo</span>
@@ -138,7 +151,7 @@ function CategoryForm() {
                     </p>
                     <p>
                         <span>Oferta</span>
-                        <input id='onSaleCategory' name='onSale' type={'checkbox'} value={true} />
+                        <input id='onSaleCategory' name='onSale' type={'radio'} value={ true } onChange={handleChange} />
                     </p>
 
                     <input type={'submit'} placeholder={'Enviar'}/>
