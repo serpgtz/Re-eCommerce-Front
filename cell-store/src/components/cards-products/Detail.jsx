@@ -17,13 +17,15 @@ function Detail() {
     };
   }, [dispatch, id]);
 
-  const myProduct = useSelector((state) => state.detail);
+  const myProduct = useSelector((state) => state.product.detail);
 
   return (
     <div>
       <div className={styles.nav}>
-        <li >
-          <Link className={styles.link} to="/">BACK TO HOME</Link>
+        <li>
+          <Link className={styles.link} to="/">
+            BACK TO HOME
+          </Link>
         </li>
       </div>
       <div className={styles.container}>
@@ -32,7 +34,7 @@ function Detail() {
             <div className={styles.error404}>
               <Link to="/">
                 <img
-                  src="https://png.pngtree.com/png-clipart/20190925/original/pngtree-404-error-or-not-found-button-icon--in-gray-background-png-image_4962266.jpg"
+                  src="https://www.tastefullyoffensive.com/wp-content/uploads/2020/11/if-youre-looking-for-wtf-stock-photos-youve-come-to-the-right-place-110-pics-1.jpg"
                   alt="Not found"
                 />
               </Link>
@@ -43,12 +45,8 @@ function Detail() {
                 <img src={myProduct.image} alt="not found" />
               </div>
               <div className={styles.cardDetail}>
-                
                 <h3 className={styles.titleone}>{myProduct.name}</h3>
-                <p className={styles.price}>
-                  $
-                  {myProduct.price}
-                </p>
+                <p className={styles.price}>${myProduct.price}</p>
                 <p className={styles.letter}>
                   <strong>Description : </strong>
                   {myProduct.description}
@@ -59,12 +57,8 @@ function Detail() {
                   <strong>stock : </strong>
                   {myProduct.stock} unidades.
                 </p>
-                <div className={styles.btnBuy}>
-                  Comprar ahora
-                </div>
-                <div className={styles.btnCar}>
-                  Agregar al carrito
-                </div>
+                <div className={styles.btnBuy}>Comprar ahora</div>
+                <div className={styles.btnCar}>Agregar al carrito</div>
               </div>
             </div>
           ) : (
@@ -73,7 +67,6 @@ function Detail() {
               alt="loading"
             />
           )}
-
         </div>
       </div>
     </div>

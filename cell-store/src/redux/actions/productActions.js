@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const GET_DETAILS = "GET_DETAILS";
@@ -9,7 +8,6 @@ export const CHANGE_PAGE = "CHANGE_PAGE";
 export const PRODUCTS_PER_PAGE = "PRODUCTS_PER_PAGE";
 
 axios.defaults.baseURL = "http://localhost:3001";
-
 
 export const getAllProducts = () => {
   return async (dispatch) => {
@@ -68,7 +66,7 @@ export function postProduct(form, navigate) {
       .then((payload) => {
         alert("Se a Creado un Producto Correctamente", payload);
         //Planear redirigir a ruta con el id de reponse para la carga de category.
-        console.log(payload)
+        console.log(payload);
         navigate(`/interForm/${payload._id}`);
       })
       .catch((e) => {
@@ -79,30 +77,64 @@ export function postProduct(form, navigate) {
   };
 }
 
-export function changePage(page){
-  return function(dispatch){
-    return dispatch({
-      type:CHANGE_PAGE,
-      payload:page
-  })
-  }
+export function postCategory(form, navigate, location) {
+  return function (dispatch) {
+    return axios
+      .post("/category", form)
+      .then((res) => res.data)
+      .then((payload) => {
+        alert("Se completo exitosamente la carga");
+        console.log(payload);
+        navigate("/");
+      })
+      .catch((e) => {
+        console.error(e);
+        alert("Surgio un error vuelva a intentarlo");
+        navigate(location.pathname);
+      });
+  };
 }
 
-export function getProductsPerPage(page){
-  console.log(page)
-  return async function(dispatch){
+export function higherPrice() {
+  return {
+    type: "++_PRICE",
+  };
+}
+
+export function lowerPrice() {
+  return {
+    type: "--_PRICE",
+  };
+}
+
+export function topRated() {
+  return {
+    type: "TOP_RATED",
+  };
+}
+
+export function changePage(page) {
+  return function (dispatch) {
+    return dispatch({
+      type: CHANGE_PAGE,
+      payload: page,
+    });
+  };
+}
+
+export function getProductsPerPage(page) {
+  console.log(page);
+  return async function (dispatch) {
     try {
-    
-    let products = await axios.get(`http://localhost:3001/products?page=${page}&&limit=8`)
-    return dispatch({
-      type:PRODUCTS_PER_PAGE, 
-      payload: products.data 
-
-    })
+      let products = await axios.get(
+        `http://localhost:3001/products?page=${page}&&limit=8`
+      );
+      return dispatch({
+        type: PRODUCTS_PER_PAGE,
+        payload: products.data,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
-  }
+  };
 }
-
