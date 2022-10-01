@@ -3,7 +3,7 @@ import {
   GET_PRODUCT_BY_NAME,
   GET_DETAILS,
   RESET,
-} from "./actions";
+} from "../actions/productActions";
 
 const initialState = {
   products: [],
@@ -11,7 +11,7 @@ const initialState = {
 }
 
 
-export default function rootReducer(state = initialState, action) {
+export default function productReducer(state = initialState, action) {
 
   switch (action.type) {
     case GET_ALL_PRODUCTS:

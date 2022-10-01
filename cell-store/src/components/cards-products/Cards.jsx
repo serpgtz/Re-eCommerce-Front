@@ -3,17 +3,19 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts } from "../../redux/actions";
+import { getAllProducts } from "../../redux/actions/productActions";
 
 import s from './Cards.module.css';
 
 const Cards = (p) => {
     const dispatch = useDispatch();
-    const products = useSelector((state) => state.products);
-
+    const products = useSelector((state) => state.product.products);
+  console.log(products)
     useEffect(() => {
         dispatch(getAllProducts());
-    }, [dispatch]);
+      
+      }, [dispatch])
+    
 
     return (
         <div className={s.cards}>
