@@ -3,6 +3,7 @@ import s from "./Footer.module.css"
 import face from "../../image/Facebook_logo_PNG12.png"
 import insta from "../../image/pngwing.com.png"
 import twit from "../../image/twit.com.png"
+import { Link } from "react-router-dom";
 
 export default function Footer(){
 
@@ -41,7 +42,9 @@ export default function Footer(){
             <div className={s.acerca}>
                 <h4>Acerca de Cell Store</h4>
                 <ul className={s.listacerca}>
-                    <li>Nuestra Historia</li>
+                    <Link to = "/historia">
+                        <li>Nuestra Historia</li>
+                    </Link>
                     <li>Sala de Prensa</li>
                     <li>Relacion con Inversionistas</li>
                     <li>Contactanos</li>

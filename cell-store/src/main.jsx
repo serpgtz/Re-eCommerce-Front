@@ -12,6 +12,7 @@ import CategoryForm from "./page/Form/CategoryForm";
 import Auth from "./page/login/Auth";
 import Register from "./page/register/register";
 import About from "./page/About/About";
+import Historia from "./page/historia/Historia";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/about" element={<About />} />
           <Route path="/account/login" element={<Auth />} />
           <Route path="/account/register" element={<Register />} />
+          <Route path="/historia" element={<Historia/>} />
         </Routes>
       </BrowserRouter>
     </Provider>

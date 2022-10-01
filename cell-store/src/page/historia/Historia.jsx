@@ -1,10 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import s from "./Historia.module.css"
 
 
-return function Historia(){
+
+export default function Historia(){
     return (
-        <div>
-            <h4>Todo lo que querías saber sobre Cell Store </h4>
+        
+        <div className={s.container}>
+            <div>
+            <Link className={s.link} to="/">
+            BACK TO HOME
+            </Link>
+            </div>
+
+            <img src="https://www.telcel.com/content/dam/telcelcom/mundo-telcel/quienes-somos/historia/imagenes/historia_1366x260.jpg"/>
+            <h4 className={s.h4}>Todo lo que querías saber sobre Cell Store </h4>
             <div>
                 <p>
                 Cell Store forma parte de América Móvil, empresa líder en servicios integrados de telecomunicaciones en Latinoamérica. América Móvil está presente en 25 países de América y Europa.Con 31 años de experiencia, Cell Store es la empresa líder de telecomunicaciones y servicios de valor agregado en México, cubriendo a más del 95% de la población, lo que representa más de 76 millones de usuarios.
