@@ -12,7 +12,9 @@ import CategoryForm from "./page/Form/CategoryForm";
 import Auth from "./page/login/Auth";
 import Register from "./page/register/register";
 import About from "./page/About/About";
+import Historia from "./page/historia/Historia";
 import Profile from "./page/Profile/Profile";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -28,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/account/login" element={<Auth />} />
           <Route path="/account/register" element={<Register />} />
           <Route path="/account/profile" element={<Profile />} />
+          <Route path="/historia" element={<Historia/>} />
         </Routes>
       </BrowserRouter>
     </Provider>
