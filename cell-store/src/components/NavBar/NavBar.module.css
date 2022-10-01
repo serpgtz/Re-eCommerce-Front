@@ -63,7 +63,7 @@
 }
 .navBtnLogin:hover {
   transition: 190ms;
-  animation: light 200ms ease 0s 1 normal forwards;
+  --animation: light 200ms ease 0s 1 normal forwards;
   background: linear-gradient(177deg, #dc68ff9c 0%, #67ff7b 100%);
   color: rgb(255, 255, 255);
   text-shadow: 3px -2px 4px #ffffff67, -3px 2px 4px #0000007e;
@@ -76,4 +76,25 @@
   100% {
     box-shadow: 0px 6px 13px 0px #67ff7b;
   }
+}
+.navBtnUser {
+  border-radius: 50%;
+  font-size: 1.4rem;
+  padding: 0.5rem 0.78rem 0.5rem 0.78rem;
+  background-color: rgb(0, 201, 246);
+  color: rgb(255, 255, 255);
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  margin-left: -1.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 300ms;
+}
+.navBtnUser:hover {
+  transition: 190ms;
+  background: linear-gradient(177deg, #dc68ff9c 0%, #67ff7b 100%);
+  color: none;
+  text-shadow: 3px -2px 4px #ffffff67, -3px 2px 4px #0000007e;
 }
