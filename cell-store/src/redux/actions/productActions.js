@@ -79,6 +79,53 @@ export function postProduct(form, navigate) {
   };
 }
 
+
+export function postCategory(form, navigate, location){
+  return function (dispatch){
+    return axios
+        .post('/category', form)
+        .then(res=> res.data)
+        .then(payload => {
+          alert('Se completo exitosamente la carga');
+          console.log(payload)
+          navigate('/')
+        })
+        .catch(e=> {
+          console.error(e);
+          alert('Surgio un error vuelva a intentarlo')
+          navigate(location.pathname);
+        })
+  }
+}
+
+
+
+
+
+
+
+export function higherPrice(){
+  return {
+    type: '++_PRICE'
+
+  }
+}
+
+export function lowerPrice(){
+  return {
+    type: '--_PRICE'
+  }
+}
+
+export function topRated(){
+  return {
+    type: 'TOP_RATED'
+  }
+}
+
+
+=======
+
 export function changePage(page){
   return function(dispatch){
     return dispatch({
@@ -103,6 +150,14 @@ export function getProductsPerPage(page){
       console.log(error)
     }
     
+
+
   }
 }
+
+
+
+  }
+}
+
 
