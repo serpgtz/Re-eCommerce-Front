@@ -105,6 +105,7 @@ export function postCategory(form, navigate, location){
 export function higherPrice(){
   return {
     type: '++_PRICE'
+
   }
 }
 
@@ -113,4 +114,40 @@ export function lowerPrice(){
     type: '--_PRICE'
   }
 }
+
+export function topRated(){
+  return {
+    type: 'TOP_RATED'
+  }
+}
+
+
+export function changePage(page){
+  return function(dispatch){
+    return dispatch({
+      type:CHANGE_PAGE,
+      payload:page
+  })
+  }
+}
+
+export function getProductsPerPage(page){
+  console.log(page)
+  return async function(dispatch){
+    try {
+    
+    let products = await axios.get(`http://localhost:3001/products?page=${page}&&limit=8`)
+    return dispatch({
+      type:PRODUCTS_PER_PAGE, 
+      payload: products.data 
+
+    })
+    } catch (error) {
+      console.log(error)
+    }
+    
+
+  }
+}
+
 
