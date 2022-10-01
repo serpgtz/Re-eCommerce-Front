@@ -125,7 +125,6 @@ function CategoryForm() {
                         <input id='screenCategory' name='screen'  type={'number'}  onChange={handleChange}/>
                     </p>
                     <p>
-                    
                         <span>Ram</span>
                        <input id='ramCategory' name='ram' type={'range'} min={0} max={16} step={2} onChange={handleChange}/>
                        <output>{form.ram}</output>
