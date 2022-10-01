@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import style from './Auth.module.css'
 import icon_eyes_on from '../../image/show.png'
 import icon_eyes_off from '../../image/hide.png'
+import { userLogin } from '../../redux/actions/userActions'
 
 const Auth = () => {
   const [click , setClick] = useState(false)
@@ -20,9 +21,10 @@ const Auth = () => {
     })
   }
 
-  console.log(input)
+  
   const handleOnSubmit = (e) => {
      e.preventDefault()
+     dispatch(userLogin(input))
   }
   return (
     <div className={style.container}>

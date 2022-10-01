@@ -3,11 +3,16 @@ import {
   GET_PRODUCT_BY_NAME,
   GET_DETAILS,
   RESET,
+  CHANGE_PAGE,
+  PRODUCTS_PER_PAGE,
+
 } from "../actions/productActions";
 
 const initialState = {
   products: [],
   detail: [],
+  products2:[],
+  page:1
 }
 
 
@@ -34,6 +39,17 @@ export default function productReducer(state = initialState, action) {
         ...state,
         detail: []
       }
+      case CHANGE_PAGE:
+        return{
+          ...state,
+          page: action.payload
+        }
+      case PRODUCTS_PER_PAGE:
+          return{
+            ...state,
+            products2:action.payload
+          }
+    
 
     default: return {
       ...state

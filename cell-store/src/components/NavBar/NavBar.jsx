@@ -15,6 +15,11 @@ export const NavBar = () => {
         <button className={styles.navBtn}> Crear Producto </button>
       </Link>
       <SearchBar />
+      <div className={styles.navAuth}>
+        <Link className={styles.link} to="/account/login">
+          <button className={styles.navBtnLogin}>Iniciar sesión</button>
+        </Link>
+      </div>
     </nav>
   );
 };

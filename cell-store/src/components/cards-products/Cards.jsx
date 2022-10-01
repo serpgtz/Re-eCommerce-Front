@@ -3,23 +3,26 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts } from "../../redux/actions/productActions";
+import { getAllProducts, getProductsPerPage } from "../../redux/actions/productActions"
+
 
 import s from './Cards.module.css';
 
-const Cards = (p) => {
+const Cards = () => {
     const dispatch = useDispatch();
-    const products = useSelector((state) => state.product.products);
-  console.log(products)
+    const products2 = useSelector((state) => state.product.products2);
+    const page = useSelector((state)=>state.product.page)
+
+
+
     useEffect(() => {
         dispatch(getAllProducts());
-      
-      }, [dispatch])
-    
+        dispatch(getProductsPerPage(page));
+    }, [dispatch],);
 
     return (
         <div className={s.cards}>
-            {products?.map((el) => {
+            {products2.products?.map((el) => {
                 return (
                     <div key={el._id}>
                         <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
@@ -33,7 +36,7 @@ const Cards = (p) => {
                     </div>
                 );
             })}
-
+          
         </div>
     )
 }
