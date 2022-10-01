@@ -1,0 +1,33 @@
+.container{
+    background-color: rgba(37, 37, 37, 0.397);
+    color: white;
+ 
+    display: flex;
+    width: 100%;
+    align-content: space-around;
+    
+    
+}
+/* .subcontainer{
+    display: flex;
+    background-color: yellow;
+} */
+.paginado{
+    display: inline-block;
+    background-color: black;
+    margin-left: 10px;
+    width: 15px;
+    border-radius: 5px;
+    padding-left: 4px;
+    border: 2px white solid;
+    cursor: pointer;
+    
+}
+.container li:hover{
+    background-color: white;
+    width: 20px;
+    color: black;
+    border: 2px black solid;
+    
+}
+
