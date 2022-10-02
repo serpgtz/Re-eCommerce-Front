@@ -65,14 +65,14 @@ export function postProduct(form, navigate) {
       .post("/product", form)
       .then((res) => res.data)
       .then((payload) => {
-        alert("Se a Creado un Producto Correctamente", payload);
+        alert("Se ha creado un producto correctamente", payload);
         //Planear redirigir a ruta con el id de reponse para la carga de category.
         console.log(payload);
         navigate(`/interForm/${payload._id}`);
       })
       .catch((e) => {
         console.error(e);
-        alert("Ocurrio un Error, No fue posible crear el producto");
+        alert("Ocurrió un error, no fue posible crear el producto");
         navigate("/");
       });
   };
@@ -140,11 +140,11 @@ export function getProductsPerPage(page) {
   };
 }
 
-export function ChangeByName(){
-  return function (dispatch){
+export function ChangeByName() {
+  return function (dispatch) {
     return dispatch({
       type: CHANGE_BY_NAME,
-      payload:"true"
+      payload: "true"
     })
   }
 }
