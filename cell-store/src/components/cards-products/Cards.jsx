@@ -28,8 +28,9 @@ const Cards = () => {
             
             {
             
-            byName?
+            byName==="true"?
             product?.map((el) => {
+                console.log("produc1")
                 return (
                     <div key={el._id}>
                         <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
@@ -43,8 +44,10 @@ const Cards = () => {
                     </div>
                 );
             }):
-            products2.product?.map((el) => {
+            products2.products?.map((el) => {
+                console.log("produc2")
                 return (
+                    
                     <div key={el._id}>
                         <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
                             <Card
