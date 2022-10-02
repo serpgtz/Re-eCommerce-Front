@@ -3,6 +3,9 @@
     width: 90%;
     justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
+    padding: 5px;
+    margin: 10px;
 }
 
 .link {
