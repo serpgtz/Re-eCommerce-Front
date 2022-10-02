@@ -6,6 +6,7 @@ export const GET_DETAILS = "GET_DETAILS";
 export const RESET = "RESET";
 export const CHANGE_PAGE = "CHANGE_PAGE";
 export const PRODUCTS_PER_PAGE = "PRODUCTS_PER_PAGE";
+export const CHANGE_BY_NAME = "CHANGE_BY_NAME"
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -137,4 +138,13 @@ export function getProductsPerPage(page) {
       console.log(error);
     }
   };
+}
+
+export function ChangeByName(){
+  return function (dispatch){
+    return dispatch({
+      type: CHANGE_BY_NAME,
+      payload:"true"
+    })
+  }
 }
