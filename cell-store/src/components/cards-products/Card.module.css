@@ -1,92 +1,141 @@
 .card {
-  min-width: 150px;
-  width: auto;
-  height: 360px;
+  text-decoration: none;
+  width: 250px;
+  height: 460px;
   border-radius: 15px;
   padding: 1.5rem;
   margin: 10px;
   background: white;
-  position: relative;
   display: flex;
-  object-fit: contain;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
 
 
-
-.card:hover {
-  transform: translateY(5px);
+.name {
+  width: 250px;
+  height: 50px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  /* border: solid black; */
 }
 
-.card:hover:before {
-  opacity: 1;
+.name h3 {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.514);
+  text-transform: uppercase;
+  margin: 0px;
 }
 
-.card:hover .info {
-  opacity: 1;
-  transform: translateY(0px);
-
+.imgContein {
+  width: 250px;
+  height: 330px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  /* border: solid black; */
 }
 
-.card:hover img {
+.imgProduct {
+  Object-fit: cover;
+  max-width: 250px;
+  width: auto;
+  max-height: 320px;
+  height: auto;
+  border-radius: 15px;
+  transition: all ease-in-out 0.4s;
+  margin: 0px;
+}
+
+.imgProduct:hover {
   opacity: 1;
   transform: scale(1.1)
 }
 
-.card:before {
-  content: "";
-  /* position: relative; */
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  z-index: 2;
-  transition: 0.5s;
-  opacity: 0;
+
+
+.imgCarrito {
+  width: 30px;
+
 }
 
-.card img {
-  width: 70%;
-  height: auto;
-  -o-object-fit: cover;
-  object-fit: cover;
-  position: absolute;
-  top: 120px;
-  left: 20px;
-  border-radius: 15px;
+.info {
+  color: rgb(12, 11, 11);
+  opacity: 1;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.info p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  color: rgb(12, 11, 11);
+  width: 250px;
+  height: 40px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-weight: 700;
+}
+
+.footerCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.agregarCarrito {
+  text-decoration: none;
+  transition: all ease-in-out 0.4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  margin: 0px;
+}
+
+.buttonCarrito {
+  background-color: rgba(0, 0, 0, 0.322);
+  border-radius: 40px 0 0 40px;
+  height: 40px;
+  width: 50px;
+
+}
+
+.comprar {
+  font-size: 10px;
+  background-color: rgba(0, 0, 0, 0.322);
+  border-radius: 0 40px 40px 0;
+  height: 40px;
   transition: all ease-in-out 0.4s;
 }
 
-.card .info {
-  position: absolute;
-  z-index: 3;
-  color: rgb(12, 11, 11);
-  opacity: 1;
-  transform: translateX(-3px);
-  transition: 0.5s;
-  border-radius: 10px;
-  width: 100%;
-  padding: 35px;
-  top: 5px;
-  left: 5px;
+.agregarCarrito:hover {
+  transform: scale(1.1)
 }
 
-.card .info h1 {
-  margin: 0px;
-  color: rgb(12, 11, 11);
-
-
+.left {
+  width: 65px;
 }
 
-.card .info p {
-  letter-spacing: 1px;
-  font-size: 15px;
-  margin-top: 8px;
-  color: rgb(12, 11, 11);
+.corazon {
+  width: 50px;
+  border-radius: 80px;
+}
+
+.right {
+  width: 65px;
+}
+
+.like {
+  transition: all ease-in-out 0.4s;
+}
+
+.like:hover {
+  transform: scale(1.1)
 }
