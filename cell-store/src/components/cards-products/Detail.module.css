@@ -6,26 +6,27 @@
     background-color: #EDEDED;
 }
 
-.nav{
+.nav {
     display: inline-block;
 }
 
-.nav li{
+.nav li {
     list-style-type: none;
-    margin: 10px;
+    margin: 30px;
+    transition: all ease-in-out 0.4s;
 }
 
-.link{
+.link {
     text-decoration: none;
 }
 
-.cajaDividida{
+.cajaDividida {
     display: grid;
     grid-template-columns: repeat(3, 1fr 1fr 1fr);
     place-content: center;
 }
 
-.cardImage{
+.cardImage {
     display: grid;
     place-items: center;
     background-color: white;
@@ -33,14 +34,17 @@
     width: 650px;
     height: 580px;
     padding-left: 2rem;
-     border: gray dotted 2px;
+    border: gray dotted 2px;
 }
 
-.cardImage img{
-    width: 300px;
+.cardImage img {
+    width: auto;
+    height: auto;
+    max-width: 650px;
+    max-height: 580px;
 }
 
-.cardDetail{
+.cardDetail {
     background-color: white;
     margin: 50px 0px 50px 0;
     width: 400px;
@@ -50,10 +54,12 @@
     overflow: auto;
 }
 
-.price{
+.price {
     font-size: 35px;
+    width: 370px;
 }
-.buy{
+
+.buy {
     background-color: white;
     margin: 50px 50px 50px 0;
     width: 240px;
@@ -62,7 +68,7 @@
     border: gray dotted 2px;
 }
 
-.btnBuy{
+.btnBuy {
     width: 210px;
     height: 47px;
     background-color: #3483FA;
@@ -75,9 +81,13 @@
     box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
     border-radius: 6px;
     cursor: pointer;
+    transition: all ease-in-out 0.4s;
 }
 
-.btnCar{
+.btnCar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 10px;
     width: 210px;
     height: 47px;
@@ -91,8 +101,44 @@
     box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
     border-radius: 6px;
     cursor: pointer;
+    transition: all ease-in-out 0.4s;
 }
 
+.imgCarrito {
+    width: 30px;
+    margin: 10px;
+}
 
+.btnCar:hover {
+    transform: scale(1.1)
+}
 
+.btnBuy:hover {
+    transform: scale(1.1)
+}
 
+.titleone {
+    text-transform: uppercase;
+
+}
+
+.priceLike {
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.corazon {
+    width: 50px;
+    margin: 10px;
+    transition: all ease-in-out 0.4s;
+}
+
+.corazon:hover {
+    transform: scale(1.2)
+}
+
+.nav li:hover {
+    transform: scale(1.2)
+}
