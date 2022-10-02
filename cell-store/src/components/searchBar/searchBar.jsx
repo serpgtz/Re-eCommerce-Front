@@ -1,7 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getProductByName } from "../../redux/actions/productActions";
+import {
+  getProductByName,
+  ChangeByName,
+} from "../../redux/actions/productActions";
 import s from "./searchBar.module.css";
 
 export default function SearchBar() {
@@ -16,6 +19,7 @@ export default function SearchBar() {
   }
 
   function handleSumit(e) {
+    dispatch(ChangeByName());
     dispatch(getProductByName(input));
     setInputChange("");
   }

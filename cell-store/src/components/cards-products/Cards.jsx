@@ -7,13 +7,15 @@ import {
   getAllProducts,
   getProductsPerPage,
 } from "../../redux/actions/productActions";
-
 import s from "./Cards.module.css";
+import { useState } from "react";
 
 const Cards = () => {
   const dispatch = useDispatch();
   const products2 = useSelector((state) => state.product.products2);
+  const product = useSelector((state) => state.product.products);
   const page = useSelector((state) => state.product.page);
+  const byName = useSelector((state) => state.product.byName);
 
   useEffect(() => {
     dispatch(getAllProducts());
@@ -22,20 +24,35 @@ const Cards = () => {
 
   return (
     <div className={s.cards}>
-      {products2.products?.map((el) => {
-        return (
-          <div key={el._id}>
-            <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
-              <Card
-                key={el._id}
-                name={el.name}
-                image={el.image}
-                price={el.price}
-              />
-            </Link>
-          </div>
-        );
-      })}
+      {byName
+        ? product?.map((el) => {
+            return (
+              <div key={el._id}>
+                <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
+                  <Card
+                    key={el._id}
+                    name={el.name}
+                    image={el.image}
+                    price={el.price}
+                  />
+                </Link>
+              </div>
+            );
+          })
+        : products2.product?.map((el) => {
+            return (
+              <div key={el._id}>
+                <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
+                  <Card
+                    key={el._id}
+                    name={el.name}
+                    image={el.image}
+                    price={el.price}
+                  />
+                </Link>
+              </div>
+            );
+          })}
     </div>
   );
 };

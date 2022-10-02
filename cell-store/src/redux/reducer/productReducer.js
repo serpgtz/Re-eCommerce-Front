@@ -5,6 +5,7 @@ import {
   RESET,
   CHANGE_PAGE,
   PRODUCTS_PER_PAGE,
+  CHANGE_BY_NAME,
 } from "../actions/productActions";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   detail: [],
   products2: [],
   page: 1,
+  byName: "false",
 };
 
 export default function productReducer(state = initialState, action) {
@@ -45,6 +47,11 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         products2: action.payload,
+      };
+    case CHANGE_BY_NAME:
+      return {
+        ...state,
+        byName: action.payload,
       };
 
     default:
