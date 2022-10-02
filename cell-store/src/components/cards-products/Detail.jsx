@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailId, resetState } from "../../redux/actions/productActions";
+import { getDetailId, resetState,ChangeByName2 } from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css";
 import carrito from '../../image/carrito.png'
@@ -12,6 +12,7 @@ function Detail() {
   const { id } = useParams();
 
   useEffect(() => {
+    dispatch(ChangeByName2())
     dispatch(getDetailId(id));
 
     return () => {
