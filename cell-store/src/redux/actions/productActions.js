@@ -7,6 +7,7 @@ export const RESET = "RESET";
 export const CHANGE_PAGE = "CHANGE_PAGE";
 export const PRODUCTS_PER_PAGE = "PRODUCTS_PER_PAGE";
 export const CHANGE_BY_NAME = "CHANGE_BY_NAME"
+export const CHANGE_BY_NAME2 = "CHANGE_BY_NAME2"
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -145,6 +146,14 @@ export function ChangeByName(){
     return dispatch({
       type: CHANGE_BY_NAME,
       payload:"true"
+    })
+  }
+}
+export function ChangeByName2(){
+  return function (dispatch){
+    return dispatch({
+      type: CHANGE_BY_NAME2,
+      payload:"false"
     })
   }
 }

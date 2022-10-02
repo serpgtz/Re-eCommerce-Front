@@ -6,6 +6,7 @@ import {
   CHANGE_PAGE,
   PRODUCTS_PER_PAGE,
   CHANGE_BY_NAME,
+  CHANGE_BY_NAME2,
 
 } from "../actions/productActions";
 
@@ -56,7 +57,13 @@ export default function productReducer(state = initialState, action) {
           ...state,
           byName:action.payload
         }
-    
+      case CHANGE_BY_NAME2:
+        return{
+          ...state,
+          byName:action.payload
+      
+        }
+       
 
     default: return {
       ...state
