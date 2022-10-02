@@ -6,59 +6,80 @@
     background-color: white;
 }
 
-h2{
+.link {
+    margin: 20px;
+    text-decoration: none;
+    transition: all ease-in-out 0.4s;
+}
+
+h2 {
     font-size: 40px;
     margin: 5px;
 }
 
-.form{
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #EDEDED;
-    width: 400px;
-    height: 650px;
+    width: auto;
+    height: auto;
     padding-left: 2rem;
     color: black;
-    border: gray solid 2px;
+    border-radius: 20px;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    margin: 10px;
 }
 
-.form p{
+.form p {
     font-size: 17px;
 }
-.form input{
-    outline: none; 
+
+.form input {
+    outline: none;
     width: 340px;
     height: 25px;
     border-radius: 3px;
 }
 
-.form textarea{
+.form textarea {
     outline: none;
     width: 340px;
     height: 50px;
     border-radius: 3px;
 }
 
-.btn{
-    border-radius: 3px;
-    display: inline-block;
+.imageProduct {
+    width: 300px;
+}
+
+.btn {
+    /* display: inline-block; */
     font-size: 20px;
-    text-shadow: 0 1px rgba(255,255,255,0.3);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
-    background-color: orange;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    background-color: rgba(204, 207, 7, 0.322);
     border: none;
     color: black;
     cursor: pointer;
+    transition: all ease-in-out 0.4s;
+    border-radius: 30px;
 }
 
-.btn:hover{
+.btn:hover {
     transform: scale(1.1);
 }
 
-.error{
+.error {
     color: red;
     font-size: 15px;
 }
 
-.btnEstado{
+.btnEstado {
     width: 150px;
     outline: none;
+}
+
+.link:hover {
+    transform: scale(1.1)
 }
