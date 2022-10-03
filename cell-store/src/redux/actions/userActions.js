@@ -2,6 +2,7 @@
 import axios from 'axios'
 export const LOGIN_ERROR = 'LOGIN_ERROR'
 export const USER = 'USER'
+export const TOKEN = 'TOKEN'
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -23,7 +24,11 @@ export const userLogin = (user) => {
             const token = await axios.post('/login' , user) 
 
             localStorage.setItem('token', token.data.token)
-           
+            
+            return dispatch({
+                type : TOKEN,
+                payload : token.data
+            })
 
         } catch (error) {
             return dispatch({

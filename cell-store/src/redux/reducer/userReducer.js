@@ -1,8 +1,9 @@
-import {USER, LOGIN_ERROR} from '../actions/userActions'
+import {USER, LOGIN_ERROR, TOKEN} from '../actions/userActions'
 
 const initialState = {
    user : {},
-   error : {}
+   error : {},
+   token : {}
 }
 
 
@@ -19,7 +20,13 @@ export default function userReducer(state = initialState, action) {
                 return {
                     ...state,
                     error : action.payload
-                }   
+                }
+                
+            case TOKEN:
+                return {
+                    ...state,
+                    token : action.payload
+                }    
         default : return {
             ...state
         }
