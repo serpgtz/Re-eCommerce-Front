@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useActionData } from "react-router-dom";
 
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
@@ -8,8 +9,11 @@ export const CHANGE_PAGE = "CHANGE_PAGE";
 export const PRODUCTS_PER_PAGE = "PRODUCTS_PER_PAGE";
 export const CHANGE_BY_NAME = "CHANGE_BY_NAME";
 export const CHANGE_BY_NAME2 = "CHANGE_BY_NAME2";
-export const GET_BRAND = "GET_BRAND";
+export const GET_FILTERED = "GET_FILTERED";
 export const NOT_FOUND = "NOT_FOUND";
+export const HIGHER_PRICE = "++PRICE";
+export const LOWER_PRICE = "--_PRICE";
+export const TOP_RATED = "TOP_RATED";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -60,13 +64,17 @@ export function getDetailId(id) {
   };
 }
 
-export function getBrand() {
+export function getFilter(query) {
   return async function (dispatch) {
+    console.log(query);
     try {
-      let json = await axios.get("/category/brand");
+      if (query === "cell") await axios.get(`/category?${query}=true`);
+      if (query === "phoneCover") await axios.get(`/category?${query}=true`);
+      if (query === "headphones") await axios.get(`/category?${query}=true`);
+      if (query === "charger") await axios.get(`/category?${query}=true`);
       return dispatch({
-        type: GET_BRAND,
-        payload: json.data,
+        type: GET_FILTERED,
+        payload: query.data,
       });
     } catch (error) {
       console.log(error);
@@ -145,7 +153,6 @@ export function changePage(page) {
 }
 
 export function getProductsPerPage(page) {
-  console.log(page);
   return async function (dispatch) {
     try {
       let products = await axios.get(
