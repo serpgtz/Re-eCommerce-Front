@@ -4,6 +4,7 @@ import {
   RESET_USER,
   TOKEN,
   ALL_USERS,
+  RESET_ERROR,
 } from "../actions/userActions";
 
 const initialState = {
@@ -43,6 +44,12 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         token: action.payload,
+      };
+
+    case RESET_ERROR:
+      return {
+        ...state,
+        error: {},
       };
     default:
       return {
