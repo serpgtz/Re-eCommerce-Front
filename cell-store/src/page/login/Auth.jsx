@@ -59,8 +59,10 @@ const Auth = () => {
     
   </Alert>
    </Flex>
-  )}
+  )}  
+     
       <form onSubmit={handleOnSubmit} className={style.form_login}>
+      <div>
          <Text fontSize='40px'>Sing In</Text>
           <div className={style.div_form}> 
             <label>name</label>
@@ -81,7 +83,7 @@ const Auth = () => {
         </div>
       </form>
     </div>   
-  )
+   )
 }
 
 
