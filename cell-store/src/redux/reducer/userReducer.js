@@ -1,10 +1,13 @@
+
 import {
   USER,
   LOGIN_ERROR,
   RESET_USER,
   TOKEN,
   ALL_USERS,
+ RESET_ERROR
 } from "../actions/userActions";
+
 
 const initialState = {
   user: {},
@@ -21,7 +24,6 @@ export default function userReducer(state = initialState, action) {
         user: action.payload,
       };
     case ALL_USERS:
-      console.log("Hoola, soy el dispatch");
       return {
         ...state,
         users: action.payload,
@@ -42,8 +44,14 @@ export default function userReducer(state = initialState, action) {
     case TOKEN:
       return {
         ...state,
-        token: action.payload,
-      };
+        token : action.payload
+      } 
+
+      case RESET_ERROR: 
+       return {
+        ...state,
+        error : {}
+       }
     default:
       return {
         ...state,

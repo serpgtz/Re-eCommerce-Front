@@ -15,13 +15,10 @@ const Cards = () => {
   const dispatch = useDispatch();
   const products2 = useSelector((state) => state.product.products2);
   const product = useSelector((state) => state.product.products);
-  const page = useSelector((state) => state.product.page);
+ 
   const byName = useSelector((state) => state.product.byName);
+       
 
-  useEffect(() => {
-    dispatch(getAllProducts());
-    dispatch(getProductsPerPage(page));
-  }, [dispatch]);
 
     return (
         <div className={s.cards}>

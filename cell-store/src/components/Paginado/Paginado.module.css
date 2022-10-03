@@ -1,9 +1,9 @@
 .container{
+   
     display: flex;
-    
     color: white;
-    align-content: center;
-    display: flex;
+    justify-content: center;
+    
     width: 100%;
 
   
@@ -12,16 +12,19 @@
 }
 .subcontainer{
     display: flex;
-    margin-left: 500px;
- 
+    justify-content: center;
+    
     
 }
 .paginado{
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
     margin-left: 10px;
-    width: 15px;
-    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
     padding-left: 4px;
     border: 2px white solid;
     cursor: pointer;
@@ -29,11 +32,23 @@
   
     
 }
+
+.paginadoCurrent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(21, 254, 110);
+    margin-left: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding-left: 4px;
+    border: 2px white solid;
+    cursor: pointer;
+}
 .container li:hover{
-    background-color: white;
-    width: 21px;
-    color: black;
-    border: 2px black solid;
+    background-color: rgb(108, 106, 106);
+   
     
 }
 

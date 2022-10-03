@@ -28,7 +28,7 @@ export const NavBar = () => {
       ) : null}
       <SearchBar />
       <div className={styles.navAuth}>
-        {!Object.keys(user).length ? (
+        {localStorage.getItem('token') === null ? (
           <Link className={styles.link} to="/account/login">
             <button className={styles.navBtnLogin}>Iniciar sesión</button>
           </Link>
