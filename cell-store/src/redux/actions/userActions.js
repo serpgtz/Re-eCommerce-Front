@@ -3,6 +3,7 @@ export const LOGIN_ERROR = "LOGIN_ERROR";
 export const USER = "USER";
 export const RESET_USER = "RESET_USER";
 export const TOKEN = "TOKEN";
+export const RESET_ERROR = 'RESET_ERROR'
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -69,3 +70,11 @@ export const userLogOut = () => {
     }
   };
 };
+
+export const resetError = () => {
+    return {
+        type : RESET_ERROR,
+
+
+    }
+}
