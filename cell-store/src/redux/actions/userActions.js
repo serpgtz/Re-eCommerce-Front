@@ -4,8 +4,12 @@ export const USER = "USER";
 export const RESET_USER = "RESET_USER";
 export const TOKEN = "TOKEN";
 export const ALL_USERS = "ALL_USERS";
+<<<<<<< HEAD
+export const RESET_ERROR = "RESET_ERROR";
+=======
 export const RESET_ERROR = 'RESET_ERROR';
 
+>>>>>>> 52d2f6410995d4a9dda627c56ec009658e03f1c9
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -72,7 +76,10 @@ export const userLogOut = () => {
     }
   };
 };
+<<<<<<< HEAD
+=======
 
+>>>>>>> 52d2f6410995d4a9dda627c56ec009658e03f1c9
 export const getAllUsers = () => {
   return async (dispatch) => {
     try {
@@ -87,12 +94,8 @@ export const getAllUsers = () => {
   };
 };
 
-
 export const resetError = () => {
-    return {
-        type : RESET_ERROR,
-
-
-    }
-}
-
+  return {
+    type: RESET_ERROR,
+  };
+};
