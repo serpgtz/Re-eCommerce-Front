@@ -43,7 +43,7 @@ function App() {
       <Route path="/account/profile" element={<Profile />} />
       <Route path="/historia" element={<Historia />} />
     </Routes>
-    <Footer />
+    
     </>
     
   )
