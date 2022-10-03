@@ -8,8 +8,9 @@ import { getAllProducts, getProductsPerPage } from "../../redux/actions/productA
 
 import s from './Cards.module.css';
 import { useState } from "react";
+import NotFound from "../NotFound/NotFound";
 
-const Cards = () => {
+    const Cards = () => {
     const dispatch = useDispatch();
     const products2 = useSelector((state) => state.product.products2);
     const product = useSelector(state=>state.product.products)
@@ -27,10 +28,9 @@ const Cards = () => {
         <div className={s.cards}>
             
             {
-            
-            byName==="true"?
+            !product.hasOwnProperty("msj")?
+            byName==="true"? 
             product?.map((el) => {
-                console.log("produc1")
                 return (
                     <div key={el._id}>
                         <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
@@ -45,7 +45,6 @@ const Cards = () => {
                 );
             }):
             products2.products?.map((el) => {
-                console.log("produc2")
                 return (
                     
                     <div key={el._id}>
@@ -59,7 +58,8 @@ const Cards = () => {
                         </Link>
                     </div>
                 );
-            })}
+            }):<NotFound/>
+            }
           
         </div>
     )
