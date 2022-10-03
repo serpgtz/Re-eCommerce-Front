@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllUsers } from "../../redux/actions/userActions";
+import { getAllUsers, modifyUser } from "../../redux/actions/userActions";
 import styles from "./Dashboard.module.css";
+import FormDash from "./FormDash";
 
 const Dashboard = () => {
   const users = useSelector((state) => state.user.users);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllUsers());
@@ -39,7 +39,7 @@ const Dashboard = () => {
       </div>
       <label>
         Editar usuario
-        <input type="text" placeholder="propiedades"></input>
+        <FormDash users={users} />
       </label>
       <div>Órdenes</div>
       {/*users.orders */}
