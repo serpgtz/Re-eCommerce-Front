@@ -7,15 +7,17 @@ import {
   PRODUCTS_PER_PAGE,
   CHANGE_BY_NAME,
   CHANGE_BY_NAME2,
+  GET_BRAND,
 
 } from "../actions/productActions";
 
 const initialState = {
   products: [],
   detail: [],
-  products2:[],
-  page:1,
-  byName:"false"
+  products2: [],
+  brand: [],
+  page: 1,
+  byName: "false"
 }
 
 
@@ -37,33 +39,39 @@ export default function productReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       }
+
+    case GET_BRAND:
+      return {
+        ...state,
+        brand: action.payload,
+      }
     case RESET:
       return {
         ...state,
         detail: []
       }
-      case CHANGE_PAGE:
-        return{
-          ...state,
-          page: action.payload
-        }
-      case PRODUCTS_PER_PAGE:
-          return{
-            ...state,
-            products2:action.payload
-          }
-      case CHANGE_BY_NAME:
-        return{
-          ...state,
-          byName:action.payload
-        }
-      case CHANGE_BY_NAME2:
-        return{
-          ...state,
-          byName:action.payload
-      
-        }
-       
+    case CHANGE_PAGE:
+      return {
+        ...state,
+        page: action.payload
+      }
+    case PRODUCTS_PER_PAGE:
+      return {
+        ...state,
+        products2: action.payload
+      }
+    case CHANGE_BY_NAME:
+      return {
+        ...state,
+        byName: action.payload
+      }
+    case CHANGE_BY_NAME2:
+      return {
+        ...state,
+        byName: action.payload
+
+      }
+
 
     default: return {
       ...state
