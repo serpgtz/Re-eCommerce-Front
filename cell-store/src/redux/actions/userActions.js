@@ -46,7 +46,7 @@ export const getUserData = () => {
           
              return dispatch({
                 type : USER,
-                payload : user
+                payload : user.data
              })
          } catch (error) {
             

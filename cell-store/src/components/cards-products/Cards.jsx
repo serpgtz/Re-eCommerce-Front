@@ -9,6 +9,7 @@ import {
 } from "../../redux/actions/productActions";
 import s from "./Cards.module.css";
 import { useState } from "react";
+import NotFound from "../NotFound/NotFound";
 
 const Cards = () => {
   const dispatch = useDispatch();
@@ -22,41 +23,45 @@ const Cards = () => {
     dispatch(getProductsPerPage(page));
   }, [dispatch]);
 
-  return (
-    <div className={s.cards}>
-      {byName === "true"
-        ? product?.map((el) => {
-            console.log("produc1");
-            return (
-              <div key={el._id}>
-                <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
-                  <Card
-                    key={el._id}
-                    name={el.name}
-                    image={el.image}
-                    price={el.price}
-                  />
-                </Link>
-              </div>
-            );
-          })
-        : products2.products?.map((el) => {
-            console.log("produc2");
-            return (
-              <div key={el._id}>
-                <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
-                  <Card
-                    key={el._id}
-                    name={el.name}
-                    image={el.image}
-                    price={el.price}
-                  />
-                </Link>
-              </div>
-            );
-          })}
-    </div>
-  );
-};
+    return (
+        <div className={s.cards}>
+            
+            {
+            !product.hasOwnProperty("msj")?
+            byName==="true"? 
+            product?.map((el) => {
+                return (
+                    <div key={el._id}>
+                        <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
+                            <Card
+                                key={el._id}
+                                name={el.name}
+                                image={el.image}
+                                price={el.price}
+                            />
+                        </Link>
+                    </div>
+                );
+            }):
+            products2.products?.map((el) => {
+                return (
+                    
+                    <div key={el._id}>
+                        <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
+                            <Card
+                                key={el._id}
+                                name={el.name}
+                                image={el.image}
+                                price={el.price}
+                            />
+                        </Link>
+                    </div>
+                );
+            }):<NotFound/>
+            }
+          
+        </div>
+    )
+}
 
 export default Cards;
