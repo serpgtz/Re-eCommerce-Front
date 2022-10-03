@@ -14,12 +14,14 @@ import Register from "./page/register/register";
 import About from "./page/About/About";
 import Historia from "./page/historia/Historia";
 import Profile from "./page/Profile/Profile";
-
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/footer/Footer";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/detail/:id" element={<Detail />} />
@@ -30,8 +32,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/account/login" element={<Auth />} />
           <Route path="/account/register" element={<Register />} />
           <Route path="/account/profile" element={<Profile />} />
-          <Route path="/historia" element={<Historia/>} />
+          <Route path="/historia" element={<Historia />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
