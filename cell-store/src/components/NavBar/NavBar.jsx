@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getUserData, userLogOut } from "../../redux/actions/userActions";
 import styles from "../NavBar/NavBar.module.css";
 import SearchBar from "../searchBar/searchBar";
@@ -8,12 +8,15 @@ import SearchBar from "../searchBar/searchBar";
 export const NavBar = () => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
+  const navigation = useNavigate();
   useEffect(() => {
     dispatch(getUserData());
   }, [dispatch]);
 
   const handleLogOut = () => {
+    localStorage.removeItem("token");
     dispatch(userLogOut());
+    navigation(-1);
   };
   return (
     <nav className={styles.navBar}>
@@ -25,7 +28,7 @@ export const NavBar = () => {
       ) : null}
       <SearchBar />
       <div className={styles.navAuth}>
-        {!user.length ? (
+        {!Object.keys(user).length ? (
           <Link className={styles.link} to="/account/login">
             <button className={styles.navBtnLogin}>Iniciar sesión</button>
           </Link>
@@ -36,7 +39,7 @@ export const NavBar = () => {
             </button>
           </Link>
         )}
-        {!user.length ? null : (
+        {!Object.keys(user).length ? null : (
           <button
             className={styles.navBtnLogouts}
             onClick={() => handleLogOut()}
