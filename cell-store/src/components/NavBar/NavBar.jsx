@@ -9,7 +9,6 @@ export const NavBar = () => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const navigation = useNavigate();
- 
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
@@ -18,7 +17,10 @@ export const NavBar = () => {
   };
   return (
     <nav className={styles.navBar}>
-      <h1 className={styles.header}>CELL STORE</h1>
+      <Link to={"/"}>
+        {" "}
+        <h1 className={styles.header}>CELL STORE</h1>
+      </Link>
       {user.admin === true ? (
         <Link className={styles.link} to="/newproduct">
           <button className={styles.navBtn}> Crear Producto </button>
