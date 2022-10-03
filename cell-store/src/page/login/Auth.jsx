@@ -6,58 +6,46 @@ import icon_eyes_on from '../../image/show.png'
 import icon_eyes_off from '../../image/hide.png'
 import { userLogin } from '../../redux/actions/userActions'
 import {
-
   Text,
   Flex,
-
 } from '@chakra-ui/react'
-
 import {
   Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription,
   Box
- 
 } from '@chakra-ui/react'
 
 
 const Auth = () => {
   const [click , setClick] = useState(false)
   //const [error , setError] = useState({})
-
   const error_back = useSelector(state => state.user.error)
-
-
-  
   const dispatch = useDispatch()
   const [input, setInput] = useState({
-    username : '',
-    password : ''
-  })
-  
+    username: "",
+    password: "",
+  });
+
   const handleOnChange = (evt) => {
     setInput({
       ...input,
       [evt.target.name] : evt.target.value
     })
-
     setError(erroresInput({
       ...input, [evt.target.name]:evt.target.value
     }))
   }
 
-  
   const handleOnSubmit = (e) => {
      e.preventDefault()
      dispatch(userLogin(input))
   }
  
  
-  return (
-      
+  return (    
     <div className={style.container}>
-
      {error_back?.length > 0 && (
     <Flex >
        <Alert status='error' w='lg'>
@@ -85,14 +73,16 @@ const Auth = () => {
             </div>
             <input type='submit' value='Login'></input>
             <Link to='/account/register' className={style.link_button}><button className={style.button}>Register</button></Link>
-            
           </div>
+          <input type="submit" value="Login"></input>
+          <Link to="/account/register" className={style.link_button}>
+            <button className={style.button}>Register</button>
+          </Link>
+        </div>
       </form>
-    </div> 
-
-     
-   
+    </div>   
   )
 }
 
-export default Auth
+
+export default Auth;

@@ -20,20 +20,18 @@ const initialState = {
   byName: "false"
 }
 
-
 export default function productReducer(state = initialState, action) {
-
   switch (action.type) {
     case GET_ALL_PRODUCTS:
       return {
         ...state,
-        products: action.payload
-      }
+        products: action.payload,
+      };
     case GET_PRODUCT_BY_NAME:
       
       return {
         ...state,
-        products: action.payload
+        products: action.payload,
       }
     case NOT_FOUND:
       return{
@@ -78,9 +76,9 @@ export default function productReducer(state = initialState, action) {
 
       }
 
-
-    default: return {
-      ...state
-    }
+    default:
+      return {
+        ...state,
+      };
   }
 }
