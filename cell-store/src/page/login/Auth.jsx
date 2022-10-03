@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import style from "./Auth.module.css";
 import icon_eyes_on from "../../image/show.png";
 import icon_eyes_off from "../../image/hide.png";
-import { userLogin } from "../../redux/actions/userActions";
+import { getUserData, userLogin } from "../../redux/actions/userActions";
 import { Text, Flex } from "@chakra-ui/react";
 import {
   Alert,
@@ -17,8 +17,20 @@ import {
 const Auth = () => {
   const [click, setClick] = useState(false);
   //const [error , setError] = useState({})
+  const navigate = useNavigate()
   const error_back = useSelector((state) => state.user.error);
+  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
+ 
+  useEffect(()=> {
+    if(Object.keys(token).length > 0){
+     
+        dispatch(getUserData());
+        return navigate('/')
+    
+    } 
+  },[ dispatch, token])
+  console.log(token)
   const [input, setInput] = useState({
     username: "",
     password: "",
@@ -36,7 +48,8 @@ const Auth = () => {
     e.preventDefault();
     dispatch(userLogin(input));
   };
-
+  
+  console.log(error_back)
   return (
     <div className={style.container}>
       {error_back?.length > 0 && (

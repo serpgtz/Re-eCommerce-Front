@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { getUserData, userLogOut } from "../../redux/actions/userActions";
+import { userLogOut } from "../../redux/actions/userActions";
 import styles from "../NavBar/NavBar.module.css";
 import SearchBar from "../searchBar/searchBar";
 
@@ -9,9 +9,7 @@ export const NavBar = () => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const navigation = useNavigate();
-  useEffect(() => {
-    dispatch(getUserData());
-  }, [dispatch]);
+ 
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
