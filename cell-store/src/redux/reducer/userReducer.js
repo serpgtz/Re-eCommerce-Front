@@ -5,6 +5,7 @@ import {
   TOKEN,
   ALL_USERS,
   RESET_ERROR,
+  GET_BY_NAME,
 } from "../actions/userActions";
 
 const initialState = {
@@ -50,6 +51,12 @@ export default function userReducer(state = initialState, action) {
         ...state,
         error: {},
       };
+    case GET_BY_NAME:
+      return {
+        ...state,
+        users:action.payload
+      }
+    
     default:
       return {
         ...state,

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllUsers, modifyUser } from "../../redux/actions/userActions";
+import { getAllUsers } from "../../redux/actions/userActions";
 import styles from "./Dashboard.module.css";
 import FormDash from "./FormDash";
+import SearchBardDash from "./SearchBarDashboard";
 
 const Dashboard = () => {
   const users = useSelector((state) => state.user.users);
@@ -15,8 +16,9 @@ const Dashboard = () => {
   return (
     <div className={styles.dashContainer}>
       Dashboard
-      <input type="text" placeholder="Buscar usuario..." />
-      {console.log("holi soy un users")}
+      <SearchBardDash />
+      {/* <input type="text" placeholder="Buscar usuario..." />
+      {console.log("holi soy un users")} */}
       <div className={styles.cardUserContainer}>
         Usuarios
         {users.length
