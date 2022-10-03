@@ -18,9 +18,11 @@ export const NavBar = () => {
       <button className={styles.navBtn}>Marcas</button>
       <button className={styles.navBtn}>Ofertas</button>
       <button className={styles.navBtn}>Reviews</button>
-      <Link className={styles.link} to="/newproduct">
-        <button className={styles.navBtn}> Crear Producto </button>
-      </Link>
+      {user.admin === true ? (
+        <Link className={styles.link} to="/newproduct">
+          <button className={styles.navBtn}> Crear Producto </button>
+        </Link>
+      ) : null}
       <SearchBar />
       <div className={styles.navAuth}>
         {!user ? (

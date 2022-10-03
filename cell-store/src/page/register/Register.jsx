@@ -4,9 +4,15 @@ import icon_eyes_on from '../../image/show.png'
 import icon_eyes_off from '../../image/hide.png'
 import { useDispatch } from 'react-redux'
 import { userRegister } from '../../redux/actions/userActions'
+import { useToast, Button, Input, FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText} from '@chakra-ui/react'
+
 const Register = () => {
-  
+  const toast = useToast()
   const dispatch = useDispatch()
+  const [msg, setMsg] = useState(false)
   const [click , setClick] = useState(false)
   const [input, setInput] = useState({
     username : '',
@@ -20,16 +26,18 @@ const Register = () => {
       [e.target.name] : e.target.value
      })
   }
-  console.log(input)
+ 
   const handleOnSubmit = (e) => {
        e.preventDefault()
        dispatch(userRegister(input))
-
+          
        setInput({
         username : '',
         email: '',
         password: '',
       })
+
+      setMsg(!msg)
   }
 
 
@@ -62,8 +70,18 @@ const Register = () => {
             <div className={style.div_icon} onClick={()=> setClick(!click)}><img className={style.icon_eyes} src={click ? icon_eyes_on : icon_eyes_off}></img></div>
         </div>
         <input type='submit' value='Register' className={style.button}></input>
+
+      
            
       </form>
+      {msg && toast({
+          title: 'Account created.',
+          description: "confirm your account, we will send you a confirmation email.",
+          status: 'success',
+          duration: 7000,
+          isClosable: false,
+        })}
+   
     </div>
   )
 }
