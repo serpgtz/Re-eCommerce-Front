@@ -1,0 +1,21 @@
+.cardUserContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 310px;
+}
+.cardUserAdmin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(273deg, #d2bb28 0%, #5a0447 100%);
+  border-radius: 22px 5px 22px 5px;
+  padding: 1rem;
+  width: 200px;
+  height: 300px;
+  margin: 1rem;
+  color: white;
+  font-weight: 600;
+}
