@@ -1,13 +1,35 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate} from 'react-router-dom'
 import style from './Auth.module.css'
 import icon_eyes_on from '../../image/show.png'
 import icon_eyes_off from '../../image/hide.png'
 import { userLogin } from '../../redux/actions/userActions'
+import {
+
+  Text,
+  Flex,
+
+} from '@chakra-ui/react'
+
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  Box
+ 
+} from '@chakra-ui/react'
+
 
 const Auth = () => {
   const [click , setClick] = useState(false)
+  //const [error , setError] = useState({})
+
+  const error_back = useSelector(state => state.user.error)
+
+
+  
   const dispatch = useDispatch()
   const [input, setInput] = useState({
     username : '',
@@ -19,6 +41,10 @@ const Auth = () => {
       ...input,
       [evt.target.name] : evt.target.value
     })
+
+    setError(erroresInput({
+      ...input, [evt.target.name]:evt.target.value
+    }))
   }
 
   
@@ -26,10 +52,28 @@ const Auth = () => {
      e.preventDefault()
      dispatch(userLogin(input))
   }
+ 
+ 
   return (
+      
     <div className={style.container}>
+
+     {error_back?.length > 0 && (
+    <Flex >
+       <Alert status='error' w='lg'>
+       <AlertIcon />
+    <Box>
+      <AlertTitle>Error!</AlertTitle>
+      <AlertDescription>
+      the credentials are incorrect or the user does not exist.
+      </AlertDescription>
+    </Box>
+    
+  </Alert>
+   </Flex>
+  )}
       <form onSubmit={handleOnSubmit} className={style.form_login}>
-         <div className={style.div_sing}><h2>Sing In</h2></div>
+         <Text fontSize='40px'>Sing In</Text>
           <div className={style.div_form}> 
             <label>name</label>
             <input type='text' name='username' placeholder=' name' onChange={handleOnChange}></input>
@@ -44,7 +88,10 @@ const Auth = () => {
             
           </div>
       </form>
-    </div>
+    </div> 
+
+     
+   
   )
 }
 

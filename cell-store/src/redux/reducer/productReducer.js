@@ -8,7 +8,7 @@ import {
   CHANGE_BY_NAME,
   CHANGE_BY_NAME2,
   GET_BRAND,
-
+  NOT_FOUND,
 } from "../actions/productActions";
 
 const initialState = {
@@ -30,9 +30,15 @@ export default function productReducer(state = initialState, action) {
         products: action.payload
       }
     case GET_PRODUCT_BY_NAME:
+      
       return {
         ...state,
         products: action.payload
+      }
+    case NOT_FOUND:
+      return{
+        ...state,
+        products:action.payload
       }
     case GET_DETAILS:
       return {

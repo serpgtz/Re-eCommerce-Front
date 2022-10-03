@@ -6,9 +6,10 @@ export const GET_DETAILS = "GET_DETAILS";
 export const RESET = "RESET";
 export const CHANGE_PAGE = "CHANGE_PAGE";
 export const PRODUCTS_PER_PAGE = "PRODUCTS_PER_PAGE";
-export const CHANGE_BY_NAME = "CHANGE_BY_NAME"
-export const CHANGE_BY_NAME2 = "CHANGE_BY_NAME2"
-export const GET_BRAND = "GET_BRAND"
+export const CHANGE_BY_NAME = "CHANGE_BY_NAME";
+export const GET_BRAND = "GET_BRAND";
+export const NOT_FOUND = "NOT_FOUND";
+
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -36,6 +37,10 @@ export function getProductByName(name) {
         payload: product.data,
       });
     } catch (error) {
+      dispatch({
+        type:NOT_FOUND,
+        payload:{msj:"error"}
+      })
       console.log(error);
     }
   };
