@@ -14,11 +14,13 @@ import Register from "./page/register/register";
 import About from "./page/About/About";
 import Historia from "./page/historia/Historia";
 import Profile from "./page/Profile/Profile";
-
+import {ChakraProvider} from '@chakra-ui/react'
+import theme from './theme'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
+     <ChakraProvider theme={theme} resetCSS={false}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -27,12 +29,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/interForm/:id" element={<InterForm />} />
           <Route path="/categoryForm/:id" element={<CategoryForm />} />
           <Route path="/about" element={<About />} />
+          
           <Route path="/account/login" element={<Auth />} />
           <Route path="/account/register" element={<Register />} />
+          
           <Route path="/account/profile" element={<Profile />} />
           <Route path="/historia" element={<Historia/>} />
         </Routes>
       </BrowserRouter>
+      </ChakraProvider>
     </Provider>
+    
   </React.StrictMode>
 );
