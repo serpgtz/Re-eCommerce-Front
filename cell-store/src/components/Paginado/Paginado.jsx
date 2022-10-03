@@ -5,7 +5,7 @@ import s from "../Paginado/Paginado.module.css"
 
 
 export default function(){
-    let limit = 7
+    let limit = 8
     const productsTotal = useSelector(state=>state.product.products)
 
     const dispatch = useDispatch()
