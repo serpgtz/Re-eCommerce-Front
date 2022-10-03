@@ -6,9 +6,10 @@ export const GET_DETAILS = "GET_DETAILS";
 export const RESET = "RESET";
 export const CHANGE_PAGE = "CHANGE_PAGE";
 export const PRODUCTS_PER_PAGE = "PRODUCTS_PER_PAGE";
-export const CHANGE_BY_NAME = "CHANGE_BY_NAME"
-export const CHANGE_BY_NAME2 = "CHANGE_BY_NAME2"
+export const CHANGE_BY_NAME = "CHANGE_BY_NAME";
+export const GET_BRAND = "GET_BRAND";
 export const NOT_FOUND = "NOT_FOUND";
+
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -51,6 +52,20 @@ export function getDetailId(id) {
       let json = await axios.get("/product/" + id);
       return dispatch({
         type: GET_DETAILS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getBrand() {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("/category/brand");
+      return dispatch({
+        type: GET_BRAND,
         payload: json.data,
       });
     } catch (error) {
@@ -154,11 +169,12 @@ export function ChangeByName() {
     })
   }
 }
-export function ChangeByName2(){
-  return function (dispatch){
+export function ChangeByName2() {
+  return function (dispatch) {
     return dispatch({
       type: CHANGE_BY_NAME2,
-      payload:"false"
+      payload: "false"
     })
   }
 }
+

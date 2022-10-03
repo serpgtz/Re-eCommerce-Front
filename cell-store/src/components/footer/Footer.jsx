@@ -5,28 +5,28 @@ import insta from "../../image/pngwing.com.png"
 import twit from "../../image/twit.com.png"
 import { Link } from "react-router-dom";
 
-export default function Footer(){
+export default function Footer() {
 
 
     return (
         <div className={s.container}>
-           
+
             <div className={s.redes}>
-            <span>Siguenos en:</span>
+                <span>Síguenos en:</span>
 
                 <ul className={s.redeslist}>
-                    <li><img src={face}width="40px"/></li>
-                    <li><img src={insta}width="24px"/></li>
-                    <li><img src={twit}width="32px"/></li>
-               </ul>
+                    <li><img src={face} width="40px" /></li>
+                    <li><img src={insta} width="24px" /></li>
+                    <li><img src={twit} width="32px" /></li>
+                </ul>
 
             </div>
             <div className={s.pedido}>
-                <h4>Informacion del pedido</h4>
+                <h4>Información del pedido</h4>
                 <ul className={s.listpedidos}>
                     <li>Revisar un Pedido</li>
-                    <li>Ver Politica de Devolucion</li>
-                    <li>Canjear un Rembolso</li>
+                    <li>Ver Política de Devolución</li>
+                    <li>Canjear un Reembolso</li>
                 </ul>
             </div>
 
@@ -42,12 +42,12 @@ export default function Footer(){
             <div className={s.acerca}>
                 <h4>Acerca de Cell Store</h4>
                 <ul className={s.listacerca}>
-                    <Link to = "/historia">
+                    <Link to="/historia">
                         <li>Nuestra Historia</li>
                     </Link>
                     <li>Sala de Prensa</li>
-                    <li>Relacion con Inversionistas</li>
-                    <li>Contactanos</li>
+                    <li>Relación con inversionistas</li>
+                    <li>Contáctanos</li>
                 </ul>
             </div>
 
