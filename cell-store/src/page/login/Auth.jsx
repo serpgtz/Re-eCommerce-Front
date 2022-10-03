@@ -29,12 +29,7 @@ const Auth = () => {
       ...input,
       [evt.target.name]: evt.target.value,
     });
-    setError(
-      erroresInput({
-        ...input,
-        [evt.target.name]: evt.target.value,
-      })
-    );
+  
   };
 
   const handleOnSubmit = (e) => {
@@ -58,11 +53,11 @@ const Auth = () => {
         </Flex>
       )}
       <form onSubmit={handleOnSubmit} className={style.form_login}>
-        <div>
-          <Text fontSize="40px">Sing In</Text>
-          <div className={style.div_form}>
-            <label>name</label>
-            <input
+        
+           <Text fontSize="40px">Sing In</Text>
+            <div className={style.div_form}>
+               <label>name</label>
+             <input
               type="text"
               name="username"
               placeholder=" name"
@@ -89,11 +84,9 @@ const Auth = () => {
             <Link to="/account/register" className={style.link_button}>
               <button className={style.button}>Register</button>
             </Link>
-          </div>
-          <input type="submit" value="Login"></input>
-          <Link to="/account/register" className={style.link_button}>
-            <button className={style.button}>Register</button>
-          </Link>
+        
+         
+         
         </div>
       </form>
     </div>
