@@ -84,6 +84,19 @@ export const getAllUsers = () => {
     }
   };
 };
+export const modifyUser = (id) => {
+  return async (dispatch) => {
+    try {
+      const user = await axios.put("/users/" + id);
+      return dispatch({
+        type: USER,
+        payload: user.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const resetError = () => {
   return {
