@@ -1,11 +1,21 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 52d2f6410995d4a9dda627c56ec009658e03f1c9
 import {
   USER,
   LOGIN_ERROR,
   RESET_USER,
   TOKEN,
   ALL_USERS,
+<<<<<<< HEAD
   RESET_ERROR,
 } from "../actions/userActions";
+=======
+ RESET_ERROR
+} from "../actions/userActions";
+
+>>>>>>> 52d2f6410995d4a9dda627c56ec009658e03f1c9
 
 const initialState = {
   user: {},
@@ -22,7 +32,6 @@ export default function userReducer(state = initialState, action) {
         user: action.payload,
       };
     case ALL_USERS:
-      console.log("Hoola, soy el dispatch");
       return {
         ...state,
         users: action.payload,
