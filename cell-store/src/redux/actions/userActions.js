@@ -3,7 +3,9 @@ export const LOGIN_ERROR = "LOGIN_ERROR";
 export const USER = "USER";
 export const RESET_USER = "RESET_USER";
 export const TOKEN = "TOKEN";
-export const RESET_ERROR = 'RESET_ERROR'
+export const ALL_USERS = "ALL_USERS";
+export const RESET_ERROR = 'RESET_ERROR';
+
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -26,9 +28,9 @@ export const userLogin = (user) => {
       localStorage.setItem("token", token.data.token);
 
       return dispatch({
-        type : TOKEN,
-        payload : token.data
-      })
+        type: TOKEN,
+        payload: token.data,
+      });
     } catch (error) {
       return dispatch({
         type: LOGIN_ERROR,
@@ -71,6 +73,21 @@ export const userLogOut = () => {
   };
 };
 
+export const getAllUsers = () => {
+  return async (dispatch) => {
+    try {
+      const users = await axios.get("/users");
+      return dispatch({
+        type: ALL_USERS,
+        payload: users.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+
 export const resetError = () => {
     return {
         type : RESET_ERROR,
@@ -78,3 +95,4 @@ export const resetError = () => {
 
     }
 }
+

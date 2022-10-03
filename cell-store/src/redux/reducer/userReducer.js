@@ -1,9 +1,19 @@
-import { USER, LOGIN_ERROR, RESET_USER, TOKEN, RESET_ERROR } from "../actions/userActions";
+
+import {
+  USER,
+  LOGIN_ERROR,
+  RESET_USER,
+  TOKEN,
+  ALL_USERS,
+ RESET_ERROR
+} from "../actions/userActions";
+
 
 const initialState = {
   user: {},
+  users: [],
   error: {},
-  token: {}
+  token: {},
 };
 
 export default function userReducer(state = initialState, action) {
@@ -13,11 +23,16 @@ export default function userReducer(state = initialState, action) {
         ...state,
         user: action.payload,
       };
+    case ALL_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
     case RESET_USER:
       return {
         ...state,
         user: {},
-        token : {}
+        token: {},
       };
 
     case LOGIN_ERROR:
@@ -26,7 +41,7 @@ export default function userReducer(state = initialState, action) {
         error: action.payload,
       };
 
-     case TOKEN:
+    case TOKEN:
       return {
         ...state,
         token : action.payload
