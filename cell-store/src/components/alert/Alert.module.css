@@ -1,0 +1,14 @@
+.alert {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: 60px;
+    background-color: rgb(216, 171, 171);
+    color: black;
+}
+
+.alert img {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
