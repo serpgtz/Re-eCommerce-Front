@@ -1,15 +1,18 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailId, resetState } from "../../redux/actions/productActions";
+import { getDetailId, resetState,ChangeByName2 } from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css";
+import carrito from '../../image/carrito.png'
+import corazonVacio from '../../image/corazonVacio.png'
 
 function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
   useEffect(() => {
+    dispatch(ChangeByName2())
     dispatch(getDetailId(id));
 
     return () => {
@@ -46,7 +49,11 @@ function Detail() {
               </div>
               <div className={styles.cardDetail}>
                 <h3 className={styles.titleone}>{myProduct.name}</h3>
-                <p className={styles.price}>${myProduct.price}</p>
+                <div className={styles.priceLike}>
+                  <p className={styles.price}>${myProduct.price}</p>
+                  <p><img className={styles.corazon} src={corazonVacio} alt="image not found" /></p>
+                </div>
+
                 <p className={styles.letter}>
                   <strong>Description : </strong>
                   {myProduct.description}
@@ -58,7 +65,7 @@ function Detail() {
                   {myProduct.stock} unidades.
                 </p>
                 <div className={styles.btnBuy}>Comprar ahora</div>
-                <div className={styles.btnCar}>Agregar al carrito</div>
+                <div className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
               </div>
             </div>
           ) : (

@@ -1,21 +1,25 @@
 import React from 'react'
-import {Link, useParams} from 'react-router-dom';
-
+import { Link, useParams } from 'react-router-dom';
+import s from './InterForm.module.css';
 
 
 function InterForm() {
-  
-    const productId = useParams();
-  
-  
-  
-    console.log(productId)
-    
-    return (
-    <div>
-        <p>Su Producto a sido guardado con exito.</p>
-        <p>Pero aun faltan detalles por cargar.</p>
-        <Link to={`/categoryForm/${productId.id}`}>Continuar</Link>
+
+  const productId = useParams();
+
+
+
+  console.log(productId)
+
+  return (
+    <div className={s.container}>
+      <div className={s.mensaje}>
+        <div>Su producto ha sido guardado con éxito.</div>
+        <div>Pero aún faltan detalles por cargar.</div>
+        <Link to={`/categoryForm/${productId.id}`}><button>Continuar</button></Link>
+
+      </div>
+
     </div>
   )
 }
