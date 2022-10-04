@@ -12,6 +12,7 @@ const Alert = ({msg}) => {
     const handleOnClick = () => {
         setClick(!click)
         dispatch(resetError())
+        
     }
 
     useEffect(()=> {

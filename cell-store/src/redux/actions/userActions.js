@@ -6,16 +6,21 @@ export const TOKEN = "TOKEN";
 export const ALL_USERS = "ALL_USERS";
 export const RESET_ERROR = "RESET_ERROR";
 export const GET_BY_NAME = "GET_BY_NAME";
+export const REGISTER_ERROR = "REGISTER_ERROR"
 
 axios.defaults.baseURL = "http://localhost:3001";
 
 export const userRegister = (user) => {
   console.log(user);
-  return async () => {
+  return async (dispatch) => {
     try {
       await axios.post("/register", user);
     } catch (error) {
-      console.log(error);
+      
+      return dispatch({
+        type: REGISTER_ERROR,
+        payload: error.response.data,
+      });
     }
   };
 };

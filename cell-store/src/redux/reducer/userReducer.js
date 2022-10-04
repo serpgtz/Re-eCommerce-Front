@@ -6,6 +6,7 @@ import {
   ALL_USERS,
   RESET_ERROR,
   GET_BY_NAME,
+  REGISTER_ERROR
 } from "../actions/userActions";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   users: [],
   error: {},
   token: {},
+  error_register : {}
 };
 
 export default function userReducer(state = initialState, action) {
@@ -50,12 +52,19 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         error: {},
+        error_register : {}
       };
     case GET_BY_NAME:
       return {
         ...state,
         users: action.payload,
       };
+
+     case REGISTER_ERROR:
+      return {
+        ...state,
+        error_register : action.payload
+      } 
 
     default:
       return {
