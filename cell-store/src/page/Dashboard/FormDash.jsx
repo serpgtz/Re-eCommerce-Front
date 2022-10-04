@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { modifyUser } from "../../redux/actions/userActions";
-
+import s from "../Dashboard/FormDash.module.css"
 const FormDash = ({ users }) => {
   const dispatch = useDispatch();
   const [idUser, setIdUser] = useState("");
@@ -36,11 +36,12 @@ const FormDash = ({ users }) => {
       </select>
       <label>
         Nombre:
-        <input type="text" name="username" onChange={(e) => handleChange(e)} />
+        <input className={s.input2} type="text" name="username" onChange={(e) => handleChange(e)} />
       </label>
       <label>
         E-mail:
-        <input
+        <input 
+          className={s.input2}
           type="text"
           name="email"
           placeholder="e-mail del usuario"
@@ -50,6 +51,7 @@ const FormDash = ({ users }) => {
       <label>
         ¿Admin?
         <input
+
           type="checkbox"
           name="admin"
           id="admin"
@@ -66,7 +68,7 @@ const FormDash = ({ users }) => {
         />
         <label htmlFor="noesadmin">Plebe</label>
       </label>
-      <button type="submit">Cambiar</button>
+      <button className={s.button} type="submit">Cambiar</button>
     </form>
   );
 };
