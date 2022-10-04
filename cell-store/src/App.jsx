@@ -21,7 +21,7 @@ import Historia from "./page/historia/Historia";
 import { useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
-import Dashboard from "./page/Dashboard/Dashboard.jsx";
+import Dashboard from "./page/Dashboard/Dashboard";
 /* import Detail from './components/cards-products/Detail' */
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +46,7 @@ function App() {
         <Route path="/account/profile" element={<Profile />} />
         <Route path="/historia" element={<Historia />} />
       </Routes>
+      <Footer />
     </>
   );
 }

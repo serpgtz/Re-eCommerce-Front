@@ -86,6 +86,15 @@ export const getAllUsers = () => {
     }
   };
 };
+export const modifyUser = (id, update) => {
+  return async () => {
+    try {
+      await axios.put("/users/" + id, update);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const resetError = () => {
   return {
@@ -94,10 +103,9 @@ export const resetError = () => {
 };
 export function getUserByName(name) {
   return async function (dispatch) {
-    console.log("dispatch",name)
+    console.log("dispatch", name);
     try {
-      let user = await axios.get(`/users?username=${name}`
-      );
+      let user = await axios.get(`/users?username=${name}`);
       return dispatch({
         type: GET_BY_NAME,
         payload: user.data,
