@@ -5,7 +5,7 @@
 .container{
     margin-bottom: 20px;
 }
-input {
+.input2 {
     line-height: 28px;
     border: 2px solid transparent;
     border-bottom-color: #777;
@@ -39,7 +39,7 @@ input {
    
    
 /* From uiverse.io */
-button {
+.button {
     padding: 1.3em 3em;
     font-size: 12px;
     text-transform: uppercase;
