@@ -6,22 +6,22 @@ import styles from "../NavBar/NavBar.module.css";
 import SearchBar from "../searchBar/searchBar";
 
 export const NavBar = () => {
-  const user = useSelector((state) => state.user.user);
+
   const dispatch = useDispatch();
   const navigation = useNavigate();
-
+  const userStorage = JSON.parse(localStorage.getItem('user'))
+  
   const handleLogOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user")
     dispatch(userLogOut());
     navigation(-1);
   };
   return (
     <nav className={styles.navBar}>
-      <Link to={"/"}>
-        {" "}
-        <h1 className={styles.header}>CELL STORE</h1>
-      </Link>
-      {user.admin === true ? (
+
+      <h1 className={styles.header}>CELL STORE</h1>
+      {userStorage?.admin === true ? (
         <Link className={styles.link} to="/newproduct">
           <button className={styles.navBtn}> Crear Producto </button>
         </Link>
@@ -35,11 +35,11 @@ export const NavBar = () => {
         ) : (
           <Link className={styles.link} to="/account/profile">
             <button className={styles.navBtnUser}>
-              {user?.name?.charAt(0).toUpperCase()}
+              {userStorage?.name.charAt(0).toUpperCase()}
             </button>
           </Link>
         )}
-        {!Object.keys(user).length ? null : (
+        {!userStorage ? null : (
           <button
             className={styles.navBtnLogouts}
             onClick={() => handleLogOut()}
