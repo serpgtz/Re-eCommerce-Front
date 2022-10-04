@@ -6,10 +6,15 @@ import { useEffect } from "react";
 import styles from "./Detail.module.css";
 import carrito from '../../image/carrito.png'
 import corazonVacio from '../../image/corazonVacio.png'
+import { addToCart } from '../../redux/actions/cartActions';
 
 function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
+
+  const handleAddToCart = () => {
+		dispatch(addToCart(myProduct));
+	};
 
   useEffect(() => {
     dispatch(ChangeByName2())
@@ -70,7 +75,7 @@ function Detail() {
                   {myProduct.stock} unidades.
                 </p>
                 <div className={styles.btnBuy}>Comprar ahora</div>
-                <div className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
+                <div onClick={handleAddToCart} className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
               </div>
             </div>
           ) : (

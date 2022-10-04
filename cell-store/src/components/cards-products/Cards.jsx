@@ -19,7 +19,6 @@ const Cards = () => {
   const byName = useSelector((state) => state.product.byName);
        
 
-
     return (
         <div className={s.cards}>
             
@@ -35,6 +34,7 @@ const Cards = () => {
                                 name={el.name}
                                 image={el.image}
                                 price={el.price}
+                                id={el._id}
                             />
                         </Link>
                     </div>
@@ -50,6 +50,7 @@ const Cards = () => {
                                 name={el.name}
                                 image={el.image}
                                 price={el.price}
+                                id={el._id}
                             />
                         </Link>
                     </div>
