@@ -23,14 +23,14 @@ const Card = (p) => {
 
   return (
     <div className={s.card}>
-      <div className={s.name}><h3>{p.name}</h3></div>
+      <div className={s.name}><h3 className={s.titleName}>{p.name}</h3></div>
       <div className={s.imgContein}>
         <img className={s.imgProduct} src={p.image} alt="image not found" />
       </div>
 
       <div className={s.info}>
-        <p>12 CUOTAS SIN INTERÉS</p>
-        <p>${p.price.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p className={s.cuotas}>12 CUOTAS SIN INTERÉS</p>
+        <p className={s.precio}>${p.price.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
       </div>
 
       <div className={s.footerCard}>
