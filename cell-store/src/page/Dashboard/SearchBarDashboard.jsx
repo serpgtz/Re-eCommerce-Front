@@ -19,7 +19,7 @@ export default function SearchBardDash(){
         console.log(name)
     }
 
-    function handleName(name){
+    function handleName(e){
     dispatch(getUserByName(name))
     }
 
@@ -30,7 +30,8 @@ return(
     <div className={s.container}>
         <label>Name User</label>
          <input onChange={(e)=>handleInputChange(e)} value={name} type="text" placeholder="NameUser..."/>
-         <button onClick={()=>handleName()}>Buscar</button>
+         <button onClick={(e)=>handleName(e)}>Buscar</button>
+         
     </div>
 )
    
