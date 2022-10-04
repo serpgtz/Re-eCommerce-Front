@@ -46,7 +46,8 @@ export const getUserData = () => {
           Bearer: localStorage.getItem("token"),
         },
       });
-
+       
+      localStorage.setItem('user', JSON.stringify(user.data))
       return dispatch({
         type: USER,
         payload: user.data,
