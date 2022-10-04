@@ -3,11 +3,11 @@ export const DELETE_FROM_CART = 'DELETE_FROM_CART';
 
 export const addToCart = product => async dispatch => {
 	// if cart already exists in local storage, use it, otherwise set to empty array
-    //si el carrito ya existe en el almacenamiento local, utilícelo; de lo contrario, configúrelo en una matriz vacía
+	//si el carrito ya existe en el almacenamiento local, utilícelo; de lo contrario, configúrelo en una matriz vacía
 	const cart = localStorage.getItem('cart')
 		? JSON.parse(localStorage.getItem('cart'))
 		: [];
-
+	console.log('product//////////////en actions addToCart///', product)
 	// check if duplicates
 	// comprobar si se duplica
 	const duplicates = cart.filter(cartItem => cartItem._id === product._id);
@@ -23,15 +23,15 @@ export const addToCart = product => async dispatch => {
 		};
 
 		// add product data to cart
-        // agregar datos del producto al carrito
+		// agregar datos del producto al carrito
 		cart.push(productToAdd);
 
 		// add cart to local storage
-        // agregar carro al local storage
+		// agregar carro al local storage
 		localStorage.setItem('cart', JSON.stringify(cart));
 
 		// add cart to redux
-        // agregar carro a redux
+		// agregar carro a redux
 		dispatch({
 			type: ADD_TO_CART,
 			payload: cart,

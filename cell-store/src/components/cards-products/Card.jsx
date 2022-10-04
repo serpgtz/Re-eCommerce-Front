@@ -10,16 +10,16 @@ import { addToCart } from '../../redux/actions/cartActions';
 
 const Card = (p) => {
   const dispatch = useDispatch();
-  const {name, countInStock, numReviews, exists, id, price, description, stock, image, __v, reviews} = p
+  const { name, countInStock, numReviews, exists, id, price, description, stock, image, __v, reviews } = p
   /* const producto = {name, countInStock, numReviews, exists, _id, price, description, stock, image, __v, reviews} */
-  const myProduct = useSelector((state) => state.product.products.id);
-  
+  const myProduct = useSelector((state) => state.product.products);
+
   const handleAddToCart = () => {
-		dispatch(addToCart(myProduct));
-    console.log(p);
-	};
-
-
+    const productId = myProduct.filter(e => e._id === id);
+    console.log('productId---------//----card', productId[0]);
+    dispatch(addToCart(productId[0]));
+    console.log(id);
+  };
 
   return (
     <div className={s.card}>
