@@ -6,6 +6,7 @@ import styles from "./Dashboard.module.css";
 import FormDash from "./FormDash";
 import SearchBardDash from "./SearchBarDashboard";
 
+
 const Dashboard = () => {
   const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();
@@ -15,16 +16,17 @@ const Dashboard = () => {
 
   return (
     <div className={styles.dashContainer}>
-      Dashboard
+      <h1>Dashboard</h1>
       <SearchBardDash />
       <div className={styles.cardUserContainer}>
-        Usuarios
+      
         {users.length
           ? users?.map((usuario) => (
               <Link
                 style={{ textDecoration: "none" }}
                 to={`/user/${usuario._id}`}
               >
+                
                 <div className={styles.cardUserAdmin}>
                   <p>ID:{usuario._id}</p>
                   <p>Nombre: {usuario.username}</p>
