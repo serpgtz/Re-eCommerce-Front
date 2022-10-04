@@ -63,6 +63,7 @@ function Filters() {
                 
                 excluyentes entre sí
                 cell, phoneCover, headphones, charger ////////////////
+
         cell
        , screen,  ram, storagessd,
         systemOp, 

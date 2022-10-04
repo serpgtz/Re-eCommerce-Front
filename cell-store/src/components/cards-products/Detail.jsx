@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailId, resetState,ChangeByName2 } from "../../redux/actions/productActions";
+import { getDetailId, resetState,ChangeByName2,getProductsPerPage } from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css";
 import carrito from '../../image/carrito.png'
@@ -21,15 +21,20 @@ function Detail() {
   }, [dispatch, id]);
 
   const myProduct = useSelector((state) => state.product.detail);
+  const page = useSelector((state)=>state.product.page)
+
+  function handleBack() {
+    dispatch(getProductsPerPage(page))
+    console.log(page)
+    
+  }
 
   return (
     <div>
       <div className={styles.nav}>
-        <li>
-          <Link className={styles.link} to="/">
-            BACK TO HOME
-          </Link>
-        </li>
+        <Link to={"/"}>
+        <button onClick={()=>handleBack()}>BACK</button>
+        </Link>
       </div>
       <div className={styles.container}>
         <div className={styles.caja}>

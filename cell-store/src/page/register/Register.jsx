@@ -12,7 +12,7 @@ import { useToast, Button, Input, FormControl,
 const Register = () => {
   const toast = useToast()
   const dispatch = useDispatch()
-  const [msg, setMsg] = useState(false)
+  
   const [click , setClick] = useState(false)
   const [input, setInput] = useState({
     username : '',
@@ -37,7 +37,7 @@ const Register = () => {
         password: '',
       })
 
-      setMsg(!msg)
+     
   }
 
 
@@ -69,18 +69,18 @@ const Register = () => {
 
             <div className={style.div_icon} onClick={()=> setClick(!click)}><img className={style.icon_eyes} src={click ? icon_eyes_on : icon_eyes_off}></img></div>
         </div>
-        <input type='submit' value='Register' className={style.button}></input>
-
-      
-           
-      </form>
-      {msg && toast({
+        <input type='submit' value='Register' className={style.button} onClick={()=> toast({
           title: 'Account created.',
           description: "confirm your account, we will send you a confirmation email.",
           status: 'success',
           duration: 7000,
-          isClosable: false,
-        })}
+          isClosable: true,
+        })}></input>
+
+      
+           
+      </form>
+     
    
     </div>
   )
