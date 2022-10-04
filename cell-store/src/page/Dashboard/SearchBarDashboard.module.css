@@ -16,18 +16,18 @@
     transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
    }
    
-   .input:focus, input:hover {
+   .input2:focus, .input2:hover {
     outline: none;
     padding: .2rem 1rem;
     border-radius: 1rem;
     border-color: #7a9cc6;
    }
    
-   .input::placeholder {
+   .input2::placeholder {
     color: #777;
    }
    
-   .input:focus::placeholder {
+   .input2:focus::placeholder {
     opacity: 0;
     transition: opacity .3s;
    }
@@ -55,13 +55,13 @@
     outline: none;
   }
   
-  button:hover {
+  .button:hover {
     background-color: #7a9cc6;
     box-shadow: 0px 15px 20px rgba(47, 131, 183, 0.4);
     color: #fff;
     transform: translateY(-7px);
   }
   
-  button:active {
+  .button:active {
     transform: translateY(-1px);
   }
