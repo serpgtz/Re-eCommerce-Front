@@ -1,39 +1,43 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailId, resetState,ChangeByName2,getProductsPerPage } from "../../redux/actions/productActions";
+import { getDetailId, resetState, ChangeByName2, getProductsPerPage } from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css";
 import carrito from '../../image/carrito.png'
 import corazonVacio from '../../image/corazonVacio.png'
+import { addToCart } from '../../redux/actions/cartActions';
 
 function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const myProduct = useSelector((state) => state.product.detail);
+  const page = useSelector((state) => state.product.page)
+
+  const handleAddToCart = () => {
+    console.log('myProduct-----detail----------////', myProduct)
+    dispatch(addToCart(myProduct));
+  };
 
   useEffect(() => {
     dispatch(ChangeByName2())
     dispatch(getDetailId(id));
-
     return () => {
       dispatch(resetState());
     };
   }, [dispatch, id]);
 
-  const myProduct = useSelector((state) => state.product.detail);
-  const page = useSelector((state)=>state.product.page)
-
   function handleBack() {
     dispatch(getProductsPerPage(page))
     console.log(page)
-    
+
   }
 
   return (
     <div>
       <div className={styles.nav}>
         <Link to={"/"}>
-        <button onClick={()=>handleBack()}>BACK</button>
+          <button onClick={() => handleBack()}>BACK</button>
         </Link>
       </div>
       <div className={styles.container}>
@@ -70,7 +74,7 @@ function Detail() {
                   {myProduct.stock} unidades.
                 </p>
                 <div className={styles.btnBuy}>Comprar ahora</div>
-                <div className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
+                <div onClick={handleAddToCart} className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
               </div>
             </div>
           ) : (
