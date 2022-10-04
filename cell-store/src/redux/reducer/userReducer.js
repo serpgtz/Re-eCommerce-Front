@@ -54,9 +54,9 @@ export default function userReducer(state = initialState, action) {
     case GET_BY_NAME:
       return {
         ...state,
-        users:action.payload
-      }
-    
+        users: action.payload,
+      };
+
     default:
       return {
         ...state,

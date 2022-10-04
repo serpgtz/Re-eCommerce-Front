@@ -17,8 +17,6 @@ const Dashboard = () => {
     <div className={styles.dashContainer}>
       Dashboard
       <SearchBardDash />
-      {/* <input type="text" placeholder="Buscar usuario..." />
-      {console.log("holi soy un users")} */}
       <div className={styles.cardUserContainer}>
         Usuarios
         {users.length

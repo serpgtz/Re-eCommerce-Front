@@ -8,23 +8,26 @@ const FormDash = ({ users }) => {
   const [putForm, setPutForm] = useState({
     username: "",
     email: "",
-    admin: Boolean,
+    admin: false,
   });
   const handleId = (e) => {
     e.preventDefault();
     setIdUser(e.target.value);
   };
+  const handleChange = (e) => {
+    setPutForm({
+      ...putForm,
+      [e.target.name]: e.target.value,
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPutForm({
-      ...form,
-    });
-    dispatch(modifyUser(id, ...form));
+    dispatch(modifyUser(idUser, putForm));
   };
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <select onChange={(e) => handleId(e)}>
-        <option value=""></option>
+        <option value="">Usuarios...</option>
         {users.map((el) => (
           <option key={el._id} value={el._id}>
             {el.username}
@@ -33,20 +36,37 @@ const FormDash = ({ users }) => {
       </select>
       <label>
         Nombre:
-        <input type="text" name="username" />
+        <input type="text" name="username" onChange={(e) => handleChange(e)} />
       </label>
       <label>
         E-mail:
-        <input type="text" name="email" placeholder="e-mail del usuario" />
+        <input
+          type="text"
+          name="email"
+          placeholder="e-mail del usuario"
+          onChange={(e) => handleChange(e)}
+        />
       </label>
       <label>
         ¿Admin?
-        <input type="checkbox" name="admin" id="admin" value={true} />
-        <label for="admin">Admin</label>
-        <input type="checkbox" name="admin" id="noesadmin" value={false} />
-        <label for="noesadmin">Plebe</label>
+        <input
+          type="checkbox"
+          name="admin"
+          id="admin"
+          value={true}
+          onChange={(e) => handleChange(e)}
+        />
+        <label htmlFor="admin">Admin</label>
+        <input
+          type="checkbox"
+          name="admin"
+          id="noesadmin"
+          value={false}
+          onChange={(e) => handleChange(e)}
+        />
+        <label htmlFor="noesadmin">Plebe</label>
       </label>
-      <button>Cambiar</button>
+      <button type="submit">Cambiar</button>
     </form>
   );
 };

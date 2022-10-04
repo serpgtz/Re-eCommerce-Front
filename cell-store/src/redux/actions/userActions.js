@@ -85,14 +85,10 @@ export const getAllUsers = () => {
     }
   };
 };
-export const modifyUser = (id) => {
-  return async (dispatch) => {
+export const modifyUser = (id, update) => {
+  return async () => {
     try {
-      const user = await axios.put("/users/" + id);
-      return dispatch({
-        type: USER,
-        payload: user.data,
-      });
+      await axios.put("/users/" + id, update);
     } catch (error) {
       console.log(error);
     }
@@ -106,10 +102,9 @@ export const resetError = () => {
 };
 export function getUserByName(name) {
   return async function (dispatch) {
-    console.log("dispatch",name)
+    console.log("dispatch", name);
     try {
-      let user = await axios.get(`/users?username=${name}`
-      );
+      let user = await axios.get(`/users?username=${name}`);
       return dispatch({
         type: GET_BY_NAME,
         payload: user.data,
