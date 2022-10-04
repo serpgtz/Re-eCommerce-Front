@@ -23,7 +23,7 @@
   /* border: solid black; */
 }
 
-.name h3 {
+.name .titleName {
   font-size: 15px;
   color: rgba(0, 0, 0, 0.514);
   text-transform: uppercase;
@@ -69,7 +69,8 @@
   width: 100%;
 }
 
-.info p {
+.info .cuotas,
+.precio {
   letter-spacing: 1px;
   font-size: 15px;
   color: rgb(12, 11, 11);
