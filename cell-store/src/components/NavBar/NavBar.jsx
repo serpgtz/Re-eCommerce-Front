@@ -11,43 +11,47 @@ import {changePage, getAllProducts} from "../../redux/actions/productActions";
 
 
 export const NavBar = () => {
-  const user = useSelector((state) => state.user.user);
+
   const dispatch = useDispatch();
   const navigation = useNavigate();
-  
+  const userStorage = JSON.parse(localStorage.getItem('user')) 
+    
   function handleClick(e) {
-    dispatch(getAllProducts())
     dispatch(changePage(1))
+    dispatch(getProductsPerPage(8))
+    dispatch(getAllProducts())
   }
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user")
     dispatch(userLogOut());
     navigation(-1);
     
   };
   return (
     <nav className={styles.navBar}>
-      <Link  to='/' className={styles.header} onClick={(e) => {handleClick(e);}} > <h1>CELL STORE</h1></Link> 
-      {user.admin === true ? (
+
+      <Link to='/' className={styles.header} onClick={(e) => {handleClick(e);}} > <h1>CELL STORE</h1></Link> 
+      {userStorage?.admin === true ? (
         <Link className={styles.link} to="/newproduct">
           <button className={styles.navBtn}> Crear Producto </button>
         </Link>
       ) : null}
       <SearchBar />
       <div className={styles.navAuth}>
-        {!Object.keys(user).length ? (
+        {localStorage.getItem('token') === null ? (
           <Link className={styles.link} to="/account/login">
             <button className={styles.navBtnLogin}>Iniciar sesión</button>
           </Link>
         ) : (
           <Link className={styles.link} to="/account/profile">
             <button className={styles.navBtnUser}>
-              {user?.name?.charAt(0).toUpperCase()}
+              {userStorage?.name.charAt(0).toUpperCase()}
             </button>
           </Link>
         )}
-        {!Object.keys(user).length ? null : (
+        {!userStorage ? null : (
           <button
             className={styles.navBtnLogouts}
             onClick={() => handleLogOut()}

@@ -5,14 +5,9 @@ import style from "./Auth.module.css";
 import icon_eyes_on from "../../image/show.png";
 import icon_eyes_off from "../../image/hide.png";
 import { getUserData, userLogin } from "../../redux/actions/userActions";
-import { Text, Flex } from "@chakra-ui/react";
-import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-  Box,
-} from "@chakra-ui/react";
+import Alert from "../../components/alert/Alert";
+
+
 
 const Auth = () => {
   const [click, setClick] = useState(false);
@@ -52,22 +47,12 @@ const Auth = () => {
   console.log(error_back)
   return (
     <div className={style.container}>
-      {error_back?.length > 0 && (
-        <Flex>
-          <Alert status="error" w="lg">
-            <AlertIcon />
-            <Box>
-              <AlertTitle>Error!</AlertTitle>
-              <AlertDescription>
-                the credentials are incorrect or the user does not exist.
-              </AlertDescription>
-            </Box>
-          </Alert>
-        </Flex>
+      {error_back.msg?.length > 0 && (
+        <Alert msg={error_back.msg}/>
       )}
       <form onSubmit={handleOnSubmit} className={style.form_login}>
         
-           <Text fontSize="40px">Sing In</Text>
+           <h2>Sing In</h2>
             <div className={style.div_form}>
                <label>name</label>
              <input
