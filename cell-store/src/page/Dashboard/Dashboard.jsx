@@ -28,10 +28,10 @@ const Dashboard = () => {
               >
                 
                 <div className={styles.cardUserAdmin}>
-                  <p>ID:{usuario._id}</p>
-                  <p>Nombre: {usuario.username}</p>
-                  <p>e-mail: {usuario.email}</p>
-                  <p>
+                  <p className={styles.p}>ID:{usuario._id}</p>
+                  <p className={styles.p}>Nombre: {usuario.username}</p>
+                  <p className={styles.p}>e-mail: {usuario.email}</p>
+                  <p className={styles.p}>
                     Admin: {usuario.admin === true ? "Sí soy" : "No, no soy"}
                   </p>
                 </div>

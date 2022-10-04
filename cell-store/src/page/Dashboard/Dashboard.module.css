@@ -41,7 +41,7 @@
 h1{
   justify-items: center;
 }
-p{
+.p{
   background-color: #fff;
   border-radius: 5px;
   border: 1px blue solid;
