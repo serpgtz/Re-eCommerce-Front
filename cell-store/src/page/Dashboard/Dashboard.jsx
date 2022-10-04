@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllUsers } from "../../redux/actions/userActions";
 import styles from "./Dashboard.module.css";
@@ -8,7 +8,7 @@ import SearchBardDash from "./SearchBarDashboard";
 
 const Dashboard = () => {
   const users = useSelector((state) => state.user.users);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
