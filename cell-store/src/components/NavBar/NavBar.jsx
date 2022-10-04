@@ -19,6 +19,7 @@ export const NavBar = () => {
   };
   return (
     <nav className={styles.navBar}>
+
       <h1 className={styles.header}>CELL STORE</h1>
       {userStorage?.admin === true ? (
         <Link className={styles.link} to="/newproduct">
