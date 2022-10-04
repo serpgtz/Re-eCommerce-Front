@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailId, resetState,ChangeByName2,getProductsPerPage } from "../../redux/actions/productActions";
+import { getDetailId, resetState, ChangeByName2, getProductsPerPage } from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css";
 import carrito from '../../image/carrito.png'
@@ -11,34 +11,33 @@ import { addToCart } from '../../redux/actions/cartActions';
 function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const myProduct = useSelector((state) => state.product.detail);
+  const page = useSelector((state) => state.product.page)
 
   const handleAddToCart = () => {
-		dispatch(addToCart(myProduct));
-	};
+    console.log('myProduct-----detail----------////', myProduct)
+    dispatch(addToCart(myProduct));
+  };
 
   useEffect(() => {
     dispatch(ChangeByName2())
     dispatch(getDetailId(id));
-
     return () => {
       dispatch(resetState());
     };
   }, [dispatch, id]);
 
-  const myProduct = useSelector((state) => state.product.detail);
-  const page = useSelector((state)=>state.product.page)
-
   function handleBack() {
     dispatch(getProductsPerPage(page))
     console.log(page)
-    
+
   }
 
   return (
     <div>
       <div className={styles.nav}>
         <Link to={"/"}>
-        <button onClick={()=>handleBack()}>BACK</button>
+          <button onClick={() => handleBack()}>BACK</button>
         </Link>
       </div>
       <div className={styles.container}>
