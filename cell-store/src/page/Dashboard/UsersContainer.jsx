@@ -12,7 +12,7 @@ const UsersContainer = ({ users, slideIndex, slideIndex2 }) => {
               style={{ textDecoration: "none" }}
               to={`/user/${usuario._id}`}
             >
-              <Delete id={usuario._id} />
+              {usuario.admin === true ? null : <Delete id={usuario._id} />}
 
               <div
                 className={cardUserAdmin}
