@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetailId, resetState, ChangeByName2, getProductsPerPage } from "../../redux/actions/productActions";
 import { useEffect } from "react";
@@ -27,17 +27,22 @@ function Detail() {
     };
   }, [dispatch, id]);
 
-  function handleBack() {
+  const navigate = useNavigate();
+  const handleGoBackBtn = () => {
+		navigate(-1);
+	};
+
+ /*  function handleBack() {
     dispatch(getProductsPerPage(page))
     console.log(page)
 
-  }
+  } */
 
   return (
     <div>
       <div className={styles.nav}>
         <Link to={"/"}>
-          <button onClick={() => handleBack()}>BACK</button>
+          <button onClick={handleGoBackBtn}>BACK</button>
         </Link>
       </div>
       <div className={styles.container}>

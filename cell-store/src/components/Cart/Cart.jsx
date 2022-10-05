@@ -69,7 +69,7 @@ function Cart() {
 							</div>
 							<table >
 								<thead>
-									<tr >
+									<tr className={s.tableTh}>
 										<th scope='col'></th>
 										<th scope='col'>Product</th>
 										<th scope='col'>Price</th>
@@ -98,9 +98,7 @@ function Cart() {
 											</td>
 											<td>
 												{' '}
-												{product.price.toLocaleString(
-													'en-US'
-												)}
+												${product.price.toLocaleString('es')}
 											</td>
 											<td>
 												<input
@@ -158,12 +156,20 @@ function Cart() {
 									.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 									}
 							</p>
-							<button
-								className={s.btnCheck}
-								onClick={handleCheckout}
-							>
-								Proceed to Checkout
-							</button>
+							<div>
+								<button
+									className={s.btnCheck}
+									onClick={handleCheckout}
+								>
+									Proceed to Checkout
+								</button>
+								<button
+									className={s.btnSeguirComp}
+									onClick={handleGoBackBtn}
+								>
+									Seguir comprando
+								</button>
+							</div>
 						</div>
 					</div>}
 				</div>

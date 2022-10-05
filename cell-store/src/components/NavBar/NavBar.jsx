@@ -8,6 +8,7 @@ import { changePage, getAllProducts } from "../../redux/actions/productActions";
 import carrito from '../../image/carrito.png';
 import { useState } from "react";
 import logo from "../../image/logo.png"
+
 export const NavBar = () => {
   
   const user_redux = useSelector(state => state.user.user)
@@ -24,13 +25,15 @@ export const NavBar = () => {
     dispatch(getAllProducts());
   }
 
-  const { cart } = useSelector(state => state.cart);
+  const { cart } = useSelector((state) => state.cart);
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     dispatch(userLogOut());
+
     navigation('/account/login');
+
   };
   return (
     <nav className={styles.navBar}>
@@ -53,16 +56,24 @@ export const NavBar = () => {
       ) : null}
 
       <SearchBar />
+
       
       <div className={styles.div_carrito_login}>
 
       <Link to='/cart' >
+   
         <div className={styles.divCart}>
-          <div><img className={styles.imgCarrito} src={carrito} alt="image not found" /></div>          
-          <div><span className={styles.spa}> {cart.length} </span></div>
-          
+          <div>
+            <span className={styles.spa}> {cart.length} </span>
+          </div>
+          <div>
+            <img
+              className={styles.imgCarrito}
+              src={carrito}
+              alt="image not found"
+            />
+          </div>
         </div>
-        
       </Link>
       <div className={styles.navAuth}>
         {localStorage.getItem("token") === null ? (

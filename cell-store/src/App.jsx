@@ -23,6 +23,7 @@ import Dashboard from "./page/Dashboard/Dashboard";
 import ConfirmEmail from "./page/ConfirmEmail/ConfirmEmail";
 import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
 import Cart from "./components/Cart/Cart";
+import NotFound from "./components/NotFound/NotFound";
 /* import Detail from './components/cards-products/Detail' */
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +50,7 @@ function App() {
         <Route path="/confirm" element={<ConfirmEmail />} />
         <Route path="/confirm/:id" element={<ConfirmedEmail />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
