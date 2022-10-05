@@ -5,7 +5,8 @@ import { getAllUsers } from "../../redux/actions/userActions";
 import styles from "./Dashboard.module.css";
 import FormDash from "./FormDash";
 import SearchBardDash from "./SearchBarDashboard";
-
+import { button } from "./SearchBarDashboard.module.css";
+import Slider from "./Slider";
 
 const Dashboard = () => {
   const users = useSelector((state) => state.user.users);
@@ -18,27 +19,10 @@ const Dashboard = () => {
     <div className={styles.dashContainer}>
       <h1>Dashboard</h1>
       <SearchBardDash />
-      <div className={styles.cardUserContainer}>
-      
-        {users.length
-          ? users?.map((usuario) => (
-              <Link
-                style={{ textDecoration: "none" }}
-                to={`/user/${usuario._id}`}
-              >
-                
-                <div className={styles.cardUserAdmin}>
-                  <p className={styles.p}>ID:{usuario._id}</p>
-                  <p className={styles.p}>Nombre: {usuario.username}</p>
-                  <p className={styles.p}>e-mail: {usuario.email}</p>
-                  <p className={styles.p}>
-                    Admin: {usuario.admin === true ? "Sí soy" : "No, no soy"}
-                  </p>
-                </div>
-              </Link>
-            ))
-          : null}
-      </div>
+      <Link className={styles.link} to="/newproduct">
+        <button className={button}>Crear producto</button>
+      </Link>
+      <Slider users={users} />
       <label>
         Editar usuario
         <FormDash users={users} />

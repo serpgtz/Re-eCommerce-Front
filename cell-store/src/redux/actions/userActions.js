@@ -6,8 +6,8 @@ export const TOKEN = "TOKEN";
 export const ALL_USERS = "ALL_USERS";
 export const RESET_ERROR = "RESET_ERROR";
 export const GET_BY_NAME = "GET_BY_NAME";
-export const REGISTER_ERROR = "REGISTER_ERROR"
-export const ERROR_CONFIRM_TOKEN = "ERROR_CONFIRM_TOKEN"
+export const REGISTER_ERROR = "REGISTER_ERROR";
+export const ERROR_CONFIRM_TOKEN = "ERROR_CONFIRM_TOKEN";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -17,7 +17,6 @@ export const userRegister = (user) => {
     try {
       await axios.post("/register", user);
     } catch (error) {
-      
       return dispatch({
         type: REGISTER_ERROR,
         payload: error.response.data,
@@ -54,8 +53,8 @@ export const getUserData = () => {
           Bearer: localStorage.getItem("token"),
         },
       });
-       
-      localStorage.setItem('user', JSON.stringify(user.data))
+
+      localStorage.setItem("user", JSON.stringify(user.data));
       return dispatch({
         type: USER,
         payload: user.data,
@@ -122,18 +121,25 @@ export function getUserByName(name) {
   };
 }
 
-export const confirmUser = (token) => {
-
-  return async (dispatch) => {
-   
+export const deleteUser = (id) => {
+  return async () => {
     try {
-      await axios.get(`/confirmar/${token}`)
+      await axios.delete("/users/" + id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const confirmUser = (token) => {
+  return async (dispatch) => {
+    try {
+      await axios.get(`/confirmar/${token}`);
     } catch (error) {
       return dispatch({
-        type : ERROR_CONFIRM_TOKEN,
-        payload : error.response.data
-      })
+        type: ERROR_CONFIRM_TOKEN,
+        payload: error.response.data,
+      });
     }
-
-  }
-}
+  };
+};
