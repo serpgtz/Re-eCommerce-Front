@@ -20,8 +20,12 @@ export function Validator(input){
    } else if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(input.email)) {
           err.email = '*email invalido'
       } 
+    if(document.getElementById("admin").checked&&document.getElementById("noesadmin").checked){
     
-    
-          return err
-
+          err.admin ="*Debes seleccionar solo una opcion"
+    }
+    else if(!document.getElementById("admin").checked&&!document.getElementById("noesadmin").checked){
+            err.admin = "*Debes seleccionar al menos 1 opcion"
+    }
+    return err
 }
