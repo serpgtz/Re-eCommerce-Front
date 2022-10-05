@@ -21,7 +21,9 @@ const Auth = () => {
     if(Object.keys(token).length > 0){
      
         dispatch(getUserData());
+        
         return navigate('/')
+       
     
     } 
   },[ dispatch, token])

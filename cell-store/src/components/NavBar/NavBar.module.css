@@ -13,7 +13,7 @@
 }
 .navBar {
   display: flex;
-  height: 6.1rem;
+  height: 5.1rem;
   width: 100vw;
   background: black;
   justify-content: space-around;
@@ -120,6 +120,7 @@
 
 .divCart{
   display: flex;
+
   /* background-color: #9600ff; */
   /* width: 70px;
   height: 50px; */
@@ -137,4 +138,25 @@
   /* border-radius: 3rem; */
   position: absolute;
   top: 0px;
+}
+
+.div_logo {
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  
+}
+.div_logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.div_carrito_login {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 15%;
+  
 }
