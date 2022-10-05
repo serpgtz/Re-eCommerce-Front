@@ -45,13 +45,14 @@ export const NavBar = () => {
       )}
 
       <SearchBar />
+
       <Link to='/cart' >
         <div className={styles.divCart}>
-          <div><img className={styles.imgCarrito} src={carrito} alt="image not found" /></div>          
           <div><span className={styles.spa}> {cart.length} </span></div>
-          
+          <div><img className={styles.imgCarrito} src={carrito} alt="image not found" /></div>
+
         </div>
-        
+
       </Link>
       <div className={styles.navAuth}>
         {localStorage.getItem("token") === null ? (
