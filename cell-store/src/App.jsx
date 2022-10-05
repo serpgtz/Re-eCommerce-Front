@@ -1,6 +1,4 @@
-/* import { useState } from 'react'
-import logo from './logo.svg' */
-/* import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; */
+
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -24,6 +22,7 @@ import Footer from "./components/footer/Footer";
 import Dashboard from "./page/Dashboard/Dashboard";
 import ConfirmEmail from "./page/ConfirmEmail/ConfirmEmail";
 import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
+import Cart from "./components/Cart/Cart";
 /* import Detail from './components/cards-products/Detail' */
 function App() {
   const dispatch = useDispatch();
@@ -49,7 +48,7 @@ function App() {
         <Route path="/historia" element={<Historia />} />
         <Route path="/confirm" element={<ConfirmEmail />} />
         <Route path="/confirm/:id" element={<ConfirmedEmail />} />
-
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </>

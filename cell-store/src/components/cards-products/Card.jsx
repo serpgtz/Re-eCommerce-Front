@@ -10,7 +10,7 @@ import { addToCart } from '../../redux/actions/cartActions';
 
 const Card = (p) => {
   const dispatch = useDispatch();
-  const { name, countInStock, numReviews, exists, id, price, description, stock, image, __v, reviews } = p
+  const { id } = p
   /* const producto = {name, countInStock, numReviews, exists, _id, price, description, stock, image, __v, reviews} */
   const myProduct = useSelector((state) => state.product.products);
 

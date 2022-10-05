@@ -5,6 +5,7 @@ import { userLogOut } from "../../redux/actions/userActions";
 import styles from "../NavBar/NavBar.module.css";
 import SearchBar from "../searchBar/searchBar";
 import { changePage, getAllProducts } from "../../redux/actions/productActions";
+import carrito from '../../image/carrito.png';
 
 export const NavBar = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ export const NavBar = () => {
     dispatch(getProductsPerPage(8));
     dispatch(getAllProducts());
   }
+
+  const { cart } = useSelector(state => state.cart);
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
@@ -42,6 +45,14 @@ export const NavBar = () => {
       )}
 
       <SearchBar />
+      <Link to='/cart' >
+        <div className={styles.divCart}>
+          <div><img className={styles.imgCarrito} src={carrito} alt="image not found" /></div>          
+          <div><span className={styles.spa}> {cart.length} </span></div>
+          
+        </div>
+        
+      </Link>
       <div className={styles.navAuth}>
         {localStorage.getItem("token") === null ? (
           <Link className={styles.link} to="/account/login">

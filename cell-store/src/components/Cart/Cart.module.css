@@ -1,0 +1,84 @@
+.container {
+    display: grid;
+    /* place-items: center; */
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+
+.containerDiv{
+    display: flex;
+}
+
+.table{
+    /* background-color: #EDEDED; */
+}
+
+
+.summary{
+    align-items: center;
+    margin-left: 6rem;
+    /* background-color: #EDEDED; */
+}
+
+.imgCarrito {
+    width: 20px;
+    color: white;
+    background-color: aliceblue;
+}
+
+.imgContain {
+    width: 70px;
+    height: 50px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.btnDelete{
+    background-color: transparent;
+    border: none;
+    filter: invert(21%) sepia(70%) saturate(5842%) hue-rotate(356deg) brightness(104%) contrast(111%);
+    /* cursor: pointer; */
+}
+
+.imagDelete{
+    background-color: transparent;
+}
+
+.precio {
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: rgb(12, 11, 11);
+    width: 250px;
+    height: 40px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-weight: 700;
+}
+
+.item{
+    color: grey;
+}
+
+.btnCheck {
+    width: 270px;
+    height: 47px;
+    background-color: #3483FA;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 48px;
+    text-align: center;
+    letter-spacing: normal;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all ease-in-out 0.4s;
+}
+
+.btnCheck:hover {
+    transform: scale(1.1)
+}
