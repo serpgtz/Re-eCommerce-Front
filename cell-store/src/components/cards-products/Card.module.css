@@ -102,7 +102,8 @@
 
 .buttonCarrito {
   /* background-color: rgba(0, 0, 0, 0.322); */
-  background-color: #3483fa;
+  background: linear-gradient(177deg, #a182c59c 0%, #99e8fc 100%);
+  /* background-color: rgba(128, 180, 214, 0.8); */
   border-radius: 40px 0 0 40px;
   height: 40px;
   width: 50px;
@@ -112,7 +113,8 @@
 .comprar {
   font-size: 10px;
   /* background-color: rgba(0, 0, 0, 0.322); */
-  background-color: #3483fa;
+  background: linear-gradient(177deg, #a182c59c 0%, #99e8fc 100%);
+  /* background-color: rgba(128, 180, 214, 0.8); */
   border-radius: 0 40px 40px 0;
   height: 40px;
   transition: all ease-in-out 0.4s;

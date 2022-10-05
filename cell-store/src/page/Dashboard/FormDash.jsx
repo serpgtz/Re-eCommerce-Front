@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { modifyUser } from "../../redux/actions/userActions";
-import s from "../Dashboard/FormDash.module.css"
-import {Validator} from "../Dashboard/FormValidate"
+import s from "../Dashboard/FormDash.module.css";
+import { Validator } from "../Dashboard/FormValidate";
 const FormDash = ({ users }) => {
   const dispatch = useDispatch();
   const [idUser, setIdUser] = useState("");
-  const [error, setError] = useState({})
+  const [error, setError] = useState({});
   const [putForm, setPutForm] = useState({
     username: "",
     email: "",
@@ -21,19 +21,21 @@ const FormDash = ({ users }) => {
       ...putForm,
       [e.target.name]: e.target.value,
     });
+    console.log(putForm.admin);
 
-    setError(Validator({
-      ...putForm, [e.target.name]:e.target.value
-    }))
-    console.log(error)
+    setError(
+      Validator({
+        ...putForm,
+        [e.target.name]: e.target.value,
+      })
+    );
+    console.log(error);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(modifyUser(idUser, putForm));
-
   };
 
-  
   return (
     <form className={s.form} onSubmit={(e) => handleSubmit(e)}>
       <select onChange={(e) => handleId(e)}>
@@ -44,14 +46,19 @@ const FormDash = ({ users }) => {
           </option>
         ))}
       </select>
-      <label>
+      <label className={s.labelInput}>
         Nombre:
-        <input className={s.input2} type="text" name="username" onChange={(e) => handleChange(e)} />
+        <input
+          className={s.input2}
+          type="text"
+          name="username"
+          onChange={(e) => handleChange(e)}
+        />
       </label>
-      <label>
-      {error.username && <p className={s.danger}>{error.username}</p>}
+      <label className={s.labelInput}>
+        {error.username && <p className={s.danger}>{error.username}</p>}
         E-mail:
-        <input 
+        <input
           className={s.input2}
           type="text"
           name="email"
@@ -60,10 +67,9 @@ const FormDash = ({ users }) => {
         />
       </label>
       {error.email && <p className={s.danger}>{error.email}</p>}
-      <label>
+      <label className={s.labelInput}>
         ¿Admin?
         <input
-
           type="checkbox"
           name="admin"
           id="admin"
@@ -71,17 +77,17 @@ const FormDash = ({ users }) => {
           onChange={(e) => handleChange(e)}
         />
         <label htmlFor="admin">Admin</label>
-        <input
-          type="checkbox"
-          name="admin"
-          id="noesadmin"
-          value={false}
-          onChange={(e) => handleChange(e)}
-        />
-        <label htmlFor="noesadmin">Plebe</label>
+        {error.admin && <p className={s.danger}>{error.admin}</p>}
       </label>
-      <button className={s.button} type="submit"
-       disabled={Object.keys(error).length>0||putForm.username===""}>Cambiar</button>
+
+      {error.admin && <p className={s.danger}>{error.admin}</p>}
+      <button
+        className={s.button}
+        type="submit"
+        disabled={Object.keys(error).length > 0 || putForm.username === ""}
+      >
+        Cambiar
+      </button>
     </form>
   );
 };
