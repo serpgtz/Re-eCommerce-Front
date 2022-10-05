@@ -7,11 +7,16 @@
 
 .containerDiv{
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
-.table{
-    /* background-color: #EDEDED; */
+table th {
+    width: 15em;
+}
+
+table td {
+    justify-self: flex-start;
+    /* width: 15em; */
 }
 
 
