@@ -1,0 +1,24 @@
+.imgCarrito {
+    width: 20px;
+    color: white;
+    background-color: aliceblue;
+}
+
+.imgContain {
+    width: 70px;
+    height: 50px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.btnDelete{
+    background-color: transparent;
+    border: none;
+    filter: invert(21%) sepia(70%) saturate(5842%) hue-rotate(356deg) brightness(104%) contrast(111%);
+    /* cursor: pointer; */
+}
+
+.imagDelete{
+    background-color: transparent;
+}

@@ -117,3 +117,24 @@
   background: linear-gradient(177deg, #fffa67 0%, #ff68a29c 100%);
   color: rgb(255, 255, 255);
 }
+
+.divCart{
+  display: flex;
+  /* background-color: #9600ff; */
+  /* width: 70px;
+  height: 50px; */
+}
+
+.imgCarrito {
+  /* float: left; */
+  width: 30px;
+  filter: invert(100%) sepia(0%) saturate(9%) hue-rotate(216deg) brightness(105%) contrast(98%);
+}
+
+.spa{
+  color: white;
+  background-color: red;
+  /* border-radius: 3rem; */
+  position: absolute;
+  top: 0px;
+}

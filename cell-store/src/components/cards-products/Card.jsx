@@ -12,14 +12,13 @@ const Card = (p) => {
   const dispatch = useDispatch();
   const {name, countInStock, numReviews, exists, id, price, description, stock, image, __v, reviews} = p
   /* const producto = {name, countInStock, numReviews, exists, _id, price, description, stock, image, __v, reviews} */
-  const myProduct = useSelector((state) => state.product.products.id);
-  
+  const myProduct = useSelector((state) => state.product.products)
+  const productId = myProduct.filter(e => e._id === id)
   const handleAddToCart = () => {
-		dispatch(addToCart(myProduct));
-    console.log(p);
+    dispatch(addToCart(productId[0]))
+    console.log(productId[0]);
+    console.log(id);
 	};
-
-
 
   return (
     <div className={s.card}>

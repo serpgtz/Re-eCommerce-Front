@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { ADD_TO_CART } from '../actions/cartActions';
-import { deleteFromCart } from '../redux/actions/cartActions';
-/* import { isAuthenticated } from '../helpers/auth'; */
+import { ADD_TO_CART } from '../../redux/actions/cartActions';
+import { deleteFromCart } from '../../redux/actions/cartActions';
+import trash from '../../image/trash.png';
+import s from './Cart.module.css';
 
-const Cart = ({ history }) => {
+function Cart() {
+
 	let navigate = useNavigate();
 	const { cart } = useSelector(state => state.cart);
 
@@ -34,22 +36,23 @@ const Cart = ({ history }) => {
 		});
 	};
 
-	/* const handleCheckout = evt => {
+	const handleCheckout = evt => {
 		if (isAuthenticated()) {
 			navigate('/shipping');
 		} else {
 			navigate('/signin?redirect=shipping');
 		}
 	};
- */
-	return (
+
+  return (
+	<div>
 		<section className='cart-page m-4'>
 			{cart.length <= 0 ? (
-				<div className='jumbotron'>
+				<div >
 					<h1 className='display-4'>
 						Your cart is empty{' '}
 						<button
-							className='btn btn-light text-primary ml-4'
+							
 							onClick={handleGoBackBtn}
 						>
 							Go Back
@@ -57,13 +60,13 @@ const Cart = ({ history }) => {
 					</h1>
 				</div>
 			) : (
-				<>
-					<div className='jumbotron'>
-						<h1 className='display-4'>Cart</h1>
+				<div>
+					<div >
+						<h1 >Cart</h1>
 					</div>
-					<div className='row'>
-						<div className='col-md-8'>
-							<table className='table'>
+					{<div >
+						<div >
+							<table >
 								<thead>
 									<tr>
 										<th scope='col'></th>
@@ -79,30 +82,23 @@ const Cart = ({ history }) => {
 											<th scope='row'>
 												{' '}
 												<img
-													style={{
-														maxWidth: '110px',
-													}}
-													className='img-fluid w-100 img-thumbnail'
-													src={`/uploads/${product.fileName}`}
+													className={s.imgContain}												
+													src={`${product.image}`}
 													alt='product'
 												/>
 											</th>
 											<td>
 												{' '}
 												<Link
-													to={`/product/${product._id}`}
+													to={`/detail/${product._id}`}
 												>
-													{product.productName}
+													{product.name}
 												</Link>
 											</td>
 											<td>
 												{' '}
-												{product.productPrice.toLocaleString(
-													'en-US',
-													{
-														style: 'currency',
-														currency: 'USD',
-													}
+												{product.price.toLocaleString(
+													'en-US'
 												)}
 											</td>
 											<td>
@@ -122,8 +118,8 @@ const Cart = ({ history }) => {
 											<td>
 												{' '}
 												<button
-													type='button'
-													className='btn btn-danger btn-sm'
+													className={s.btnDelete}
+													type='button'													
 													onClick={() =>
 														dispatch(
 															deleteFromCart(
@@ -132,7 +128,7 @@ const Cart = ({ history }) => {
 														)
 													}
 												>
-													<i className='far fa-trash-alt pr-1'></i>
+													<img className={s.imagDelete} src={trash} alt="not found" />
 												</button>
 											</td>
 										</tr>
@@ -147,17 +143,18 @@ const Cart = ({ history }) => {
 									? '(1) Item'
 									: `(${cart.length}) Items`}
 							</p>
-							<p className='font-weight-bold'>
+							<p >
 								Total: $
 								{cart
 									.reduce(
 										(currentSum, currentCartItem) =>
 											currentSum +
 											currentCartItem.count *
-												currentCartItem.productPrice,
+												currentCartItem.price,
 										0
-									)
-									.toFixed(2)}
+									)									
+									.toFixed(2)
+									}
 							</p>
 							<button
 								className='btn btn-dark btn-large btn-block mb-5 py-2'
@@ -166,11 +163,12 @@ const Cart = ({ history }) => {
 								Proceed to Checkout
 							</button>
 						</div>
-					</div>
-				</>
+					</div>}
+				</div>
 			)}
 		</section>
-	);
-};
+	</div>
+  )
+}
 
-export default Cart;
+export default Cart

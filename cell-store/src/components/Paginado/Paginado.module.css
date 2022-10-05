@@ -37,7 +37,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(21, 254, 110);
+    /* background-color: rgb(21, 254, 110); */
+    background-color: #3483fa;
     margin-left: 10px;
     width: 35px;
     height: 35px;
