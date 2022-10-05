@@ -51,6 +51,12 @@
   .button:active {
     transform: translateY(-1px);
   }
+  .form{
+    padding-bottom: 50px;
+  }
+  .danger{
+    color: red;
+  }
    
    
    
