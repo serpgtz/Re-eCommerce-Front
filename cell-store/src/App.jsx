@@ -22,6 +22,8 @@ import { useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
 import Dashboard from "./page/Dashboard/Dashboard";
+import ConfirmEmail from "./page/ConfirmEmail/ConfirmEmail";
+import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
 /* import Detail from './components/cards-products/Detail' */
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +47,9 @@ function App() {
         <Route path="/account/register" element={<Register />} />
         <Route path="/account/profile" element={<Profile />} />
         <Route path="/historia" element={<Historia />} />
+        <Route path="/confirm" element={<ConfirmEmail />} />
+        <Route path="/confirm/:id" element={<ConfirmedEmail />} />
+
       </Routes>
       <Footer />
     </>

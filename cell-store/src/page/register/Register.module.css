@@ -90,6 +90,11 @@
   border: none;
   margin-bottom: 25px;
 }
+
+.button:hover {
+    background-color: #1f66cf;
+    transition: .2s;
+}
 .div_icon {
     position: relative;
     top: 0;
