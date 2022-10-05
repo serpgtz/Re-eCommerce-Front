@@ -2,13 +2,13 @@ import React from 'react'
 import { useEffect } from 'react'
 
 const ConfirmEmail = () => {
-    const email = localStorage.setItem('email_register')
+    const email = localStorage.getItem('email_register_')
 
-    useEffect(()=> {
-        setTimeout(()=> {
-            localStorage.removeItem('email_register')
-        },10000)
+   useEffect(() => {
+    setTimeout(()=> {
+        localStorage.removeItem('email_register_')
     })
+   },10000)
   return (
     <div>
       <h1>GRACIAS POR REGISTRARTE</h1>
