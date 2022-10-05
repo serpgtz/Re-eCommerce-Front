@@ -41,6 +41,7 @@
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
+  margin-top: 1.5rem;
   margin-left: 1rem;
 }
 
@@ -64,4 +65,7 @@
 }
 .danger {
   color: red;
+}
+.labelInput {
+  margin-top: 1.5rem;
 }
