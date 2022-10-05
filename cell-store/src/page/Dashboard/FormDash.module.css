@@ -55,9 +55,13 @@
   transform: translateY(-1px);
 }
 
-.form{
-    padding-bottom: 50px;
-  }
-  .danger{
-    color: red;
-  }
+.form {
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: flex-start;
+}
+.danger {
+  color: red;
+}
