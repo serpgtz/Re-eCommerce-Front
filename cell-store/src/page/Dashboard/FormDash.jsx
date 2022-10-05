@@ -21,6 +21,7 @@ const FormDash = ({ users }) => {
       ...putForm,
       [e.target.name]: e.target.value,
     });
+    console.log(putForm.admin)
 
     setError(Validator({
       ...putForm, [e.target.name]:e.target.value
@@ -71,6 +72,8 @@ const FormDash = ({ users }) => {
           onChange={(e) => handleChange(e)}
         />
         <label htmlFor="admin">Admin</label>
+        {error.admin && <p className={s.danger}>{error.admin}</p>}
+
         <input
           type="checkbox"
           name="admin"
@@ -80,6 +83,8 @@ const FormDash = ({ users }) => {
         />
         <label htmlFor="noesadmin">Plebe</label>
       </label>
+      
+      {error.admin && <p className={s.danger}>{error.admin}</p>}
       <button className={s.button} type="submit"
        disabled={Object.keys(error).length>0||putForm.username===""}>Cambiar</button>
     </form>
