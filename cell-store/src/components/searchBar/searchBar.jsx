@@ -18,14 +18,16 @@ export default function SearchBar() {
     console.log(input);
   }
 
-  function handleSumit(e) {
+  function handleSubmit(e) {
+    e.preventDefault()
     dispatch(ChangeByName());
     dispatch(getProductByName(input));
     setInputChange("");
   }
 
   return (
-    <div>
+    <div className={s.container}>
+      <form onSubmit={handleSubmit}>
       <input
         className={s.input}
         onChange={(e) => handleChangeInput(e)}
@@ -33,9 +35,8 @@ export default function SearchBar() {
         type="text"
         placeholder="Buscar..."
       />
-      <button className={s.btn} onClick={(e) => handleSumit(e)}>
-        Buscar
-      </button>
+     
+      </form>
     </div>
   );
 }

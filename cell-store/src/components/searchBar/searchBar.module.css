@@ -1,12 +1,30 @@
 /* From uiverse.io by @CristianMontoya98 */
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  max-height: 50px;
+  
+  align-items: center;
+  width: 30%;
+  max-width: 30%;
+  
+ 
+}
+
+.container form {
+  width: 100%;
+}
+
 .btn {
-  width: 6.5em;
-  height: 2.3em;
+  width: 5%;
+  height: 50px;
   margin: 0.4em;
   background: black;
   color: white;
   border: none;
-  border-radius: 0.625em;
+ 
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
@@ -14,10 +32,10 @@
   z-index: 1;
   overflow: hidden;
   /* box-shadow: 6px 6px 12px #ffffff, -6px -6px 12px #c5c5c5; */
-  border: 1px white solid;
+ 
 }
 
-.btn:hover {
+/* .btn:hover {
   color: black;
 }
 
@@ -38,22 +56,24 @@
   transform: skewX(-45deg) scale(1, 1);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-}
+} */
 
 /* From uiverse.io by @adamgiebl */
 /* From uiverse.io by @Yaseen549 */
 .input {
   border: none;
-  border-radius: 15px;
+  width: 90%;
+  height: 80%;
+  font-weight: 200;
   padding: 15px;
-  background-color: #e8e8e8;
+  background-color: #fff;
   /* box-shadow: 6px 6px 12px #ffffff, -6px -6px 12px #c5c5c5; */
-  font-size: medium;
+  outline: none;
+  border: none;
   font-weight: bold;
-  max-width: 200px;
+  background-image: url('../../image/search.png');
+  background-position: 98%;
+  background-size: 7%;
+  background-repeat: no-repeat;
 }
 
-.input:focus {
-  outline-color: white;
-  place-content: "Enter your message!";
-}

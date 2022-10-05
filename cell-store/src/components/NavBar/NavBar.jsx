@@ -1,17 +1,24 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, useStore } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { userLogOut } from "../../redux/actions/userActions";
 import styles from "../NavBar/NavBar.module.css";
 import SearchBar from "../searchBar/searchBar";
 import { changePage, getAllProducts } from "../../redux/actions/productActions";
-import carrito from "../../image/carrito.png";
+import carrito from '../../image/carrito.png';
+import { useState } from "react";
+import logo from "../../image/logo.png"
 
 export const NavBar = () => {
+  
+  const user_redux = useSelector(state => state.user.user)
+  const [user , setUser] = useState(JSON.parse(localStorage.getItem("user")))
   const dispatch = useDispatch();
   const navigation = useNavigate();
-  const userStorage = JSON.parse(localStorage.getItem("user"));
+ 
+   
 
+ 
   function handleClick(e) {
     dispatch(changePage(1));
     dispatch(getProductsPerPage(8));
@@ -24,7 +31,9 @@ export const NavBar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     dispatch(userLogOut());
-    navigation("/");
+
+    navigation('/account/login');
+
   };
   return (
     <nav className={styles.navBar}>
@@ -35,18 +44,24 @@ export const NavBar = () => {
           handleClick(e);
         }}
       >
-        {" "}
+        <div className={styles.div_logo}>
+          <img src={logo} alt='logo-cellStore'></img>
         <h1>CELL STORE</h1>
+        </div>
       </Link>
-      {userStorage?.admin === true && (
+      {user_redux?.admin === true || user?.admin === true ? (
         <Link className={styles.link} to="/adminDashboard">
           <button className={styles.navBtn}>Adminboard</button>
         </Link>
-      )}
+      ) : null}
 
       <SearchBar />
 
-      <Link to="/cart">
+      
+      <div className={styles.div_carrito_login}>
+
+      <Link to='/cart' >
+   
         <div className={styles.divCart}>
           <div>
             <span className={styles.spa}> {cart.length} </span>
@@ -68,11 +83,11 @@ export const NavBar = () => {
         ) : (
           <Link className={styles.link} to="/account/profile">
             <button className={styles.navBtnUser}>
-              {userStorage?.name.charAt(0).toUpperCase()}
+              {Object.keys(user_redux).length > 0 ? user_redux?.name?.charAt().toUpperCase() : user?.name.charAt().toUpperCase()}
             </button>
           </Link>
         )}
-        {!userStorage ? null : (
+        {localStorage.getItem('token') && (
           <button
             className={styles.navBtnLogouts}
             onClick={() => handleLogOut()}
@@ -80,6 +95,7 @@ export const NavBar = () => {
             Logout
           </button>
         )}
+      </div>
       </div>
     </nav>
   );
