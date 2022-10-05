@@ -21,7 +21,7 @@ const Slider = ({ users }) => {
         direction="left"
         onClick={() => handleClick("left")}
       >
-        FLECHA
+        ◄
       </div>
       <UsersContainer
         users={users}
@@ -34,7 +34,7 @@ const Slider = ({ users }) => {
         direction="right"
         onClick={() => handleClick("right")}
       >
-        OTRA FLECHA
+        ►
       </div>
     </>
   );
