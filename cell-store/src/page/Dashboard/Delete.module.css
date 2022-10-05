@@ -1,15 +1,16 @@
 .onlySpan {
   background-color: indianred;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.8rem;
   border-radius: 50%;
   font-weight: 800;
   cursor: grabbing;
   transition: 170ms;
   color: white;
   padding: 0.2rem 0.4rem 0.2rem 0.4rem;
-  margin: 0;
-  display: inline;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .onlySpan:hover {
   background: radial-gradient(
