@@ -1,13 +1,13 @@
 .container {
     display: grid;
-    /* place-items: center; */
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: white;
 }
 
 .containerDiv{
     display: flex;
+    justify-content: space-around;
 }
 
 .table{
@@ -17,8 +17,8 @@
 
 .summary{
     align-items: center;
-    margin-left: 6rem;
-    /* background-color: #EDEDED; */
+    /* margin-left: 6rem; */
+    /* background-color: yellow; */
 }
 
 .imgCarrito {
@@ -28,8 +28,10 @@
 }
 
 .imgContain {
-    width: 70px;
-    height: 50px;
+    width: 100px;
+    height: 80px;
+    /* width: 70px;
+    height: 50px; */
     margin: 0px;
     display: flex;
     justify-content: center;
@@ -39,7 +41,6 @@
     background-color: transparent;
     border: none;
     filter: invert(21%) sepia(70%) saturate(5842%) hue-rotate(356deg) brightness(104%) contrast(111%);
-    /* cursor: pointer; */
 }
 
 .imagDelete{
@@ -80,5 +81,29 @@
 }
 
 .btnCheck:hover {
+    transform: scale(1.1)
+}
+
+.btnSeguirComp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 270px;
+    height: 47px;
+    background-color: #4189e643;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #3483fa;
+    font-size: 16px;
+    line-height: 48px;
+    text-align: center;
+    letter-spacing: normal;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all ease-in-out 0.4s;
+}
+
+.btnSeguirComp:hover {
     transform: scale(1.1)
 }
