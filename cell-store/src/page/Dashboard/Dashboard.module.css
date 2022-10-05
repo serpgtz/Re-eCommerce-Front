@@ -11,8 +11,8 @@
 
 .cardUserContainer {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: flex-end;
+  justify-content: space-around;
   flex-direction: row;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -21,6 +21,8 @@
   border-radius: 8px;
   transition: 500ms;
   background-color: #00218f21;
+  align-content: space-between;
+  flex-wrap: wrap;
 }
 .cardUserContainer:hover {
   transition: 600ms;
