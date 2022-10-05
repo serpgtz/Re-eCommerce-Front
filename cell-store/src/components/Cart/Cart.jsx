@@ -45,7 +45,7 @@ function Cart() {
 	};
 
   return (
-	<div>
+	<div className={s.container}>
 		<section className='cart-page m-4'>
 			{cart.length <= 0 ? (
 				<div >
@@ -61,14 +61,15 @@ function Cart() {
 				</div>
 			) : (
 				<div>
-					<div >
-						<h1 >Cart</h1>
-					</div>
-					{<div >
-						<div >
+					
+					{<div className={s.containerDiv}>
+						<div className={s.table}>
+							<div >
+								<h2 >Cart</h2>
+							</div>
 							<table >
 								<thead>
-									<tr>
+									<tr >
 										<th scope='col'></th>
 										<th scope='col'>Product</th>
 										<th scope='col'>Price</th>
@@ -105,7 +106,7 @@ function Cart() {
 												<input
 													type='number'
 													min='1'
-													max={product.productQty}
+													max={product.stock}
 													value={product.count}
 													onChange={e =>
 														handleQtyChange(
@@ -136,14 +137,14 @@ function Cart() {
 								</tbody>
 							</table>
 						</div>
-						<div className='col-md-4 border-left pl-4'>
+						<div className={s.summary}>
 							<h2>Cart Summary</h2>
-							<p className='font-weight-light text-muted border-bottom'>
+							<p className={s.item}>
 								{cart.length === 1
 									? '(1) Item'
 									: `(${cart.length}) Items`}
 							</p>
-							<p >
+							<p className={s.precio} >
 								Total: $
 								{cart
 									.reduce(
@@ -153,11 +154,12 @@ function Cart() {
 												currentCartItem.price,
 										0
 									)									
-									.toFixed(2)
+									/* .toFixed(2) */
+									.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 									}
 							</p>
 							<button
-								className='btn btn-dark btn-large btn-block mb-5 py-2'
+								className={s.btnCheck}
 								onClick={handleCheckout}
 							>
 								Proceed to Checkout
