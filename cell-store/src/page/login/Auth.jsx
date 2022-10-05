@@ -22,7 +22,7 @@ const Auth = () => {
      
         dispatch(getUserData());
         
-        return navigate('/')
+         navigate('/')
        
     
     } 
