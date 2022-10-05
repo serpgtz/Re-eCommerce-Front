@@ -10,6 +10,8 @@ import { useToast, Button, Input, FormControl,
   FormLabel,
   FormErrorMessage,
   FormHelperText} from '@chakra-ui/react'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -17,6 +19,7 @@ import { useToast, Button, Input, FormControl,
 const Register = () => {
   const toast = useToast()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
    const error_back = useSelector(state => state.user.error_register)
   const [error, setError] = useState({})
   const [click , setClick] = useState(false)
@@ -40,21 +43,29 @@ const Register = () => {
  
   const handleOnSubmit = (e) => {
        e.preventDefault()
-       localStorage.setItem('email_register', input.email)
+       localStorage.setItem('email_register_', input.email)
        dispatch(userRegister(input))
           
        setInput({
         username : '',
         email: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
       })
 
      
   }
 
+ 
+ const submitRedirect = () =>{
+    
+  if(!error_back.msg){
+  setTimeout(()=>{
+    navigate('/confirm')
+  } ,500 )
+}
   
-console.log(error_back?.msg)
+ }
 
   return (
     
@@ -86,7 +97,7 @@ console.log(error_back?.msg)
             <div className={style.div_icon}  onClick={()=> setClick(!click)}><img className={style.icon_eyes} src={click ? icon_eyes_on : icon_eyes_off}></img></div>
             </div>
         </div>
-        <input type='submit' value='Register' className={style.button} disabled={Object.values(error).length == 0 ? false : true}  ></input>
+        <input type='submit' value='Register' className={style.button} disabled={Object.values(error).length == 0 ? false : true} onClick={ submitRedirect}  ></input>
          
       
            

@@ -33,11 +33,12 @@ export const NavBar = () => {
     <nav className={styles.navBar}>
 
       <Link to='/' className={styles.header} onClick={(e) => {handleClick(e);}} > <h1>CELL STORE</h1></Link> 
-      {userStorage?.admin === true ? (
+      {userStorage?.admin === true && (
         <Link className={styles.link} to="/newproduct">
           <button className={styles.navBtn}> Crear Producto </button>
         </Link>
-      ) : null}
+      )}
+      
       <SearchBar />
       <div className={styles.navAuth}>
         {localStorage.getItem('token') === null ? (

@@ -7,6 +7,7 @@ export const ALL_USERS = "ALL_USERS";
 export const RESET_ERROR = "RESET_ERROR";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const REGISTER_ERROR = "REGISTER_ERROR";
+export const ERROR_CONFIRM_TOKEN = "ERROR_CONFIRM_TOKEN";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -119,12 +120,26 @@ export function getUserByName(name) {
     }
   };
 }
+
 export const deleteUser = (id) => {
   return async () => {
     try {
       await axios.delete("/users/" + id);
     } catch (error) {
       console.log(error);
+    }
+  };
+};
+
+export const confirmUser = (token) => {
+  return async (dispatch) => {
+    try {
+      await axios.get(`/confirmar/${token}`);
+    } catch (error) {
+      return dispatch({
+        type: ERROR_CONFIRM_TOKEN,
+        payload: error.response.data,
+      });
     }
   };
 };
