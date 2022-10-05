@@ -19,7 +19,9 @@ import Historia from "./page/historia/Historia";
 import { useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
-import Dashboard from "./page/Dashboard/Dashboard.jsx";
+import Dashboard from "./page/Dashboard/Dashboard";
+import ConfirmEmail from "./page/ConfirmEmail/ConfirmEmail";
+import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
 import Cart from "./components/Cart/Cart";
 /* import Detail from './components/cards-products/Detail' */
 function App() {
@@ -44,8 +46,11 @@ function App() {
         <Route path="/account/register" element={<Register />} />
         <Route path="/account/profile" element={<Profile />} />
         <Route path="/historia" element={<Historia />} />
+        <Route path="/confirm" element={<ConfirmEmail />} />
+        <Route path="/confirm/:id" element={<ConfirmedEmail />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Footer />
     </>
   );
 }

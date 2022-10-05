@@ -5,7 +5,7 @@
     width: 30%;
     height: 60px;
     background-color: rgb(216, 171, 171);
-    color: black;
+    color: rgb(41, 41, 41);
     margin-bottom: 20px;
    
 }
@@ -30,8 +30,7 @@
 
 .alert button {
     position: relative;
-    top: -15%;
-    left: 45%;
+    
     width: 25px;
     height: 25px;
     background-color: transparent;
@@ -46,4 +45,11 @@
 .alert button:hover {
     background-color: rgba(0, 0, 0, 0.086) ;
     transition: 0.5s;
+}
+
+.alert div {
+    position: relative;
+    left: 235px;
+    top: -10px;
+   
 }

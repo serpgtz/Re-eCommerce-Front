@@ -21,6 +21,7 @@ export default function SearchBardDash(){
 
     function handleName(e){
     dispatch(getUserByName(name))
+    setName("")
     }
 
 
@@ -28,9 +29,9 @@ export default function SearchBardDash(){
 return(
 
     <div className={s.container}>
-        <label>Name User</label>
-         <input onChange={(e)=>handleInputChange(e)} value={name} type="text" placeholder="NameUser..."/>
-         <button onClick={(e)=>handleName(e)}>Buscar</button>
+        
+         <input className={s.input2} onChange={(e)=>handleInputChange(e)} value={name} type="text" placeholder="NameUser..."/>
+         <button className={s.button} onClick={(e)=>handleName(e)}>Buscar</button>
          
     </div>
 )

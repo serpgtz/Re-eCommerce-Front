@@ -10,26 +10,27 @@ import { addToCart } from '../../redux/actions/cartActions';
 
 const Card = (p) => {
   const dispatch = useDispatch();
-  const {name, countInStock, numReviews, exists, id, price, description, stock, image, __v, reviews} = p
+  const { id } = p
   /* const producto = {name, countInStock, numReviews, exists, _id, price, description, stock, image, __v, reviews} */
-  const myProduct = useSelector((state) => state.product.products)
-  const productId = myProduct.filter(e => e._id === id)
+  const myProduct = useSelector((state) => state.product.products);
+
   const handleAddToCart = () => {
-    dispatch(addToCart(productId[0]))
-    console.log(productId[0]);
+    const productId = myProduct.filter(e => e._id === id);
+    console.log('productId---------//----card', productId[0]);
+    dispatch(addToCart(productId[0]));
     console.log(id);
-	};
+  };
 
   return (
     <div className={s.card}>
-      <div className={s.name}><h3>{p.name}</h3></div>
+      <div className={s.name}><h3 className={s.titleName}>{p.name}</h3></div>
       <div className={s.imgContein}>
         <img className={s.imgProduct} src={p.image} alt="image not found" />
       </div>
 
       <div className={s.info}>
-        <p>12 CUOTAS SIN INTERÉS</p>
-        <p>${p.price.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p className={s.cuotas}>12 CUOTAS SIN INTERÉS</p>
+        <p className={s.precio}>${p.price.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
       </div>
 
       <div className={s.footerCard}>

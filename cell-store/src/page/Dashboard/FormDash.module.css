@@ -1,9 +1,3 @@
-/* From uiverse.io by @alexruix */
-/* From uiverse.io by @alexruix */
-
-.container {
-  margin-bottom: 20px;
-}
 .input2 {
   line-height: 28px;
   border: 2px solid transparent;
@@ -33,7 +27,6 @@
   transition: opacity 0.3s;
 }
 
-/* From uiverse.io */
 .button {
   padding: 1.3em 3em;
   font-size: 12px;
@@ -48,6 +41,7 @@
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
+  margin-left: 1rem;
 }
 
 .button:hover {
@@ -60,3 +54,10 @@
 .button:active {
   transform: translateY(-1px);
 }
+
+.form{
+    padding-bottom: 50px;
+  }
+  .danger{
+    color: red;
+  }

@@ -6,16 +6,21 @@ export const TOKEN = "TOKEN";
 export const ALL_USERS = "ALL_USERS";
 export const RESET_ERROR = "RESET_ERROR";
 export const GET_BY_NAME = "GET_BY_NAME";
+export const REGISTER_ERROR = "REGISTER_ERROR";
+export const ERROR_CONFIRM_TOKEN = "ERROR_CONFIRM_TOKEN";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
 export const userRegister = (user) => {
   console.log(user);
-  return async () => {
+  return async (dispatch) => {
     try {
       await axios.post("/register", user);
     } catch (error) {
-      console.log(error);
+      return dispatch({
+        type: REGISTER_ERROR,
+        payload: error.response.data,
+      });
     }
   };
 };
@@ -49,6 +54,7 @@ export const getUserData = () => {
         },
       });
 
+      localStorage.setItem("user", JSON.stringify(user.data));
       return dispatch({
         type: USER,
         payload: user.data,
@@ -85,6 +91,15 @@ export const getAllUsers = () => {
     }
   };
 };
+export const modifyUser = (id, update) => {
+  return async () => {
+    try {
+      await axios.put("/users/" + id, update);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const resetError = () => {
   return {
@@ -93,10 +108,9 @@ export const resetError = () => {
 };
 export function getUserByName(name) {
   return async function (dispatch) {
-    console.log("dispatch",name)
+    console.log("dispatch", name);
     try {
-      let user = await axios.get(`/users?username=${name}`
-      );
+      let user = await axios.get(`/users?username=${name}`);
       return dispatch({
         type: GET_BY_NAME,
         payload: user.data,
@@ -106,3 +120,26 @@ export function getUserByName(name) {
     }
   };
 }
+
+export const deleteUser = (id) => {
+  return async () => {
+    try {
+      await axios.delete("/users/" + id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const confirmUser = (token) => {
+  return async (dispatch) => {
+    try {
+      await axios.get(`/confirmar/${token}`);
+    } catch (error) {
+      return dispatch({
+        type: ERROR_CONFIRM_TOKEN,
+        payload: error.response.data,
+      });
+    }
+  };
+};

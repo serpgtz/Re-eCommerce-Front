@@ -12,6 +12,7 @@ const Alert = ({msg}) => {
     const handleOnClick = () => {
         setClick(!click)
         dispatch(resetError())
+        
     }
 
     useEffect(()=> {
@@ -25,7 +26,7 @@ const Alert = ({msg}) => {
     <div className={click ? style.close : style.alert }>
       <img src={icon_alert} alt='alerta'></img>
       <p><strong>Error </strong>{msg}</p>
-      <button onClick={handleOnClick}>X</button>
+      <div><button onClick={handleOnClick}>X</button></div>
     </div>
   )
 }
