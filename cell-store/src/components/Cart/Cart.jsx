@@ -98,7 +98,7 @@ function Cart() {
 											</td>
 											<td>
 												{' '}
-												{product.price.toLocaleString('es')}
+												${product.price.toLocaleString('es')}
 											</td>
 											<td>
 												<input
