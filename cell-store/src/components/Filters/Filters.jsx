@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getFilter,
   higherPrice,
@@ -10,29 +10,26 @@ import {
 import s from "./Filters.module.css";
 
 function Filters() {
-  const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.products);
   const [filter, setFilter] = useState("");
   const [sort, setSort] = useState("");
-  useEffect(() => {
-    filter.length ? getFilter() : null;
-  }, [dispatch, sort]);
-
+  console.log(products);
   const handleFilterByTypeProduct = (e) => {
     setFilter(e.target.value);
   };
   const handleSort = (e) => {
-    console.log(e.target.innerText);
     if (e.target.innerText === "Mayor Precio") {
-      setSort(dispatch(lowerPrice()));
+      setSort(products?.sort((a, b) => a.price - b.price));
     }
 
     if (e.target.innerText === "Menor Precio") {
-      setSort(dispatch(higherPrice()));
+      setSort(products?.sort((a, b) => b.price - a.price));
     }
     if (e.target.innerText === "Mejor valorado") {
-      setSort(dispatch(topRated()));
+      setSort(products?.sort((a, b) => a.rating - b.rating));
     }
   };
+  useEffect(() => {}, [products]);
 
   return (
     <aside className={s.aside}>
