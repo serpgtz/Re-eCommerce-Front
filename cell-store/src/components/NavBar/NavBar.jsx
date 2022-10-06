@@ -49,7 +49,7 @@ export const NavBar = () => {
         <h1>CELL STORE</h1>
         </div>
       </Link>
-      {user_redux?.admin === true || user?.admin === true ? (
+      { user?.admin || user_redux?.admin ? (
         <Link className={styles.link} to="/adminDashboard">
           <button className={styles.navBtn}>Adminboard</button>
         </Link>
