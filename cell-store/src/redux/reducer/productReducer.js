@@ -50,47 +50,19 @@ export default function productReducer(state = initialState, action) {
         products: action.payload,
       };
     case HIGHER_PRICE:
-      const productsSorted = state.products.sort((a, b) => {
-        if (a.price > b.price) {
-          return 1;
-        }
-        if (b.price > a.price) {
-          return -1;
-        }
-        return 0;
-      });
-      const productsPaginated = productsSorted.slice(0, 7);
       return {
         ...state,
-        products: productsPaginated,
+        products: action.payload,
       };
     case LOWER_PRICE:
-      console.log("ENTRÉ A SORT, PAPU");
       return {
         ...state,
-        products: state.products2.sort((a, b) => {
-          if (a.price < b.price) {
-            return 1;
-          }
-          if (b.price < a.price) {
-            return -1;
-          }
-          return 0;
-        }),
+        products: action.payload,
       };
     case TOP_RATED:
-      console.log("ENTRÉ A SORT, PAPU");
       return {
         ...state,
-        products: state.products2.sort((a, b) => {
-          if (a.rating > b.rating) {
-            return 1;
-          }
-          if (b.rating > a.rating) {
-            return -1;
-          }
-          return 0;
-        }),
+        products: action.payload,
       };
     case RESET:
       return {

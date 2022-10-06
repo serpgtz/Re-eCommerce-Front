@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { render } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getFilter,
@@ -11,25 +12,41 @@ import s from "./Filters.module.css";
 
 function Filters() {
   const products = useSelector((state) => state.product.products);
+  console.log(products);
   const [filter, setFilter] = useState("");
   const [sort, setSort] = useState("");
-  console.log(products);
-  const handleFilterByTypeProduct = (e) => {
-    setFilter(e.target.value);
+  const dispatch = useDispatch();
+  const handleFilters = (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    const filter = dispatch(getFilter(value));
+    setFilter({ ...filter, [e.target.name]: value });
   };
   const handleSort = (e) => {
-    if (e.target.innerText === "Mayor Precio") {
-      setSort(products?.sort((a, b) => a.price - b.price));
+    const value = e.target.innerText;
+    if (value === "Mayor Precio") {
+      setSort("higherPrice");
     }
-
-    if (e.target.innerText === "Menor Precio") {
-      setSort(products?.sort((a, b) => b.price - a.price));
+    if (value === "Menor Precio") {
+      setSort("lowerPrice");
     }
-    if (e.target.innerText === "Mejor valorado") {
-      setSort(products?.sort((a, b) => a.rating - b.rating));
+    if (value === "Mejor valorado") {
+      setSort("topRated");
     }
   };
-  useEffect(() => {}, [products]);
+  useEffect(() => {
+    if (sort === "higherPrice") {
+      console.log("entré");
+      console.log("It's a-me MaRIO", products);
+      dispatch(higherPrice());
+    }
+    if (sort === "lowerPrice") {
+      dispatch(lowerPrice());
+    }
+    if (sort === "topRated") {
+      dispatch(topRated());
+    }
+  }, [dispatch]);
 
   return (
     <aside className={s.aside}>
@@ -44,11 +61,7 @@ function Filters() {
       <div>
         <h3>Filtrar por:</h3>
         <div className={s.select}>
-          <select
-            name="filter"
-            id="cars"
-            onChange={(e) => handleFilterByTypeProduct(e)}
-          >
+          <select name="filter" id="cars" onChange={(e) => handleFilters(e)}>
             <option value="cell">Cell</option>
             <option value="phoneCover">PhoneCover</option>
             <option value="headphones">Headphones</option>
@@ -76,5 +89,4 @@ function Filters() {
     </aside>
   );
 }
-
 export default Filters;
