@@ -4,7 +4,7 @@
     height: 100vh;
     background-color: white;
 }
-
+ 
 .containerDiv{
     display: grid;
     grid-template-columns: 67% 33%;
@@ -38,6 +38,10 @@ thead th{
 
 table td input {  
     height: 20px; 
+}
+input{
+    height: 20px;
+    width: 50px;
 }
 
 th, td{
