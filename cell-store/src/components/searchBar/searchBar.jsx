@@ -35,8 +35,10 @@ export default function SearchBar() {
         type="text"
         placeholder="Buscar..."
       />
-     
+      <input className={s.btn} type="submit"value="buscar"/>
       </form>
     </div>
   );
 }
+
+     
