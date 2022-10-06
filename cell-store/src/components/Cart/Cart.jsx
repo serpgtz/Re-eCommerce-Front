@@ -63,7 +63,7 @@ function Cart() {
 				<div>
 					
 					{<div className={s.containerDiv}>
-						<div className={s.table}>
+						<div className={s.tableSection}>
 							<div >
 								<h2 >Cart</h2>
 							</div>

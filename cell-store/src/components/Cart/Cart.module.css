@@ -6,40 +6,49 @@
 }
 
 .containerDiv{
-    display: flex;
-    /* justify-content: space-around; */
-}
-
-table th {
-    width: 15em;
-}
-
-table td {
-    justify-self: flex-start;
-    /* width: 15em; */
-}
-
-
-.summary{
-    align-items: center;
-    /* margin-left: 6rem; */
-    /* background-color: yellow; */
-}
-
-.imgCarrito {
-    width: 20px;
-    color: white;
-    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 67% 33%;
 }
 
 .imgContain {
     width: 100px;
     height: 80px;
-    /* width: 70px;
-    height: 50px; */
     margin: 0px;
     display: flex;
     justify-content: center;
+}
+.tableSection{
+    height: 650px;
+    overflow: auto;
+}
+table{
+    width: 100%;
+    table-layout: fixed;
+    min-width: 1000px;
+    border-collapse: collapse;
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+    background-color: #f6f9fc;
+    color: #8493a5;
+    font-size: 15px;
+}
+
+table td input {  
+    height: 20px; 
+}
+
+th, td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    text-align: center;
+}
+
+.summary{
+    margin: 160px 0 0 80px;
 }
 
 .btnDelete{
@@ -111,4 +120,4 @@ table td {
 
 .btnSeguirComp:hover {
     transform: scale(1.1)
-}
+} 
