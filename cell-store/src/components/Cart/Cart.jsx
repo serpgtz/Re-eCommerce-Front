@@ -94,7 +94,7 @@ function Cart() {
 					<div>
 
 						{<div className={s.containerDiv}>
-							<div className={s.table}>
+							<div className={s.tableSection}>
 								<div >
 
 									<h2 > <img className={s.imagencarrito} src={carrito} alt="carrito" /> Carrito</h2>
@@ -144,7 +144,7 @@ function Cart() {
 														onChange={e =>
 															handleQtyChange(
 																e,
-																product
+															product
 															)
 														}
 													/> */}

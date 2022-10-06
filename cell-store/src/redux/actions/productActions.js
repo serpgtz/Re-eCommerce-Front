@@ -11,8 +11,8 @@ export const CHANGE_BY_NAME = "CHANGE_BY_NAME";
 export const CHANGE_BY_NAME2 = "CHANGE_BY_NAME2";
 export const GET_FILTERED = "GET_FILTERED";
 export const NOT_FOUND = "NOT_FOUND";
-export const HIGHER_PRICE = "++PRICE";
-export const LOWER_PRICE = "--_PRICE";
+export const HIGHER_PRICE = "HIGHER_PRICE";
+export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -68,10 +68,7 @@ export function getFilter(query) {
   return async function (dispatch) {
     console.log(query);
     try {
-      if (query === "cell") await axios.get(`/category?${query}=true`);
-      if (query === "phoneCover") await axios.get(`/category?${query}=true`);
-      if (query === "headphones") await axios.get(`/category?${query}=true`);
-      if (query === "charger") await axios.get(`/category?${query}=true`);
+      await axios.get(`/category?${query}=true`);
       return dispatch({
         type: GET_FILTERED,
         payload: query.data,
@@ -126,20 +123,46 @@ export function postCategory(form, navigate, location) {
 }
 
 export function higherPrice() {
-  return {
-    type: "++_PRICE",
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(`/products?price=dsc`);
+      return dispatch({
+        type: HIGHER_PRICE,
+        payload: json.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: NOT_FOUND,
+        payload: { msj: "error" },
+      });
+      console.log(error);
+    }
   };
 }
 
 export function lowerPrice() {
-  return {
-    type: "--_PRICE",
+  return async function (dispatch) {
+    try {
+      await axios.get(`/products?price=asc`);
+      return dispatch({
+        type: LOWER_PRICE,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
 export function topRated() {
-  return {
-    type: "TOP_RATED",
+  return async function (dispatch) {
+    try {
+      await axios.get(`/products?rating=dsc`);
+      return dispatch({
+        type: TOP_RATED,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
@@ -155,9 +178,7 @@ export function changePage(page) {
 export function getProductsPerPage(page) {
   return async function (dispatch) {
     try {
-      let products = await axios.get(
-        `http://localhost:3001/products?page=${page}&&limit=8`
-      );
+      let products = await axios.get(`/products?page=${page}&&limit=8`);
       return dispatch({
         type: PRODUCTS_PER_PAGE,
         payload: products.data,
@@ -184,4 +205,3 @@ export function ChangeByName2() {
     });
   };
 }
-
