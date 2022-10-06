@@ -156,7 +156,7 @@ export function getProductsPerPage(page) {
   return async function (dispatch) {
     try {
       let products = await axios.get(
-        `http://localhost:3001/products?page=${page}&&limit=8`
+        `/products?page=${page}&&limit=8`
       );
       return dispatch({
         type: PRODUCTS_PER_PAGE,
