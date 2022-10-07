@@ -1,13 +1,15 @@
 .container {
     display: grid;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: white;
 }
+
 
 .containerDiv{
     display: grid;
     grid-template-columns: 67% 33%;
+
 }
 
 .imgContain {
@@ -36,6 +38,19 @@ thead th{
     font-size: 15px;
 }
 
+
+
+.imagencarrito {
+    width: 70px;
+
+}
+
+/* .imgCarrito {
+    width: 20px;
+    color: white;
+    background-color: aliceblue;
+} */
+
 table td input {  
     height: 20px; 
 }
@@ -47,17 +62,18 @@ th, td{
     text-align: center;
 }
 
+
 .summary{
     margin: 160px 0 0 80px;
 }
 
-.btnDelete{
+.btnDelete {
     background-color: transparent;
     border: none;
     filter: invert(21%) sepia(70%) saturate(5842%) hue-rotate(356deg) brightness(104%) contrast(111%);
 }
 
-.imagDelete{
+.imagDelete {
     background-color: transparent;
 }
 
@@ -74,7 +90,7 @@ th, td{
     font-weight: 700;
 }
 
-.item{
+.item {
     color: grey;
 }
 
@@ -98,7 +114,7 @@ th, td{
     transform: scale(1.1)
 }
 
-.btnSeguirComp{
+.btnSeguirComp {
     display: flex;
     justify-content: center;
     align-items: center;
