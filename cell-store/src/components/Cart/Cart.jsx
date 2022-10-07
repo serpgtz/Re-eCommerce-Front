@@ -133,9 +133,9 @@ function Cart() {
 													${product.price.toLocaleString('es')}
 												</td>
 												<td>
-													<button onClick={e => handleQtyClick(e, product)} name='+'>+</button>
-													<label>{product.count}</label>
 													<button onClick={e => handleQtyClick(e, product)} name='-'>-</button>
+													{' '}<label>{product.count}</label>{' '}
+													<button onClick={e => handleQtyClick(e, product)} name='+'>+</button>
 													{/* <input
 														type='number'
 														min='1'
