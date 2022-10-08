@@ -13,12 +13,23 @@ const Card = (p) => {
   const { id } = p
   /* const producto = {name, countInStock, numReviews, exists, _id, price, description, stock, image, __v, reviews} */
   const myProduct = useSelector((state) => state.product.products);
+  const productCart = useSelector((state) => state.cart.cart);
+  const filtroConfetti = productCart.filter(e => e._id === id);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
     const productId = myProduct.filter(e => e._id === id);
     console.log('productId---------//----card', productId[0]);
     dispatch(addToCart(productId[0]));
     console.log(id);
+    //efecto confetti
+    if(!filtroConfetti[0]){
+    party.confetti(e.target, {
+      count: party.variation.range(20, 40),
+    });
+    } else{
+      null
+    }
+    
   };
 
   return (
