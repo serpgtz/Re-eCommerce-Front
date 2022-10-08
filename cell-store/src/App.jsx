@@ -27,7 +27,7 @@ import NotFound from "./components/NotFound/NotFound";
 import {ProtectedRoute} from "./Protected/ProtectedRoute";
 /* import Detail from './components/cards-products/Detail' */
 
-
+axios.defaults.baseURL = process.env.REACT_APP_API;
 function App() {
   
   const user = JSON.parse(localStorage.getItem('user'))
