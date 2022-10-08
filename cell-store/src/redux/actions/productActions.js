@@ -15,7 +15,7 @@ export const HIGHER_PRICE = "HIGHER_PRICE";
 export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
 
-axios.defaults.baseURL = process.env.VITE_APP_API 
+axios.defaults.baseURL = import.meta.env.VITE_APP_API 
 
 
 export const getAllProducts = () => {
