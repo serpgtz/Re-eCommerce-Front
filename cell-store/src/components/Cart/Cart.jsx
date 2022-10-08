@@ -94,49 +94,69 @@ function Cart() {
 					<div>
 
 						{<div className={s.containerDiv}>
-							<div className={s.tableSection}>
-								<div >
+							<div>
+								<h2 > <img className={s.imagencarrito} src={carrito} alt="carrito" /> Carrito</h2>
+								<div className={s.tableSection}>
+									<div >
 
-									<h2 > <img className={s.imagencarrito} src={carrito} alt="carrito" /> Carrito</h2>
-								</div>
-								<table >
-									<thead>
-										<tr className={s.tableTh}>
-											<th scope='col'></th>
-											<th scope='col'>Producto</th>
-											<th scope='col'>Precio</th>
-											<th scope='col'>Cantidad</th>
-											<th scope='col'>Eliminar</th>
-										</tr>
-									</thead>
-									<tbody>
-										{cart.map(product => (
-											<tr key={product._id}>
-												<th scope='row'>
-													{' '}
-													<img
-														className={s.imgContain}
-														src={`${product.image}`}
-														alt='product'
-													/>
-												</th>
-												<td>
-													{' '}
-													<Link
-														to={`/detail/${product._id}`}
-													>
-														{product.name}
-													</Link>
-												</td>
-												<td>
-													{' '}
-													${product.price.toLocaleString('es')}
-												</td>
-												<td>
-													<button onClick={e => handleQtyClick(e, product)} name='-'>-</button>
-													{' '}<label>{product.count}</label>{' '}
-													<button onClick={e => handleQtyClick(e, product)} name='+'>+</button>
-													{/* <input
+
+									</div>
+									<table >
+										<thead>
+											<tr className={s.tableTh}>
+												<th scope='col' className={s.colImage}></th>
+												<th scope='col' className={s.colProducto}>Producto</th>
+												<th scope='col' className={s.colCantidad}>Cantidad</th>
+												<th scope='col' className={s.colPrecio}>Precio</th>
+											</tr>
+										</thead>
+										<tbody>
+											{cart.map(product => (
+												<tr key={product._id}>
+													<th scope='row'>
+														{' '}
+														<img
+															className={s.imgContain}
+															src={`${product.image}`}
+															alt='product'
+														/>
+													</th>
+													<td>
+														<div>	{' '}
+															<Link
+																to={`/detail/${product._id}`}
+															>
+																{product.name}
+															</Link></div>
+
+														<button
+															className={s.btnDelete}
+															type='button'
+															onClick={() =>
+																dispatch(
+																	deleteFromCart(
+																		product
+																	)
+																)
+															}
+														>
+															<img className={s.imagDelete} src={trash} alt="not found" />
+														</button>
+													</td>
+
+													<td>
+														<p className={s.botonesQ}>
+															<button className={s.buttonQ} onClick={e => handleQtyClick(e, product)} name='-'>-</button>
+															<div>
+																<label className={s.labelQ}>{product.count}</label>
+															</div>
+															<button className={s.buttonQ} onClick={e => handleQtyClick(e, product)} name='+'>+</button>
+														</p>
+
+														<label className={s.disponible} >disponible: {product.stock}</label>
+
+
+														{/* <input
 														type='number'
 														min='1'
 														max={product.stock}
@@ -148,30 +168,23 @@ function Cart() {
 															)
 														}
 													/> */}
-												</td>
-												<td>
-													{' '}
-													<button
-														className={s.btnDelete}
-														type='button'
-														onClick={() =>
-															dispatch(
-																deleteFromCart(
-																	product
-																)
-															)
-														}
-													>
-														<img className={s.imagDelete} src={trash} alt="not found" />
-													</button>
-												</td>
-											</tr>
-										))}
-									</tbody>
-								</table>
+													</td>
+													<td>
+														<div className={s.priceUnit}>({product.price} c/u)</div>
+
+														{/* {' '}.toLocaleString('es') */}
+														${(product.count * product.price).toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+													</td>
+												</tr>
+											))}
+										</tbody>
+									</table>
+								</div>
 							</div>
+
+
 							<div className={s.summary}>
-								<h2>Total</h2>
+								<h2 className={s.resumen}>Resumen del pedido</h2>
 								<p className={s.item}>
 									{cart.length === 1
 										? '(1) Item'

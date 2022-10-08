@@ -1,47 +1,122 @@
 .container {
-    display: grid;
+    /* display: grid; */
     width: 100%;
     height: 100%;
     background-color: white;
-}
-
-
-.containerDiv{
-    display: grid;
-    grid-template-columns: 67% 33%;
+    margin: 30px;
 
 }
 
-.imgContain {
-    width: 100px;
-    height: 80px;
-    margin: 0px;
+
+.containerDiv {
+    /* display: grid;
+    grid-template-columns: 67% 33%; */
     display: flex;
     justify-content: center;
-}
-.tableSection{
-    height: 650px;
-    overflow: auto;
-}
-table{
-    width: 100%;
-    table-layout: fixed;
-    min-width: 1000px;
-    border-collapse: collapse;
+    align-items: flex-start;
 }
 
-thead th{
+table {
+    /* width: 100%; */
+    table-layout: fixed;
+    width: 900px;
+    /* border-collapse: collapse; */
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+thead th {
     position: sticky;
     top: 0;
     background-color: #f6f9fc;
     color: #8493a5;
     font-size: 15px;
+    margin: 0;
+    padding: 0;
+    /* border: solid black; */
+}
+
+.colImage {
+    width: 10%;
+    margin: 0;
+    padding: 0;
+}
+
+.colProducto {
+    width: 40%;
+    margin: 0;
+    padding: 0;
+}
+
+.colCantidad {
+    width: 10%;
+    margin: 0;
+    padding: 0;
+
+}
+
+.colPrecio {
+    width: 30%;
+    margin: 0;
+    padding: 0;
+}
+
+.imgContain {
+    max-width: 100px;
+    max-height: 80px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonesQ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    /* border: solid black; */
+}
+
+.buttonQ {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    /* background-color: rgb(132, 147, 165, 0.3); */
+    font-size: 15px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+.labelQ {
+    width: 130px;
+    margin: 10px;
+    padding: 0;
+    font-size: 20px;
+}
+
+.disponible {
+    font-size: 10px;
+    color: #8493a5;
+    font-style: italic;
+}
+
+.priceUnit {
+    font-size: 10px;
+    color: #8493a5;
+    font-style: italic;
+}
+
+.tableSection {
+    height: 650px;
+    overflow: auto;
 }
 
 
 
+
+
 .imagencarrito {
-    width: 70px;
+    width: 40px;
 
 }
 
@@ -51,24 +126,36 @@ thead th{
     background-color: aliceblue;
 } */
 
-table td input {  
-    height: 20px; 
+table td input {
+    height: 20px;
 }
 input{
     height: 20px;
     width: 50px;
 }
 
-th, td{
+tr {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+th,
+td {
     border-bottom: 1px solid #dddddd;
-    padding: 10px 20px;
-    word-break: break-all;
+    /* padding: 10px 20px; */
+    /* word-break: break-all; */
     text-align: center;
+    margin: 0px;
+    padding: 0;
+
 }
 
 
-.summary{
+.summary {
     margin: 160px 0 0 80px;
+}
+
+.resumen {
+    font-size: 25px;
 }
 
 .btnDelete {
@@ -140,4 +227,4 @@ th, td{
 
 .btnSeguirComp:hover {
     transform: scale(1.1)
-} 
+}
