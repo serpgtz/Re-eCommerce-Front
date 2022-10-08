@@ -7,10 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
-// import dotenv from "dotenv";
-// dotenv.config();
-
-
+// 
 
 
 
