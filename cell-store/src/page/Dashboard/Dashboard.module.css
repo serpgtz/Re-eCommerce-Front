@@ -1,0 +1,71 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.dashContainer {
+  background-color: rgba(128, 128, 128, 0.258);
+  display: block;
+  padding-left: 30px;
+  height: max-content;
+  padding-top: 1rem;
+}
+
+.cardUserContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  height: 25rem;
+  width: 95%;
+  border-radius: 8px;
+  transition: 500ms;
+  background-color: #00218f21;
+  align-content: space-between;
+  flex-wrap: wrap;
+}
+.cardUserContainer:hover {
+  transition: 600ms;
+  background-color: #00124d38;
+}
+.cardUserAdmin {
+  display: block;
+  align-items: flex-start;
+  justify-content: center;
+  /* flex-direction: column; */
+  border: 1px gray solid;
+  flex-direction: row;
+  background: linear-gradient(190deg, #5b7ce8 0%, #fff 91%);
+  border-radius: 22px 5px 22px 5px;
+  padding: 1rem;
+  width: 15rem;
+  height: 19rem;
+  color: rgb(135, 164, 213);
+  font-weight: 600;
+  padding-bottom: 0px;
+  transition: 180ms;
+}
+.cardUserAdmin:hover {
+  transition: 190ms;
+  box-shadow: 0px 1px 10px 1px #564e92;
+}
+/* From uiverse.io by @absoluteSTrange */
+
+.p {
+  background: rgba(255, 255, 255, 0.501);
+  color: darkblue;
+  text-align: center;
+  border-radius: 5px;
+  border-bottom: 1px solid rgba(14, 0, 93, 0.689);
+  padding: 0.2rem;
+  transition: 200ms;
+}
+.p:hover {
+  transition: 200ms;
+  background: darkblue;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border-radius: 5px;
+  border-bottom: 1px solid rgba(14, 0, 93, 0.689);
+  padding: 0.2rem;
+}

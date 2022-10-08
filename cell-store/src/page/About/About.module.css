@@ -1,0 +1,21 @@
+.aboutDiv {
+  background-color: slategrey;
+}
+.crew {
+  background-color: transparent;
+  height: 250px;
+  width: 460;
+  display: flex;
+}
+.nombre {
+  font-weight: 600;
+  color: white;
+}
+.avatarPhoto {
+  height: 150px;
+  border-radius: 50%;
+}
+.aboutBtn {
+  cursor: pointer;
+  margin: 5px;
+}

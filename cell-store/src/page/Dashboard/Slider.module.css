@@ -1,0 +1,38 @@
+.leftArrow {
+  width: 50px;
+  height: 50px;
+  background-color: #fff7f7;
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 80%;
+  left: 1%;
+  bottom: 0%;
+  margin: auto;
+  cursor: pointer;
+  font-size: x-large;
+  opacity: 0.5;
+  z-index: 2;
+}
+.rightArrow {
+  width: 50px;
+  height: 50px;
+  background-color: #fff7f7;
+  border-radius: 50%;
+  color: black;
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 80%;
+  bottom: 0;
+  right: 1%;
+  margin: auto;
+  cursor: pointer;
+  opacity: 0.5;
+  z-index: 2;
+}

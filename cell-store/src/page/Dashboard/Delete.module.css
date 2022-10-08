@@ -1,0 +1,23 @@
+.onlySpan {
+  background-color: indianred;
+  width: 1.5rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  font-weight: 800;
+  cursor: grabbing;
+  transition: 170ms;
+  color: white;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.onlySpan:hover {
+  background: radial-gradient(
+    #b71b1b 0%,
+    rgba(255, 138, 138, 0.6078431372549019) 100%
+  );
+  text-shadow: 0px 0px 2px #3c2c2c;
+  box-shadow: 0px 0px 10px 2px #ffa1a19b;
+  transition: 200ms;
+}

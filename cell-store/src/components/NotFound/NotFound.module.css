@@ -1,0 +1,12 @@
+.container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.btnNotFound{
+    width: 180px;
+    height: 40px;
+    cursor: pointer;
+}
