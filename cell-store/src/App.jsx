@@ -26,8 +26,10 @@ import Cart from "./components/Cart/Cart";
 import NotFound from "./components/NotFound/NotFound";
 import {ProtectedRoute} from "./Protected/ProtectedRoute";
 /* import Detail from './components/cards-products/Detail' */
+import axios from "axios";
 
 axios.defaults.baseURL = process.env.REACT_APP_API;
+
 function App() {
   
   const user = JSON.parse(localStorage.getItem('user'))
