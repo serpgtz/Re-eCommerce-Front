@@ -29,20 +29,20 @@ function Detail() {
 
   const navigate = useNavigate();
   const handleGoBackBtn = () => {
-		navigate(-1);
-	};
+    navigate(-1);
+  };
 
- /*  function handleBack() {
-    dispatch(getProductsPerPage(page))
-    console.log(page)
-
-  } */
+  /*  function handleBack() {
+     dispatch(getProductsPerPage(page))
+     console.log(page)
+ 
+   } */
 
   return (
     <div>
       <div className={styles.nav}>
         <Link to={"/"}>
-          <button onClick={handleGoBackBtn}>BACK</button>
+          <button onClick={handleGoBackBtn} className={styles.btnGoBack} >Back</button>
         </Link>
       </div>
       <div className={styles.container}>
@@ -78,7 +78,7 @@ function Detail() {
                   <strong>stock : </strong>
                   {myProduct.stock} unidades.
                 </p>
-                <div className={styles.btnBuy}>Comprar ahora</div>
+                <div className={styles.btnBuy}>Proceder a la compra</div>
                 <div onClick={handleAddToCart} className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
               </div>
             </div>

@@ -24,12 +24,13 @@ import ConfirmEmail from "./page/ConfirmEmail/ConfirmEmail";
 import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
 import Cart from "./components/Cart/Cart";
 import NotFound from "./components/NotFound/NotFound";
-import {ProtectedRoute} from "./Protected/ProtectedRoute";
+import { ProtectedRoute } from "./Protected/ProtectedRoute";
 /* import Detail from './components/cards-products/Detail' */
 
 
+
 function App() {
-  
+
   const user = JSON.parse(localStorage.getItem('user'))
   console.log('USER:', user)
   const dispatch = useDispatch();
@@ -50,33 +51,33 @@ function App() {
         <Route path="/account/login" element={<Auth />} />
         <Route path="/confirm" element={<ConfirmEmail />} />
         {/* */}
-        <Route path="/confirm/:id" element={<ConfirmedEmail/>} />
+        <Route path="/confirm/:id" element={<ConfirmedEmail />} />
         {/* */}
         <Route path="/historia" element={<Historia />} />
-        
+
         <Route path="/account/profile" element={
-        <ProtectedRoute isAllowed={user} redirectTo ={'/account/login'}>
+          <ProtectedRoute isAllowed={user} redirectTo={'/account/login'}>
 
-        <Profile /> 
-        </ProtectedRoute> } />
+            <Profile />
+          </ProtectedRoute>} />
         {/*autenticado */}
-        
-        <Route element={<ProtectedRoute isAllowed={user?.admin}/>}>
 
-        <Route path="/newproduct" element={<ProductForm />} />
-        {/*autenticado y administrador*/}
-        <Route path="/interForm/:id" element={<InterForm />} />
-        {/*autenticado y administrador*/}
-        <Route path="/categoryForm/:id" element={<CategoryForm />} />
-        {/*autenticado y administrador*/}
-        <Route path="/adminDashboard" element={<Dashboard />} />
-        {/*autenticado y administrador*/}
+        <Route element={<ProtectedRoute isAllowed={user?.admin} />}>
+
+          <Route path="/newproduct" element={<ProductForm />} />
+          {/*autenticado y administrador*/}
+          <Route path="/interForm/:id" element={<InterForm />} />
+          {/*autenticado y administrador*/}
+          <Route path="/categoryForm/:id" element={<CategoryForm />} />
+          {/*autenticado y administrador*/}
+          <Route path="/adminDashboard" element={<Dashboard />} />
+          {/*autenticado y administrador*/}
         </Route>
-        
+
         <Route path="/account/register" element={<Register />} />
         {/*sin logear*/}
 
-        
+
       </Routes>
       <Footer />
     </>
