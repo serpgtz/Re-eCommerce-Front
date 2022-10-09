@@ -130,6 +130,15 @@ export const deleteUser = (id) => {
     }
   };
 };
+export const getUser = (id) => {
+  return async () => {
+    try {
+      await axios.get("/users/" + id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const confirmUser = (token) => {
   return async (dispatch) => {

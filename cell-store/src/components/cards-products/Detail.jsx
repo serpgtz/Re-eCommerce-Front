@@ -1,26 +1,32 @@
 import React from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailId, resetState, ChangeByName2, getProductsPerPage } from "../../redux/actions/productActions";
+import {
+  getDetailId,
+  resetState,
+  ChangeByName2,
+  getProductsPerPage,
+} from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css";
-import carrito from '../../image/carrito.png'
-import corazonVacio from '../../image/corazonVacio.png'
-import { addToCart } from '../../redux/actions/cartActions';
+import carrito from "../../image/carrito.png";
+import corazonVacio from "../../image/corazonVacio.png";
+import { addToCart } from "../../redux/actions/cartActions";
+import Reviews from "./Reviews";
 
 function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const myProduct = useSelector((state) => state.product.detail);
-  const page = useSelector((state) => state.product.page)
+  const page = useSelector((state) => state.product.page);
 
   const handleAddToCart = () => {
-    console.log('myProduct-----detail----------////', myProduct)
+    console.log("myProduct-----detail----------////", myProduct);
     dispatch(addToCart(myProduct));
   };
 
   useEffect(() => {
-    dispatch(ChangeByName2())
+    dispatch(ChangeByName2());
     dispatch(getDetailId(id));
     return () => {
       dispatch(resetState());
@@ -29,10 +35,10 @@ function Detail() {
 
   const navigate = useNavigate();
   const handleGoBackBtn = () => {
-		navigate(-1);
-	};
+    navigate(-1);
+  };
 
- /*  function handleBack() {
+  /*  function handleBack() {
     dispatch(getProductsPerPage(page))
     console.log(page)
 
@@ -65,13 +71,20 @@ function Detail() {
                 <h3 className={styles.titleone}>{myProduct.name}</h3>
                 <div className={styles.priceLike}>
                   <p className={styles.price}>${myProduct.price}</p>
-                  <p><img className={styles.corazon} src={corazonVacio} alt="image not found" /></p>
+                  <p>
+                    <img
+                      className={styles.corazon}
+                      src={corazonVacio}
+                      alt="image not found"
+                    />
+                  </p>
                 </div>
 
                 <p className={styles.letter}>
                   <strong>Description : </strong>
                   {myProduct.description}
                 </p>
+                <Reviews id={id} />
               </div>
               <div className={styles.buy}>
                 <p className={styles.letter}>
@@ -79,7 +92,14 @@ function Detail() {
                   {myProduct.stock} unidades.
                 </p>
                 <div className={styles.btnBuy}>Comprar ahora</div>
-                <div onClick={handleAddToCart} className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
+                <div onClick={handleAddToCart} className={styles.btnCar}>
+                  <img
+                    className={styles.imgCarrito}
+                    src={carrito}
+                    alt="image not found"
+                  />
+                  Agregar al carrito
+                </div>
               </div>
             </div>
           ) : (
