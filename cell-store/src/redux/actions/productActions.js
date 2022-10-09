@@ -17,7 +17,7 @@ export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
 
 dotenv.config()
-axios.defaults.baseURL = import.meta.env.BASE_URL;
+axios.defaults.baseURL = import.meta.env.VITE_API;
 
 export const getAllProducts = () => {
   return async (dispatch) => {
