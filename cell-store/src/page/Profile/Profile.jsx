@@ -1,12 +1,19 @@
+import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getReviewByUser } from "../../redux/actions/reviewActions";
 import { getUserData } from "../../redux/actions/userActions";
 import styles from "./Profile.module.css";
 
 const Profile = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
+  const userSecret = useSelector((state) =>
+    state.user.users.filter((u) => u.username === user.name)
+  );
+
   useEffect(() => {
+    dispatch(getReviewByUser(userSecret[0]._id));
     dispatch(getUserData());
   }, [dispatch]);
   return (
@@ -35,10 +42,17 @@ const Profile = () => {
       </div>
       <div className={styles.userReviewsContainer}>
         <h3>Reviews realizadas</h3>
-        {/* {user.reviews} */}
-        <button>Funda Iphone 11 Power Rangers</button>
-        <button>Audiolibro "El Arte de la guerra"</button>
-        <button>Xiaomi Redmi Airdots 3</button>
+        {user.admin === true && (
+          <p>No podés hacer review, papá, sos el admin</p>
+        )}
+        {userSecret?.reviews?.length > 0
+          ? userSecret?.reviews?.map((review) => (
+              <Link to={`/detail/${review?.product.id}`}>
+                <p>{review?.product.name}</p>
+                <p>{review?.comment}</p>
+              </Link>
+            ))
+          : "Todavía no has hecho ninguna review"}
       </div>
     </div>
   );
