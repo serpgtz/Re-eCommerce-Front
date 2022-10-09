@@ -6,7 +6,7 @@ export const GET_PRODUCT_REVIEWS = "GET_PRODUCT_REVIEWS";
 
 dotenv.config()
 
-axios.defaults.baseURL = import.meta.env.BASE_URL;
+axios.defaults.baseURL = import.meta.env.VITE_API;
 
 export const postReview = (productId, userId, review) => {
   return async (dispatch) => {
