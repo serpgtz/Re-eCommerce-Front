@@ -9,7 +9,7 @@ export const GET_BY_NAME = "GET_BY_NAME";
 export const REGISTER_ERROR = "REGISTER_ERROR";
 export const ERROR_CONFIRM_TOKEN = "ERROR_CONFIRM_TOKEN";
 
-axios.defaults.baseURL = import.meta.env.VITE_APP_API 
+axios.defaults.baseURL = import.meta.env.PROD 
 
 
 export const userRegister = (user) => {
