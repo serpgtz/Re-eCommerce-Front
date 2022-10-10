@@ -68,10 +68,11 @@ export function getFilter(query) {
   return async function (dispatch) {
     console.log(query);
     try {
-      await axios.get(`/products?name=${query}`);
+     let filterProduct= await axios.get(`/products?name=${query}`);
+     console.log("desde dispatch",filterProduct)
       return dispatch({
         type: GET_FILTERED,
-        payload: query.data,
+        payload: filterProduct.data,
       });
     } catch (error) {
       console.log(error);
