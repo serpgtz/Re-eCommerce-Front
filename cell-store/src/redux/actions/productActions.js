@@ -66,7 +66,7 @@ export function getDetailId(id) {
 
 export function getFilter(query) {
   return async function (dispatch) {
-    console.log(query);
+  
     try {
      let filtersProduct= await axios.get(`/products?page=1&limit=8&name=${query}`);
      console.log("desde dispatch",filtersProduct)
