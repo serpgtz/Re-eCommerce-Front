@@ -6,10 +6,10 @@ import Filters from "../../components/Filters/Filters";
 import Footer from "../../components/footer/Footer";
 import Marquee from "../../components/Marquee/Marquee"
 
+
 const Home = () => {
   return (
     <div>
-      <Marquee />
       <div className={s.maxContainer}>
         {/* <div className={s.filters}>
           <Filters />

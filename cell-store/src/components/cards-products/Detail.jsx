@@ -13,6 +13,7 @@ import carrito from "../../image/carrito.png";
 import corazonVacio from "../../image/corazonVacio.png";
 import { addToCart } from "../../redux/actions/cartActions";
 import Reviews from "./Reviews";
+import ReviewsRemix from "./ReviewsRemix";
 
 function Detail() {
   const dispatch = useDispatch();
@@ -47,9 +48,7 @@ function Detail() {
   return (
     <div>
       <div className={styles.nav}>
-        <Link to={"/"}>
-          <button onClick={handleGoBackBtn} className={styles.btnGoBack} >Back</button>
-        </Link>
+          <button onClick={handleGoBackBtn}>BACK</button>
       </div>
       <div className={styles.container}>
         <div className={styles.caja}>
@@ -84,7 +83,7 @@ function Detail() {
                   <strong>Description : </strong>
                   {myProduct.description}
                 </p>
-                <Reviews id={id} />
+                {/* <Reviews id={id} /> */}
               </div>
               <div className={styles.buy}>
                 <p className={styles.letter}>
@@ -106,6 +105,10 @@ function Detail() {
           )}
         </div>
       </div>
+      <Reviews 
+      id={id}
+      image={myProduct.image}
+      name={myProduct.name} />
     </div>
   );
 }

@@ -26,6 +26,7 @@ const Cards = () => {
             !product.hasOwnProperty("msj")?
             byName==="true"? 
             product?.map((el) => {
+                console.log("profuct1")
                 return (
                     <div key={el._id}>
                         <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
@@ -41,6 +42,7 @@ const Cards = () => {
                 );
             }):
             products2.products?.map((el) => {
+                console.log("profuct2")
                 return (
                     
                     <div key={el._id}>
