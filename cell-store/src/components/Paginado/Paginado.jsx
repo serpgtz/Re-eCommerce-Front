@@ -25,7 +25,7 @@ export default function () {
     dispatch(getProductsPerPage(e.target.value));
   }
 
-  if (productsTotal.length < 8) {
+  if (productsTotal.length < limit) {
     return null;
   } else {
     return (
