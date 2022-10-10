@@ -6,9 +6,7 @@ import icon_eyes_on from "../../image/show.png";
 import icon_eyes_off from "../../image/hide.png";
 import { getUserData, userLogin } from "../../redux/actions/userActions";
 import Alert from "../../components/alert/Alert";
-import jwt_decode from 'jwt-decode'
-
-
+import jwt_decode from "jwt-decode";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -16,6 +14,7 @@ const Auth = () => {
 
   const [click, setClick] = useState(false);
   //const [error , setError] = useState({})
+
   const [input, setInput] = useState({
     username: "",
     password: "",
@@ -45,6 +44,7 @@ const Auth = () => {
   }, [dispatch, token])
   console.log(token)
 
+
   const handleOnChange = (evt) => {
     setInput({
       ...input,
@@ -57,6 +57,7 @@ const Auth = () => {
     e.preventDefault();
     dispatch(userLogin(input));
   };
+
 
   console.log(error_back)
   return (
@@ -116,6 +117,7 @@ const Auth = () => {
           </div>
         </form>
       </div>
+
 
     </div>
   );

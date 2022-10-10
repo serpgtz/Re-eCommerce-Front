@@ -92,9 +92,20 @@ function Detail() {
                 </p>
 
                 <div className={styles.btnBuy}>Proceder a la compra</div>
-                <div onClick={handleAddToCart} className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
+                <div onClick={handleAddToCart} className={styles.btnCar}>
+                  <img
+                    className={styles.imgCarrito}
+                    src={carrito}
+                    alt="image not found"
+                  />
+                  Agregar al carrito
+                </div>
 
-
+                <Reviews
+                  id={id}
+                  image={myProduct.image}
+                  name={myProduct.name}
+                />
               </div>
             </div>
           ) : (
@@ -105,10 +116,7 @@ function Detail() {
           )}
         </div>
       </div>
-      <Reviews
-        id={id}
-        image={myProduct.image}
-        name={myProduct.name} />
+
     </div>
   );
 }
