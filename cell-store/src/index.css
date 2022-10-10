@@ -122,7 +122,15 @@ code {
   --background-Reg-buttons: var(--medio);
   --color-Reg-buttons: var(--claro);
   --background-Reg-buttons-hover: var(--oscuro);
-  /* --background */
+  /* --------------USUARIOS------------- */
+  --background-Reg: var(--oscuro-medio-claro);
+  --color-Reg-h2-label: var(--oscuro);
+  --background-Reg-buttons: var(--medio);
+  --color-Reg-buttons: var(--claro);
+  --background-Reg-buttons-hover: var(--oscuro);
+  /* --------------NOT FOUND------------- */
+  --background-NotFound: var(--oscuro-medio-claro);
+  --background-NotFound-btnNotFound: var(--medio);
   /* --background */
   /* --background */
 

@@ -5,19 +5,22 @@ import s from './NotFound.module.css';
 
 
 
-export default function NotFound(){
+export default function NotFound() {
     let navigate = useNavigate();
     const handleGoBackBtn = () => {
-		navigate('/');
-	};
+        navigate('/');
+    };
 
 
-    return(
+    return (
         <div className={s.container}>
-            <button className={s.btnNotFound}	onClick={handleGoBackBtn}>
-                Go Home
+            <button className={s.btnNotFound} onClick={handleGoBackBtn}>
+                Home
             </button>
-            <img src={notfound} width="800px"/>
+            <div className={s.containerImage}>
+                <img className={s.imageNotFound} src={notfound} width="800px" />
+            </div>
+
         </div>
     )
 }
