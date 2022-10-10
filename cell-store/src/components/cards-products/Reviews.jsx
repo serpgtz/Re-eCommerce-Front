@@ -7,8 +7,9 @@ import {
   getReviewByProduct,
   postReview,
 } from "../../redux/actions/reviewActions";
+import ReviewsRemix from "./ReviewsRemix";
 
-const Reviews = ({ id }) => {
+const Reviews = ({ id, name, image }) => {
   const dispatch = useDispatch();
   //   const reviews = useSelector((state) => state.reviews);
   const reviewsByProduct = useSelector((state) => state.reviews);
@@ -35,14 +36,18 @@ const Reviews = ({ id }) => {
         </details>
       ) : null}
       {user.admin === false && (
-        <button onClick={(e) => handlePost(e)}>Valorar</button>
+        <button onClick={(e) => handlePost(e)}>Reviews</button>
       )}
       {box === true && (
         <>
-          <input placeholder="Opino que..." type="text" />
+        <ReviewsRemix
+        id={id}
+        image={image}
+        name={name} />
+          {/* <input placeholder="Opino que..." type="text" />
           <label htmlFor="rating">Rating</label>
           <input id="rating" type="range" min="1" max="5" step="1" />
-          <input type="button" value="Enviar" />
+          <input type="button" value="Enviar" /> */}
         </>
       )}
       {/* {"Debería abrirse un box para escribir la review"} */}
