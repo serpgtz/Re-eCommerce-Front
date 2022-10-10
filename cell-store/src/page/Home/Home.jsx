@@ -8,8 +8,6 @@ import Footer from "../../components/footer/Footer";
 const Home = () => {
   return (
     <div>
-       
-
       <div className={s.maxContainer}>
         <div className={s.container}>
           <Cards />

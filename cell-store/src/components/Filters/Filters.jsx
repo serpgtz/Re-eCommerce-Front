@@ -25,6 +25,7 @@ function Filters() {
   };
   const handleSort = (e) => {
     const value = e.target.innerText;
+    console.log("desdefilter",value)
     if (value === "Mayor Precio") {
       setSort("higherPrice");
     }
@@ -38,15 +39,18 @@ function Filters() {
   useEffect(() => {
     if (sort === "higherPrice") {
       dispatch(higherPrice(1));
+      dispatch(ChangeByName())
       console.log("It's a-me MaRIO", products);
     }
     if (sort === "lowerPrice") {
       dispatch(lowerPrice(1));
+      
     }
     if (sort === "topRated") {
       dispatch(topRated(1));
+    
     }
-  }, [dispatch]);
+  }, [sort]);
 
   return (
     <aside className={s.aside}>
