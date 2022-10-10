@@ -4,6 +4,7 @@ import Cards from "../../components/cards-products/Cards";
 import Paginado from "../../components/Paginado/Paginado.jsx";
 import Footer from "../../components/footer/Footer";
 
+
 const Home = () => {
   return (
     <div>

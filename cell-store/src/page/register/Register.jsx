@@ -6,18 +6,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userRegister } from '../../redux/actions/userActions'
 import { errorInput } from './control'
 import Alert from '../../components/alert/Alert'
-import { useToast, Button, Input, FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText} from '@chakra-ui/react'
-import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
 
 
 const Register = () => {
-  const toast = useToast()
+ 
   const dispatch = useDispatch()
   const navigate = useNavigate()
    const error_back = useSelector(state => state.user.error_register)
