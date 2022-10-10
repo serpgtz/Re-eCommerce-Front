@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container .slider {
+    display: flex;
+    background-color: var(--medio);
+    padding: 2px;
+    width: 600px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.container .slider .img {
+    margin: 3px;
+}
+
+.ControlPrev,
+.ControlNext {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--medio);
+    cursor: pointer;
+    object-fit: cover;
+    padding: 10px;
+}
+
+.container .ControlPrev {
+    transform: translate(300%, -50%);
+    /* transform: rotate(90deg); */
+    left: 0;
+    top: 50%;
+}
+
+.container .ControlNext {
+    transform: rotate(-90deg)
+}

@@ -13,6 +13,7 @@ import carrito from "../../image/carrito.png";
 import corazonVacio from "../../image/corazonVacio.png";
 import { addToCart } from "../../redux/actions/cartActions";
 import Reviews from "./Reviews";
+import ReviewsRemix from "./ReviewsRemix";
 
 function Detail() {
   const dispatch = useDispatch();
@@ -39,17 +40,15 @@ function Detail() {
   };
 
   /*  function handleBack() {
-    dispatch(getProductsPerPage(page))
-    console.log(page)
-
-  } */
+     dispatch(getProductsPerPage(page))
+     console.log(page)
+ 
+   } */
 
   return (
     <div>
       <div className={styles.nav}>
-        <Link to={"/"}>
           <button onClick={handleGoBackBtn}>BACK</button>
-        </Link>
       </div>
       <div className={styles.container}>
         <div className={styles.caja}>
@@ -84,22 +83,18 @@ function Detail() {
                   <strong>Description : </strong>
                   {myProduct.description}
                 </p>
-                <Reviews id={id} />
+                {/* <Reviews id={id} /> */}
               </div>
               <div className={styles.buy}>
                 <p className={styles.letter}>
                   <strong>stock : </strong>
                   {myProduct.stock} unidades.
                 </p>
-                <div className={styles.btnBuy}>Comprar ahora</div>
-                <div onClick={handleAddToCart} className={styles.btnCar}>
-                  <img
-                    className={styles.imgCarrito}
-                    src={carrito}
-                    alt="image not found"
-                  />
-                  Agregar al carrito
-                </div>
+
+                <div className={styles.btnBuy}>Proceder a la compra</div>
+                <div onClick={handleAddToCart} className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
+
+
               </div>
             </div>
           ) : (
@@ -110,6 +105,10 @@ function Detail() {
           )}
         </div>
       </div>
+      <Reviews 
+      id={id}
+      image={myProduct.image}
+      name={myProduct.name} />
     </div>
   );
 }
