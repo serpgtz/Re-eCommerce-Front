@@ -146,11 +146,11 @@ function Cart() {
 
 													<td>
 														<p className={s.botonesQ}>
-															<button className={s.buttonQ} onClick={e => handleQtyClick(e, product)} name='+'>+</button>
+															<button className={s.buttonQ} onClick={e => handleQtyClick(e, product)} name='-'>-</button>
 															<div>
 																<label className={s.labelQ}>{product.count}</label>
 															</div>
-															<button className={s.buttonQ} onClick={e => handleQtyClick(e, product)} name='-'>-</button>
+															<button className={s.buttonQ} onClick={e => handleQtyClick(e, product)} name='+'>+</button>
 														</p>
 
 														<label className={s.disponible} >disponible: {product.stock}</label>

@@ -52,17 +52,17 @@ export default function productReducer(state = initialState, action) {
     case HIGHER_PRICE:
       return {
         ...state,
-        products: action.payload,
+        products2: action.payload,
       };
     case LOWER_PRICE:
       return {
         ...state,
-        products: action.payload,
+        products2: action.payload,
       };
     case TOP_RATED:
       return {
         ...state,
-        products: action.payload,
+        products2: action.payload,
       };
     case RESET:
       return {

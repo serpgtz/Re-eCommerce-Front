@@ -35,7 +35,7 @@ export const getAllProducts = () => {
 export function getProductByName(name) {
   return async function (dispatch) {
     try {
-      const product = await axios.get(`/products?name=${name}`);
+      const product = await axios.get(`/products?page=1&limit=8&name=${name}`);
       return dispatch({
         type: GET_PRODUCT_BY_NAME,
         payload: product.data,
@@ -66,12 +66,13 @@ export function getDetailId(id) {
 
 export function getFilter(query) {
   return async function (dispatch) {
-    console.log(query);
+  
     try {
-      await axios.get(`/category?${query}=true`);
+     let filtersProduct= await axios.get(`/products?page=1&limit=8&name=${query}`);
+     console.log("desde dispatch",filtersProduct)
       return dispatch({
         type: GET_FILTERED,
-        payload: query.data,
+        payload: filtersProduct.data,
       });
     } catch (error) {
       console.log(error);
@@ -122,10 +123,10 @@ export function postCategory(form, navigate, location) {
   };
 }
 
-export function higherPrice() {
+export function higherPrice(page) {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`/products?price=dsc`);
+      const json = await axios.get(`/products?page=${page}&limit=8&price=dsc`);
       return dispatch({
         type: HIGHER_PRICE,
         payload: json.data,
@@ -140,12 +141,13 @@ export function higherPrice() {
   };
 }
 
-export function lowerPrice() {
+export function lowerPrice(page) {
   return async function (dispatch) {
     try {
-      await axios.get(`/products?price=asc`);
+      const json = await axios.get(`/products?page=${page}&limit=8&price=asc`);
       return dispatch({
         type: LOWER_PRICE,
+        payload: json.data,
       });
     } catch (error) {
       console.log(error);
@@ -153,12 +155,13 @@ export function lowerPrice() {
   };
 }
 
-export function topRated() {
+export function topRated(page) {
   return async function (dispatch) {
     try {
-      await axios.get(`/products?rating=dsc`);
+      const json = await axios.get(`/products?page=${page}&limit=8&rating=dsc`);
       return dispatch({
         type: TOP_RATED,
+        payload: json.data,
       });
     } catch (error) {
       console.log(error);
