@@ -116,6 +116,7 @@ function Detail() {
           )}
         </div>
       </div>
+
     </div>
   );
 }
