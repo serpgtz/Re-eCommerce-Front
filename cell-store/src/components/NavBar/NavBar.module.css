@@ -1,7 +1,7 @@
 .navBar {
   display: flex;
   height: 8.1rem;
-  width: 100vw;
+  width: 100%;
   background: Var(--background-NavBar-navBar);
   justify-content: space-around;
   align-items: flex-start;
@@ -14,7 +14,8 @@
   background: transparent;
   transition: 250ms;
   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-  font-family: Didot LT STD, Hoefler Text, Garamond, Calisto MT, Times New Roman, serif;
+  font-family: Didot LT STD, Hoefler Text, Garamond, Calisto MT, Times New Roman,
+    serif;
 }
 
 .header:hover {
@@ -44,7 +45,6 @@
   border-radius: 2rem 0 0 0;
   background-color: var(--background-NavBar-NavBtn-hover);
   color: var(--color-NavBar-NavBtn-hover);
-
 }
 
 .link {
@@ -138,14 +138,12 @@
   color: var(--color-NavBar-NavBtnLogouts-hover);
 }
 
-
 .div_logo {
   margin-top: 10px;
   display: flex;
   align-items: center;
   width: 100%;
   height: 60px;
-
 }
 
 .div_logo img {
