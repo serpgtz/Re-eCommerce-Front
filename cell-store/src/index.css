@@ -111,8 +111,11 @@ code {
   --color-CartNavBar-divCart-hover: var(--medio);
   --color-CartNavBar-divCart-hover-spa: var(--oscuro);
   --color-CartNavBar-divCart-hover-imgCarrito: var(--oscuro);
-  /* --background */
-  /* --background */
+  /* --------------AUTH------------- */
+  --background-Auth: var(--oscuro-medio-claro);
+  --color-Auth-h2-label: var(--oscuro);
+  --background-Auth-buttons: var(--medio);
+  --color-Auth-buttons: var(--medio);
   /* --background */
   /* --background */
   /* --background */

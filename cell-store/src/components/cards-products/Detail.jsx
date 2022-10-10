@@ -48,7 +48,7 @@ function Detail() {
   return (
     <div>
       <div className={styles.nav}>
-          <button onClick={handleGoBackBtn}>BACK</button>
+        <button onClick={handleGoBackBtn}>BACK</button>
       </div>
       <div className={styles.container}>
         <div className={styles.caja}>
@@ -105,10 +105,10 @@ function Detail() {
           )}
         </div>
       </div>
-      <Reviews 
-      id={id}
-      image={myProduct.image}
-      name={myProduct.name} />
+      <Reviews
+        id={id}
+        image={myProduct.image}
+        name={myProduct.name} />
     </div>
   );
 }
