@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useActionData } from "react-router-dom";
+import dotenv from "dotenv"
 
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
@@ -15,7 +16,8 @@ export const HIGHER_PRICE = "HIGHER_PRICE";
 export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
 
-axios.defaults.baseURL = import.meta.env.BASE_URL;
+
+axios.defaults.baseURL = import.meta.env.VITE_API;
 
 export const getAllProducts = () => {
   return async (dispatch) => {
