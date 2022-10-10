@@ -30,6 +30,7 @@ import {ProtectedRoute} from "./Protected/ProtectedRoute";
 
 function App() {
   
+  const user_redux = useSelector(state => state.user.user)
   const user = JSON.parse(localStorage.getItem('user'))
   console.log('USER:', user)
   const dispatch = useDispatch();

@@ -5,9 +5,16 @@ import Paginado from "../../components/Paginado/Paginado.jsx";
 import Filters from "../../components/Filters/Filters";
 import Footer from "../../components/footer/Footer";
 
+
 const Home = () => {
   return (
     <div>
+       
+      
+
+
+
+
       <div className={s.maxContainer}>
         <div className={s.filters}>
           <Filters />

@@ -6,6 +6,7 @@ import icon_eyes_on from "../../image/show.png";
 import icon_eyes_off from "../../image/hide.png";
 import { getUserData, userLogin } from "../../redux/actions/userActions";
 import Alert from "../../components/alert/Alert";
+import jwt_decode from 'jwt-decode'
 
 
 
@@ -16,10 +17,24 @@ const Auth = () => {
   const error_back = useSelector((state) => state.user.error);
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
- 
+  
+
+  const handleResponseGoogle = (response) => {
+      console.log('jwt =>' + response.credential)
+      localStorage.setItem('user_google', JSON.stringify(jwt_decode(response.credential)))
+  }
   useEffect(()=> {
+    google.accounts.id.initialize({
+      client_id : '2890899428-u9cjg4ihv7m8i9es40sb2quegdbqm0c3.apps.googleusercontent.com',
+      callback : handleResponseGoogle
+    })
+
+    google.accounts.id.renderButton(
+      document.getElementById("singInDiv"),
+      {theme: "outline", size: "large"}
+    )
     if(Object.keys(token).length > 0){
-     
+      
         dispatch(getUserData());
         
         return navigate('/')
@@ -52,7 +67,7 @@ const Auth = () => {
       {error_back.msg?.length > 0 && (
         <Alert msg={error_back.msg}/>
       )}
-      <form onSubmit={handleOnSubmit} className={style.form_login}>
+      <form  onSubmit={handleOnSubmit} className={style.form_login}>
         
            <h2>Sing In</h2>
             <div className={style.div_form}>
@@ -84,8 +99,9 @@ const Auth = () => {
             <Link to="/account/register" className={style.link_button}>
               <button className={style.button}>Register</button>
             </Link>
-        
-         
+              
+              <div id="singInDiv"></div>
+          
          
         </div>
       </form>
