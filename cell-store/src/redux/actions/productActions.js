@@ -127,6 +127,7 @@ export function higherPrice(page) {
   return async function (dispatch) {
     try {
       const json = await axios.get(`/products?page=${page}&limit=8&price=dsc`);
+      console.log("desde dispatch",json)
       return dispatch({
         type: HIGHER_PRICE,
         payload: json.data,
