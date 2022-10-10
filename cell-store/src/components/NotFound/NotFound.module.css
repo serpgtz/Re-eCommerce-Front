@@ -1,12 +1,30 @@
 .container {
-    display: grid;
+    display: flex;
+    justify-content: flex-start;
+    /* align-items: center; */
     width: 100vw;
     height: 100vh;
-    background-color: white;
+    background-color: var(--background-NotFound);
 }
 
-.btnNotFound{
+.btnNotFound {
     width: 180px;
     height: 40px;
     cursor: pointer;
+    background-color: var(--background-NotFound-btnNotFound);
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.containerImage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.imageNotFound {
+    border-radius: 50px;
+    margin-bottom: 10px;
 }

@@ -1,7 +1,3 @@
-:root {
-  max-width: 100vw;
-  width: 100vw;
-}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -14,4 +10,128 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Variables con los colores principales */
+#root {
+
+  /* COLORES 1 */
+  /* --oscuro: rgb(47, 47, 43);
+  --oscuro-medio: rgb(47, 47, 43, 0.7);
+  --oscuro-medio-claro: rgb(47, 47, 43, 0.5);
+  --medio: rgb(254, 111, 39);
+  --medio-claro: rgba(255, 232, 190, 0.4);
+  --claro: rgb(255, 255, 253);
+  --claro-opacity-medio: rgb(255, 255, 253, 0.6);
+  --claro-opacity-medio-claro: rgb(255, 255, 253, 0.6);
+  --gris: rgb(137, 144, 151); */
+
+  /* COLORES 2 */
+  --oscuro: rgba(0, 20, 40, 0.788);
+  --oscuro-medio: rgb(0, 20, 40, 0.7);
+  --oscuro-medio-claro: rgb(0, 20, 40, 0.5);
+  --medio: rgb(235, 79, 74);
+  --medio-claro: rgba(235, 79, 74, 0.3);
+  --claro: rgb(247, 250, 251);
+  --claro-opacity-medio: rgb(255, 255, 253, 0.6);
+  --claro-opacity-medio-claro: rgb(255, 255, 253, 0.6);
+  --gris: rgb(137, 144, 151);
+  /* COLORES 3 */
+  /* --oscuro: rgb(17, 76, 146);
+  --oscuro-medio: rgb(33, 138, 193);
+  --oscuro-medio-claro: rgb(33, 138, 193, 0.5);
+  --medio: rgb(236, 201, 173);
+  --medio-claro: rgba(236, 201, 173, 0.3);
+  --claro: rgb(247, 250, 251);
+  --claro-opacity-medio: rgb(255, 255, 253, 0.6);
+  --claro-opacity-medio-claro: rgb(255, 255, 253, 0.6);
+  --gris: rgb(137, 144, 151); */
+  /* COLORES 4 */
+  /* --oscuro: rgb(48, 16, 16);
+  --oscuro-medio: rgb(116, 38, 32);
+  --oscuro-medio-claro: rgb(116, 38, 32, 0.5);
+  --medio: rgb(242, 189, 150);
+  --medio-claro: rgba(242, 189, 150, 0.3);
+  --claro: rgb(247, 250, 251);
+  --claro-opacity-medio: rgb(255, 255, 253, 0.6);
+  --claro-opacity-medio-claro: rgb(255, 255, 253, 0.6);
+  --gris: rgb(137, 144, 151); */
+
+  /* UBICACIÓN EN LA PÁGINA */
+  /* -----------HOME---------------- */
+  --background-home: var(--oscuro-medio-claro);
+  /* -------------CARD-------------- */
+  --background-Card: var(--oscuro);
+  --color-Card-titleName: var(--medio);
+  --background-Card-imgContein: transparent;
+  /* --background-Card-imgProduct: var(--medio-claro); */
+  --color-Card-info: var(--claro);
+  --background-Card-ButtonCarrito: var(--medio);
+  --background-Card-ButtonComprar: var(--medio);
+  /* --------------CART------------- */
+  --backgound-Cart: var(--claro);
+  --color-Cart-title: var(--oscuro);
+  --background-Cart-cabecera-tabla: var(--oscuro);
+  --color-Cart-cabecera-tabla: var(--claro);
+  --color-Cart-tabla-disponible: var(--gris);
+  --color-Cart-tabla-precioUnit: var(--gris);
+  --color-Cart-resumen: var(--oscuro);
+  --color-Cart-tabla-Item: var(--gris);
+  --background-Cart-btnCheck: var(--oscuro);
+  --color-Cart-btnCheck: var(--claro);
+  --background-Cart-btnSeguirComp: var(--medio);
+  --color-Cart-btnSeguirComp: var(--oscuro);
+  /* --------------DETAIL------------- */
+  --background-detail: var(--oscuro);
+  --background-detail-BtnGoBack: var(--claro);
+  --color-detail-BtnGoBack: var(--oscuro);
+  --background-detail-CardImage: var(transparent);
+  --background-detail-CardDetail: var(--claro);
+  --background-detail-Buy: var(--claro);
+  --background-detail-BtnBuy: var(--oscuro);
+  --color-detail-BtnBuy: var(--claro);
+  --background-detail-BtnCar: var(--medio);
+  --color-detail-BtnCar: var(--oscuro);
+  /* --------------NAVBAR------------- */
+  --background-NavBar-navBar: var(--oscuro);
+  --color-NavBar-Header: var(--medio);
+  --color-NavBar-Header-hover: var(--medio-claro);
+  --color-NavBar-NavBtn: var(--claro);
+  --color-NavBar-NavBtn-hover: var(--oscuro);
+  --background-NavBar-NavBtn-hover: var(--medio);
+  --background-NavBar-NavBtnLogin-hover: var(--medio);
+  --background-NavBar-NavBtnUser: var(--claro);
+  --color-NavBar-NavBtnUser: var(--oscuro);
+  --background-NavBar-NavBtnUser-hover: var(--medio);
+  --color-NavBar-NavBtnLogouts: var(--claro);
+  --background-NavBar-NavBtnLogouts-hover: var(--medio);
+  --color-NavBar-NavBtnLogouts-hover: var(--claro);
+  /* --------------CARTNAVBAR------------- */
+  --color-CartNavBar-spa: var(--claro);
+  --color-CartNavBar-divCart-hover: var(--medio);
+  --color-CartNavBar-divCart-hover-spa: var(--oscuro);
+  --color-CartNavBar-divCart-hover-imgCarrito: var(--oscuro);
+  /* --------------AUTH------------- */
+  --background-Auth: var(--oscuro-medio-claro);
+  --color-Auth-h2-label: var(--oscuro);
+  --background-Auth-buttons: var(--medio);
+  --color-Auth-buttons: var(--medio);
+  /* --------------REGISTER------------- */
+  --background-Reg: var(--oscuro-medio-claro);
+  --color-Reg-h2-label: var(--oscuro);
+  --background-Reg-buttons: var(--medio);
+  --color-Reg-buttons: var(--claro);
+  --background-Reg-buttons-hover: var(--oscuro);
+  /* --------------USUARIOS------------- */
+  --background-Reg: var(--oscuro-medio-claro);
+  --color-Reg-h2-label: var(--oscuro);
+  --background-Reg-buttons: var(--medio);
+  --color-Reg-buttons: var(--claro);
+  --background-Reg-buttons-hover: var(--oscuro);
+  /* --------------NOT FOUND------------- */
+  --background-NotFound: var(--oscuro-medio-claro);
+  --background-NotFound-btnNotFound: var(--medio);
+  /* --background */
+  /* --background */
+
 }
