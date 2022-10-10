@@ -6,10 +6,9 @@ import {
 
 const initialState = {
   reviews: [],
-  review: {},
 };
 
-export default function userReducer(state = initialState, action) {
+export default function reviewReducer(state = initialState, action) {
   switch (action.type) {
     case ALL_REVIEWS:
       return {
@@ -27,5 +26,7 @@ export default function userReducer(state = initialState, action) {
         ...state,
         reviews: action.payload,
       };
+    default:
+      return state;
   }
 }
