@@ -41,7 +41,7 @@ export const NavBar = () => {
         >
           <div className={styles.div_logo}>
             <img src={logo} alt="logo-cellStore"></img>
-            <h1>CELL STORE</h1>
+            <h1>Cell Store</h1>
           </div>
         </Link>
         {user_redux?.admin === true || user?.admin === true ? (
@@ -53,7 +53,9 @@ export const NavBar = () => {
         <SearchBar />
 
         <div className={styles.div_carrito_login}>
+
           <CartNavBar />
+
           <div className={styles.navAuth}>
             {localStorage.getItem("token") === null ? (
               <Link className={styles.link} to="/account/login">
@@ -79,10 +81,7 @@ export const NavBar = () => {
           </div>
         </div>
       </nav>
-      <marquee direction="right">
-        Renderizar los filtros. Evitar que el Admin pueda comprar. Agregar
-        cloudinary. Auth0. Órdenes y pagos. Unificar estilo.
-      </marquee>
+
     </>
   );
 };

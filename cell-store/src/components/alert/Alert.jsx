@@ -5,28 +5,34 @@ import { useDispatch } from 'react-redux'
 import icon_alert from '../../image/alerta.png'
 import { resetError } from '../../redux/actions/userActions'
 import style from './Alert.module.css'
-const Alert = ({msg}) => {
+const Alert = ({ msg }) => {
 
-    const [click, setClick] = useState(false)
-    const dispatch = useDispatch()
-    const handleOnClick = () => {
+  const [click, setClick] = useState(false)
+  const dispatch = useDispatch()
+  const handleOnClick = () => {
+    setClick(!click)
+    dispatch(resetError())
+
+  }
+
+  useEffect(() => {
+    if (click == true) {
+      setTimeout(() => {
         setClick(!click)
-        dispatch(resetError())
-        
+      }, 1000)
     }
-
-    useEffect(()=> {
-        if(click == true) {
-            setTimeout(()=> {
-                setClick(!click)
-            },1000)
-        }
-    })
+  })
   return (
-    <div className={click ? style.close : style.alert }>
-      <img src={icon_alert} alt='alerta'></img>
-      <p><strong>Error </strong>{msg}</p>
-      <div><button onClick={handleOnClick}>X</button></div>
+    <div className={click ? style.close : style.alert}>
+      <div className={style.divButton}>
+        <button onClick={handleOnClick}>X</button>
+      </div>
+      <div className={style.datosError}>
+        <img src={icon_alert} alt='alerta'></img>
+        <p><strong>Error </strong>{msg}</p>
+      </div>
+
+
     </div>
   )
 }

@@ -1,109 +1,142 @@
 .container {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
-    background-color: #332D2D;
-
+    height: 100%;
+    background-color: var(--color-Auth-h2-label);
 }
 
 .container label {
     font-size: 15px;
-    font-weight: 200;
-    color: #332D2D;
+    color: var(--color-Auth-h2-label);
+
 }
+
 .form_login {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 26%;
-    height: 60%;
-    border-radius: 7px;
+    width: 25%;
+    height: 100%;
+    border-radius: 8px;
     background-color: #fff;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.divcerrar {
+    width: 80%;
+    text-align: right;
+}
+
+.cerrar {
+    border: none;
+    font-size: 30px;
+}
+
+.cerrar :hover {
+    border: none;
+    background-color: var(--medio);
 }
 
 .div_sing {
+
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
-   
+
 }
+
 .form_login h2 {
-    color: #383838;
+
+    color: var(--color-Auth-h2-label);
     font-size: 37px;
 }
 
 .div_form {
-    
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     width: 80%;
-    height: 60%;
-    
-    
+    height: 80%;
+    margin: 20px;
 }
 
 
-.div_form input {
-    
-    height: 40px;
+.div_form .input {
+    height: 30px;
+    width: 100%;
     outline: none;
     border: 1px solid gainsboro;
     border-radius: 4px;
-   
-   font-size: 13px;
+    font-size: 13px;
 }
 
-.div_form input[type='submit'] {
-   background:  #3B71CA;
-   outline: none;
-   border-radius: 4px;
-   color: #fff;
-   font-size: 15px;
+.div_form .input[type='submit'] {
+    background: var(--background-Auth-buttons);
+    outline: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 15px;
 }
 
 .div_forgot_password p {
-  color : #0d6efd;
-  font-size: 13px;
+    color: var(--color-Auth-buttons);
+    font-size: 13px;
 
 }
 
-.div_form input:active{
-    border: 1px solid #0d6efd; 
-   
-}
-
-.div_form input:focus{
+.div_form input:active {
     border: 1px solid #0d6efd;
-   
+
+}
+
+.div_form input:focus {
+    border: 1px solid #0d6efd;
+
+
 }
 
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .link_button {
+
     text-decoration: none;
     width: 100%;
-    height: 40px;
+    height: 30px;
+    margin-bottom: 20px;
+
 }
+
 .button {
+
     width: 100%;
     height: 40px;
-  background-color: transparent;
-  border: 1px solid #0d6efd;
-  font-size: 13px;
-  color: #0d6efd;
-  border-radius: 4px;
+    margin: 0.5%;
+    background-color: transparent;
+    border: 1px solid var(--background-Auth-buttons);
+    font-size: 13px;
+    color: var(--color-Auth-buttons);
+    border-radius: 4px;
+
 }
+
 .icon_eyes {
-    width: 30px ;
-    height: 30px;
+
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+}
+
+#singInDiv {
+    width: 100%;
 }
 

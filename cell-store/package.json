@@ -8,14 +8,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.3.4",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "axios": "^0.27.2",
     "dotenv": "^16.0.3",
     "framer-motion": "^7.5.1",
+    "i": "^0.3.7",
+    "jwt-decode": "^3.1.2",
+    "npm": "^8.19.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-icons": "4.3.1",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.1",
     "redux": "^4.2.0",

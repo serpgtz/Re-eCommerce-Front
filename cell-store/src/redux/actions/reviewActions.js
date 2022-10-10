@@ -21,10 +21,10 @@ export const postReview = (productId, userId, review) => {
 export const getAllReviews = () => {
   return async (dispatch) => {
     try {
-      const reviews = await axios.get("/reviews");
+      const json = await axios.get("/reviews");
       return dispatch({
         type: ALL_REVIEWS,
-        payload: reviews.data,
+        payload: json.data,
       });
     } catch (error) {
       console.log(error);

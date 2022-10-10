@@ -47,22 +47,22 @@ export default function productReducer(state = initialState, action) {
     case GET_FILTERED:
       return {
         ...state,
-        products2: action.payload,
+        products: action.payload,
       };
     case HIGHER_PRICE:
       return {
         ...state,
-        products2: action.payload,
+        products: action.payload,
       };
     case LOWER_PRICE:
       return {
         ...state,
-        products2: action.payload,
+        products: action.payload,
       };
     case TOP_RATED:
       return {
         ...state,
-        products2: action.payload,
+        products: action.payload,
       };
     case RESET:
       return {

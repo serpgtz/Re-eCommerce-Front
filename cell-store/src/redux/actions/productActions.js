@@ -37,7 +37,7 @@ export const getAllProducts = () => {
 export function getProductByName(name) {
   return async function (dispatch) {
     try {
-      const product = await axios.get(`/products?name=${name}`);
+      const product = await axios.get(`/products?page=1&limit=8&name=${name}`);
       return dispatch({
         type: GET_PRODUCT_BY_NAME,
         payload: product.data,
@@ -68,12 +68,13 @@ export function getDetailId(id) {
 
 export function getFilter(query) {
   return async function (dispatch) {
-    console.log(query);
+  
     try {
-      await axios.get(`/products?name=${query}`);
+     let filtersProduct= await axios.get(`/products?page=1&limit=8&name=${query}`);
+     console.log("desde dispatch",filtersProduct)
       return dispatch({
         type: GET_FILTERED,
-        payload: query.data,
+        payload: filtersProduct.data,
       });
     } catch (error) {
       console.log(error);
@@ -128,6 +129,7 @@ export function higherPrice(page) {
   return async function (dispatch) {
     try {
       const json = await axios.get(`/products?page=${page}&limit=8&price=dsc`);
+      console.log("desde dispatch",json)
       return dispatch({
         type: HIGHER_PRICE,
         payload: json.data,

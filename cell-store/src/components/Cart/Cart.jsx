@@ -18,24 +18,6 @@ function Cart() {
 		navigate('/');
 	};
 
-	// const handleQtyChange = (e, product) => {
-	// 	const cart = localStorage.getItem('cart')
-	// 		? JSON.parse(localStorage.getItem('cart'))
-	// 		: [];
-
-	// 	cart.forEach(cartItem => {
-	// 		if (cartItem._id === product._id) {
-	// 			cartItem.count = e.target.value;
-	// 		}
-	// 	});
-
-	// 	localStorage.setItem('cart', JSON.stringify(cart));
-
-	// 	dispatch({
-	// 		type: ADD_TO_CART,
-	// 		payload: cart,
-	// 	});
-	// };
 	const handleQtyClick = (e, product) => {
 		if (e.target.name === '+') {
 			console.log('entré en +')
@@ -95,7 +77,7 @@ function Cart() {
 
 						{<div className={s.containerDiv}>
 							<div>
-								<h2 > <img className={s.imagencarrito} src={carrito} alt="carrito" /> Carrito</h2>
+								<h2 className={s.titleCart}> <img className={s.imagencarrito} src={carrito} alt="carrito" /> Carrito</h2>
 								<div className={s.tableSection}>
 									<div >
 
@@ -154,20 +136,6 @@ function Cart() {
 														</p>
 
 														<label className={s.disponible} >disponible: {product.stock}</label>
-
-
-														{/* <input
-														type='number'
-														min='1'
-														max={product.stock}
-														value={product.count}
-														onChange={e =>
-															handleQtyChange(
-																e,
-															product
-															)
-														}
-													/> */}
 													</td>
 													<td>
 														<div className={s.priceUnit}>({product.price} c/u)</div>

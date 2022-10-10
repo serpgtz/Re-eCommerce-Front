@@ -1,39 +1,32 @@
 .container {
-    background-color: rgb(9, 9, 9);
-    width: 100vw;
-    display: inline-flex;
-    position: absolute;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+  background-color: var(--oscuro);
+  width: 100%;
+  display: inline-flex;
+  position: absolute;
+  color: var(--claro);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .redeslist {
-    display: inline-flex;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 5px;
-    margin-top: 40px;
-    margin-right: 20px;
-    padding-left: 0px;
-    /* background-color: bisque; */
-
-
-
-
+  display: inline-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 5px;
+  margin-top: 40px;
+  margin-right: 20px;
+  padding-left: 0px;
+  /* background-color: bisque; */
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .redes {
-    padding-left: 100px;
-    margin-bottom: 11px;
-    margin-right: 30px;
-
-
+  padding-left: 100px;
+  margin-bottom: 11px;
+  margin-right: 30px;
 }
 
 /* h5{
@@ -42,37 +35,36 @@ ul {
     
 } */
 .pedido {
-    margin-left: 15px;
-    margin-right: 80px;
+  margin-left: 15px;
+  margin-right: 80px;
 }
 
 .listpedidos {
-    padding-left: 0%;
+  padding-left: 0%;
 }
 
 .responsabilidad {
-    margin-right: 80px;
+  margin-right: 80px;
 }
 
 .respon {
-    padding-left: 0%;
+  padding-left: 0%;
 }
 
 .acerca {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .listacerca {
-    padding-left: 0%;
-
+  padding-left: 0%;
 }
 
 .listacerca Link li {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 span {
-    display: flex;
-    margin-top: 22px;
+  display: flex;
+  margin-top: 22px;
 }
