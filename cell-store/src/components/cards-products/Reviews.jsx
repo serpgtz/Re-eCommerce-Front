@@ -35,15 +35,12 @@ const Reviews = ({ id, name, image }) => {
           ))}
         </details>
       ) : null}
-      {user.admin === false && (
+      {user?.admin === false && (
         <button onClick={(e) => handlePost(e)}>Reviews</button>
       )}
       {box === true && (
         <>
-        <ReviewsRemix
-        id={id}
-        image={image}
-        name={name} />
+          <ReviewsRemix id={id} image={image} name={name} />
           {/* <input placeholder="Opino que..." type="text" />
           <label htmlFor="rating">Rating</label>
           <input id="rating" type="range" min="1" max="5" step="1" />
