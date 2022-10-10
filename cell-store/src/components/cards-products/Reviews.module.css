@@ -1,0 +1,15 @@
+.botónReview {
+  width: 210px;
+  height: 47px;
+  background-color: var(--background-detail-BtnBuy);
+  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--color-detail-BtnBuy);
+  font-size: 16px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: normal;
+  box-shadow: rgba(10, 10, 10, 0.877) 0px 2px 3px 0px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+}
