@@ -116,6 +116,12 @@ code {
   --color-Auth-h2-label: var(--oscuro);
   --background-Auth-buttons: var(--medio);
   --color-Auth-buttons: var(--medio);
+  /* --------------REGISTER------------- */
+  --background-Reg: var(--oscuro-medio-claro);
+  --color-Reg-h2-label: var(--oscuro);
+  --background-Reg-buttons: var(--medio);
+  --color-Reg-buttons: var(--claro);
+  --background-Reg-buttons-hover: var(--oscuro);
   /* --background */
   /* --background */
   /* --background */
