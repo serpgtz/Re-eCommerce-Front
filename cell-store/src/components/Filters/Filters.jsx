@@ -7,6 +7,7 @@ import {
   higherPrice,
   lowerPrice,
   topRated,
+  ChangeByName
 } from "../../redux/actions/productActions";
 import s from "./Filters.module.css";
 
@@ -18,6 +19,7 @@ function Filters() {
   const handleFilters = (e) => {
     e.preventDefault();
     const value = e.target.value;
+    dispatch(ChangeByName())
 
     setFilter(dispatch(getFilter(value)));
   };
