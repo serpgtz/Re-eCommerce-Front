@@ -1,26 +1,46 @@
 import s from "./ReviewsRemix.module.css";
 import { useState } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { postReview } from "../../redux/actions/reviewActions";
+import Alert from "../alert/Alert";
 
-
-export default function ReviewsRemix({name, image}) {
+export default function ReviewsRemix({ id, name, image, user }) {
   const [number, setNumber] = useState(0);
   const [hoverStar, setHoverStar] = useState(undefined);
+  const dispatch = useDispatch();
+  const [input, setInput] = useState({
+    product: id,
+    rating: "",
+    comment: "",
+    user: user,
+  });
 
-
+  const handleSubmit = (input) => {
+    if (input?.comment?.length < 4 && user) {
+      dispatch(postReview(input));
+    } else {
+      Alert("Comentarios de mínimo cuatro caracteres");
+    }
+  };
   const handleText = () => {
     switch (number || hoverStar) {
       case 0:
         return "Evaluar";
       case 1:
+        setInput({ ...input, rating: 1 });
         return "Insatisfecho";
       case 2:
+        setInput({ ...input, rating: 2 });
         return "Insatisfecho";
       case 3:
+        setInput({ ...input, rating: 3 });
         return "Normal";
       case 4:
+        setInput({ ...input, rating: 4 });
         return "Satisfecho";
       case 5:
+        setInput({ ...input, rating: 5 });
         return "Muy Satisfecho";
       default:
         return "Evaluar";
@@ -76,8 +96,16 @@ export default function ReviewsRemix({name, image}) {
                 )
               )}
           </div>
-          <textarea placeholder={handlePlaceHolder()}></textarea>
-          <button className={` ${!number && "disabled"} `}>Enviar</button>
+          <textarea
+            placeholder={handlePlaceHolder()}
+            onInput={setInput({ comment: Element.innerText })}
+          ></textarea>
+          <button
+            className={` ${!number && "disabled"} `}
+            onSubmit={handleSubmit()}
+          >
+            Enviar
+          </button>
         </div>
       </div>
     </div>
