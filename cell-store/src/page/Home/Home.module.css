@@ -15,14 +15,14 @@
 .container {
     display: flex;
     width: 100%;
-    background-color: white;
+    background-color: var(--background-home);
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     margin-top: 10px;
     margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    /* margin-left: 20px;
+    margin-right: 20px; */
     padding: 20px;
     border-radius: 10px;
 }

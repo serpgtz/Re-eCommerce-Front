@@ -1,20 +1,17 @@
 .container {
-    margin: 10px;
+    margin-top: 10px;
 }
 
 .imgCarrito {
-    /* float: left; */
     width: 40px;
     filter: invert(100%) sepia(0%) saturate(9%) hue-rotate(216deg) brightness(105%) contrast(98%);
 }
 
 
 .spa {
-    color: white;
-    /* background-color: red; */
-    /* border-radius: 3rem; */
+    color: var(--color-CartNavBar-spa);
     position: absolute;
-    top: -10px;
+    top: -20px;
     margin-left: 3px;
 }
 
@@ -23,18 +20,24 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 70px;
+    height: 60px;
     width: 70px;
-
-    background-color: black;
-    /* width: 70px;
-    height: 50px; */
 }
 
 .divCart:hover {
-    background: linear-gradient(177deg, #a182c59c 0%, #99e8fc 100%);
-    /* background-color: rgba(73, 165, 226, 0.8); */
+    transition: 180ms;
+    /* background: linear-gradient(177deg, var(--oscuro) 0%, var(--medio) 100%); */
+    background-color: var(--color-CartNavBar-divCart-hover);
+    /* opacity: 0.7; */
     width: 70px;
     border-radius: 50px;
 
+}
+
+.divCart:hover .spa {
+    color: var(--color-CartNavBar-divCart-hover-spa);
+}
+
+.divCart:hover .imgCarrito {
+    color: var(--color-CartNavBar-divCart-hover-imgCarrito)
 }

@@ -2,39 +2,42 @@
     display: grid;
     place-items: center;
     width: 100%;
-    height: 100vh;
-    background-color: #EDEDED;
+    height: 100%;
+    background-color: var(--background-detail);
 }
 
 .nav {
-    display: inline-block;
+    margin: 10px;
+
 }
 
-.nav li {
-    list-style-type: none;
-    margin: 30px;
-    transition: all ease-in-out 0.4s;
+.btnGoBack {
+    border-radius: 5px;
+    background-color: var(--background-detail-BtnGoBack);
+    color: var(--color-detail-BtnGoBack);
 }
 
 .link {
     text-decoration: none;
 }
 
+
 .cajaDividida {
-    display: grid;
+    display: flex;
+    margin: 1%;
+    /* display: grid;
     grid-template-columns: repeat(3, 1fr 1fr 1fr);
-    place-content: center;
+    place-content: center; */
 }
 
 .cardImage {
     display: grid;
     place-items: center;
-    background-color: white;
-    margin: 50px 0px 50px 50px;
+    background-color: var(--background-detail-CardImage);
     width: 650px;
     height: 580px;
     padding-left: 2rem;
-    border: gray dotted 2px;
+    /* border: gray dotted 2px; */
 }
 
 .cardImage img {
@@ -45,12 +48,11 @@
 }
 
 .cardDetail {
-    background-color: white;
-    margin: 50px 0px 50px 0;
+    background-color: var(--background-detail-CardDetail);
     width: 400px;
     height: 580px;
     padding-left: 2rem;
-    border: gray dotted 2px;
+    /* border: gray dotted 2px; */
     overflow: auto;
 }
 
@@ -60,25 +62,24 @@
 }
 
 .buy {
-    background-color: white;
-    margin: 50px 50px 50px 0;
+    background-color: var(--background-detail-Buy);
     width: 240px;
     height: 580px;
     padding-left: 2rem;
-    border: gray dotted 2px;
+    /* border: gray dotted 2px; */
 }
 
 .btnBuy {
     width: 210px;
     height: 47px;
-    background-color: #3483FA;
+    background-color: var(--background-detail-BtnBuy);
     font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #FFFFFF;
+    color: var(--color-detail-BtnBuy);
     font-size: 16px;
     line-height: 48px;
     text-align: center;
     letter-spacing: normal;
-    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+    box-shadow: rgba(10, 10, 10, 0.877) 0px 2px 3px 0px;
     border-radius: 6px;
     cursor: pointer;
     transition: all ease-in-out 0.4s;
@@ -91,14 +92,14 @@
     margin-top: 10px;
     width: 210px;
     height: 47px;
-    background-color: #4189e643;
+    background-color: var(--background-detail-BtnCar);
     font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #3483fa;
+    color: var(--color-detail-BtnCar);
     font-size: 16px;
     line-height: 48px;
     text-align: center;
     letter-spacing: normal;
-    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+    box-shadow: rgba(10, 10, 10, 0.877) 0px 2px 3px 0px;
     border-radius: 6px;
     cursor: pointer;
     transition: all ease-in-out 0.4s;
@@ -139,6 +140,6 @@
     transform: scale(1.2)
 }
 
-.nav li:hover {
+/* .nav li:hover {
     transform: scale(1.2)
-}
+} */

@@ -40,10 +40,10 @@ function Detail() {
   };
 
   /*  function handleBack() {
-    dispatch(getProductsPerPage(page))
-    console.log(page)
-
-  } */
+     dispatch(getProductsPerPage(page))
+     console.log(page)
+ 
+   } */
 
   return (
     <div>
@@ -90,15 +90,11 @@ function Detail() {
                   <strong>stock : </strong>
                   {myProduct.stock} unidades.
                 </p>
-                <div className={styles.btnBuy}>Comprar ahora</div>
-                <div onClick={handleAddToCart} className={styles.btnCar}>
-                  <img
-                    className={styles.imgCarrito}
-                    src={carrito}
-                    alt="image not found"
-                  />
-                  Agregar al carrito
-                </div>
+
+                <div className={styles.btnBuy}>Proceder a la compra</div>
+                <div onClick={handleAddToCart} className={styles.btnCar}><img className={styles.imgCarrito} src={carrito} alt="image not found" />Agregar al carrito</div>
+
+
               </div>
             </div>
           ) : (
