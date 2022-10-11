@@ -9,7 +9,7 @@ export const GET_BY_NAME = "GET_BY_NAME";
 export const REGISTER_ERROR = "REGISTER_ERROR";
 export const ERROR_CONFIRM_TOKEN = "ERROR_CONFIRM_TOKEN";
 
-axios.defaults.baseURL = import.meta.env.VITE_API;
+axios.defaults.baseURL = import.meta.env.VITE_API;//localhost 3000
 
 export const userRegister = (user) => {
   console.log(user);
@@ -29,7 +29,7 @@ export const userLogin = (user) => {
   return async (dispatch) => {
     try {
       const token = await axios.post("/login", user);
-
+      console.log("desde user",user)
       localStorage.setItem("token", token.data.token);
 
       return dispatch({
