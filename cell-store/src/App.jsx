@@ -25,6 +25,7 @@ import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
 import Cart from "./components/Cart/Cart";
 import NotFound from "./components/NotFound/NotFound";
 import { ProtectedRoute } from "./Protected/ProtectedRoute";
+import ChangePassword_forgot from "./page/changePassowrd_forgot/ChangePassword_forgot";
 /* import Detail from './components/cards-products/Detail' */
 
 
@@ -53,6 +54,7 @@ function App() {
         {/* */}
         <Route path="/confirm/:id" element={<ConfirmedEmail />} />
         {/* */}
+        <Route path="/changePassword/:id" element={<ChangePassword_forgot/>} />
         <Route path="/historia" element={<Historia />} />
 
         <Route path="/account/profile" element={
