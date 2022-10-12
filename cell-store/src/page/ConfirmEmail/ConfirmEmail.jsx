@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 const ConfirmEmail = () => {
     const email = localStorage.getItem('email_register_')
-
+    console.log("emailk, local storage",email)
    useEffect(() => {
     setTimeout(()=> {
         localStorage.removeItem('email_register_')
