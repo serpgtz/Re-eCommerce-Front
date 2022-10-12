@@ -7,6 +7,7 @@ import icon_eyes_off from "../../image/hide.png";
 import { getUserData, userLogin } from "../../redux/actions/userActions";
 import Alert from "../../components/alert/Alert";
 import jwt_decode from "jwt-decode";
+import ForgotPassword from "../../components/forgotPassword/ForgotPassword";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Auth = () => {
 
   const [click, setClick] = useState(false);
   //const [error , setError] = useState({})
-
+  const [active, setActive] = useState(false);
   const [input, setInput] = useState({
     username: "",
     password: "",
@@ -59,12 +60,19 @@ const Auth = () => {
   };
 
 
-  console.log(error_back)
+  const handleOnClick = () => {
+    setActive(!active)
+ 
+  
+  }
+
   return (
+    
     <div className={style.container}>
       {error_back.msg?.length > 0 && (
         <Alert msg={error_back.msg} />
       )}
+    {active && <ForgotPassword setActive={setActive} active={active}/>}
       <div className={style.form_login}>
 
         <div className={style.divcerrar}>
@@ -99,7 +107,7 @@ const Auth = () => {
             ></img>
             <div className={style.div_forgot_password}>
               <Link className={style.link} to="">
-                <p>Olvidé mi contraseña</p>
+                <p onClick={handleOnClick }>Olvidé mi contraseña</p>
               </Link>
             </div>
             <input

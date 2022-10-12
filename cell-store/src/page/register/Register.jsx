@@ -49,7 +49,7 @@ const Register = () => {
 
   const submitRedirect = () => {
 
-    if (!error_back.msg) {
+    if (!error_back) {
       setTimeout(() => {
         navigate('/confirm')
       }, 500)
