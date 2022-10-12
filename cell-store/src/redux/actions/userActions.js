@@ -152,3 +152,15 @@ export const confirmUser = (token) => {
     }
   };
 };
+export const changePassword = (token) => {
+  return async (dispatch) => {
+    try {
+      await axios.post(`/olvide-password/${token}`);
+    } catch (error) {
+      return dispatch({
+        type: ERROR_CONFIRM_TOKEN,
+        payload: error.response.data,
+      });
+    }
+  };
+};
