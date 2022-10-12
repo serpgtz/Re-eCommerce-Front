@@ -8,12 +8,12 @@ export const GET_PRODUCT_REVIEWS = "GET_PRODUCT_REVIEWS";
 
 axios.defaults.baseURL = import.meta.env.VITE_API;
 
-export const postReview = (productId, userId, review) => {
+export const postReview = (productId, review) => {
   return async (dispatch) => {
     try {
-      await axios.post(`/product/${productId}/${userId}/review`, review);
+      await axios.post(`/product/${productId}/review`, review);
     } catch (error) {
-      return dispatch({});
+      console.log(error);
     }
   };
 };
