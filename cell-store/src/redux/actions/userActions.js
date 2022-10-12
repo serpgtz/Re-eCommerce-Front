@@ -13,7 +13,7 @@ axios.defaults.baseURL = import.meta.env.VITE_API;//localhost 3000
 
 export const userRegister = (user) => {
   console.log(user);
-  console.log("holaaaa")
+  console.log("hoa")
   return async (dispatch) => {
     try {
       await axios.post("/register", user);
