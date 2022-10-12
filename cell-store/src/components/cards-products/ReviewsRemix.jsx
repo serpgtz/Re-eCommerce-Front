@@ -7,7 +7,7 @@ import { postReview } from "../../redux/actions/reviewActions";
 export default function ReviewsRemix({ id, name, image, user, setBox }) {
   const [number, setNumber] = useState(0);
   const [hoverStar, setHoverStar] = useState(undefined);
-  console.log(id);
+  //console.log(id);
   const dispatch = useDispatch();
   const [input, setInput] = useState({
     product: id,
@@ -79,10 +79,10 @@ export default function ReviewsRemix({ id, name, image, user, setBox }) {
               src={image}
               alt={name}
             />
-            <h1>{name}</h1>
+            <h1 className={s.h1X}>{name}</h1>
           </div>
           <div>
-            <h1>{handleText()}</h1>
+            <h1 className={s.h1Num}>{handleText()}</h1>
             {Array(5)
               .fill()
               .map((_, index) =>
@@ -122,57 +122,6 @@ export default function ReviewsRemix({ id, name, image, user, setBox }) {
   );
 }
 
-{
-  /* <form onSubmit={handleSubmit} className={s.AppReviews}>
-      <div className={s.popupReviews}>
-        <div className={s.contentReviews}>
-          <div className={s.productReviews}>
-            <img
-              style={{ width: 60, height: 60, objectFit: "cover" }}
-              src={image}
-              alt={name}
-            />
-            <h1>{name}</h1>
-          </div>
-          <div>
-            <h1>{handleText()}</h1>
-            {Array(5)
-              .fill()
-              .map((_, index) =>
-                number >= index + 1 || hoverStar >= index + 1 ? (
-                  <AiFillStar
-                    onMouseOver={() => !number && setHoverStar(index + 1)}
-                    onMouseLeave={() => setHoverStar(undefined)}
-                    style={{ color: "orange" }}
-                    onClick={() => setNumber(index + 1)}
-                  />
-                ) : (
-                  <AiOutlineStar
-                    onMouseOver={() => !number && setHoverStar(index + 1)}
-                    onMouseLeave={() => setHoverStar(undefined)}
-                    style={{ color: "orange" }}
-                    onClick={() => setNumber(index + 1)}
-                  />
-                )
-              )}
-          </div>
-          <textarea
-            name="comment"
-            value={input.comment}
-            onChange={(e) => setInput({ comment: e.target.value})}
-            placeholder={handlePlaceHolder()}
-          ></textarea>
-
-          <button 
-            type="submit"
-            className={` ${!number && "disabled"} `}
-          >
-            Enviar
-          </button>
-        </div>
-      </div>
-    </form> */
-}
 
 //-----------------------------lo de abajo funciona----------------------------------
 /* import s from "./ReviewsRemix.module.css"; */
