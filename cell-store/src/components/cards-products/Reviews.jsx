@@ -40,7 +40,7 @@ const Reviews = ({ id, name, image }) => {
         <button onClick={(e) => handlePost(e)}>Reviews</button>
       )}
       {box === true && (
-        <ReviewsRemix user={user} id={id} image={image} name={name} />
+        <ReviewsRemix setBox={setBox} user={user} id={id} image={image} name={name} />
       )}
     </>
   );

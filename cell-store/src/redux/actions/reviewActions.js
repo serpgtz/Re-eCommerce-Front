@@ -5,10 +5,10 @@ export const GET_PRODUCT_REVIEWS = "GET_PRODUCT_REVIEWS";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
-export const postReview = (productId, userId, review) => {
+export const postReview = (productId, review) => {
   return async (dispatch) => {
     try {
-      await axios.post(`/product/${productId}/${userId}/review`, review);
+      await axios.post(`/product/${productId}/review`, review);
     } catch (error) {
       return dispatch({});
     }

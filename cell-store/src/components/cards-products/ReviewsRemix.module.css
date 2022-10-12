@@ -4,8 +4,6 @@
   }
   
 .popupReviews {
-    /* width: 650px;
-    height: 650px; */
     position: fixed;
     top: 0;
     left: 0;
@@ -55,4 +53,14 @@
 .contentReviews button.disabled {
     opacity: 0.5;
     pointer-events: none;
+}
+
+.btnX{
+    display: grid;
+    width: 25px;
+    background-color: red;
+    color: white;
+    border-radius: 6rem;
+    align-self: center;
+    cursor: pointer;
 }
