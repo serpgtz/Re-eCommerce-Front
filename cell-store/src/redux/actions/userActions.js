@@ -31,7 +31,7 @@ export const userLogin = (user) => {
     try {
       const token = await axios.post("/login", user);
       console.log("desde user",user)
-      localStorage.getItem("token", token.data.token);
+      localStorage.setItem("token", token.data.token);
 
       return dispatch({
         type: TOKEN,
