@@ -16,10 +16,14 @@ export const RESPONSE_NEW_PASSWORD = "RESPONSE_NEW_PASSWORD";
 axios.defaults.baseURL = "http://localhost:3001";
 
 export const userRegister = (user) => {
-  console.log(user);
+
   return async (dispatch) => {
     try {
-      await axios.post("/register", user);
+  const res = await axios.post("/register", user);
+   return dispatch({
+    type: REGISTER_ERROR,
+    payload: res.data,
+  });
     } catch (error) {
       return dispatch({
         type: REGISTER_ERROR,

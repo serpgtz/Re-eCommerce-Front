@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import style from './Register.module.css'
 import icon_eyes_on from '../../image/show.png'
@@ -45,20 +45,22 @@ const Register = () => {
       password: '',
       confirmPassword: '',
     })
+    
+   
   }
 
-  const submitRedirect = () => {
-
-    if (!error_back) {
-      setTimeout(() => {
-        navigate('/confirm')
-      }, 500)
-    }
-  }
+useEffect(()=> {
+  console.log(error_back)
+  if (error_back?.error === false) {
+    console.log('dentro del if', error_back)
+    return navigate('/confirm')
+  
+ }
+},[error_back])
 
   return (
     <div className={style.container}>
-      {error_back.msg?.length > 0 && <Alert msg={error_back.msg} />}
+      {error_back.error  && <Alert msg={error_back.msg} />}
       <div className={style.form_register}>
 
         <div className={style.divcerrar}>
@@ -122,7 +124,7 @@ const Register = () => {
             value='Registrarse'
             className={style.button}
             disabled={Object.values(error).length == 0 ? false : true}
-            onClick={submitRedirect}
+           
           ></input>
         </form>
       </div>
