@@ -10,7 +10,7 @@ export const postReview = (productId, review) => {
     try {
       await axios.post(`/product/${productId}/review`, review);
     } catch (error) {
-      return dispatch({});
+      console.log(error);
     }
   };
 };

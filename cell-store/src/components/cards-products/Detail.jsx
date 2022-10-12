@@ -46,9 +46,11 @@ function Detail() {
    } */
 
   return (
-    <div>
+    <div className={styles.mainDetailContainer}>
       <div className={styles.nav}>
-        <button onClick={handleGoBackBtn}>BACK</button>
+        <button className={styles.navButonGoBack} onClick={handleGoBackBtn}>
+          Volver
+        </button>
       </div>
       <div className={styles.container}>
         <div className={styles.caja}>
@@ -62,52 +64,48 @@ function Detail() {
               </Link>
             </div>
           ) : myProduct ? (
-            <div className={styles.cajaDividida}>
-              <div className={styles.cardImage}>
-                <img src={myProduct.image} alt="not found" />
-              </div>
-              <div className={styles.cardDetail}>
-                <h3 className={styles.titleone}>{myProduct.name}</h3>
-                <div className={styles.priceLike}>
-                  <p className={styles.price}>${myProduct.price}</p>
-                  <p>
-                    <img
-                      className={styles.corazon}
-                      src={corazonVacio}
-                      alt="image not found"
-                    />
+            <>
+              <div className={styles.cajaDividida}>
+                <div className={styles.cardImage}>
+                  <img src={myProduct.image} alt="not found" />
+                </div>
+                <div className={styles.cardDetail}>
+                  <h3 className={styles.titleone}>{myProduct.name}</h3>
+                  <div className={styles.priceLike}>
+                    <p className={styles.price}>${myProduct.price}</p>
+                    <p>
+                      <img
+                        className={styles.corazon}
+                        src={corazonVacio}
+                        alt="image not found"
+                      />
+                    </p>
+                  </div>
+
+                  <p className={styles.letter}>
+                    <strong>Description : </strong>
+                    {myProduct.description}
                   </p>
                 </div>
+                <div className={styles.buy}>
+                  <p className={styles.letter}>
+                    <strong>stock : </strong>
+                    {myProduct.stock} unidades.
+                  </p>
 
-                <p className={styles.letter}>
-                  <strong>Description : </strong>
-                  {myProduct.description}
-                </p>
-                {/* <Reviews id={id} /> */}
-              </div>
-              <div className={styles.buy}>
-                <p className={styles.letter}>
-                  <strong>stock : </strong>
-                  {myProduct.stock} unidades.
-                </p>
-
-                <div className={styles.btnBuy}>Proceder a la compra</div>
-                <div onClick={handleAddToCart} className={styles.btnCar}>
-                  <img
-                    className={styles.imgCarrito}
-                    src={carrito}
-                    alt="image not found"
-                  />
-                  Agregar al carrito
+                  <div className={styles.btnBuy}>Proceder a la compra</div>
+                  <div onClick={handleAddToCart} className={styles.btnCar}>
+                    <img
+                      className={styles.imgCarrito}
+                      src={carrito}
+                      alt="image not found"
+                    />
+                    Agregar al carrito
+                  </div>
                 </div>
-
-                <Reviews
-                  id={id}
-                  image={myProduct.image}
-                  name={myProduct.name}
-                />
               </div>
-            </div>
+              <Reviews id={id} image={myProduct.image} name={myProduct.name} />
+            </>
           ) : (
             <img
               src="https://aquamarineexotic.com/adminpanel/assets/images/page-loading-old.gif"
@@ -116,7 +114,6 @@ function Detail() {
           )}
         </div>
       </div>
-
     </div>
   );
 }

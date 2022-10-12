@@ -7,7 +7,10 @@ import {
   RESET_ERROR,
   GET_BY_NAME,
   REGISTER_ERROR,
-  ERROR_CONFIRM_TOKEN
+  ERROR_CONFIRM_TOKEN,
+  RESPONSE_EMAIL,
+  RESPONSE_CHANGE_PASSWORD_FORGOT,
+  RESPONSE_NEW_PASSWORD
 } from "../actions/userActions";
 
 const initialState = {
@@ -16,7 +19,10 @@ const initialState = {
   error: {},
   token: {},
   error_register : {},
-  error_confirm_token : {}
+  error_confirm_token : {},
+  response_email : {},
+  response_change_password_forgot : {},
+  response_newPassword : {}
 };
 
 export default function userReducer(state = initialState, action) {
@@ -73,6 +79,22 @@ export default function userReducer(state = initialState, action) {
           ...state,
           error_confirm_token : action.payload
         }
+       case RESPONSE_EMAIL:
+         return {
+          ...state,
+          response_email : action.payload
+         }
+      case RESPONSE_CHANGE_PASSWORD_FORGOT:
+        return {
+          ...state,
+          response_change_password_forgot : action.payload
+        }
+
+      case RESPONSE_NEW_PASSWORD :
+        return {
+          ...state,
+          response_newPassword : action.payload
+        }   
     default:
       return {
         ...state,

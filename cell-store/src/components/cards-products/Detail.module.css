@@ -1,143 +1,157 @@
+.mainDetailContainer {
+  margin: 0;
+}
+.navButonGoBack {
+  width: 30%;
+  height: 2.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  left: 40%;
+  background-color: var(--background-detail-BtnBuy);
+  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--color-detail-BtnBuy);
+  text-align: center;
+  box-shadow: rgba(10, 10, 10, 0.877) 0px 2px 3px 0px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+}
 .container {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: var(--background-detail);
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-detail);
 }
 
 .nav {
-    margin: 10px;
-
+  margin: 10px;
 }
 
 .btnGoBack {
-    border-radius: 5px;
-    background-color: var(--background-detail-BtnGoBack);
-    color: var(--color-detail-BtnGoBack);
+  border-radius: 5px;
+  background-color: var(--background-detail-BtnGoBack);
+  color: var(--color-detail-BtnGoBack);
 }
 
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-
 .cajaDividida {
-    display: flex;
-    margin: 1%;
-    /* display: grid;
+  display: flex;
+  margin: 1%;
+  /* display: grid;
     grid-template-columns: repeat(3, 1fr 1fr 1fr);
     place-content: center; */
 }
 
 .cardImage {
-    display: grid;
-    place-items: center;
-    background-color: var(--background-detail-CardImage);
-    width: 650px;
-    height: 580px;
-    padding-left: 2rem;
-    /* border: gray dotted 2px; */
+  /* display: grid;
+  place-items: center; */
+  background-color: var(--background-detail-CardImage);
+  width: 30rem;
+  height: 30rem;
+  /* padding-left: 2rem; */
+  /* border: gray dotted 2px; */
 }
 
 .cardImage img {
-    width: auto;
-    height: auto;
-    max-width: 650px;
-    max-height: 580px;
+  width: auto;
+  height: auto;
+  max-width: 30rem;
+  max-height: 580px;
 }
 
 .cardDetail {
-    background-color: var(--background-detail-CardDetail);
-    width: 400px;
-    height: 580px;
-    padding-left: 2rem;
-    /* border: gray dotted 2px; */
-    overflow: auto;
+  background-color: var(--background-detail-CardDetail);
+  width: 30rem;
+  padding-left: 1rem;
+  /* border: gray dotted 2px; */
+  overflow: auto;
 }
 
 .price {
-    font-size: 35px;
-    width: 370px;
+  font-size: 35px;
+  width: 370px;
 }
 
 .buy {
-    background-color: var(--background-detail-Buy);
-    width: 240px;
-    height: 580px;
-    padding-left: 2rem;
-    /* border: gray dotted 2px; */
+  background-color: var(--background-detail-Buy);
+  width: 240px;
+  height: 580px;
+  padding-left: 2rem;
+  /* border: gray dotted 2px; */
 }
 
 .btnBuy {
-    width: 210px;
-    height: 47px;
-    background-color: var(--background-detail-BtnBuy);
-    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: var(--color-detail-BtnBuy);
-    font-size: 16px;
-    line-height: 48px;
-    text-align: center;
-    letter-spacing: normal;
-    box-shadow: rgba(10, 10, 10, 0.877) 0px 2px 3px 0px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all ease-in-out 0.4s;
+  width: 210px;
+  height: 47px;
+  background-color: var(--background-detail-BtnBuy);
+  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--color-detail-BtnBuy);
+  font-size: 16px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: normal;
+  box-shadow: rgba(10, 10, 10, 0.877) 0px 2px 3px 0px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
 }
 
 .btnCar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    width: 210px;
-    height: 47px;
-    background-color: var(--background-detail-BtnCar);
-    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: var(--color-detail-BtnCar);
-    font-size: 16px;
-    line-height: 48px;
-    text-align: center;
-    letter-spacing: normal;
-    box-shadow: rgba(10, 10, 10, 0.877) 0px 2px 3px 0px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all ease-in-out 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 210px;
+  height: 47px;
+  background-color: var(--background-detail-BtnCar);
+  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--color-detail-BtnCar);
+  font-size: 16px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: normal;
+  box-shadow: rgba(10, 10, 10, 0.877) 0px 2px 3px 0px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
 }
 
 .imgCarrito {
-    width: 30px;
-    margin: 10px;
+  width: 30px;
+  margin: 10px;
 }
 
 .btnCar:hover {
-    transform: scale(1.1)
+  transform: scale(1.1);
 }
 
 .btnBuy:hover {
-    transform: scale(1.1)
+  transform: scale(1.1);
 }
 
 .titleone {
-    text-transform: uppercase;
-
+  text-transform: uppercase;
 }
 
 .priceLike {
-    width: 400px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .corazon {
-    width: 50px;
-    margin: 10px;
-    transition: all ease-in-out 0.4s;
+  width: 50px;
+  margin: 10px;
+  transition: all ease-in-out 0.4s;
 }
 
 .corazon:hover {
-    transform: scale(1.2)
+  transform: scale(1.2);
 }
 
 /* .nav li:hover {

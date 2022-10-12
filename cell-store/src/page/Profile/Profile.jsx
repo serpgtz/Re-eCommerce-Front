@@ -12,6 +12,7 @@ const Profile = () => {
     state.user.users.filter((u) => u.username === user.name)
   );
 
+  console.log(userSecret[0]);
   useEffect(() => {
     dispatch(getReviewByUser(userSecret[0]?._id));
     dispatch(getUserData());
@@ -45,7 +46,7 @@ const Profile = () => {
         {user.admin === true && (
           <p>No podés hacer review, papá, sos el admin</p>
         )}
-        {userSecret?.reviews?.length > 0
+        {userSecret?.reviews
           ? userSecret?.reviews?.map((review) => (
               <Link to={`/detail/${review?.product.id}`}>
                 <p>{review?.product.name}</p>
