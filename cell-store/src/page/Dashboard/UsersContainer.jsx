@@ -9,7 +9,7 @@ import {
   tableBoxFalse,
   tdActions,
 } from "./Dashboard.module.css";
-import Delete from "./Delete";
+import UserWindow from "./UserWindow";
 
 const UsersContainer = ({ users, slideIndex, slideIndex2 }) => {
   const [modbox, setModBox] = useState(false);
@@ -26,45 +26,31 @@ const UsersContainer = ({ users, slideIndex, slideIndex2 }) => {
         </tr>
         {users?.length
           ? users?.slice(slideIndex, slideIndex2).map((usuario) => (
-              <tr key={usuario.id}>
+              <tr key={usuario._id}>
                 <td className={td}>{usuario.username}</td>
+
                 <td className={td}>{usuario.email}</td>
-                <td className={tdActions}>
+                <td className={tdActions} value={usuario}>
                   {usuario.admin === true ? (
-                    <div key={usuario.id + "table"} className={tableBoxTrue}>
+                    <div key={usuario._id + "table"} className={tableBoxTrue}>
                       -No autorizadas-
                     </div>
                   ) : (
                     <div
-                      key={usuario.id + "editable"}
+                      key={usuario._id + "editable"}
                       className={tableBoxFalse}
                       onClick={handleModBox}
                     >
                       Editar
                     </div>
                   )}
+                  {modbox === true && (
+                    <UserWindow modbox={modbox} user={usuario} />
+                  )}
                 </td>
               </tr>
             ))
           : null}
-        {modbox === true ? (
-          <>
-            <dialog open>
-              <p>Detalles de usuario</p>
-              {users?.slice(slideIndex, slideIndex2).map((usuario) => (
-                <>
-                  <p>{usuario.id}</p>
-                  <p>{usuario.username}</p>
-                  <p>{usuario.email}</p>
-                  <button>Coronar como admin</button>
-                  <Delete />
-                </>
-              ))}
-            </dialog>
-          </>
-        ) : (
-          ""
-        )}
       </table>
     </div>
   );
