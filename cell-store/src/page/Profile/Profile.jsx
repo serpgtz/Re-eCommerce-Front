@@ -7,7 +7,9 @@ import styles from "./Profile.module.css";
 
 const Profile = () => {
   const dispatch = useDispatch();
+//Usuario normal
   const user = useSelector((state) => state.user.user);
+//Usuario por Admin
   const userSecret = useSelector((state) =>
     state.user.users.filter((u) => u.username === user.name)
   );
@@ -26,6 +28,7 @@ const Profile = () => {
       </div>
       <div className={styles.ordersContainer}>
         <h3>Órdenes</h3>
+{/* Órdenes hardcodeadas porque todavía no están, pero en assets hay un js que acá no utilicé */}
         {/* {user.orders.map(o=> <p>{o.dates}</p>)} */}
         <p>19 de Mayo 2022</p>
         <p>11 de Junio 2022</p>
@@ -33,6 +36,7 @@ const Profile = () => {
       </div>
       <div className={styles.userProductsContainer}>
         <h3>Productos comprados</h3>
+{/*Acá irían los productos que coincidan con la orden*/}
         {/* {products.map(p => p._id === user.order.productId ? <Card key={p._id}
                     name={p.name}
                     image={p.image}
@@ -43,6 +47,7 @@ const Profile = () => {
       </div>
       <div className={styles.userReviewsContainer}>
         <h3>Reviews realizadas</h3>
+{/*Acá aparecen las reviews del usuario*/}
         {user.admin === true && (
           <p>No podés hacer review, papá, sos el admin</p>
         )}

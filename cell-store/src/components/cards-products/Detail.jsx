@@ -13,7 +13,7 @@ import carrito from "../../image/carrito.png";
 import corazonVacio from "../../image/corazonVacio.png";
 import { addToCart } from "../../redux/actions/cartActions";
 import Reviews from "./Reviews";
-import ReviewsRemix from "./ReviewsRemix";
+/* import ReviewsRemix from "./ReviewsRemix"; */
 
 function Detail() {
   const dispatch = useDispatch();
