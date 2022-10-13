@@ -48,76 +48,94 @@ const Sidebar = () => {
           <span className={s.logo}>CellStore <i className ={s.adminLogo}>ADMIN</i></span>
         
       </div>
-      <hr />
+      <hr className={s.hrS}/>
       <div className={s.center}>
         <ul className={s.centerlist}>
-          <p className={s.title}>MAIN</p>
+          <p className={s.title}>PRINCIPAL</p>
           <Link to="/admin/dashboard" style={{ textDecoration: "none" }}>
-          <li>
-            <DashboardIcon className={s.icon} />
-            <span>Dashboard</span>
+          <li className={s.li}>
+            <Badge style={{ marginLeft: "0px" }}>
+              <DashboardIcon className={s.icon} />
+            </Badge>  
+            <span className={s.span}>Dashboard</span>
           </li>
           </Link>
           <Link to="/" style={{ textDecoration: "none" }}>
-          <li>
-            <HomeIcon className={s.icon} />
-            <span>Home</span>
+          <li className={s.li}>
+            <Badge style={{ marginLeft: "0px" }}>
+              <HomeIcon className={s.icon} />
+            </Badge>
+            <span className={s.span}>Home</span>
           </li>
           </Link>
-          <p className={s.title}>LISTS</p>
-          <Link to="/admin/users/list" style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineIcon className={s.icon} />
-              <span>Users</span>
+          <p className={s.title}>LISTAS</p>
+          <Link to="/adminDashboard/userslist" style={{ textDecoration: "none" }}>
+            <li className={s.li}>
+              <Badge style={{ marginLeft: "0px" }}>
+                <PersonOutlineIcon className={s.icon} />
+              </Badge>
+              <span className={s.span}>Usuarios</span>
             </li>
           </Link>
           <Link to="/admin/products/list" style={{ textDecoration: "none" }}>
-            <li>
-              <StoreIcon className={s.icon} />
-              <span>Products</span>
+            <li className={s.li}>
+              <Badge style={{ marginLeft: "0px" }}>
+                <StoreIcon className={s.icon} />
+              </Badge>
+              <span className={s.span}>Productos</span>
             </li>
           </Link>
           <Link to="/admin/purchases/list" style={{ textDecoration: "none" }}>
-            <li>
-              <CreditCardIcon className={s.icon} />
-              <span>Orders</span>
+            <li className={s.li}>
+              <Badge style={{ marginLeft: "0px" }}>
+                <CreditCardIcon className={s.icon} />
+              </Badge>
+              <span className={s.span}>Ordenes</span>
             </li>
           </Link>
-          <Link to="/admin/categories" style={{ textDecoration: "none" }}>
-            <li>
-              <CategoryIcon className={s.icon} />
-              <span>Categories</span>
+          {/* <Link to="/admin/categories" style={{ textDecoration: "none" }}>
+            <li className={s.li}>
+              <Badge style={{ marginLeft: "0px" }}>
+                <CategoryIcon className={s.icon} />
+              </Badge>
+              <span className={s.span}>Categorias</span>
             </li>
-          </Link>
-          <Link to="/admin/brands" style={{ textDecoration: "none" }}>
-            <li>
-              <CopyrightIcon className={s.icon} />
-              <span>Manufacturers</span>
+          </Link> */}
+          {/* <Link to="/admin/brands" style={{ textDecoration: "none" }}>
+            <li className={s.li}>
+              <Badge  style={{ marginLeft: "0px" }}>
+                <CopyrightIcon className={s.icon} />
+              </Badge>
+              <span className={s.span}>Marcas</span>
             </li>
-          </Link>
+          </Link> */}
           <br/>
-          <p className="title">USEFUL</p>
+          <p className={s.title}>ÚTIL</p>
           
-          <Link to="/admin/notifications" style={{ textDecoration: "none" }}>
-            <li>
+          {/* <Link to="/admin/notifications" style={{ textDecoration: "none" }}>
+            <li className={s.li}>
               <Badge badgeContent={notification} color="error" style={{ marginLeft: "0px" }}>
                 <MailIcon className={s.icon} />
               </Badge>
-              <span>Notifications</span>
+              <span className={s.span}>Notificaciones</span>
             </li>
-          </Link>
+          </Link> */}
          
-          <p className="title">USER</p>
+          <p className={s.title}>USUARIO</p>
           <Link to="/account/profile" style={{ textDecoration: "none" }}>
-          <li>
-            <AccountCircleOutlinedIcon className={s.icon} />
-            <span>Profile</span>
+          <li className={s.li}>
+            <Badge style={{ marginLeft: "0px" }}>
+              <AccountCircleOutlinedIcon className={s.icon} />
+            </Badge>
+            <span className={s.span}>Perfil</span>
           </li>
           </Link>
           <Link to="/" style={{ textDecoration: "none" }}>
-          <li>
-            <ExitToAppIcon className={s.icon} />
-            <span>Exit</span>
+          <li className={s.li}>
+            <Badge style={{ marginLeft: "0px" }}>
+              <ExitToAppIcon className={s.icon} />
+            </Badge>
+            <span className={s.span}>Salir</span>
           </li>
           </Link>
         </ul>

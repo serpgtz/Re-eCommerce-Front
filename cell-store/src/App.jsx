@@ -26,7 +26,9 @@ import Cart from "./components/Cart/Cart";
 import NotFound from "./components/NotFound/NotFound";
 import { ProtectedRoute } from "./Protected/ProtectedRoute";
 import ChangePassword_forgot from "./page/changePassowrd_forgot/ChangePassword_forgot";
+import UsersList from "./page/Dashboard/UsersList"
 import Sidebar from "./page/Dashboard/Sidebar";
+import AdminDashboard from "./page/Dashboard/AdminDashboar";
 /* import Detail from './components/cards-products/Detail' */
 
 
@@ -76,6 +78,10 @@ function App() {
           <Route path="/adminDashboard" element={<Dashboard />} />
           {/*autenticado y administrador*/}
           <Route path="/adminDashboard/sidebar" element={<Sidebar />} />
+          {/*autenticado y administrador*/}
+          <Route path="/adminDashboard/userslist" element={< UsersList />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/dashboard" element={< AdminDashboard />} />
           {/*autenticado y administrador*/}
         </Route>
 
