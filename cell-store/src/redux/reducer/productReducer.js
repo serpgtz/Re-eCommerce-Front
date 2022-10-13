@@ -12,6 +12,7 @@ import {
   HIGHER_PRICE,
   LOWER_PRICE,
   TOP_RATED,
+  LINK_MP
 } from "../actions/productActions";
 
 const initialState = {
@@ -89,6 +90,12 @@ export default function productReducer(state = initialState, action) {
         ...state,
         byName: action.payload,
       };
+
+      case LINK_MP:
+        return {
+          ...state,
+          linkMP : action.payload
+        }
 
     default:
       return {
