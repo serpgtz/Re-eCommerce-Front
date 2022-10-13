@@ -13,7 +13,7 @@ const Delete = ({ id }) => {
     <>
       <span onClick={(e) => handleClick(e)} className={styles.onlySpan}>
         {" "}
-        X
+        DELETE
       </span>
     </>
   );
