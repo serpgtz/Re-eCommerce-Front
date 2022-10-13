@@ -36,6 +36,7 @@ const Reviews = ({ id, name, image }) => {
   }, [dispatch]);
   return (
     <>
+      
       {reviewsByProduct ? (
         <details id="detalles" title="Reviews" className={styles.botónReview}>
           <summary id="reviewsDe" className={styles.summ}>
@@ -59,16 +60,18 @@ const Reviews = ({ id, name, image }) => {
           ))}
         </details>
       ) : null}
-      {user?.admin === false && (
-        <button
-          className={styles.buttonReviewRemix}
-          onClick={(e) => handlePost(e)}
-        >
-          Dejá tu review
-          {box === true && (
-            <ReviewsRemix user={user} id={id} image={image} name={name} />
-          )}
-        </button>
+      {user.admin === false && (
+        <button className={styles.buttonReviewRemix} onClick={(e) => handlePost(e)}>Dejá tu review</button>
+      )}
+      {box === true && (
+        <>
+        <ReviewsRemix
+        id={id}
+        image={image}
+        name={name}
+        user={user}
+        setBox={setBox} />
+        </>
       )}
     </>
   );
