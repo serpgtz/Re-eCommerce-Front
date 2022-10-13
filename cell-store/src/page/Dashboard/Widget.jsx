@@ -29,7 +29,7 @@ const Widget = ({ type }) => {
         link: "See all users",
         icon: (
           <PersonOutlinedIcon
-            className={s.icon}
+            className={s.iconWit}
             style={{
               color: "crimson",
               backgroundColor: "rgba(255, 0, 0, 0.2)",
@@ -45,7 +45,7 @@ const Widget = ({ type }) => {
         link: "View all orders",
         icon: (
           <ShoppingCartOutlinedIcon
-            className={s.icon}
+            className={s.iconWit}
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",
               color: "goldenrod",
@@ -61,7 +61,7 @@ const Widget = ({ type }) => {
         link: "",
         icon: (
           <MonetizationOnOutlinedIcon
-            className={s.icon}
+            className={s.iconWit}
             style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
           />
         ),
@@ -74,7 +74,7 @@ const Widget = ({ type }) => {
         link: "",
         icon: (
           <AccountBalanceWalletOutlinedIcon
-            className={s.icon}
+            className={s.iconWit}
             style={{
               backgroundColor: "rgba(128, 0, 128, 0.2)",
               color: "purple",
@@ -89,17 +89,17 @@ const Widget = ({ type }) => {
 
   return (
     <div className={s.widget}>
-      <div className={s.left}>
-        <span className={s.title}>{data.title}</span>
+      <div className={s.leftWit}>
+        <span className={s.titleWit}>{data.title}</span>
         <span className={s.counter}>
-          {data.title === 'TOTAL SALES' && `$ ${Math.round(totalSales)}`}
+          {data.title === 'TOTAL SALES' && `$ ${Math.round(33/* totalSales */)}`}
           {data.title === "USERS" && `${totalusers}`}
-          {data.title === "ORDERS" && `${countOrders}`}
-          {data.title === 'EARNINGS' && `$ ${totalSale}`}
+          {data.title === "ORDERS" && `${16/* countOrders */}`}
+          {data.title === 'EARNINGS' && `$ ${50000/* totalSale */}`}
         </span>
         <span className={s.linkR}>{data.link}</span>
       </div>
-      <div className={s.right}>
+      <div className={s.rightWit}>
         {data.title === 'EARNINGS' && <div className={s.percentage_positive}>
           <KeyboardArrowUpIcon />
           {diff} %

@@ -40,7 +40,7 @@
     padding: 0;
 }
 
-.title {
+.titleSid {
     font-size: 10px;
     font-weight: bold;
     color: rgb(29, 25, 25);
@@ -48,24 +48,23 @@
     margin-bottom: 5px;
 }
 
-.li {
+.liSid {
     display: flex;
     align-items: center;
     /* padding: 5px; */
     cursor: pointer;
 }
 
-.li:hover {
+.liSid:hover {
     background-color: #ece8ff;
 }
 
-.icon {
+.iconSid {
     font-size: 18px;
     color: #7451f8;
 }
 
-.span{
-    align-self: center;
+.spanSid{
     font-size: 13px;
     font-weight: 600;
     color: rgb(95, 88, 88);

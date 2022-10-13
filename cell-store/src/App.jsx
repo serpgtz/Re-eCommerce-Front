@@ -29,6 +29,7 @@ import ChangePassword_forgot from "./page/changePassowrd_forgot/ChangePassword_f
 import UsersList from "./page/Dashboard/UsersList"
 import Sidebar from "./page/Dashboard/Sidebar";
 import AdminDashboard from "./page/Dashboard/AdminDashboar";
+import VentasTotales from "./page/Dashboard/VentasTotales";
 /* import Detail from './components/cards-products/Detail' */
 
 
@@ -82,6 +83,8 @@ function App() {
           <Route path="/adminDashboard/userslist" element={< UsersList />} />
           {/*autenticado y administrador*/}
           <Route path="/admin/dashboard" element={< AdminDashboard />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/ventastotales" element={< VentasTotales />} />
           {/*autenticado y administrador*/}
         </Route>
 

@@ -5,8 +5,8 @@ import s from "./AdminDashboard.module.css";
 import { Link } from 'react-router-dom';
 
 import Widget from "./Widget";
-/* import Featured from "../../components/Dashboard/featured/Featured";
-import Chart from "../../components/Dashboard/chart/Chart";
+import VentasTotales from "./VentasTotales";
+/* import Chart from "../../components/Dashboard/chart/Chart";
 import Table from "../../components/Dashboard/table/Table"; */
 /* import { countAllOrders, getAllUsers, getOrdersToday, sumAllOrders, sumAllToday, sumBeforeLastMonth, sumLastMonth, sumLastThreeMonth, sumLastWeek, getAllComments } from '../../redux/actions'; */
 
@@ -33,10 +33,10 @@ const AdminDashboard = () => {
   return (
     <div className={s.home}>
       <Sidebar />
-      {/* <div className={s.homeContainer}>
+      <div className={s.homeContainer}>
         
         <div className={s.widgets}>
-          <Link to="/admin/userslist" style={{ textDecoration: "none" }}>
+          <Link to="/adminDashboard/userslist" style={{ textDecoration: "none" }}>
             <Widget type="user" />
           </Link>
           <Link to = '/admin/purchases/list'>
@@ -46,14 +46,14 @@ const AdminDashboard = () => {
           <Widget type="balance" />
         </div>
         <div className={s.charts}>
-          <Featured />
-          <Chart title="Last 3 Months (Revenue)" aspect={2 / 1} />
+          <VentasTotales />
+          {/* <Chart title="Last 3 Months (Revenue)" aspect={2 / 1} /> */}
         </div>
         <div className={s.listContainer}>
           <div className={s.listTitle}>Latest Transactions</div>
-          <Table />
+          {/* <Table /> */}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
