@@ -30,11 +30,11 @@ const ChangePassword_forgot = () => {
   return (
     <div className={style.container}>
         <div style={{background: response.error && 'red'}} className={style.div_msg}><h2>{response?.msg}</h2>
-         <form className={style.form} onSubmit={handleOnSubmit}>
+         { response?.msg === 'Token aprobado' && <form className={style.form} onSubmit={handleOnSubmit}>
             <input type='password' placeholder='Nueva Contraseña' name='password' value={input.password} onChange={handleOnChange}></input>
             <input className={style.button} type='submit' ></input>
             {responseNewPassword.msg && <div>{responseNewPassword?.msg}</div>}
-         </form>
+         </form>}
 
          </div>
     </div>
