@@ -15,7 +15,7 @@ export const CartNavBar = () => {
 
                 <div className={s.divCart}>
                     <div>
-                        <span className={s.spa}> {cart.length} </span>
+                        <span className={s.spanCart}> {cart.length} </span>
                     </div>
                     <div>
                         <img
