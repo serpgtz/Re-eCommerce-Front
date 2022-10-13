@@ -45,7 +45,7 @@ export const NavBar = () => {
           </div>
         </Link>
         {user_redux?.admin === true || user?.admin === true ? (
-          <Link className={styles.link} to="/adminDashboard">
+          <Link className={styles.link} to="/adminDashboard/userslist">
             <button className={styles.navBtn}>Adminboard</button>
           </Link>
         ) : null}
