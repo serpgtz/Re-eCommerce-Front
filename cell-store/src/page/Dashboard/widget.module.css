@@ -31,6 +31,8 @@
     width: max-content;
     font-size: 12px;
     border-bottom: 1px solid gray;
+    text-decoration: none;
+    color: rgba(0,117,255,.671);
 }
 
 .percentage {

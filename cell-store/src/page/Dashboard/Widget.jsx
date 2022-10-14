@@ -24,9 +24,9 @@ const Widget = ({ type }) => {
   switch (type) {
     case "user":
       data = {
-        title: "USERS",
+        title: "USUARIOS",
         isMoney: false,
-        link: "See all users",
+        link: "Ver todos los usuarios",
         icon: (
           <PersonOutlinedIcon
             className={s.iconWit}
@@ -40,9 +40,9 @@ const Widget = ({ type }) => {
       break;
     case "order":
       data = {
-        title: "ORDERS",
+        title: "ORDENES",
         isMoney: false,
-        link: "View all orders",
+        link: "Ver todas las ordenes",
         icon: (
           <ShoppingCartOutlinedIcon
             className={s.iconWit}
@@ -56,7 +56,7 @@ const Widget = ({ type }) => {
       break;
     case "earning":
       data = {
-        title: "EARNINGS",
+        title: "GANANCIAS",
         isMoney: true,
         link: "",
         icon: (
@@ -69,7 +69,7 @@ const Widget = ({ type }) => {
       break;
     case "balance":
       data = {
-        title: "TOTAL SALES",
+        title: "VENTAS TOTALES",
         isMoney: true,
         link: "",
         icon: (
@@ -92,15 +92,15 @@ const Widget = ({ type }) => {
       <div className={s.leftWit}>
         <span className={s.titleWit}>{data.title}</span>
         <span className={s.counter}>
-          {data.title === 'TOTAL SALES' && `$ ${Math.round(33/* totalSales */)}`}
-          {data.title === "USERS" && `${totalusers}`}
-          {data.title === "ORDERS" && `${16/* countOrders */}`}
-          {data.title === 'EARNINGS' && `$ ${50000/* totalSale */}`}
+          {data.title === 'VENTAS TOTALES' && `$ ${Math.round(500112/* totalSales */)}`}
+          {data.title === "USUARIOS" && `${totalusers}`}
+          {data.title === "ORDENES" && `${16/* countOrders */}`}
+          {data.title === 'GANANCIAS' && `$ ${110873/* totalSale */}`}
         </span>
         <span className={s.linkR}>{data.link}</span>
       </div>
       <div className={s.rightWit}>
-        {data.title === 'EARNINGS' && <div className={s.percentage_positive}>
+        {data.title === 'GANANCIAS' && <div className={s.percentage_positive}>
           <KeyboardArrowUpIcon />
           {diff} %
         </div>}

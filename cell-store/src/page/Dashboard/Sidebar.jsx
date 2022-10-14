@@ -52,9 +52,9 @@ const Sidebar = () => {
       <div className={s.center}>
         <ul className={s.centerlist}>
           <p className={s.titleSid}>PRINCIPAL</p>
-          <Link to="/admin/dashboard" style={{ textDecoration: "none" }}>
+          <Link to="/admin" style={{ textDecoration: "none" }}>
           <li className={s.liSid}>
-              <DashboardIcon className={s.iconSid} />
+            <DashboardIcon className={s.iconSid} />
             <span className={s.spanSid}>Dashboard</span>
           </li>
           </Link>
@@ -65,19 +65,19 @@ const Sidebar = () => {
           </li>
           </Link>
           <p className={s.titleSid}>LISTAS</p>
-          <Link to="/adminDashboard/userslist" style={{ textDecoration: "none" }}>
+          <Link to="/admin/userslist" style={{ textDecoration: "none" }}>
             <li className={s.liSid}>
                   <PersonOutlineIcon className={s.iconSid} />
               <span className={s.spanSid}>Usuarios</span>
             </li>
           </Link>
-          <Link to="/admin/products/list" style={{ textDecoration: "none" }}>
+          <Link to="/admin/productlist" style={{ textDecoration: "none" }}>
             <li className={s.liSid}>
                   <StoreIcon className={s.iconSid} />
               <span className={s.spanSid}>Productos</span>
             </li>
           </Link>
-          <Link to="/admin/purchases/list" style={{ textDecoration: "none" }}>
+          <Link to="/admin/ordersList" style={{ textDecoration: "none" }}>
             <li className={s.liSid}>
                   <CreditCardIcon className={s.iconSid} />
               <span className={s.spanSid}>Ordenes</span>

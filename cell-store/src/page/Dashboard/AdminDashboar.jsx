@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 import Widget from "./Widget";
 import VentasTotales from "./VentasTotales";
-/* import Chart from "../../components/Dashboard/chart/Chart";
-import Table from "../../components/Dashboard/table/Table"; */
+import Chart from "./Chart";
+/* import Table from "../../components/Dashboard/table/Table"; */
 /* import { countAllOrders, getAllUsers, getOrdersToday, sumAllOrders, sumAllToday, sumBeforeLastMonth, sumLastMonth, sumLastThreeMonth, sumLastWeek, getAllComments } from '../../redux/actions'; */
 
 
@@ -36,10 +36,10 @@ const AdminDashboard = () => {
       <div className={s.homeContainer}>
         
         <div className={s.widgets}>
-          <Link to="/adminDashboard/userslist" style={{ textDecoration: "none" }}>
+          <Link to="/admin/userslist" style={{ textDecoration: "none" }}>
             <Widget type="user" />
           </Link>
-          <Link to = '/admin/purchases/list'>
+          <Link to = '/admin/ordersList' style={{ textDecoration: "none" }}>
             <Widget type="order" />
           </Link>
           <Widget type="earning" />
@@ -47,10 +47,10 @@ const AdminDashboard = () => {
         </div>
         <div className={s.charts}>
           <VentasTotales />
-          {/* <Chart title="Last 3 Months (Revenue)" aspect={2 / 1} /> */}
+          <Chart title="Últimos 3 meses (ingresos)" aspect={2 / 1} />
         </div>
         <div className={s.listContainer}>
-          <div className={s.listTitle}>Latest Transactions</div>
+          <div className={s.listTitle}>Últimas Transacciones</div>
           {/* <Table /> */}
         </div>
       </div>
