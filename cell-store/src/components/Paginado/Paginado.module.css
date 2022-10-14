@@ -1,8 +1,10 @@
 .container {
   display: flex;
+  align-items: center;
   color: var(--claro);
   justify-content: center;
   width: 100%;
+  height: 100px;
 }
 
 .subcontainer {

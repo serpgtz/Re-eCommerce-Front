@@ -60,7 +60,7 @@ const Reviews = ({ id, name, image }) => {
           ))}
         </details>
       ) : null}
-      {user.admin === false && (
+      {user?.admin === false && (
         <button className={styles.buttonReviewRemix} onClick={(e) => handlePost(e)}>Dejá tu review</button>
       )}
       {box === true && (

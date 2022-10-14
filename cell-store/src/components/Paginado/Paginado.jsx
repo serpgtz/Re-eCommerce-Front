@@ -5,6 +5,8 @@ import {
   getProductsPerPage,
 } from "../../redux/actions/productActions";
 import s from "../Paginado/Paginado.module.css";
+import Pagination from '@mui/material/Pagination'
+import Stack from '@mui/material/Stack';
 
 export default function () {
   let limit = 8;
@@ -20,9 +22,10 @@ export default function () {
 
   function handlePage(e) {
     e.preventDefault();
-    console.log("paginado", e.target.value);
-    dispatch(changePage(e.target.value));
-    dispatch(getProductsPerPage(e.target.value));
+   // console.log("paginado", e.target.innerText);
+   console.log( ' ', e )
+    dispatch(changePage(e.target.innerText));
+    dispatch(getProductsPerPage(e.target.innerText));
   }
 
   if (productsTotal.length < limit) {
@@ -30,7 +33,7 @@ export default function () {
   } else {
     return (
       <div className={s.container}>
-        <ul>
+        {/* <ul>
           <div className={s.subcontainer}>
             {pageNumbers &&
               pageNumbers.map((n, index) => {
@@ -49,7 +52,14 @@ export default function () {
                 );
               })}
           </div>
-        </ul>
+        </ul> */}
+
+<Stack spacing={2}>
+      <Pagination count={pageNumbers.length} variant="outlined"  onChange={ handlePage} color='primary' hidePrevButton hideNextButton  />
+      {/* <Pagination count={10} variant="outlined" color="primary" />
+      <Pagination count={10} variant="outlined" color="secondary" />
+      <Pagination count={10} variant="outlined" disabled /> */}
+    </Stack>
       </div>
     );
   }

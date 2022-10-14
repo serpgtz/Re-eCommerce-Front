@@ -24,10 +24,10 @@ const Dashboard = () => {
         <button className={button}>Crear producto</button>
       </Link>
       <Slider users={users} />
-      <label>
+      {/* <label>
         Editar usuario
         <FormDash users={users} />
-      </label>
+      </label> */}
       <h2>Órdenes</h2>
       {/*users.orders */}
       {/* <div>Agregados Recientemente</div>
