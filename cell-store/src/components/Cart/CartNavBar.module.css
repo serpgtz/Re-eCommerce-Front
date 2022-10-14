@@ -9,6 +9,7 @@
 
 
 .spanCart {
+    margin-top: 22px;
     color: var(--color-CartNavBar-spa);
     position: absolute;
     top: -20px;
