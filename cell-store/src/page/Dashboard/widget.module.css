@@ -9,14 +9,14 @@
     height: 100px;  
 }
 
-.left,
-.right {
+.leftWit,
+.rightWit {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.title {
+.titleWit {
     font-weight: bold;
     font-size: 14px;
     color: rgb(160, 160, 160);
@@ -31,6 +31,8 @@
     width: max-content;
     font-size: 12px;
     border-bottom: 1px solid gray;
+    text-decoration: none;
+    color: rgba(0,117,255,.671);
 }
 
 .percentage {
@@ -47,9 +49,9 @@
 }
 
 
-.icon {
+.iconWit {
     font-size: 18px;
-    padding: 5px;
+    /* padding: 5px; */
     border-radius: 5px;
     align-self: flex-end;
 }
