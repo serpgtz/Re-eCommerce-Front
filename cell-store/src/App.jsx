@@ -30,6 +30,9 @@ import UsersList from "./page/Dashboard/UsersList"
 import Sidebar from "./page/Dashboard/Sidebar";
 import AdminDashboard from "./page/Dashboard/AdminDashboar";
 import VentasTotales from "./page/Dashboard/VentasTotales";
+import ProductList from "./page/Dashboard/ProductList";
+import OrdersList from "./page/Dashboard/OrdersList";
+
 /* import Detail from './components/cards-products/Detail' */
 
 
@@ -80,11 +83,15 @@ function App() {
           {/*autenticado y administrador*/}
           <Route path="/adminDashboard/sidebar" element={<Sidebar />} />
           {/*autenticado y administrador*/}
-          <Route path="/adminDashboard/userslist" element={< UsersList />} />
+          <Route path="/admin/userslist" element={< UsersList />} />
           {/*autenticado y administrador*/}
-          <Route path="/admin/dashboard" element={< AdminDashboard />} />
+          <Route path="/admin" element={< AdminDashboard />} />
           {/*autenticado y administrador*/}
           <Route path="/admin/ventastotales" element={< VentasTotales />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/productlist" element={< ProductList />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/ordersList" element={< OrdersList />} />
           {/*autenticado y administrador*/}
         </Route>
 
