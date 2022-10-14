@@ -32,6 +32,7 @@ import AdminDashboard from "./page/Dashboard/AdminDashboar";
 import VentasTotales from "./page/Dashboard/VentasTotales";
 import ProductList from "./page/Dashboard/ProductList";
 import OrdersList from "./page/Dashboard/OrdersList";
+import ReviewsList from "./page/Dashboard/ReviewsList";
 
 /* import Detail from './components/cards-products/Detail' */
 
@@ -92,6 +93,8 @@ function App() {
           <Route path="/admin/productlist" element={< ProductList />} />
           {/*autenticado y administrador*/}
           <Route path="/admin/ordersList" element={< OrdersList />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/reviewslist" element={< ReviewsList />} />
           {/*autenticado y administrador*/}
         </Route>
 

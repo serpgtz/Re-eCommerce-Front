@@ -15,6 +15,7 @@ import MailIcon from '@mui/icons-material/Mail';
 /* import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined"; */
 /* import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined"; */
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import ReviewsIcon from '@mui/icons-material/Reviews';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 /* import { DarkModeContext } from "../../../context/darkModeContext"; */
@@ -83,6 +84,12 @@ const Sidebar = () => {
               <span className={s.spanSid}>Ordenes</span>
             </li>
           </Link>
+          <Link to="/admin/reviewslist" style={{ textDecoration: "none" }}>
+            <li className={s.liSid}>
+                  <ReviewsIcon className={s.iconSid} />
+              <span className={s.spanSid}>Reviews</span>
+            </li>
+          </Link>
           {/* <Link to="/admin/categories" style={{ textDecoration: "none" }}>
             <li className={s.liSid}>
                   <CategoryIcon className={s.iconSid} />
@@ -95,8 +102,8 @@ const Sidebar = () => {
               <span className={s.spanSid}>Marcas</span>
             </li>
           </Link> */}
-          <br/>
-          <p className={s.titleSid}>ÚTIL</p>
+          {/* <br/>
+          <p className={s.titleSid}>ÚTIL</p> */}
           
           {/* <Link to="/admin/notifications" style={{ textDecoration: "none" }}>
             <li className={s.liSid}>
