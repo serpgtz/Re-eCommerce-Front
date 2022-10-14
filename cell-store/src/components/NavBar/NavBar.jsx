@@ -42,11 +42,7 @@ export const NavBar = () => {
             <h1>Cell Store</h1>
           </div>
         </Link>
-        {user_redux?.admin === true || user?.admin === true ? (
-          <Link className={styles.link} to="/admin">
-            <button className={styles.navBtn}>Adminboard</button>
-          </Link>
-        ) : null}
+        
 
         <SearchBar />
 

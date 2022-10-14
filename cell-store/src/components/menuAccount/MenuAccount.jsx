@@ -97,12 +97,17 @@ const MenuAccount = () => {
         </MenuItem>
         </Link>
         <Divider />
+        {user_redux?.admin === true || user?.admin === true ?
+        <Link className={styles.link} to='/admin'>
         <MenuItem>
           <ListItemIcon>
-            <PersonAdd fontSize="small" />
+            <Settings fontSize="small" />
           </ListItemIcon>
-          Add another account
+          DashBoard Admin
         </MenuItem>
+        </Link>
+        
+        : null}
         <MenuItem>
           <ListItemIcon>
             <Settings fontSize="small" />
