@@ -10,23 +10,34 @@
 }
 
 .container label {
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: bold;
     color: var(--color-Auth-h2-label);
 
 }
 
 .form_login {
-
+      
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 25%;
-    height: 50%;
+    height: 60%;
     border-radius: 8px;
     background-color: #fff;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
+
+}
+
+.form_login form {
+    display : flex;
+    align-items: center;
+    flex-direction : column;
+    width : 100%;
+    height : 80%;
+   
 }
 
 .divcerrar {
@@ -63,19 +74,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 80%;
+    width: 90%;
     height: 80%;
     margin: 20px;
+   
 }
 
 
 .div_form .input {
-    height: 30px;
+    height: 40px;
     width: 100%;
     outline: none;
-    border: 1px solid gainsboro;
+    border: 1px solid rgb(242, 241, 241);
     border-radius: 4px;
     font-size: 13px;
+    background: rgb(246, 245, 245);
 }
 
 .div_form .input[type='submit'] {

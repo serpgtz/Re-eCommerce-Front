@@ -75,12 +75,12 @@ const Auth = () => {
     {active && <ForgotPassword setActive={setActive} active={active}/>}
       <div className={style.form_login}>
 
-        <div className={style.divcerrar}>
+        {/* <div className={style.divcerrar}>
           <Link to="/">
             <button className={style.cerrar}  >x</button>
           </Link>
 
-        </div>
+        </div> */}
         <form onSubmit={handleOnSubmit} >
           <h2>Iniciar Sesión</h2>
           <div className={style.div_form}>
