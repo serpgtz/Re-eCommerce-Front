@@ -209,7 +209,7 @@ function Cart() {
 									}
 									<button
 										className={s.btnSeguirComp}
-										onClick={handleCheckout}
+										onClick={handleGoBackBtn}
 									>
 										Agregar más productos
 									</button>

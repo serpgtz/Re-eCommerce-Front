@@ -1,7 +1,7 @@
 .AppReviews {
     font-family: sans-serif;
     text-align: center;
-  }
+}
   
 .popupReviews {
     position: fixed;
@@ -50,7 +50,7 @@
     cursor: pointer;
     font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.contentReviews button.disabled {
+.disabled {
     opacity: 0.5;
     pointer-events: none;
 }

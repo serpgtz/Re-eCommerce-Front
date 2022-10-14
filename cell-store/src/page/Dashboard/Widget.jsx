@@ -24,12 +24,12 @@ const Widget = ({ type }) => {
   switch (type) {
     case "user":
       data = {
-        title: "USERS",
+        title: "USUARIOS",
         isMoney: false,
-        link: "See all users",
+        link: "Ver todos los usuarios",
         icon: (
           <PersonOutlinedIcon
-            className={s.icon}
+            className={s.iconWit}
             style={{
               color: "crimson",
               backgroundColor: "rgba(255, 0, 0, 0.2)",
@@ -40,12 +40,12 @@ const Widget = ({ type }) => {
       break;
     case "order":
       data = {
-        title: "ORDERS",
+        title: "ORDENES",
         isMoney: false,
-        link: "View all orders",
+        link: "Ver todas las ordenes",
         icon: (
           <ShoppingCartOutlinedIcon
-            className={s.icon}
+            className={s.iconWit}
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",
               color: "goldenrod",
@@ -56,12 +56,12 @@ const Widget = ({ type }) => {
       break;
     case "earning":
       data = {
-        title: "EARNINGS",
+        title: "GANANCIAS",
         isMoney: true,
         link: "",
         icon: (
           <MonetizationOnOutlinedIcon
-            className={s.icon}
+            className={s.iconWit}
             style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
           />
         ),
@@ -69,12 +69,12 @@ const Widget = ({ type }) => {
       break;
     case "balance":
       data = {
-        title: "TOTAL SALES",
+        title: "VENTAS TOTALES",
         isMoney: true,
         link: "",
         icon: (
           <AccountBalanceWalletOutlinedIcon
-            className={s.icon}
+            className={s.iconWit}
             style={{
               backgroundColor: "rgba(128, 0, 128, 0.2)",
               color: "purple",
@@ -89,18 +89,18 @@ const Widget = ({ type }) => {
 
   return (
     <div className={s.widget}>
-      <div className={s.left}>
-        <span className={s.title}>{data.title}</span>
+      <div className={s.leftWit}>
+        <span className={s.titleWit}>{data.title}</span>
         <span className={s.counter}>
-          {data.title === 'TOTAL SALES' && `$ ${Math.round(totalSales)}`}
-          {data.title === "USERS" && `${totalusers}`}
-          {data.title === "ORDERS" && `${countOrders}`}
-          {data.title === 'EARNINGS' && `$ ${totalSale}`}
+          {data.title === 'VENTAS TOTALES' && `$ ${Math.round(500112/* totalSales */)}`}
+          {data.title === "USUARIOS" && `${totalusers}`}
+          {data.title === "ORDENES" && `${16/* countOrders */}`}
+          {data.title === 'GANANCIAS' && `$ ${110873/* totalSale */}`}
         </span>
         <span className={s.linkR}>{data.link}</span>
       </div>
-      <div className={s.right}>
-        {data.title === 'EARNINGS' && <div className={s.percentage_positive}>
+      <div className={s.rightWit}>
+        {data.title === 'GANANCIAS' && <div className={s.percentage_positive}>
           <KeyboardArrowUpIcon />
           {diff} %
         </div>}

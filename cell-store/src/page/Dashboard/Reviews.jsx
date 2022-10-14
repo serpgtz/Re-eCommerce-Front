@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAllReviews } from "../../redux/actions/reviewActions";
 import styles from "./Reviews.module.css";
+import UsersContainer from "./UsersContainer";
 const Reviews = ({ users, products }) => {
   //Debe recibir todos los usuarios y productos para funcionar
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Reviews = ({ users, products }) => {
     navigate("/detail/" + id);
   };
   //La función de abajo me trae el nombre del usuario de la review
+  console.log('uers aqui:', users)
   const userbyName = (uId) => {
     const userById = users.find((u) => u._id === uId);
     return userById?.username;

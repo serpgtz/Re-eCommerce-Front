@@ -1,6 +1,6 @@
 .navBar {
   display: flex;
-  height: 8.1rem;
+  height: 6rem;
   width: 100%;
   background: Var(--background-NavBar-navBar);
   justify-content: space-around;
