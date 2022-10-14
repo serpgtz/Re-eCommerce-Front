@@ -6,11 +6,13 @@ import styles from "../NavBar/NavBar.module.css";
 import SearchBar from "../searchBar/searchBar";
 import CartNavBar from "../Cart/CartNavBar";
 import { changePage, getAllProducts } from "../../redux/actions/productActions";
-
+import MenuAccount from "../menuAccount/MenuAccount";
 import { useState } from "react";
 import logo from "../../image/logo.png";
 
+
 export const NavBar = () => {
+  const [click, setClick] = useState(false)
   const user_redux = useSelector((state) => state.user.user);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const dispatch = useDispatch();
@@ -22,13 +24,9 @@ export const NavBar = () => {
     dispatch(getAllProducts());
   }
 
-  const handleLogOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    dispatch(userLogOut());
 
-    navigation("/account/login");
-  };
+
+  
   return (
     <>
       <nav className={styles.navBar}>
@@ -61,25 +59,13 @@ export const NavBar = () => {
               <Link className={styles.link} to="/account/login">
                 <button className={styles.navBtnLogin}>Iniciar sesión</button>
               </Link>
-            ) : (
-              <Link className={styles.link} to="/account/profile">
-                <button className={styles.navBtnUser}>
-                  {Object.keys(user_redux).length > 0
-                    ? user_redux?.name?.charAt().toUpperCase()
-                    : user?.name.charAt().toUpperCase()}
-                </button>
-              </Link>
-            )}
-            {localStorage.getItem("token") && (
-              <button
-                className={styles.navBtnLogouts}
-                onClick={() => handleLogOut()}
-              >
-                Logout
-              </button>
-            )}
+            ) : <MenuAccount/> }
+           
+          
           </div>
+          
         </div>
+      
       </nav>
 
     </>
