@@ -13,12 +13,11 @@ import ReviewsRemix from "./ReviewsRemix";
 
 const Reviews = ({ id, name, image }) => {
   const dispatch = useDispatch();
-  //   const reviews = useSelector((state) => state.reviews);
   const reviewsByProduct = useSelector((state) => state.review.reviews);
   const user = JSON.parse(localStorage.getItem("user"));
   const allUsers = useSelector((state) => state.user.users).map((u) => ({
-    name: u.username,
-    id: u._id,
+    name: u?.username,
+    id: u?._id,
   }));
   const [box, setBox] = useState(false);
   const handlePost = (e) => {
@@ -26,7 +25,7 @@ const Reviews = ({ id, name, image }) => {
     setBox(!box);
   };
   const userbyName = (uId) => {
-    const userById = allUsers.find((u) => u.id === uId);
+    const userById = allUsers?.find((u) => u.id === uId);
     return userById?.name;
   };
 
@@ -36,7 +35,6 @@ const Reviews = ({ id, name, image }) => {
   }, [dispatch]);
   return (
     <>
-      
       {reviewsByProduct ? (
         <details id="detalles" title="Reviews" className={styles.botónReview}>
           <summary id="reviewsDe" className={styles.summ}>
@@ -61,16 +59,22 @@ const Reviews = ({ id, name, image }) => {
         </details>
       ) : null}
       {user?.admin === false && (
-        <button className={styles.buttonReviewRemix} onClick={(e) => handlePost(e)}>Dejá tu review</button>
+        <button
+          className={styles.buttonReviewRemix}
+          onClick={(e) => handlePost(e)}
+        >
+          Dejá tu review
+        </button>
       )}
       {box === true && (
         <>
-        <ReviewsRemix
-        id={id}
-        image={image}
-        name={name}
-        user={user}
-        setBox={setBox} />
+          <ReviewsRemix
+            id={id}
+            image={image}
+            name={name}
+            user={user}
+            setBox={setBox}
+          />
         </>
       )}
     </>
