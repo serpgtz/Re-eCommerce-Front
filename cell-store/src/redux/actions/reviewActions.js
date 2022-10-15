@@ -32,8 +32,8 @@ export const getAllReviews = () => {
 export function getReviewByUser(userId) {
   return async function (dispatch) {
     try {
-      let user = await axios.get(`/users/${userId}/reviews`);
-   
+      let user = await axios.get(`/user/${userId}/reviews`);
+
       return dispatch({
         type: GET_USER_REVIEWS,
         payload: user.data,
@@ -48,7 +48,7 @@ export function getReviewByProduct(productId) {
   return async function (dispatch) {
     try {
       let product = await axios.get(`/product/${productId}/reviews`);
-      
+
       return dispatch({
         type: GET_PRODUCT_REVIEWS,
         payload: product.data,
