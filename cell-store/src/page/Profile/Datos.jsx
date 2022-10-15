@@ -17,40 +17,43 @@ import { useSelector } from "react-redux";
 
 
 
-export default function Datos(){
+export default function Datos() {
 
-    const usuario = useSelector(state=>state.user.user)
-    console.log("holaaa",usuario)
+  const usuario = useSelector(state => state.user.user)
+  console.log("holaaa", usuario)
 
 
 
-return(
-   <div >
+  return (
     <div >
-    <List sx={style} component="nav" aria-label="mailbox folders">
-      <ListItem button>
-        <ListItemText primary={usuario.name} />
-      </ListItem>
-      <Divider />
-      <ListItem button divider>
-        <ListItemText primary= {usuario.email} />
-      </ListItem>
-      <ListItem button>
-        <ListItemText primary={usuario._id} />
-      </ListItem>
-      
-    </List>
-        
-       
+      <div >
+        <List sx={style} component="nav" aria-label="mailbox folders">
+          <ListItem button>
+            <strong>Nombre de Usuario:&nbsp;</strong>
+            <ListItemText primary={usuario.name} />
+          </ListItem>
+          <Divider />
+          <ListItem button divider>
+            <strong>Email:&nbsp;</strong>
+            <ListItemText primary={usuario.email} />
+          </ListItem>
+          <ListItem button>
+            <strong> Id:&nbsp;</strong>
+            <ListItemText primary={usuario._id} />
+          </ListItem>
+
+        </List>
+
+
+      </div>
+
     </div>
-      
-   </div>
-)
+  )
 
 
 
 
-    
+
 
 
 

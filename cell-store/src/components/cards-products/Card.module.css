@@ -102,6 +102,12 @@
   margin: 0px;
 }
 
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .buttonCarrito {
   /* background-color: rgba(0, 0, 0, 0.322); */
   background: var(--background-Card-ButtonCarrito);

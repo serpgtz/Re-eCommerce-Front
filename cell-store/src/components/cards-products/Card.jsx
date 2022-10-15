@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
+import { useState } from "react";
 import s from './Card.module.css';
 import carrito from '../../image/carrito.png'
 import corazonVacio from '../../image/corazonVacio.png'
@@ -15,6 +16,9 @@ const Card = (p) => {
   const myProduct = useSelector((state) => state.product.products);
   const productCart = useSelector((state) => state.cart.cart);
   const filtroConfetti = productCart.filter(e => e._id === id);
+  const user_redux = useSelector((state) => state.user.user);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
 
   const handleAddToCart = (e) => {
     const productId = myProduct.filter(e => e._id === id);
@@ -22,14 +26,14 @@ const Card = (p) => {
     dispatch(addToCart(productId[0]));
     console.log(id);
     //efecto confetti
-    if(!filtroConfetti[0]){
-    party.confetti(e.target, {
-      count: party.variation.range(20, 40),
-    });
-    } else{
+    if (!filtroConfetti[0]) {
+      party.confetti(e.target, {
+        count: party.variation.range(20, 40),
+      });
+    } else {
       null
     }
-    
+
   };
 
   return (
@@ -47,8 +51,15 @@ const Card = (p) => {
       <div className={s.footerCard}>
         <div className={s.left}></div>
         <Link className={s.agregarCarrito} to={`/`}>
-          <button onClick={handleAddToCart} className={s.buttonCarrito} ><img className={s.imgCarrito} src={carrito} alt="image not found" /></button>
-          <button onClick={handleAddToCart} className={s.comprar}>AGREGAR AL CARRITO</button>
+          {user_redux?.admin === true || user?.admin === true ? (
+            null
+          ) :
+            <span className={s.button}>
+              <button onClick={handleAddToCart} className={s.buttonCarrito} ><img className={s.imgCarrito} src={carrito} alt="image not found" /></button>
+              <button onClick={handleAddToCart} className={s.comprar}>AGREGAR AL CARRITO</button>
+            </span>
+
+          }
         </Link>
         <Link className={s.like} to={`/`}>
           <div className={s.right}> <img className={s.corazon} src={corazonVacio} alt="image not found" /></div>
