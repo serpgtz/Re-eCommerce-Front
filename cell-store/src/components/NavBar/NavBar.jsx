@@ -50,7 +50,7 @@ export const NavBar = () => {
 
           <CartNavBar />
 
-          <div className={styles.navAuth}>
+          
             {localStorage.getItem("token") === null ? (
               <Link className={styles.link} to="/account/login">
                 <button className={styles.navBtnLogin}>Iniciar sesión</button>
@@ -58,7 +58,7 @@ export const NavBar = () => {
             ) : <MenuAccount/> }
            
           
-          </div>
+         
           
         </div>
       
