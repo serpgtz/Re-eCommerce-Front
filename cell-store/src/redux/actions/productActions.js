@@ -211,11 +211,12 @@ export function ChangeByName2() {
   };
 }
 
-export const orderProduct = (products, id)=> {
+export const orderProduct = (products, id, location)=> {
+  const data = [products,location]
   return async (dispatch) => {
-    console.log(products, id)
+    console.log(products)
     try {
-     const linkMP = await axios.post(`/post-order/${id}`, products)
+     const linkMP = await axios.post(`/post-order/${id}`, data)
         return dispatch({
           type : LINK_MP,
           payload : linkMP.data
