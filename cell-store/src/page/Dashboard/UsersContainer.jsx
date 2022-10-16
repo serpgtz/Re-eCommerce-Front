@@ -8,6 +8,7 @@ import {
   tableBoxTrue,
   tableBoxFalse,
   tdActions,
+  trCon
 } from "./Dashboard.module.css";
 import UserWindow from "./UserWindow";
 
@@ -19,7 +20,7 @@ const UsersContainer = ({ users, slideIndex, slideIndex2 }) => {
   return (
     <div className={cardUserContainer}>
       <table className={tableUserAdmin}>
-        <tr>
+        <tr className={trCon}>
           <th className={th}>NOMBRE</th>
           <th className={th}>E-MAIL</th>
           <th className={th}>ACTIONS</th>
