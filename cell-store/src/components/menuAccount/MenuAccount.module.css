@@ -1,0 +1,20 @@
+.navBtnUser {
+    color: aliceblue;
+   
+    font-size: 1.5rem;
+    padding: 0.5rem 0.78rem 0.5rem 0.78rem;
+  
+    color: var(--color-NavBar-NavBtnUser);
+    margin-top: 0.9rem;
+    margin-bottom: 0.1rem;
+    margin-left: -1.5rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 300ms;
+  }
+  .link {
+    text-decoration: none;
+    color: rgb(75, 74, 74);
+  }

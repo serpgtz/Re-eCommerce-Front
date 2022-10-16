@@ -1,24 +1,26 @@
-
-
-.container{
-  
+.container {
+  width: 100wh;
+  height: 100%;
   justify-content: space-around;
   /* background-color: rgb(141, 159, 159);
    */
-  
+  margin: 20px;
 }
-.buttons{
+
+.buttons {
   display: inline-flex;
   /* background-color: aqua; */
   flex-direction: column;
-  
+
 
 }
-.display{
+
+.display {
   display: inline-flex;
   margin-left: 5rem;
 }
-.user{
+
+.user {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: (--medio);
 }
