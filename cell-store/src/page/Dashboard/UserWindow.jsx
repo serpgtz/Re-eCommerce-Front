@@ -1,29 +1,80 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import Delete from "./Delete.jsx";
-const UserWindow = ({ user, modbox }) => {
-  const [tribute, setTribute] = useState({});
-  const handleTribute = (e) => {
-    setTribute(e.target.returnvalue);
-    console.log("first");
+// import React, { useState } from "react";
+// import { useDispatch } from "react-redux";
+// import Delete from "./Delete.jsx";
+// const UserWindow = ({ user, modbox }) => {
+//   const [tribute, setTribute] = useState({});
+//   const handleTribute = (e) => {
+//     setTribute(e.target.returnvalue);
+//     console.log("first");
+//   };
+
+//   return (
+//     <>
+//       <dialog
+//         open={modbox}
+//         returnvalue={tribute}
+//         onChange={(e) => handleTribute(e)}
+//       >
+//         <p>Detalles de usuario</p>
+//         <p>{user?._id}</p>
+//         <p>{user?.username}</p>
+//         <p>{user?.email}</p>
+//         <button>Coronar como admin</button>
+//         <Delete id={user?.id} />
+//       </dialog>
+//     </>
+//   );
+// };
+
+import * as React from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
+export default function UserWindow({ openFormDialog }) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
-    <>
-      <dialog
-        open={modbox}
-        returnvalue={tribute}
-        onChange={(e) => handleTribute(e)}
-      >
-        <p>Detalles de usuario</p>
-        <p>{user?._id}</p>
-        <p>{user?.username}</p>
-        <p>{user?.email}</p>
-        <button>Coronar como admin</button>
-        <Delete id={user?.id} />
-      </dialog>
-    </>
+    <div>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        {openFormDialog}
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Subscribe</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            To subscribe to this website, please enter your email address here.
+            We will send updates occasionally.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleClose}>Subscribe</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
   );
-};
+}
 
-export default UserWindow;
+// export default UserWindow;
