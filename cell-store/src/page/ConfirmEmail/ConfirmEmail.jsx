@@ -2,9 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 
 const ConfirmEmail = () => {
-    const email =JSON.parse(localStorage.getItem('cart'))
-                  
+    const email =JSON.parse(localStorage.getItem('email_register_'))
+    
    useEffect(() => {
+    
     setTimeout(()=> {
         localStorage.removeItem('email_register_')
     })
