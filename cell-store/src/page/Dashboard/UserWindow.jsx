@@ -1,41 +1,16 @@
-// import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import Delete from "./Delete.jsx";
-// const UserWindow = ({ user, modbox }) => {
-//   const [tribute, setTribute] = useState({});
-//   const handleTribute = (e) => {
-//     setTribute(e.target.returnvalue);
-//     console.log("first");
-//   };
-
-//   return (
-//     <>
-//       <dialog
-//         open={modbox}
-//         returnvalue={tribute}
-//         onChange={(e) => handleTribute(e)}
-//       >
-//         <p>Detalles de usuario</p>
-//         <p>{user?._id}</p>
-//         <p>{user?.username}</p>
-//         <p>{user?.email}</p>
-//         <button>Coronar como admin</button>
-//         <Delete id={user?.id} />
-//       </dialog>
-//     </>
-//   );
-// };
-
 import * as React from "react";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { deleteUser, modifyUser } from "../../redux/actions/userActions";
 
-export default function UserWindow({ openFormDialog }) {
+export default function UserWindow({ openFormDialog, user }) {
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -46,31 +21,44 @@ export default function UserWindow({ openFormDialog }) {
     setOpen(false);
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    dispatch(deleteUser(user.id));
+    setOpen(false);
+    alert("Se eliminó correctamente, actualiza para ver los cambios");
+  };
+  const handlePut = (e) => {
+    e.preventDefault();
+    dispatch(modifyUser(user.id, {}));
+    setOpen(false);
+    alert("Se modificó correctamente, actualiza para ver los cambios");
+  };
+
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
         {openFormDialog}
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Usuario</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
+          <DialogContentText>Edite el rol de {user.name}</DialogContentText>
+          <FormControl>
+            <InputLabel htmlFor="admin">Admin</InputLabel>
+            <Input
+              id="admin"
+              aria-describedby="my-helper-text"
+              type="checkbox"
+            />
+            <FormHelperText id="my-helper-text">
+              Un administrador no puede editar a otros.
+            </FormHelperText>
+          </FormControl>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={(e) => handlePut(e)}>Aplicar</Button>
+          <Button onClick={(e) => handleDelete(e)}>ELIMINAR</Button>
         </DialogActions>
       </Dialog>
     </div>

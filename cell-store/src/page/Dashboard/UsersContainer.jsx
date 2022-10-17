@@ -3,11 +3,6 @@ import React from "react";
 import UserWindow from "./UserWindow";
 
 const UsersContainer = ({ users }) => {
-  const [checked, setChecked] = React.useState(false);
-
-  const handleChange = () => {
-    setChecked(!checked);
-  };
   const rows = users.map((u) => ({
     id: u._id,
     name: u.username,
@@ -16,7 +11,7 @@ const UsersContainer = ({ users }) => {
     confirmed: u.confirmed,
   }));
 
-  const productColumns = [
+  const userColumns = [
     { field: "id", headerName: "ID Único", width: 240 },
     {
       field: "name",
@@ -50,8 +45,7 @@ const UsersContainer = ({ users }) => {
           <div /*className = {s.cellTableBox}*/>
             {params.row.admin === false && (
               <div /*className = {s.accessButton}*/>
-                {console.log(input)}
-                <UserWindow openFormDialog="Editar" />
+                <UserWindow openFormDialog="Editar" user={params.row} />
               </div>
             )}
             {params.row.admin === true && (
@@ -77,11 +71,9 @@ const UsersContainer = ({ users }) => {
       <DataGrid
         autoHeight
         rows={rows}
-        columns={productColumns}
-        pageSize={8}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-        onChange={handleChange}
+        columns={userColumns}
+        pageSize={6}
+        rowsPerPageOptions={[6]}
       />
     </div>
   );
