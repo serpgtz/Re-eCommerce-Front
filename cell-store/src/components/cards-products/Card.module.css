@@ -143,6 +143,12 @@
   filter: invert();
 }
 
+.like {
+  background-color: transparent;
+  border-color: transparent;
+  width: 30px;
+}
+
 .right {
   width: 65px;
 }

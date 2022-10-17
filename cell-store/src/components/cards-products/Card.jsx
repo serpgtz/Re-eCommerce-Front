@@ -6,6 +6,7 @@ import { useState } from "react";
 import s from './Card.module.css';
 import carrito from '../../image/carrito.png'
 import corazonVacio from '../../image/corazonVacio.png'
+import corazonRojo from '../../image/corazonrojo.png'
 import { addToCart } from '../../redux/actions/cartActions';
 
 
@@ -18,6 +19,91 @@ const Card = (p) => {
   const filtroConfetti = productCart.filter(e => e._id === id);
   const user_redux = useSelector((state) => state.user.user);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+  const [likeP, setLikeP] = useState({
+    like: false,
+    id_product: id,
+  })
+  let like = {
+    like: false,
+    id_product: id,
+  }
+  let likes = [];
+  let likeTrue = [];
+  // console.log('myProduct', myProduct)
+
+  useEffect(() => {
+    if (localStorage.getItem('likes')) {
+      likes = (JSON.parse(localStorage.getItem('likes')));
+      console.log('likes', likes)
+      likeTrue = likes.filter((l) => {
+        return l.id_product === id
+      })
+      if (likeTrue.length) {
+        setLikeP({
+
+          like: true,
+          id_product: id,
+
+        })
+
+        console.log('likeTrue', likeTrue)
+        console.log('likeP', likeP)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    console.log('---------------------likeP', likeP)
+  }, [likeP])
+
+  const handleAddLike = (e) => {
+    e.preventDefault();
+    like = {
+      like: true,
+      id_product: id,
+    }
+    // console.log('like', like)
+    // console.log('likes', likes)
+    // console.log('id', id)
+    if (localStorage.getItem('likes')) {
+      likeTrue = [];
+      likes = (JSON.parse(localStorage.getItem('likes')));
+      likeTrue = likes.filter((l) => {
+        return l.id_product === id
+      })
+
+      if (likeTrue.length) {
+        // alert('El producto se quitará de tus favoritos')
+        likes = likes.filter((l) => {
+          return l.id_product !== id
+        })
+        setLikeP({
+          like: false,
+          id_product: id,
+        })
+
+      } else {
+        // alert('El producto se guardará en tus favoritos')
+        likes.push(like);
+        setLikeP({
+          like: true,
+          id_product: id,
+        })
+      }
+      localStorage.setItem("likes", JSON.stringify(likes))
+    } else {
+      // alert('El producto se guardará en tus favoritos')
+      let likes = [];
+      likes.push(like);
+      localStorage.setItem("likes", JSON.stringify(likes))
+      setLikeP({
+        like: true,
+        id_product: id,
+      })
+    }
+
+  }
+
 
 
   const handleAddToCart = (e) => {
@@ -56,17 +142,34 @@ const Card = (p) => {
           ) :
             <span className={s.button}>
               <button onClick={handleAddToCart} className={s.buttonCarrito} ><img className={s.imgCarrito} src={carrito} alt="image not found" /></button>
-              <button onClick={handleAddToCart} className={s.comprar}>AGREGAR AL CARRITO</button>
+              <button onClick={handleAddToCart} className={s.comprar}>Agregar al carrito</button>
             </span>
 
           }
         </Link>
-        <Link className={s.like} to={`/`}>
-          <div className={s.right}> <img className={s.corazon} src={corazonVacio} alt="image not found" /></div>
-        </Link>
+
+        <div className={s.right} onClick={e => handleAddLike(e)}>
+          {/* <button className={s.like}  > */}
+          {console.log('likeP', likeP)}
+          {likeP.like ?
+            <img
+              className={s.corazon}
+              src={corazonRojo}
+              alt="image not found" />
+            :
+            <img
+              className={s.corazon}
+              src={corazonVacio}
+              alt="image not found" />
+          }
+          {/* </button> */}
+        </div>
+
+
+
 
       </div>
-    </div>
+    </div >
   )
 }
 
