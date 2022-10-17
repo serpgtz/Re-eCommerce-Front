@@ -46,7 +46,7 @@ export const deleteFromCart = product => async dispatch => {
 
 	const updatedCart = cart.filter(cartItem => cartItem._id !== product._id);
 
-	localStorage.setItem('cart', JSON.stringify(updatedCart));
+	localStorage.setItem('cart', JSON.stringify("updatedCart"));
 
 	dispatch({
 		type: DELETE_FROM_CART,
