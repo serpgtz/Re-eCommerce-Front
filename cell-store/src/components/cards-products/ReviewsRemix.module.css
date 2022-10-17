@@ -1,11 +1,9 @@
 .AppReviews {
     font-family: sans-serif;
     text-align: center;
-  }
+}
   
 .popupReviews {
-    /* width: 650px;
-    height: 650px; */
     position: fixed;
     top: 0;
     left: 0;
@@ -52,7 +50,25 @@
     cursor: pointer;
     font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.contentReviews button.disabled {
+.disabled {
     opacity: 0.5;
     pointer-events: none;
+}
+
+.btnX{
+    display: grid;
+    width: 25px;
+    background-color: red;
+    color: white;
+    border-radius: 6rem;
+    align-self: center;
+    cursor: pointer;
+}
+
+.h1X{
+    color: black;
+}
+.h1Num{
+    color: black;
+    font-size: 25px;
 }

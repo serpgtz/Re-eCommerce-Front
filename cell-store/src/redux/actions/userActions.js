@@ -16,11 +16,19 @@ export const RESPONSE_NEW_PASSWORD = "RESPONSE_NEW_PASSWORD";
 axios.defaults.baseURL = import.meta.env.VITE_API;//localhost 3000
 
 export const userRegister = (user) => {
+<<<<<<< HEAD
   console.log(user);
   console.log("hoa")
+=======
+
+>>>>>>> 3464e509360b72d675a637ff30cc4504a3df5c84
   return async (dispatch) => {
     try {
-      await axios.post("/register", user);
+  const res = await axios.post("/register", user);
+   return dispatch({
+    type: REGISTER_ERROR,
+    payload: res.data,
+  });
     } catch (error) {
       return dispatch({
         type: REGISTER_ERROR,

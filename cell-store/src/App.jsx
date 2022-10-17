@@ -26,6 +26,14 @@ import Cart from "./components/Cart/Cart";
 import NotFound from "./components/NotFound/NotFound";
 import { ProtectedRoute } from "./Protected/ProtectedRoute";
 import ChangePassword_forgot from "./page/changePassowrd_forgot/ChangePassword_forgot";
+import UsersList from "./page/Dashboard/UsersList"
+import Sidebar from "./page/Dashboard/Sidebar";
+import AdminDashboard from "./page/Dashboard/AdminDashboar";
+import VentasTotales from "./page/Dashboard/VentasTotales";
+import ProductList from "./page/Dashboard/ProductList";
+import OrdersList from "./page/Dashboard/OrdersList";
+import ReviewsList from "./page/Dashboard/ReviewsList";
+
 /* import Detail from './components/cards-products/Detail' */
 
 
@@ -73,6 +81,20 @@ function App() {
           <Route path="/categoryForm/:id" element={<CategoryForm />} />
           {/*autenticado y administrador*/}
           <Route path="/adminDashboard" element={<Dashboard />} />
+          {/*autenticado y administrador*/}
+          <Route path="/adminDashboard/sidebar" element={<Sidebar />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/userslist" element={< UsersList />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin" element={< AdminDashboard />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/ventastotales" element={< VentasTotales />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/productlist" element={< ProductList />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/ordersList" element={< OrdersList />} />
+          {/*autenticado y administrador*/}
+          <Route path="/admin/reviewslist" element={< ReviewsList />} />
           {/*autenticado y administrador*/}
         </Route>
 

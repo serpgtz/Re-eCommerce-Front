@@ -64,7 +64,7 @@ ul {
   color: white;
 }
 
-span {
+.spanFoot {
   display: flex;
   margin-top: 22px;
 }

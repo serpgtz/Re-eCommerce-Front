@@ -12,7 +12,7 @@ export default function Footer() {
         <div className={s.container}>
 
             <div className={s.redes}>
-                <span>Síguenos en:</span>
+                <span className={s.spanFoot}>Síguenos en:</span>
 
                 <ul className={s.redeslist}>
                     <li><img src={face} width="40px" /></li>

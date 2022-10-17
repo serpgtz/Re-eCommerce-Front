@@ -15,6 +15,7 @@ export const NOT_FOUND = "NOT_FOUND";
 export const HIGHER_PRICE = "HIGHER_PRICE";
 export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
+export const LINK_MP = "LINK_MP"
 
 
 axios.defaults.baseURL = import.meta.env.VITE_API;
@@ -210,4 +211,20 @@ export function ChangeByName2() {
       payload: "false",
     });
   };
+}
+
+export const orderProduct = (products, id, location)=> {
+  const data = [products,location]
+  return async (dispatch) => {
+    console.log(products)
+    try {
+     const linkMP = await axios.post(`/post-order/${id}`, data)
+        return dispatch({
+          type : LINK_MP,
+          payload : linkMP.data
+        })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import style from './Register.module.css'
 import icon_eyes_on from '../../image/show.png'
@@ -6,13 +6,18 @@ import icon_eyes_off from '../../image/hide.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { userRegister } from '../../redux/actions/userActions'
 import { errorInput } from './control'
-import Alert from '../../components/alert/Alert'
+//import Alert from '../../components/alert/Alert'
 import { useNavigate } from 'react-router-dom'
+import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import AlertTitle from '@mui/material/AlertTitle'
 
 const Register = () => {
  
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [open, setOpen] = React.useState(true)
   const error_back = useSelector(state => state.user.error_register)
   const [error, setError] = useState({})
   const [click, setClick] = useState(false)
@@ -45,46 +50,60 @@ const Register = () => {
       password: '',
       confirmPassword: '',
     })
+    
+   
   }
-
-  const submitRedirect = () => {
-
-    if (!error_back) {
-      setTimeout(() => {
-        navigate('/confirm')
-      }, 500)
-    }
-  }
+//<Alert msg={error_back.msg}
+useEffect(()=> {
+  console.log(error_back)
+  if (error_back?.error === false) {
+    console.log('dentro del if', error_back)
+    return navigate('/confirm')
+  
+ }
+},[error_back])
 
   return (
     <div className={style.container}>
-      {error_back.msg?.length > 0 && <Alert msg={error_back.msg} />}
-      <div className={style.form_register}>
+      {error_back.error  &&  <Stack sx={{ width: '27%' }} spacing={2}>
+      <Alert severity="error">
+  <AlertTitle>Error</AlertTitle>
+  {error_back.msg}<strong>
+ ¡Échale un vistazo!</strong>
+</Alert>
+    
+    </Stack>
+      
+      
+     }
+     
 
-        <div className={style.divcerrar}>
+        {/* <div className={style.divcerrar}>
           <Link to="/">
             <button className={style.cerrar}  >x</button>
           </Link>
 
-        </div>
-        <form onSubmit={handleOnSubmit} >
-          <h1>Create Account</h1>
+        </div> */}
+        <form className={style.form_register} onSubmit={handleOnSubmit} >
+         
           <div className={style.div_form} >
-            <div className={style.div_div_form}>
-              <label>userName</label>
+           
+              <label>NOMBRE</label>
               <input
                 type='text'
                 name='username'
+                placeholder='Tu Nombre'
                 style={{ border: error.username && '1px solid red' }}
                 onChange={handleOnChange} value={input.username}
               ></input>
               {error.username && <p>{error.username}</p>}
 
 
-              <label>email</label>
+              <label>EMAIL</label>
               <input
                 type='text'
                 name='email'
+                placeholder='Tu Email'
                 style={{ border: error.email && '1px solid red' }}
                 onChange={handleOnChange}
                 value={input.email}
@@ -92,10 +111,11 @@ const Register = () => {
               {error.email && <p>{error.email}</p>}
 
 
-              <label>password</label>
+              <label>Contraseña</label>
               <input
                 type={click ? 'text' : 'password'}
                 name='password'
+                placeholder='contraseña'
                 style={{ border: error.password && '1px solid red' }}
                 onChange={handleOnChange}
                 value={input.password}
@@ -103,10 +123,11 @@ const Register = () => {
               {error.password && <p>{error.password}</p>}
 
 
-              <label>confirm password</label>
+              <label>Repetir Contraseña</label>
               <input
                 type={click ? 'text' : 'password'}
                 name='confirmPassword'
+                placeholder='Repetir contraseña'
                 style={{ border: error.confirmPassword && '1px solid red' }}
                 onChange={handleOnChange}
                 value={input.confirmPassord}
@@ -115,18 +136,18 @@ const Register = () => {
 
               <div className={style.div_icon} onClick={() => setClick(!click)}>
                 <img className={style.icon_eyes} src={click ? icon_eyes_on : icon_eyes_off}></img></div>
-            </div>
+            
           </div>
           <input
             type='submit'
-            value='Registrarse'
+            value='Crea una Cuenta'
             className={style.button}
             disabled={Object.values(error).length == 0 ? false : true}
-            onClick={submitRedirect}
+           
           ></input>
+          <Link className={style.link} to='/account/login'>¿Ya tienes una cuenta ? Inicia Sesion</Link>
         </form>
-      </div>
-
+     
 
 
     </div>

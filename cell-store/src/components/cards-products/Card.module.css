@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.249);
 }
 
 .name {
@@ -102,6 +102,12 @@
   margin: 0px;
 }
 
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .buttonCarrito {
   /* background-color: rgba(0, 0, 0, 0.322); */
   background: var(--background-Card-ButtonCarrito);
@@ -135,6 +141,12 @@
   width: 50px;
   border-radius: 80px;
   filter: invert();
+}
+
+.like {
+  background-color: transparent;
+  border-color: transparent;
+  width: 30px;
 }
 
 .right {
