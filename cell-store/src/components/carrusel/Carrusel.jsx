@@ -9,7 +9,7 @@ const Carrusel = () => {
     
   
     return (
-        <Carousel>
+        <Carousel showThumbs={false} showStatus={false} autoPlay={true} infiniteLoop={true}>
         <div>
             <img src={samsung} />
             
