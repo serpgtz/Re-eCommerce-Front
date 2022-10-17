@@ -1,14 +1,13 @@
 import { DataGrid } from "@mui/x-data-grid";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import UserWindow from "./UserWindow";
 
 const UsersContainer = ({ users }) => {
-  const [modbox, setModBox] = useState(false);
-  const handleModBox = () => {
-    setModBox(!modbox);
-  };
+  const [checked, setChecked] = React.useState(false);
 
+  const handleChange = () => {
+    setChecked(!checked);
+  };
   const rows = users.map((u) => ({
     id: u._id,
     name: u.username,
@@ -36,6 +35,11 @@ const UsersContainer = ({ users }) => {
       field: "confirmed",
       headerName: "Confirmado",
       width: 100,
+      renderCell: (params) => {
+        return (
+          <div>{params.row.confirmed === true ? "Positivo" : "Negativo"}</div>
+        );
+      },
     },
     {
       field: "admin",
@@ -45,23 +49,16 @@ const UsersContainer = ({ users }) => {
         return (
           <div /*className = {s.cellTableBox}*/>
             {params.row.admin === false && (
-              <Link
-                to={`/admin/userslist/edit/${params.row.id}`}
-                style={{ textDecoration: "none" }}
-              >
-                <div /*className = {s.accessButton}*/>Edit</div>
-              </Link>
+              <div /*className = {s.accessButton}*/>
+                {console.log(input)}
+                <UserWindow openFormDialog="Editar" />
+              </div>
             )}
             {params.row.admin === true && (
               <div /*className = {s.accessRestringed}*/>
                 -ACCIONES PROHIBIDAS-
               </div>
             )}
-
-            {/* <div className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}>
-              Delete
-            </div> */}
           </div>
         );
       },
@@ -81,8 +78,10 @@ const UsersContainer = ({ users }) => {
         autoHeight
         rows={rows}
         columns={productColumns}
-        pageSize={10}
+        pageSize={8}
         rowsPerPageOptions={[5]}
+        checkboxSelection
+        onChange={handleChange}
       />
     </div>
   );
