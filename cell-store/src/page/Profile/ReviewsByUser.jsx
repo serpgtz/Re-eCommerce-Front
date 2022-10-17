@@ -16,7 +16,9 @@ const ReviewsByUser = () => {
     const idProductsReviewByUser = useSelector((state) =>
         state.review.reviews.map(r => { return r.product })
     );
-    const [productsByReviewByUser, setProductsByReviewByUser] = useState()
+    const [productsByReviewByUser, setProductsByReviewByUser] = useState(
+        []
+    )
 
     useEffect(() => {
         dispatch(getUserData());
@@ -28,17 +30,31 @@ const ReviewsByUser = () => {
     }, [reviewByUser]);
 
     const completeProducts = () => {
-        console.log('estoy en completeProducts--------------------');
-        (idProductsReviewByUser) ?
-            setProductsByReviewByUser(idProductsReviewByUser.map(r => products.filter(p => p._id === r)))
-            : console.log('no hay productos')
+        // console.log('estoy en completeProducts--------------------');
+        let supProductsReviewByUser = [];
+        if (idProductsReviewByUser) {
+            supProductsReviewByUser = idProductsReviewByUser.map(r => products.filter(p => p._id === r));
+            supProductsReviewByUser = supProductsReviewByUser.map(s => s[0])
+
+        }
+        if (productsByReviewByUser) {
+            console.log(' supProductsReviewByUser', supProductsReviewByUser)
+            for (let i = 0; i < reviewByUser.length; i++) {
+                for (let j = 0; j < supProductsReviewByUser.length; j++) {
+                    if (reviewByUser[i].product === supProductsReviewByUser[j]._id) {
+                        supProductsReviewByUser[i].reviews = reviewByUser[j].comment
+                    }
+                }
+            }
+            setProductsByReviewByUser(supProductsReviewByUser)
+        }
     }
 
-    console.log('reviewByUser', reviewByUser);
-    console.log(user);
-    console.log('products', products);
-    console.log('productsByReviewByUser', productsByReviewByUser)
-    console.log('idProductsReviewByUser', idProductsReviewByUser);
+    // console.log('reviewByUser', reviewByUser);
+    // console.log(user);
+    // console.log('products', products);
+    // console.log('productsByReviewByUser', productsByReviewByUser)
+
 
     return (
         <div className={s.userReviewsContainer}>
@@ -53,42 +69,34 @@ const ReviewsByUser = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <th>
-                            {productsByReviewByUser ?
-                                productsByReviewByUser.map((p) => (
-                                    <div>
-                                        <img className={s.imageProduct} src={p[0]?.image} alt="" />
-                                    </div>
-                                ))
-                                :
-                                <div></div>
-                            }
-                        </th>
-                        <th>
-                            {productsByReviewByUser ?
-                                productsByReviewByUser.map((p) => (
-                                    <div>
-                                        <Link to={`/detail/${p[0]?._id}`}>
-                                            <p>{p[0]?.name}</p>
-                                        </Link>
-                                    </div>
-                                ))
-                                :
-                                <div></div>
-                            }
-                        </th>
-                        <th>
-                            {reviewByUser.length ?
-                                reviewByUser.map((r) => (
-                                    <p>{r?.comment}</p>
-                                ))
+                        {productsByReviewByUser ?
+                            (productsByReviewByUser.map((p) => (
+                                <tr key={p._id}>
 
-                                :
-                                (user.admin === true) ? "El administrador no puede realizar reviews"
-                                    :
-                                    "Todavía no has hecho ninguna review"}
-                        </th>
+                                    <th>
 
+                                        <div>
+                                            <img className={s.imageProduct} src={p?.image} alt="" />
+                                        </div>
+                                    </th>
+                                    <th>
+
+                                        <div>
+                                            <Link to={`/detail/${p?._id}`}>
+                                                <p>{p?.name}</p>
+                                            </Link>
+                                        </div>
+
+
+                                    </th>
+                                    <th>
+                                        <p>{p?.reviews}</p>
+                                    </th>
+                                </tr>
+                            )))
+                            :
+                            console.log('Todavía no has hecho ninguna review')
+                        }
                     </tbody>
                 </table>
             </div>
