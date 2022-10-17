@@ -1,10 +1,11 @@
 .navBar {
   display: flex;
-  height: 8.1rem;
+  height: 6rem;
   width: 100%;
   background: Var(--background-NavBar-navBar);
   justify-content: space-around;
   align-items: flex-start;
+  
 }
 
 .header {
@@ -154,7 +155,9 @@
 .div_carrito_login {
   display: flex;
   align-items: center;
+ 
   justify-content: space-around;
   width: 20%;
-  margin: 5px;
+  margin: 15px;
+
 }

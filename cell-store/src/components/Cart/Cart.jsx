@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { ADD_TO_CART } from '../../redux/actions/cartActions';
@@ -6,11 +6,19 @@ import { deleteFromCart } from '../../redux/actions/cartActions';
 import trash from '../../image/trash.png';
 import carrito from '../../image/carrito.png';
 import s from './Cart.module.css';
-
+import { orderProduct } from '../../redux/actions/productActions';
+import { useEffect } from 'react';
+import ModalMsg from '../modal/ModalMsg';
 function Cart() {
+
+	const [location , setLocation] = useState('')
+	const [error , setError] = useState(true)
 	let value = 0;
 	let navigate = useNavigate();
+	
 	const { cart } = useSelector(state => state.cart);
+	const linkMP = useSelector(state => state.product.linkMP)
+
 
 	const dispatch = useDispatch();
 
@@ -50,13 +58,31 @@ function Cart() {
 		});
 	}
 	const handleCheckout = evt => {
-		if (isAuthenticated()) {
-			navigate('/shipping');
+		if (localStorage.getItem('user')) {
+			const productArray = JSON.parse(localStorage.getItem('cart'))
+			
+			const id = JSON.parse(localStorage.getItem('user'))
+			
+			dispatch(orderProduct(productArray, id._id, location))
+			localStorage.removeItem('cart')
+
+			setTimeout(()=> {
+				window.location.reload();
+			},1500)
 		} else {
-			navigate('/signin?redirect=shipping');
+			navigate('/account/login')
+			
 		}
 	};
+     
 
+	useEffect(()=>{
+		if(linkMP?.length > 0){
+			window.open(linkMP, "PAGO", "width=300, height=200")
+		}
+	} , [linkMP])
+    
+	
 	return (
 		<div className={s.container}>
 			<section className='cart-page m-4'>
@@ -173,12 +199,25 @@ function Cart() {
 									}
 								</p>
 								<div>
+									{localStorage.getItem('user') ? <ModalMsg location={location}
+									setLocation={setLocation}
+									error = {error}
+									setError = {setError}
+									
+									/>: 
 									<button
+									className={s.btnCheck}
+									onClick={handleCheckout}
+								>
+									Inicia sesion
+								</button>
+									}
+									{localStorage.getItem('user') && error === false && <button
 										className={s.btnCheck}
 										onClick={handleCheckout}
 									>
 										Proceder a la compra
-									</button>
+									</button> }
 									<button
 										className={s.btnSeguirComp}
 										onClick={handleGoBackBtn}

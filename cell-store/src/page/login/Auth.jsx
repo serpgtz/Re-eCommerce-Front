@@ -5,9 +5,13 @@ import style from "./Auth.module.css";
 import icon_eyes_on from "../../image/show.png";
 import icon_eyes_off from "../../image/hide.png";
 import { getUserData, userLogin } from "../../redux/actions/userActions";
-import Alert from "../../components/alert/Alert";
+//import Alert from "../../components/alert/Alert";
 import jwt_decode from "jwt-decode";
 import ForgotPassword from "../../components/forgotPassword/ForgotPassword";
+import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import AlertTitle from '@mui/material/AlertTitle'
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -66,22 +70,31 @@ const Auth = () => {
  
   
   }
-
+ 
+  console.log(error_back)
   return (
     
     <div className={style.container}>
-      {error_back.msg?.length > 0 && (
-        <Alert msg={error_back.msg} />
-      )}
+      {error_back.msg  &&  <Stack sx={{ width: '25%' }} spacing={2}>
+      <Alert severity="error">
+  <AlertTitle>Error</AlertTitle>
+  {error_back.msg}<strong>
+ ¡Échale un vistazo!</strong>
+</Alert>
+    
+    </Stack>
+      
+      
+     }
     {active && <ForgotPassword setActive={setActive} active={active}/>}
       <div className={style.form_login}>
 
-        <div className={style.divcerrar}>
+        {/* <div className={style.divcerrar}>
           <Link to="/">
             <button className={style.cerrar}  >x</button>
           </Link>
 
-        </div>
+        </div> */}
         <form onSubmit={handleOnSubmit} >
           <h2>Iniciar Sesión</h2>
           <div className={style.div_form}>

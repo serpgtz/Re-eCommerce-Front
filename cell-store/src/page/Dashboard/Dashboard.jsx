@@ -7,10 +7,8 @@ import FormDash from "./FormDash";
 import Reviews from "./Reviews";
 import SearchBardDash from "./SearchBarDashboard";
 import { button } from "./SearchBarDashboard.module.css";
-import Slider from "./Slider";
 
 const Dashboard = () => {
-  const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllUsers());
@@ -23,11 +21,10 @@ const Dashboard = () => {
       <Link className={styles.link} to="/newproduct">
         <button className={button}>Crear producto</button>
       </Link>
-      <Slider users={users} />
-      <label>
+      {/* <label>
         Editar usuario
         <FormDash users={users} />
-      </label>
+      </label> */}
       <h2>Órdenes</h2>
       {/*users.orders */}
       {/* <div>Agregados Recientemente</div>
