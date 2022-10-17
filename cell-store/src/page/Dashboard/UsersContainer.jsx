@@ -1,57 +1,89 @@
+import { DataGrid } from "@mui/x-data-grid";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  cardUserContainer,
-  tableUserAdmin,
-  th,
-  td,
-  tableBoxTrue,
-  tableBoxFalse,
-  tdActions,
-} from "./Dashboard.module.css";
 import UserWindow from "./UserWindow";
 
-const UsersContainer = ({ users, slideIndex, slideIndex2 }) => {
+const UsersContainer = ({ users }) => {
   const [modbox, setModBox] = useState(false);
   const handleModBox = () => {
     setModBox(!modbox);
   };
-  return (
-    <div className={cardUserContainer}>
-      <table className={tableUserAdmin}>
-        <tr>
-          <th className={th}>NOMBRE</th>
-          <th className={th}>E-MAIL</th>
-          <th className={th}>ACTIONS</th>
-        </tr>
-        {users?.length
-          ? users?.slice(slideIndex, slideIndex2).map((usuario) => (
-              <tr key={usuario._id}>
-                <td className={td}>{usuario.username}</td>
 
-                <td className={td}>{usuario.email}</td>
-                <td className={tdActions} value={usuario}>
-                  {usuario.admin === true ? (
-                    <div key={usuario._id + "table"} className={tableBoxTrue}>
-                      -No autorizadas-
-                    </div>
-                  ) : (
-                    <div
-                      key={usuario._id + "editable"}
-                      className={tableBoxFalse}
-                      onClick={handleModBox}
-                    >
-                      Editar
-                    </div>
-                  )}
-                  {modbox === true && (
-                    <UserWindow modbox={modbox} user={usuario} />
-                  )}
-                </td>
-              </tr>
-            ))
-          : null}
-      </table>
+  const rows = users.map((u) => ({
+    id: u._id,
+    name: u.username,
+    admin: u.admin,
+    email: u.email,
+    confirmed: u.confirmed,
+  }));
+
+  const productColumns = [
+    { field: "id", headerName: "ID Único", width: 240 },
+    {
+      field: "name",
+      headerName: "Nombre",
+      width: 180,
+      renderCell: (params) => {
+        return <div className="userName">{params.row.name}</div>;
+      },
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      width: 200,
+    },
+    {
+      field: "confirmed",
+      headerName: "Confirmado",
+      width: 100,
+    },
+    {
+      field: "admin",
+      headerName: "Acciones",
+      width: 200,
+      renderCell: (params) => {
+        return (
+          <div /*className = {s.cellTableBox}*/>
+            {params.row.admin === false && (
+              <Link
+                to={`/admin/userslist/edit/${params.row.id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <div /*className = {s.accessButton}*/>Edit</div>
+              </Link>
+            )}
+            {params.row.admin === true && (
+              <div /*className = {s.accessRestringed}*/>
+                -ACCIONES PROHIBIDAS-
+              </div>
+            )}
+
+            {/* <div className="deleteButton"
+              onClick={() => handleDelete(params.row.id)}>
+              Delete
+            </div> */}
+          </div>
+        );
+      },
+    },
+  ];
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "60%",
+        marginTop: "4rem",
+        marginLeft: "0.25rem",
+      }}
+    >
+      <DataGrid
+        autoHeight
+        rows={rows}
+        columns={productColumns}
+        pageSize={10}
+        rowsPerPageOptions={[5]}
+      />
     </div>
   );
 };
