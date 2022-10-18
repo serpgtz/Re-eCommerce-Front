@@ -7,14 +7,18 @@ import s from './NotFound.module.css';
 
 export default function NotFound() {
     let navigate = useNavigate();
-    const handleGoBackBtn = () => {
-        navigate('/');
-    };
+    /* const handleGoBackBtn = () => {
+        navigate(-1);
+    }; */
+
+    function handleReload(){
+        window.location.reload()
+    }
 
 
     return (
         <div className={s.container}>
-            <button className={s.btnNotFound} onClick={handleGoBackBtn}>
+            <button className={s.btnNotFound} onClick={handleReload}>
                 Home
             </button>
             <div className={s.containerImage}>
