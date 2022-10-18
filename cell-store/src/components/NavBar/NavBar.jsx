@@ -61,15 +61,17 @@ export const NavBar = () => {
 
 
 
-          <div className={styles.navAuth}>
+          
             {localStorage.getItem("token") === null ? (
               <Link className={styles.link} to="/account/login">
                 <button className={styles.navBtnLogin}>Iniciar sesión</button>
               </Link>
-            ) : <MenuAccount />}
 
-
-          </div>
+            ) : <MenuAccount/> }
+           
+          
+         
+          
 
         </div>
 

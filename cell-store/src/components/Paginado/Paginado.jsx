@@ -55,7 +55,7 @@ export default function () {
         </ul> */}
 
 <Stack spacing={2}>
-      <Pagination count={pageNumbers.length} variant="outlined"  onChange={ handlePage} color='primary' hidePrevButton hideNextButton  />
+      <Pagination size="large" count={pageNumbers.length} variant="outlined"  onChange={ handlePage} color='primary' hidePrevButton hideNextButton  />
       {/* <Pagination count={10} variant="outlined" color="primary" />
       <Pagination count={10} variant="outlined" color="secondary" />
       <Pagination count={10} variant="outlined" disabled /> */}
