@@ -1,19 +1,23 @@
 .container {
-    /* display: grid; */
     width: 100%;
-    height: 100%;
-    background-color: white;
-    margin: 30px;
-
+   
+   
+    background-color: var(--backgound-Cart);
+ 
 }
 
 
 .containerDiv {
-    /* display: grid;
-    grid-template-columns: 67% 33%; */
     display: flex;
     justify-content: center;
     align-items: flex-start;
+   
+}
+
+.titleCart {
+    color: var(--color-Cart-title);
+    font-style: italic;
+    margin-top: 30px;
 }
 
 table {
@@ -27,11 +31,13 @@ table {
 thead th {
     position: sticky;
     top: 0;
-    background-color: #f6f9fc;
-    color: #8493a5;
+    background-color: var(--background-Cart-cabecera-tabla);
+    color: var(--color-Cart-cabecera-tabla);
     font-size: 15px;
     margin: 0;
     padding: 0;
+    height: 30px;
+    font-style: italic;
     /* border: solid black; */
 }
 
@@ -48,7 +54,7 @@ thead th {
 }
 
 .colCantidad {
-    width: 10%;
+    width: 20%;
     margin: 0;
     padding: 0;
 
@@ -96,13 +102,13 @@ thead th {
 
 .disponible {
     font-size: 10px;
-    color: #8493a5;
+    color: var(--color-Cart-tabla-disponible);
     font-style: italic;
 }
 
 .priceUnit {
     font-size: 10px;
-    color: #8493a5;
+    color: var(--color-Cart-tabla-precioUnit);
     font-style: italic;
 }
 
@@ -111,25 +117,16 @@ thead th {
     overflow: auto;
 }
 
-
-
-
-
 .imagencarrito {
     width: 40px;
 
 }
 
-/* .imgCarrito {
-    width: 20px;
-    color: white;
-    background-color: aliceblue;
-} */
-
 table td input {
     height: 20px;
 }
-input{
+
+input {
     height: 20px;
     width: 50px;
 }
@@ -156,12 +153,13 @@ td {
 
 .resumen {
     font-size: 25px;
+    color: var(--color-Cart-resumen);
 }
 
 .btnDelete {
     background-color: transparent;
     border: none;
-    filter: invert(21%) sepia(70%) saturate(5842%) hue-rotate(356deg) brightness(104%) contrast(111%);
+    filter: invert(80%) sepia(70%) saturate(5842%) hue-rotate(356deg) brightness(104%) contrast(111%);
 }
 
 .imagDelete {
@@ -171,7 +169,6 @@ td {
 .precio {
     letter-spacing: 1px;
     font-size: 15px;
-    color: rgb(12, 11, 11);
     width: 250px;
     height: 40px;
     margin: 0px;
@@ -182,15 +179,15 @@ td {
 }
 
 .item {
-    color: grey;
+    color: var(--color-Cart-tabla-Item);
 }
 
 .btnCheck {
     width: 270px;
     height: 47px;
-    background-color: #3483FA;
+    background-color: var(--background-Cart-btnCheck);
     font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #FFFFFF;
+    color: Var(--color-Cart-btnCheck);
     font-size: 16px;
     line-height: 48px;
     text-align: center;
@@ -212,9 +209,9 @@ td {
     margin-top: 10px;
     width: 270px;
     height: 47px;
-    background-color: #4189e643;
+    background-color: var(--background-Cart-btnSeguirComp);
     font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #3483fa;
+    color: var(--color-Cart-btnSeguirComp);
     font-size: 16px;
     line-height: 48px;
     text-align: center;

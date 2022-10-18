@@ -6,20 +6,18 @@ import styles from "../NavBar/NavBar.module.css";
 import SearchBar from "../searchBar/searchBar";
 import CartNavBar from "../Cart/CartNavBar";
 import { changePage, getAllProducts } from "../../redux/actions/productActions";
-
+import MenuAccount from "../menuAccount/MenuAccount";
 import { useState } from "react";
-import logo from "../../image/logo.png"
+import logo from "../../image/logo.png";
+import corazonRojo from '../../image/corazonrojo.png'
 
 
 export const NavBar = () => {
-
-  const user_redux = useSelector(state => state.user.user)
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
+  const [click, setClick] = useState(false)
+  const user_redux = useSelector((state) => state.user.user);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const dispatch = useDispatch();
   const navigation = useNavigate();
-
-
-
 
   function handleClick(e) {
     dispatch(changePage(1));
@@ -28,63 +26,58 @@ export const NavBar = () => {
   }
 
 
+  // 
 
-  const handleLogOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    dispatch(userLogOut());
-
-    navigation('/account/login');
-
-  };
   return (
-    <nav className={styles.navBar}>
-      <Link
-        to="/"
-        className={styles.header}
-        onClick={(e) => {
-          handleClick(e);
-        }}
-      >
-        <div className={styles.div_logo}>
-          <img src={logo} alt='logo-cellStore'></img>
-          <h1>CELL STORE</h1>
-        </div>
-      </Link>
-      {user_redux?.admin === true || user?.admin === true ? (
-        <Link className={styles.link} to="/adminDashboard">
-          <button className={styles.navBtn}>Adminboard</button>
+    <>
+      <nav className={styles.navBar}>
+        <Link
+          to="/"
+          className={styles.header}
+          onClick={(e) => {
+            handleClick(e);
+          }}
+        >
+          <div className={styles.div_logo}>
+            <img src={logo} alt="logo-cellStore"></img>
+            <h1>Cell Store</h1>
+          </div>
         </Link>
-      ) : null}
-
-      <SearchBar />
 
 
-      <div className={styles.div_carrito_login}>
-        <CartNavBar />
-        <div className={styles.navAuth}>
-          {localStorage.getItem("token") === null ? (
-            <Link className={styles.link} to="/account/login">
-              <button className={styles.navBtnLogin}>Iniciar sesión</button>
-            </Link>
-          ) : (
-            <Link className={styles.link} to="/account/profile">
-              <button className={styles.navBtnUser}>
-                {Object.keys(user_redux).length > 0 ? user_redux?.name?.charAt().toUpperCase() : user?.name.charAt().toUpperCase()}
-              </button>
-            </Link>
-          )}
-          {localStorage.getItem('token') && (
-            <button
-              className={styles.navBtnLogouts}
-              onClick={() => handleLogOut()}
-            >
-              Logout
-            </button>
-          )}
+        <SearchBar />
+
+        <div className={styles.div_carrito_login}>
+
+          <CartNavBar />
+          <Link to="/favoritos">
+            <div>
+              <img
+                className={styles.corazon}
+                src={corazonRojo}
+                alt="image not found" />
+            </div>
+          </Link>
+
+
+
+          
+            {localStorage.getItem("token") === null ? (
+              <Link className={styles.link} to="/account/login">
+                <button className={styles.navBtnLogin}>Iniciar sesión</button>
+              </Link>
+
+            ) : <MenuAccount/> }
+           
+          
+         
+          
+
         </div>
-      </div>
-    </nav>
+
+      </nav>
+
+    </>
   );
 };
 export default NavBar;

@@ -8,14 +8,21 @@ export const RESET_ERROR = "RESET_ERROR";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const REGISTER_ERROR = "REGISTER_ERROR";
 export const ERROR_CONFIRM_TOKEN = "ERROR_CONFIRM_TOKEN";
+export const RESPONSE_EMAIL = "RESPONSE_EMAIL";
+export const RESPONSE_CHANGE_PASSWORD_FORGOT =
+  "RESPONSE_CHANGE_PASSWORD_FORGOT";
+export const RESPONSE_NEW_PASSWORD = "RESPONSE_NEW_PASSWORD";
 
-axios.defaults.baseURL = process.env.VITE_BACKEND_URL;
+axios.defaults.baseURL = "http://localhost:3001";
 
 export const userRegister = (user) => {
-  console.log(user);
   return async (dispatch) => {
     try {
-      await axios.post("/register", user);
+      const res = await axios.post("/register", user);
+      return dispatch({
+        type: REGISTER_ERROR,
+        payload: res.data,
+      });
     } catch (error) {
       return dispatch({
         type: REGISTER_ERROR,
@@ -130,11 +137,99 @@ export const deleteUser = (id) => {
     }
   };
 };
+export const getUser = (id) => {
+  return async () => {
+    try {
+      await axios.get("/users/" + id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const confirmUser = (token) => {
   return async (dispatch) => {
     try {
       await axios.get(`/confirmar/${token}`);
+    } catch (error) {
+      return dispatch({
+        type: ERROR_CONFIRM_TOKEN,
+        payload: error.response.data,
+      });
+    }
+  };
+};
+export const changePassword = (token) => {
+  return async (dispatch) => {
+    try {
+      await axios.post(`/olvide-password/${token}`);
+    } catch (error) {
+      return dispatch({
+        type: ERROR_CONFIRM_TOKEN,
+        payload: error.response.data,
+      });
+    }
+  };
+};
+
+export const forgotPasswordEmail = (email) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.post(`/olvide-password`, email);
+
+      return dispatch({
+        type: RESPONSE_EMAIL,
+        payload: res.data,
+      });
+    } catch (error) {
+      return dispatch({
+        type: RESPONSE_EMAIL,
+        payload: error.response.data,
+      });
+    }
+  };
+};
+
+export const ChangePasswordForgot = (token) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.get(`/olvide-password/${token}`);
+      console.log(res.data);
+      return dispatch({
+        type: RESPONSE_CHANGE_PASSWORD_FORGOT,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error.response.data);
+      return dispatch({
+        type: RESPONSE_CHANGE_PASSWORD_FORGOT,
+        payload: error.response.data,
+      });
+    }
+  };
+};
+
+export const newPassword = (password, token) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.put(`/newPassword/${token}`, password);
+      return dispatch({
+        type: RESPONSE_NEW_PASSWORD,
+        payload: res.data,
+      });
+    } catch (error) {
+      return dispatch({
+        type: RESPONSE_NEW_PASSWORD,
+        payload: error.response.data,
+      });
+    }
+  };
+};
+
+export const cambiarPassword = (id, password, newPass) => {
+  return async (dispatch) => {
+    try {
+      await axios.post(`/cambiar-password/${id}`, password, newPass);
     } catch (error) {
       return dispatch({
         type: ERROR_CONFIRM_TOKEN,
