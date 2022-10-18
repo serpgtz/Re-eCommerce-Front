@@ -10,6 +10,7 @@ import { orderProduct } from '../../redux/actions/productActions';
 import { useEffect } from 'react';
 import ModalMsg from '../modal/ModalMsg';
 import BuyForm from '../buyForm/BuyForm';
+import { style } from '@mui/system';
 function Cart() {
 
 	const [location , setLocation] = useState('')
@@ -227,11 +228,14 @@ function Cart() {
 							</div>
 							
 						</div>}
+						<div className={s.container_2}>
+							<BuyForm/>
+						</div>
 					</div>
 				)}
 				
 			</section>
-			<BuyForm/>
+			
 		</div>
 		
 	)

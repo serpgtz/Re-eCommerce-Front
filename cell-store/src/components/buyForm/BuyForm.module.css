@@ -1,11 +1,4 @@
-.container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    background-color: azure;
-    
-}
+
 
 .form {
   
@@ -13,10 +6,12 @@
   
     flex-wrap: wrap;
     justify-content: center;
-    width: 45%;
-    height: 75%;
+    width: 30%;
+    height: 65%;
     background-color: #fff;
     border-radius: 8px;
+   margin-top: 40px;
+
 }
 .title {
     display: flex;
@@ -31,7 +26,7 @@
 }
 
 .form input[type='submit'] {
-    width: 84%;
+    width: 80%;
     height: 40px;
     background-color: var(--background-Auth-buttons);
     border-radius: 4px;
@@ -39,4 +34,5 @@
     color: #fff;
     font-weight: bold;
     font-size: 14px;
+    margin-bottom: 20px;
 }
