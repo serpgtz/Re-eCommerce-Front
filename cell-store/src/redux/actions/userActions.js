@@ -1,4 +1,5 @@
 import axios from "axios";
+import { json } from "react-router-dom";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 export const USER = "USER";
 export const RESET_USER = "RESET_USER";
@@ -59,7 +60,8 @@ export const getUserData = () => {
     try {
       const user = await axios.get("/perfil", {
         headers: {
-          Bearer: localStorage.getItem("token"),
+        
+          Bearer: JSON.parse(localStorage.getItem("token")) ,
         },
       });
 
