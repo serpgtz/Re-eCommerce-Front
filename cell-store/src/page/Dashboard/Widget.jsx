@@ -14,11 +14,14 @@ const Widget = ({ type }) => {
   
   const allusers = useSelector((state) => state.user.users);
   /* const { countOrders, totalSales } = useSelector((state) => state.dashboard); */
-  const { allOrders } = useSelector((state) => state.orders);
-  const totalOrders = allOrders.length
+  const { orders, spent } = useSelector((state) => state.orders.allOrders);
+  const totalOrders = orders.length
+ /*  let orderDay = orders[0].date.slice(0, 10);
+  let hoy = new Date().toISOString().slice(0, 10); */
+  
 
   let totalusers = allusers.length
-  /* let totalSale = Math.round(totalSales*0.20) */
+  const totalGanancias = Math.round(spent*0.20)
 
   //temporary
   const amount = 100;
@@ -102,10 +105,10 @@ const Widget = ({ type }) => {
       <div className={s.leftWit}>
         <span className={s.titleWit}>{data.title}</span>
         <span className={s.counter}>
-          {data.title === 'VENTAS TOTALES' && `$ ${Math.round(500112/* totalSales */)}`}
+          {data.title === 'VENTAS TOTALES' && `$ ${spent.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
           {data.title === "USUARIOS" && `${totalusers}`}
           {data.title === "ORDENES" && `${totalOrders}`}
-          {data.title === 'GANANCIAS' && `$ ${110873/* totalSale */}`}
+          {data.title === 'GANANCIAS' && `$ ${totalGanancias.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
         </span>
         <span className={s.linkR}>{data.link}</span>
       </div>

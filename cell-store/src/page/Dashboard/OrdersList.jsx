@@ -1,23 +1,23 @@
 import React from 'react';
 import { DataGrid } from "@mui/x-data-grid";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, /* useDispatch */ } from 'react-redux';
 import Sidebar from "./Sidebar";
-import { getAllOrders } from "../../redux/actions/ordersActions";
+/* import { getAllOrders } from "../../redux/actions/ordersActions"; */
 
 import s from './OrdersList.module.css';
 
 const OrdersList = () => {
-  const dispatch = useDispatch();
-  const { allOrders } = useSelector((state) => state.orders);
+  /* const dispatch = useDispatch(); */
+  const { orders } = useSelector((state) => state.orders.allOrders);
 
-  React.useEffect(() => {
+ /*  React.useEffect(() => {
     dispatch(getAllOrders());
-  }, []);
+  }, []); */
 
-  const rows = allOrders.map((o) => ({
+  const rows = orders?.map((o) => ({
     id: o._id,
     userId: o.user,
-    items: o.orderItems.map(e => e.name + ', '),
+    items: o.orderItems?.map(e => e.name + ', '),
     metodoDePago: o.PaymentMethod,
     status: o.status,
     date: o.date,
