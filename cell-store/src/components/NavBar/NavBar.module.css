@@ -155,9 +155,10 @@
 .div_carrito_login {
   display: flex;
   align-items: center;
- 
-  justify-content: space-around;
+  
+  justify-content: space-evenly;
   width: 20%;
   margin: 15px;
+ 
 
 }
