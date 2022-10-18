@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { cambiarPassword, modifyUser } from "../../redux/actions/userActions";
@@ -17,6 +18,7 @@ import { cambiarPassword, modifyUser } from "../../redux/actions/userActions";
 const Settings = () => {
   const { id } = useParams();
   const user = useSelector((state) => state.user.user);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,6 +30,7 @@ const Settings = () => {
     setOpen(false);
   };
   const handlePassword = (id) => {
+    setOpen(true);
     dispatch(cambiarPassword(id, user.password, user.newPass));
   };
 
@@ -68,7 +71,7 @@ const Settings = () => {
         </Dialog>
         <Button onClick={handlePut}>Guardar cambios</Button>
         <Button>Descartar</Button>
-        <Button onClick={navigate(-1)}>Volver</Button>
+        <Button onClick={() => navigate(-1)}>Volver</Button>
       </Box>
     </Container>
   );

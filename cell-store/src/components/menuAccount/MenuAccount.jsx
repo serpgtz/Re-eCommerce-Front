@@ -109,16 +109,17 @@ const MenuAccount = () => {
             </MenuItem>
           </Link>
         ) : null}
-        <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-          <Link
-            className={styles.link}
-            to={`/account/profile/${user_redux._id}/usersettings`}
-          ></Link>
-        </MenuItem>
+        <Link
+          className={styles.link}
+          to={`/account/profile/${user_redux._id}/usersettings`}
+        >
+          <MenuItem>
+            <ListItemIcon>
+              <Settings fontSize="small" />
+            </ListItemIcon>
+            Settings
+          </MenuItem>
+        </Link>
         <Link onClick={handleLogOut} className={styles.link}>
           <MenuItem>
             <ListItemIcon>
