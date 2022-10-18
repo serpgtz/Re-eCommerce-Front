@@ -30,37 +30,37 @@ const Auth = () => {
   const error_back = useSelector((state) => state.user.error);
   const token = useSelector((state) => state.user.token);
 
-  const handleResponseGoogle = (response) => {
-    console.log('jwt =>' + response.credential)
-    localStorage.setItem('user_google', JSON.stringify(jwt_decode(response.credential)))
-  }
-  let cont1 = 1
-  useEffect(() => {
+  // const handleResponseGoogle = (response) => {
+  //   console.log('jwt =>' + response.credential)
+  //   localStorage.setItem('user_google', JSON.stringify(jwt_decode(response.credential)))
+  // }
+  // let cont1 = 1
+  // useEffect(() => {
     
-    if(cont1 === 1){
-      console.log("desde if")
-      google.accounts.id.initialize({
-        // client_id: '2890899428-u9cjg4ihv7m8i9es40sb2quegdbqm0c3.apps.googleusercontent.com',
-        client_id: import.meta.env.VITE_GOGLE_BACK,
-        callback: handleResponseGoogle
-      })
-      google.accounts.id.renderButton(
-        document.getElementById("singInDiv"),
-        { theme: "outline", size: "large" }
-      )
+  //   if(cont1 === 1){
+  //     console.log("desde if")
+  //     google.accounts.id.initialize({
+  //       // client_id: '2890899428-u9cjg4ihv7m8i9es40sb2quegdbqm0c3.apps.googleusercontent.com',
+  //       client_id: import.meta.env.VITE_GOGLE_BACK,
+  //       callback: handleResponseGoogle
+  //     })
+  //     google.accounts.id.renderButton(
+  //       document.getElementById("singInDiv"),
+  //       { theme: "outline", size: "large" }
+  //     )
       
-    }
+  //   }
 
-    if (Object.keys(token).length > 0) {
-      dispatch(getUserData());
-      return navigate('/')
-    }
-    cont1 = cont1+1
+  //   if (Object.keys(token).length > 0) {
+  //     dispatch(getUserData());
+  //     return navigate('/')
+  //   }
+  //   cont1 = cont1+1
     
 
    
-  }, [dispatch,token])
-  console.log(token)
+  // }, [dispatch,token])
+  // console.log(token)
 
 
   const handleOnChange = (evt) => {
