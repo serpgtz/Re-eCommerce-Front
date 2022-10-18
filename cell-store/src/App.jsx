@@ -7,6 +7,7 @@ import {
   getProductsPerPage,
 } from "./redux/actions/productActions";
 import Detail from "./components/cards-products/Detail";
+import Favoritos from "./components/cards-products/Favoritos";
 import ProductForm from "./page/Form/ProductForm";
 import InterForm from "./page/Form/InterForm";
 import CategoryForm from "./page/Form/CategoryForm";
@@ -33,6 +34,7 @@ import ProductList from "./page/Dashboard/ProductList";
 import OrdersList from "./page/Dashboard/OrdersList";
 import ReviewsList from "./page/Dashboard/ReviewsList";
 import Settings from "./page/Profile/Settings";
+import Faq from "./components/Faqs/Faq";
 
 /* import Detail from './components/cards-products/Detail' */
 
@@ -52,11 +54,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/favoritos" element={<Favoritos />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<About />} />
         <Route path="/account/login" element={<Auth />} />
         <Route path="/confirm" element={<ConfirmEmail />} />
+        <Route path="/faqs" element={<Faq />} />
         {/* */}
         <Route path="/confirm/:id" element={<ConfirmedEmail />} />
         {/* */}
