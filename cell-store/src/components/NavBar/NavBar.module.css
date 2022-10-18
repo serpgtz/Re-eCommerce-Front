@@ -18,6 +18,16 @@
     serif;
 }
 
+.corazon {
+  width: 50px;
+  filter: invert();
+  transition: 300ms;
+}
+
+.corazon:hover {
+  transform: scale(1.2);
+}
+
 .header:hover {
   transition: 300ms;
   color: var(--color-NavBar-Header-hover);
@@ -154,7 +164,7 @@
 .div_carrito_login {
   display: flex;
   align-items: center;
-  
+
   justify-content: space-around;
   width: 20%;
   margin: 5px;

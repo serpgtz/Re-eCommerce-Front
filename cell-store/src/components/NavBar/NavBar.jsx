@@ -9,6 +9,7 @@ import { changePage, getAllProducts } from "../../redux/actions/productActions";
 import MenuAccount from "../menuAccount/MenuAccount";
 import { useState } from "react";
 import logo from "../../image/logo.png";
+import corazonRojo from '../../image/corazonrojo.png'
 
 
 export const NavBar = () => {
@@ -25,8 +26,8 @@ export const NavBar = () => {
   }
 
 
+  // 
 
-  
   return (
     <>
       <nav className={styles.navBar}>
@@ -42,26 +43,36 @@ export const NavBar = () => {
             <h1>Cell Store</h1>
           </div>
         </Link>
-        
+
 
         <SearchBar />
 
         <div className={styles.div_carrito_login}>
 
           <CartNavBar />
+          <Link to="/favoritos">
+            <div>
+              <img
+                className={styles.corazon}
+                src={corazonRojo}
+                alt="image not found" />
+            </div>
+          </Link>
+
+
 
           <div className={styles.navAuth}>
             {localStorage.getItem("token") === null ? (
               <Link className={styles.link} to="/account/login">
                 <button className={styles.navBtnLogin}>Iniciar sesión</button>
               </Link>
-            ) : <MenuAccount/> }
-           
-          
+            ) : <MenuAccount />}
+
+
           </div>
-          
+
         </div>
-      
+
       </nav>
 
     </>
