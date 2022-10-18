@@ -6,6 +6,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import { getAllOrders } from "../../redux/actions/ordersActions";
 
 
 const Widget = ({ type }) => {
@@ -13,6 +14,8 @@ const Widget = ({ type }) => {
   
   const allusers = useSelector((state) => state.user.users);
   /* const { countOrders, totalSales } = useSelector((state) => state.dashboard); */
+  const { allOrders } = useSelector((state) => state.orders);
+  const totalOrders = allOrders.length
 
   let totalusers = allusers.length
   /* let totalSale = Math.round(totalSales*0.20) */
@@ -87,6 +90,13 @@ const Widget = ({ type }) => {
       break;
   }
 
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllOrders());
+  }, []);
+
   return (
     <div className={s.widget}>
       <div className={s.leftWit}>
@@ -94,7 +104,7 @@ const Widget = ({ type }) => {
         <span className={s.counter}>
           {data.title === 'VENTAS TOTALES' && `$ ${Math.round(500112/* totalSales */)}`}
           {data.title === "USUARIOS" && `${totalusers}`}
-          {data.title === "ORDENES" && `${16/* countOrders */}`}
+          {data.title === "ORDENES" && `${totalOrders}`}
           {data.title === 'GANANCIAS' && `$ ${110873/* totalSale */}`}
         </span>
         <span className={s.linkR}>{data.link}</span>
