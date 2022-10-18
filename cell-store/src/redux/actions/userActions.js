@@ -59,8 +59,8 @@ export const getUserData = () => {
     try {
       const user = await axios.get("/perfil", {
         headers: {
-          
-          Bearer: localStorage.getItem("token"),
+        
+          Bearer: JSON.parse(localStorage.getItem("token")) ,
         },
       });
 
