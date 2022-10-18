@@ -28,7 +28,7 @@ import {ProtectedRoute} from "./Protected/ProtectedRoute";
 /* import Detail from './components/cards-products/Detail' */
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.REACT_APP_API;
+axios.defaults.baseURL = process.env.VITE_BACKEND_URL;
 
 function App() {
   
