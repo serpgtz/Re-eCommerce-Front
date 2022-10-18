@@ -9,6 +9,7 @@ import s from './Cart.module.css';
 import { orderProduct } from '../../redux/actions/productActions';
 import { useEffect } from 'react';
 import ModalMsg from '../modal/ModalMsg';
+import BuyForm from '../buyForm/BuyForm';
 function Cart() {
 
 	const [location , setLocation] = useState('')
@@ -105,10 +106,7 @@ function Cart() {
 							<div>
 								<h2 className={s.titleCart}> <img className={s.imagencarrito} src={carrito} alt="carrito" /> Carrito</h2>
 								<div className={s.tableSection}>
-									<div >
-
-
-									</div>
+									
 									<table >
 										<thead>
 											<tr className={s.tableTh}>
@@ -174,9 +172,10 @@ function Cart() {
 										</tbody>
 									</table>
 								</div>
+								
 							</div>
 
-
+							
 							<div className={s.summary}>
 								<h2 className={s.resumen}>Resumen del pedido</h2>
 								<p className={s.item}>
@@ -226,11 +225,15 @@ function Cart() {
 									</button>
 								</div>
 							</div>
+							
 						</div>}
 					</div>
 				)}
+				
 			</section>
+			<BuyForm/>
 		</div>
+		
 	)
 }
 

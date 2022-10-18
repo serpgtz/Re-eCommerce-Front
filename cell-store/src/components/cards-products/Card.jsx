@@ -22,14 +22,19 @@ const Card = (p) => {
   const [likeP, setLikeP] = useState({
     like: false,
     id_product: id,
+    image: p.image,
+    name: p.name,
+
   })
   let like = {
     like: false,
     id_product: id,
+    image: p.image,
+    name: p.name,
   }
   let likes = [];
   let likeTrue = [];
-  // console.log('myProduct', myProduct)
+  console.log('myProduct', myProduct)
 
   useEffect(() => {
     if (localStorage.getItem('likes')) {
@@ -40,27 +45,26 @@ const Card = (p) => {
       })
       if (likeTrue.length) {
         setLikeP({
-
           like: true,
           id_product: id,
-
+          image: p.image,
+          name: p.name,
         })
 
-        console.log('likeTrue', likeTrue)
-        console.log('likeP', likeP)
+        // console.log('likeTrue', likeTrue)
+        // console.log('likeP', likeP)
       }
     }
   }, [])
 
-  useEffect(() => {
-    console.log('---------------------likeP', likeP)
-  }, [likeP])
 
   const handleAddLike = (e) => {
     e.preventDefault();
     like = {
       like: true,
       id_product: id,
+      image: p.image,
+      name: p.name,
     }
     // console.log('like', like)
     // console.log('likes', likes)
@@ -80,6 +84,8 @@ const Card = (p) => {
         setLikeP({
           like: false,
           id_product: id,
+          image: p.image,
+          name: p.name,
         })
 
       } else {
@@ -88,6 +94,8 @@ const Card = (p) => {
         setLikeP({
           like: true,
           id_product: id,
+          image: p.image,
+          name: p.name,
         })
       }
       localStorage.setItem("likes", JSON.stringify(likes))
@@ -99,6 +107,8 @@ const Card = (p) => {
       setLikeP({
         like: true,
         id_product: id,
+        image: p.image,
+        name: p.name,
       })
     }
 

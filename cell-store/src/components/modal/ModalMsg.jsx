@@ -70,7 +70,7 @@ const ModalMsg = ({location, setLocation, error, setError}) => {
  })
   return (
     <div className={styles.container}>
-      <Button className={style.Button} variant="outlined" size='large' onClick={handleOpen}>Open modal</Button>
+      <Button  variant="outlined" size='large' onClick={handleOpen}>Retirar en</Button>
       
       <Modal
         keepMounted

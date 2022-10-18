@@ -20,11 +20,11 @@ export const userRegister = (user) => {
   console.log("hoa")
   return async (dispatch) => {
     try {
-  const res = await axios.post("/register", user);
-   return dispatch({
-    type: REGISTER_ERROR,
-    payload: res.data,
-  });
+      const res = await axios.post("/register", user);
+      return dispatch({
+        type: REGISTER_ERROR,
+        payload: res.data,
+      });
     } catch (error) {
       return dispatch({
         type: REGISTER_ERROR,
@@ -223,6 +223,19 @@ export const newPassword = (password, token) => {
     } catch (error) {
       return dispatch({
         type: RESPONSE_NEW_PASSWORD,
+        payload: error.response.data,
+      });
+    }
+  };
+};
+
+export const cambiarPassword = (id, password, newPass) => {
+  return async (dispatch) => {
+    try {
+      await axios.post(`/cambiar-password/${id}`, password, newPass);
+    } catch (error) {
+      return dispatch({
+        type: ERROR_CONFIRM_TOKEN,
         payload: error.response.data,
       });
     }
