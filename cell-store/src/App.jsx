@@ -33,6 +33,7 @@ import VentasTotales from "./page/Dashboard/VentasTotales";
 import ProductList from "./page/Dashboard/ProductList";
 import OrdersList from "./page/Dashboard/OrdersList";
 import ReviewsList from "./page/Dashboard/ReviewsList";
+import Faq from "./components/Faqs/Faq"
 
 /* import Detail from './components/cards-products/Detail' */
 
@@ -59,6 +60,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/account/login" element={<Auth />} />
         <Route path="/confirm" element={<ConfirmEmail />} />
+        <Route path="/faqs" element={<Faq/>} />
         {/* */}
         <Route path="/confirm/:id" element={<ConfirmedEmail />} />
         {/* */}

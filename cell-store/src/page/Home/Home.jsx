@@ -2,7 +2,6 @@ import React from "react";
 import * as s from "../Home/Home.module.css";
 import Cards from "../../components/cards-products/Cards";
 import Paginado from "../../components/Paginado/Paginado.jsx";
-import Footer from "../../components/footer/Footer";
 import Carrusel from "../../components/carrusel/Carrusel";
 
 const Home = () => {
@@ -16,7 +15,7 @@ const Home = () => {
         </div>{" "}
       </div>
       <Paginado />
-      <Footer />
+      
     </div>
   );
 };

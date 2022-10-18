@@ -10,7 +10,7 @@ export const CartNavBar = () => {
 
   if (user?.admin === false) {
     return (
-      <div className={s.container}>
+      <div >
         <Link to="/cart">
           <div className={s.divCart}>
             <div>

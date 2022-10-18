@@ -1,56 +1,52 @@
-import React from "react";
-import s from "./Footer.module.css"
-import face from "../../image/Facebook_logo_PNG12.png"
-import insta from "../../image/pngwing.com.png"
-import twit from "../../image/twit.com.png"
-import { Link } from "react-router-dom";
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import facebook from './img/btn-facebook.png'
+import instagram from './img/btn-instagram.png'
+import twitter from './img/btn-twitter.png'
+import logo from "../../image/logo.png"
+
+import './Footer.css'
+
 
 export default function Footer() {
 
-
     return (
-        <div className={s.container}>
+        <div className='footer'>
+            <div className='container'>
+                <div className='row'>
+                    <div className="footer__column">
+                        <h4>Info</h4>
+                            <li className='footer__li'></li>
+                            <li className='footer__li'><Link to='/' className='footer__link'>direcciones</Link></li>
+                            <li className='footer__li'><Link to='/' className='footer__link'>Ver Mapa Sucursales</Link></li>
 
-            <div className={s.redes}>
-                <span className={s.spanFoot}>Síguenos en:</span>
+                            <li className='footer__li'><Link to='/faqs' className='footer__link'>FAQs</Link></li>
+                    </div>
 
-                <ul className={s.redeslist}>
-                    <li><img src={face} width="40px" /></li>
-                    <li><img src={insta} width="24px" /></li>
-                    <li><img src={twit} width="32px" /></li>
-                </ul>
+                    <div className="footer__column">
+                        <h4>Usuario</h4>
+                            <li className='footer__li'><Link to='/account/profile' className='footer__link'>Su cuenta</Link></li>
+                            <li className='footer__li'><Link to='' className='footer__link'>Tus ordenes</Link></li>
+                    </div>
 
+                    <div className="footer__column">
+                        <h4>Dejanos ayudarte</h4>
+                            <li className='footer__li'><Link to='' className='footer__link'>Tarifas y políticas de envío</Link></li>
+                            <li className='footer__li'><Link to='' className='footer__link'>Devoluciones y reemplazos</Link></li>
+                    </div>
+
+                    <div className="footer__column">
+                        <Link to='/'><img src={logo} alt="" className='logo__img'/></Link>
+                        <h4>Follow Us!</h4>
+                        <div className='footer_socials'>
+                            <li className='footer__li'><a href='https://www.facebook.com/' target="_blank"><img className='footer__img' src={facebook}/></a></li>
+                            <li className='footer__li'><a href='https://www.instagram.com/' target="_blank"><img className='footer__img' src={instagram}/></a></li>
+                            <li className='footer__li'><a href='https://twitter.com/' target="_blank"><img className='footer__img' src={twitter}/></a></li>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className={s.pedido}>
-                <h4>Información del pedido</h4>
-                <ul className={s.listpedidos}>
-                    <li>Revisar un Pedido</li>
-                    <li>Ver Política de Devolución</li>
-                    <li>Canjear un Reembolso</li>
-                </ul>
-            </div>
-
-            <div className={s.responsabilidad}>
-                <h4>Responsabilidad Corporativa</h4>
-                <ul className={s.respon}>
-                    <li>Comunidad</li>
-                    <li>Sostentabilidad</li>
-                    <li>Centro de Privacidad</li>
-                </ul>
-            </div>
-
-            <div className={s.acerca}>
-                <h4>Acerca de Cell Store</h4>
-                <ul className={s.listacerca}>
-                    <Link to="/historia">
-                        <li>Nuestra Historia</li>
-                    </Link>
-                    <li>Sala de Prensa</li>
-                    <li>Relación con inversionistas</li>
-                    <li>Contáctanos</li>
-                </ul>
-            </div>
-
         </div>
     )
-}
+};
