@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { useSelector } from "react-redux";
 
 import s from "./VentasTotales.module.css";
@@ -12,75 +12,105 @@ const VentasTotales = () => {
   const { orders, spent } = useSelector((state) => state.orders.allOrders);
 
   const gananciasTotales = spent;
-  const hoy = new Date().toISOString().slice(0, 10);
-  const mes = new Date().toISOString().slice(0, 7);
+  //Funciones
 
-  const todayOrders = orders?.filter(
-    (t) => t.date?.slice(0, 10) === hoy
+  //Función para formatear fechas
+  function formato(string) {
+    if (string.length === 6) {
+      return string.slice(0, 5) + "0" + string.slice(5, 6);
+    }
+    if (string.length === 7) {
+      return string.slice(0, 5) + "" + string.slice(5, 7);
+    }
+  }
+
+  //Función para sustituir meses
+  const mesAReemplazar = (month) => {
+    if (month.slice(5, 7) <= 10) return month.slice(5, 7);
+
+    if (month.slice(6, 7) >= 9) return month.slice(6, 7);
+  };
+  //Le pasás cualquiera de las órdenes
+  const gananciasPorFiltro = (order) => {
+    return order?.map((p) => p.totalPrice).reduce((a, b) => a + b, 0);
+  };
+  //Fechas
+  const hoy = new Date().toISOString().slice(0, 10);
+  const mes = hoy.slice(0, 7);
+  const mesAnterior = formato(
+    mes.replace(mesAReemplazar(mes), mesAReemplazar(mes) - 1)
   );
+  //Órdenes
+  const todayOrders = orders?.filter((t) => t.date?.slice(0, 10) === hoy);
+
+  const ordersDelMes = orders?.filter((t) => t.date?.slice(0, 7) === mes);
+
+  /*Ninguna del mes*/
+  const ordersPasadas = orders?.filter((t) => t.date?.slice(0, 7) !== mes);
+  //Pasadas
+  const ordersDelMesAnterior = ordersPasadas?.filter(
+    (t) => t.date?.slice(0, 7) === mesAnterior
+  );
+
+  //Ganancias
+  const gananciasDelDia = gananciasPorFiltro(todayOrders);
+
   const gananciasSemanaAnterior = () => {
     const fechaAReemplazar = hoy.slice(8, 10);
     const semanaAtras = hoy.replace(fechaAReemplazar, hoy.slice(8, 10) - 7);
-    const ganancias = orders?.filter(
-      (t) => t.date?.slice(0, 10) > semanaAtras
-    );
-    console.log("ORDENES DE LA SEMANA ANTERIOR", ganancias);
-    return ganancias.map((p) => p.totalPrice).reduce((a, b) => a + b, 0);
+    const ganancias = orders?.filter((t) => t.date?.slice(0, 10) > semanaAtras);
+    return gananciasPorFiltro(ganancias);
   };
 
-  const ordersDelMes = orders?.filter(
-    (t) => t.date?.slice(0, 7) === mes
-  );
+  const gananciasDelMes = gananciasPorFiltro(ordersDelMes);
 
-  const gananciasDelDia = todayOrders
-    .map((p) => p.totalPrice)
-    .reduce((a, b) => a + b, 0);
-
-  const gananciasDelMes = ordersDelMes
-    .map((p) => p.totalPrice)
-    .reduce((a, b) => a + b, 0);
+  const gananciasDelMesAnterior = gananciasPorFiltro(ordersDelMesAnterior);
 
   const ganancias3 = () => {
-    const mesAReemplazar = mes.slice(5, 7);
-    const tresMesesAtras = mes.replace(mesAReemplazar, mes.slice(5, 7) - 3);
+    const tresMesesAtras = formato(
+      mesAnterior?.replace(
+        mesAReemplazar(mesAnterior),
+        mesAReemplazar(mesAnterior) - 2
+      )
+    );
     const ganancias = orders?.filter(
       (t) => t.date?.slice(0, 7) < tresMesesAtras
     );
-    return ganancias.map((p) => p.totalPrice).reduce((a, b) => a + b, 0);
+    return gananciasPorFiltro(ganancias);
   };
-  console.log("dia", gananciasDelDia);
+  // console.log("dia", gananciasDelDia);
 
-  console.log("semana", gananciasSemanaAnterior());
+  // console.log("semana", gananciasSemanaAnterior());
 
-  console.log("Mes", gananciasDelMes);
+  // console.log("Mes", gananciasDelMes);
 
-  console.log("Estos 3 Meses", ganancias3());
+  // console.log("Estos 3 Meses", ganancias3());
 
   /* const { totalSalesToday, totalSales, lastSalesWeek, lastSalesMonth } = useSelector((state) => state.dashboard); */
   //const allusers = useSelector((state) => state.user.users);
-  
- 
-  const ventasDelDía = () => {
-    const hoy = new Date().toISOString().slice(0, 10);
-    const todayOrders = orders?.filter(
-      (t) => t.date?.slice(0, 10) === hoy
-    );
-    return todayOrders.length;
-  };
-  const ventasRealizadasHoy = ventasDelDía()
 
-  const ventasDeHoy = () => {
-    const hoy = new Date().toISOString().slice(0, 10);
-    const todayOrders = orders?.filter(
-      (t) => t.date?.slice(0, 10) === hoy
-    );
-    return todayOrders;
-  };
-  const ventasHoy = ventasDeHoy()
-  const totalDeVentasHoy = ventasHoy.map(p => p.totalPrice).reduce((a, b) => a + b, 0)
+  const ventasDelDía =
+    /*() => {*/
+    // const hoy = new Date().toISOString().slice(0, 10);
+    // const todayOrders = orders?.filter((t) => t.date?.slice(0, 10) === hoy);
+    /* return */ todayOrders.length;
+  // };
+  // const ventasRealizadasHoy = ventasDelDía();
 
- 
-  const porcentajeVenta = Math.round(totalDeVentasHoy/spent*100)
+  // const ventasDeHoy = () => {
+  //   const hoy = new Date().toISOString().slice(0, 10);
+  //   const todayOrders = orders?.filter((t) => t.date?.slice(0, 10) === hoy);
+  //   return todayOrders;
+  // };
+  const ventasHoy = todayOrders;
+  const totalDeVentasHoy = gananciasDelDia;
+  // ventasHoy
+  //   .map((p) => p.totalPrice)
+  //   .reduce((a, b) => a + b, 0);
+
+  const porcentajeVenta = Math.round(
+    (totalDeVentasHoy / gananciasTotales) * 100
+  );
 
   return (
     <div className={s.featured}>
@@ -90,33 +120,48 @@ const VentasTotales = () => {
       </div>
       <div className={s.bottomVentas}>
         <div className={s.featuredChart}>
-          <CircularProgressbar value={porcentajeVenta} text={`${porcentajeVenta} %`} strokeWidth={5} />
+          <CircularProgressbar
+            value={porcentajeVenta}
+            text={`${porcentajeVenta} %`}
+            strokeWidth={5}
+          />
         </div>
         <p className={s.title}>Ventas totales realizadas hoy</p>
-        <p className={s.amount}>{Math.round(ventasRealizadasHoy)}</p>
+        <p className={s.amount}>{ventasDelDía}</p>
         <p className={s.desc}>
-            Procesamiento de transacciones anteriores. Es posible que no se incluyan los últimos pagos.
+          Procesamiento de transacciones anteriores. Es posible que no se
+          incluyan los últimos pagos.
         </p>
         <div className={s.summary}>
           <div className={s.itemVentas}>
             <div className={s.itemTitle}>Objetivo</div>
             <div className={s.itemResult_negative}>
-              <KeyboardArrowUpOutlinedIcon fontSize="small"/>
+              <KeyboardArrowUpOutlinedIcon fontSize="small" />
               <div className={s.resultAmount}>$12.4k</div>
             </div>
           </div>
           <div className={s.itemVentas}>
             <div className={s.itemTitle}>Semana Pasada</div>
             <div className={s.itemResult_positive}>
-              <KeyboardArrowUpOutlinedIcon fontSize="small"/>
-              <div className={s.resultAmount}>{`$ ${gananciasSemanaAnterior().toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</div>
+              <KeyboardArrowUpOutlinedIcon fontSize="small" />
+              <div
+                className={s.resultAmount}
+              >{`$ ${gananciasSemanaAnterior().toLocaleString("es", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}`}</div>
             </div>
           </div>
           <div className={s.itemVentas}>
             <div className={s.itemTitle}>Mes Pasado</div>
             <div className={s.itemResult_positive}>
-              <KeyboardArrowUpOutlinedIcon fontSize="small"/>
-              <div className={s.resultAmount}>{`$ ${gananciasDelMes.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</div>
+              <KeyboardArrowUpOutlinedIcon fontSize="small" />
+              <div
+                className={s.resultAmount}
+              >{`$ ${gananciasDelMesAnterior.toLocaleString("es", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}`}</div>
             </div>
           </div>
         </div>
