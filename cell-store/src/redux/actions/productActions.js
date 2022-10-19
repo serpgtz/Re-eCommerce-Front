@@ -211,8 +211,8 @@ export function ChangeByName2() {
   };
 }
 
-export const orderProduct = (products, id, location)=> {
-  const data = [products,location]
+export const orderProduct = (products, id, location, input)=> {
+  const data = [products,location, input]
   return async (dispatch) => {
     console.log(products)
     try {
