@@ -7,23 +7,25 @@ import {
   higherPrice,
   lowerPrice,
   topRated,
+  ChangeByName
 } from "../../redux/actions/productActions";
 import s from "./Filters.module.css";
 
 function Filters() {
   const products = useSelector((state) => state.product.products);
-  console.log(products);
   const [filter, setFilter] = useState("");
   const [sort, setSort] = useState("");
   const dispatch = useDispatch();
   const handleFilters = (e) => {
     e.preventDefault();
     const value = e.target.value;
-    const filter = dispatch(getFilter(value));
-    setFilter({ ...filter, [e.target.name]: value });
+    dispatch(ChangeByName())
+
+    setFilter(dispatch(getFilter(value)));
   };
   const handleSort = (e) => {
     const value = e.target.innerText;
+    console.log("desdefilter",value)
     if (value === "Mayor Precio") {
       setSort("higherPrice");
     }
@@ -36,17 +38,19 @@ function Filters() {
   };
   useEffect(() => {
     if (sort === "higherPrice") {
-      console.log("entré");
+      dispatch(higherPrice(1));
+      dispatch(ChangeByName())
       console.log("It's a-me MaRIO", products);
-      dispatch(higherPrice());
     }
     if (sort === "lowerPrice") {
-      dispatch(lowerPrice());
+      dispatch(lowerPrice(1));
+      
     }
     if (sort === "topRated") {
-      dispatch(topRated());
+      dispatch(topRated(1));
+    
     }
-  }, [dispatch]);
+  }, [sort]);
 
   return (
     <aside className={s.aside}>
@@ -62,10 +66,10 @@ function Filters() {
         <h3>Filtrar por:</h3>
         <div className={s.select}>
           <select name="filter" id="cars" onChange={(e) => handleFilters(e)}>
-            <option value="cell">Cell</option>
-            <option value="phoneCover">PhoneCover</option>
-            <option value="headphones">Headphones</option>
-            <option value="charger">Charger</option>
+            <option value="Xiaomi">Xiaomi</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Motorola">Motorola</option>
+            <option value="Lenovo">Lenovo</option>
           </select>
         </div>
       </div>

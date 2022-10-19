@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { ADD_TO_CART } from '../../redux/actions/cartActions';
@@ -6,11 +6,21 @@ import { deleteFromCart } from '../../redux/actions/cartActions';
 import trash from '../../image/trash.png';
 import carrito from '../../image/carrito.png';
 import s from './Cart.module.css';
-
+import { orderProduct } from '../../redux/actions/productActions';
+import { useEffect } from 'react';
+import ModalMsg from '../modal/ModalMsg';
+import BuyForm from '../buyForm/BuyForm';
+import { style } from '@mui/system';
 function Cart() {
+
+	const [location , setLocation] = useState('')
+	const [error , setError] = useState(true)
 	let value = 0;
 	let navigate = useNavigate();
+	
 	const { cart } = useSelector(state => state.cart);
+	const linkMP = useSelector(state => state.product.linkMP)
+
 
 	const dispatch = useDispatch();
 
@@ -18,24 +28,6 @@ function Cart() {
 		navigate('/');
 	};
 
-	// const handleQtyChange = (e, product) => {
-	// 	const cart = localStorage.getItem('cart')
-	// 		? JSON.parse(localStorage.getItem('cart'))
-	// 		: [];
-
-	// 	cart.forEach(cartItem => {
-	// 		if (cartItem._id === product._id) {
-	// 			cartItem.count = e.target.value;
-	// 		}
-	// 	});
-
-	// 	localStorage.setItem('cart', JSON.stringify(cart));
-
-	// 	dispatch({
-	// 		type: ADD_TO_CART,
-	// 		payload: cart,
-	// 	});
-	// };
 	const handleQtyClick = (e, product) => {
 		if (e.target.name === '+') {
 			console.log('entré en +')
@@ -67,14 +59,16 @@ function Cart() {
 			payload: cart,
 		});
 	}
-	const handleCheckout = evt => {
-		if (isAuthenticated()) {
-			navigate('/shipping');
-		} else {
-			navigate('/signin?redirect=shipping');
-		}
-	};
 
+     
+
+	useEffect(()=>{
+		if(linkMP?.length > 0){
+			window.open(linkMP, "PAGO", "width=300, height=200")
+		}
+	} , [linkMP])
+    
+	
 	return (
 		<div className={s.container}>
 			<section className='cart-page m-4'>
@@ -95,12 +89,9 @@ function Cart() {
 
 						{<div className={s.containerDiv}>
 							<div>
-								<h2 > <img className={s.imagencarrito} src={carrito} alt="carrito" /> Carrito</h2>
+								<h2 className={s.titleCart}> <img className={s.imagencarrito} src={carrito} alt="carrito" /> Carrito</h2>
 								<div className={s.tableSection}>
-									<div >
-
-
-									</div>
+									
 									<table >
 										<thead>
 											<tr className={s.tableTh}>
@@ -154,20 +145,6 @@ function Cart() {
 														</p>
 
 														<label className={s.disponible} >disponible: {product.stock}</label>
-
-
-														{/* <input
-														type='number'
-														min='1'
-														max={product.stock}
-														value={product.count}
-														onChange={e =>
-															handleQtyChange(
-																e,
-															product
-															)
-														}
-													/> */}
 													</td>
 													<td>
 														<div className={s.priceUnit}>({product.price} c/u)</div>
@@ -180,9 +157,10 @@ function Cart() {
 										</tbody>
 									</table>
 								</div>
+								
 							</div>
 
-
+							
 							<div className={s.summary}>
 								<h2 className={s.resumen}>Resumen del pedido</h2>
 								<p className={s.item}>
@@ -205,12 +183,20 @@ function Cart() {
 									}
 								</p>
 								<div>
+									{localStorage.getItem('user') ? <ModalMsg location={location}
+									setLocation={setLocation}
+									error = {error}
+									setError = {setError}
+									
+									/>: 
 									<button
-										className={s.btnCheck}
-										onClick={handleCheckout}
-									>
-										Proceder a la compra
-									</button>
+									className={s.btnCheck}
+									onClick={handleCheckout}
+								>
+									Inicia sesion
+								</button>
+									}
+									
 									<button
 										className={s.btnSeguirComp}
 										onClick={handleGoBackBtn}
@@ -219,11 +205,18 @@ function Cart() {
 									</button>
 								</div>
 							</div>
+							
 						</div>}
+						<div className={s.container_2}>
+							<BuyForm error={error} location={location}/>
+						</div>
 					</div>
 				)}
+				
 			</section>
+			
 		</div>
+		
 	)
 }
 

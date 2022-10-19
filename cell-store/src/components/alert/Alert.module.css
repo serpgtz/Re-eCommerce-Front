@@ -1,13 +1,22 @@
 .alert {
-   
-    display: flex;
-    align-items: center;
     width: 30%;
-    height: 60px;
+    height: 85px;
     background-color: rgb(216, 171, 171);
     color: rgb(41, 41, 41);
     margin-bottom: 20px;
-   
+}
+
+.divButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.datosError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .alert img {
@@ -17,7 +26,6 @@
 }
 
 .close {
-
     visibility: hidden;
     display: flex;
     align-items: center;
@@ -25,12 +33,10 @@
     height: 60px;
     background-color: rgb(216, 171, 171);
     color: black;
-    
 }
 
 .alert button {
-    position: relative;
-    
+    /* position: relative; */
     width: 25px;
     height: 25px;
     background-color: transparent;
@@ -39,17 +45,15 @@
     font-weight: 200;
     text-align: center;
     border-radius: 5px;
-   
 }
 
 .alert button:hover {
-    background-color: rgba(0, 0, 0, 0.086) ;
+    background-color: rgba(0, 0, 0, 0.086);
     transition: 0.5s;
 }
 
 .alert div {
-    position: relative;
+    /* position: relative; */
     left: 235px;
     top: -10px;
-   
 }

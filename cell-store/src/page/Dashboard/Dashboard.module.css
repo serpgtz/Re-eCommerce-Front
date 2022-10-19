@@ -10,11 +10,8 @@
 }
 
 .cardUserContainer {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
-  flex-direction: row;
   margin-top: 4rem;
+<<<<<<< HEAD
   margin-bottom: 4rem;
   height: 25rem;
   width: 94%;
@@ -23,49 +20,75 @@
   background-color: #00218f21;
   align-content: space-between;
   flex-wrap: wrap;
+=======
+  margin-bottom: 6rem;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+>>>>>>> 806b6470804ce3e5445d023525e01910c1cdcf60
 }
 .cardUserContainer:hover {
   transition: 600ms;
-  background-color: #00124d38;
+  background-color: #01218a38;
 }
-.cardUserAdmin {
-  display: block;
-  align-items: flex-start;
-  justify-content: center;
-  /* flex-direction: column; */
-  border: 1px gray solid;
-  flex-direction: row;
-  background: linear-gradient(190deg, #5b7ce8 0%, #fff 91%);
-  border-radius: 22px 5px 22px 5px;
-  padding: 1rem;
-  width: 15rem;
-  height: 19rem;
-  color: rgb(135, 164, 213);
-  font-weight: 600;
-  padding-bottom: 0px;
+.tableUserAdmin {
+  padding: 0.2rem;
+  width: 100%;
+  height: 20rem;
+  color: rgb(0, 0, 0);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   transition: 180ms;
 }
-.cardUserAdmin:hover {
+.tableUserAdmin:hover {
   transition: 190ms;
-  box-shadow: 0px 1px 10px 1px #564e92;
 }
 /* From uiverse.io by @absoluteSTrange */
 
-.p {
+.th {
   background: rgba(255, 255, 255, 0.501);
   color: darkblue;
-  text-align: center;
-  border-radius: 5px;
-  border-bottom: 1px solid rgba(14, 0, 93, 0.689);
-  padding: 0.2rem;
+  padding: 0.5rem;
   transition: 200ms;
 }
-.p:hover {
+.th:hover {
   transition: 200ms;
   background: darkblue;
   color: rgb(255, 255, 255);
   text-align: center;
-  border-radius: 5px;
   border-bottom: 1px solid rgba(14, 0, 93, 0.689);
-  padding: 0.2rem;
+}
+.trCon:hover {
+  transition: 200ms;
+  background: darkblue;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border-bottom: 1px solid rgba(14, 0, 93, 0.689);
+}
+.tdActions {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.tableBoxTrue {
+  padding: 0.15rem;
+  color: white;
+  font-weight: 600;
+  background-color: rgb(189, 113, 0);
+  border-radius: 6px;
+}
+.tableBoxFalse {
+  padding: 0.25rem;
+  color: white;
+  text-align: justify;
+  font-weight: 600;
+  background-color: rgb(0, 152, 182);
+  border-radius: 6px;
+  cursor: pointer;
+}
+td {
+  text-align: left;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.th .td {
+  border-bottom: 1px solid rgba(14, 0, 93, 0.689);
 }

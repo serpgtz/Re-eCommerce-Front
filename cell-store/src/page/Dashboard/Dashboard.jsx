@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import { getAllUsers } from "../../redux/actions/userActions";
 import styles from "./Dashboard.module.css";
 import FormDash from "./FormDash";
+import Reviews from "./Reviews";
 import SearchBardDash from "./SearchBarDashboard";
 import { button } from "./SearchBarDashboard.module.css";
-import Slider from "./Slider";
 
 const Dashboard = () => {
-  const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllUsers());
@@ -17,20 +16,21 @@ const Dashboard = () => {
 
   return (
     <div className={styles.dashContainer}>
-      <h1>Dashboard</h1>
+      <h2>Usuarios</h2>
       <SearchBardDash />
       <Link className={styles.link} to="/newproduct">
         <button className={button}>Crear producto</button>
       </Link>
-      <Slider users={users} />
-      <label>
+      {/* <label>
         Editar usuario
         <FormDash users={users} />
-      </label>
-      <div>Órdenes</div>
+      </label> */}
+      <h2>Órdenes</h2>
       {/*users.orders */}
       {/* <div>Agregados Recientemente</div>
       {} */}
+      <h2>Reviews</h2>
+      <Reviews />
     </div>
   );
 };
