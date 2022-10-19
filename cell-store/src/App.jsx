@@ -121,7 +121,6 @@ function App() {
 export default App;
 
 /* 
-
     <Router>
       <Routes>
         <Route path='/:id' element={<Detail/>} />
