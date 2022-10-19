@@ -5,35 +5,36 @@ import { useDispatch } from "react-redux";
 import { postReview } from "../../redux/actions/reviewActions";
 
 export default function ReviewsRemix({ id, name, image, user, setBox }) {
-  const [number, setNumber] = useState(0);
+  //const [number, setNumber] = useState(0);
   const [hoverStar, setHoverStar] = useState(undefined);
   //console.log(id);
   const dispatch = useDispatch();
   const [input, setInput] = useState({
     product: id,
-    rating: number,
+    rating: 0,
     comment: "",
     userId: user._id,
   });
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input?.comment?.length >= 4 && user) {
+    if (input?.comment?.length >= 4 && user && input?.rating?.length > 0) {
       dispatch(postReview(id, input));
       setBox(false)
       setInput({
         product: id,
-        rating: "",
+        rating: 0,
         comment: "",
         userId: user._id,
       });
       alert('Review completada!')
     } else {
-      alert("Comentarios de mínimo 4 caracteres");
+      alert("Comentarios de mínimo 4 caracteres, y mínimo 1 estrella");
     }
   };
    const handleText = () => {
-    switch (number || hoverStar) {
+    switch (input.rating || hoverStar) {
       case 0:
         return "Evaluar";
       case 1:
@@ -52,7 +53,7 @@ export default function ReviewsRemix({ id, name, image, user, setBox }) {
   };
 
   const handlePlaceHolder = () => {
-    switch (number || hoverStar) {
+    switch (input.rating || hoverStar) {
       case 0:
         return "Comente aquí...";
       case 1:
@@ -86,19 +87,19 @@ export default function ReviewsRemix({ id, name, image, user, setBox }) {
             {Array(5)
               .fill()
               .map((_, index) =>
-                number >= index + 1 || hoverStar >= index + 1 ? (
+                input.rating >= index + 1 || hoverStar >= index + 1 ? (
                   <AiFillStar
-                    onMouseOver={() => !number && setHoverStar(index + 1)}
+                    onMouseOver={() => !input.rating && setHoverStar(index + 1)}
                     onMouseLeave={() => setHoverStar(undefined)}
                     style={{ color: "orange" }}
-                    onClick={() => setNumber(index + 1)}
+                    onClick={() => setInput({ ...input, rating: index + 1 })}
                   />
                 ) : (
                   <AiOutlineStar
-                    onMouseOver={() => !number && setHoverStar(index + 1)}
+                    onMouseOver={() => !input.rating && setHoverStar(index + 1)}
                     onMouseLeave={() => setHoverStar(undefined)}
                     style={{ color: "orange" }}
-                    onClick={() => setNumber(index + 1)}
+                    onClick={() => setInput({ ...input, rating: index + 1 })}
                   />
                 )
               )}
@@ -112,7 +113,7 @@ export default function ReviewsRemix({ id, name, image, user, setBox }) {
 
           <button 
             type="submit"
-            className={` ${!number && s.disabled} `}
+            className={` ${!input.rating && s.disabled} `}
           >
             Enviar
           </button>

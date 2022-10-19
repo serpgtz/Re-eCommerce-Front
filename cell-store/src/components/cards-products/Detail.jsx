@@ -13,6 +13,8 @@ import corazonVacio from "../../image/corazonVacio.png";
 import { addToCart } from "../../redux/actions/cartActions";
 import Reviews from "./Reviews";
 /* import ReviewsRemix from "./ReviewsRemix"; */
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
 
 function Detail() {
   const dispatch = useDispatch();
@@ -36,6 +38,28 @@ function Detail() {
   const handleGoBackBtn = () => {
     navigate(-1);
   };
+
+  /*  function handleBack() {
+     dispatch(getProductsPerPage(page))
+     console.log(page)
+ 
+  } */
+
+  const reviewPro = useSelector((state) => state.review);
+  let score = 0;
+  const reducer = (accumulator, curr) => accumulator + curr;
+  const sumaryScore = () => {
+    const sumary = [];
+    if (reviewPro?.reviews?.length > 0) {
+      reviewPro?.reviews?.map((element) => {
+        sumary.push(element.rating);
+      });
+      score = sumary.reduce(reducer) / sumary.length;
+    }
+  };
+  sumaryScore();
+
+  const reviewsTotales = reviewPro?.reviews?.length;
 
   return (
     <div className={styles.mainDetailContainer}>
@@ -74,7 +98,40 @@ function Detail() {
                     </p>
                   </div>
 
-                  <p className={styles.letter}>
+                  <div id={styles.review_block}>
+                    <span id={styles.review_detail}>
+                      Rating:{" "}
+                      <strong>
+                        {score === 0
+                          ? "Sin calificación aún"
+                          : score.toFixed(1)}
+                      </strong>{" "}
+                    </span>
+                    <div id={styles.review_block2}>
+                      <span id={styles.review_detail}>
+                        <Box
+                          sx={{
+                            "& > legend": { mt: 2 },
+                          }}
+                        >
+                          <Rating
+                            name="half-rating-read"
+                            defaultValue={2.5}
+                            precision={0.5}
+                            readOnly
+                            value={score}
+                          />
+                        </Box>
+                      </span>
+                      {reviewsTotales > 0 ? (
+                        <span id={styles.review_letter}>
+                          {reviewsTotales} reviews
+                        </span>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  <p className={styles.letterDescrip}>
                     <strong>Description : </strong>
                     {myProduct.description}
                   </p>
