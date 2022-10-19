@@ -9,6 +9,7 @@ import Button from '@mui/material/Button'
 import s from "./Profile.module.css"
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ReviewsByUser from "./ReviewsByUser";
+import Favoritos from "../../components/cards-products/Favoritos";
 import { getReviewByUser, getAllReviews } from "../../redux/actions/reviewActions";
 
 const Profile = () => {
@@ -59,7 +60,7 @@ const Profile = () => {
           null
         ) :
           <Button variant="outlined" color="primary"
-            onClick={() => setInput("reviews")}>
+            onClick={() => setInput("favoritos")}>
             Favoritos
           </Button>
         }
@@ -82,6 +83,8 @@ const Profile = () => {
         {input === "mis datos" && <Datos />}
 
         {input === "reviews" && <ReviewsByUser />}
+
+        {input === "favoritos" && <Favoritos />}
       </div>
     </div>
   )
