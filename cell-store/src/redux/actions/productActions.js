@@ -15,7 +15,6 @@ export const HIGHER_PRICE = "HIGHER_PRICE";
 export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
 export const LINK_MP = "LINK_MP"
-export const LINK_MP = "LINK_MP";
 export const PRODUCTS_FILTER = "PRODUCTS_FILTER"
 
 
