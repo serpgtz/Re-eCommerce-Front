@@ -15,6 +15,7 @@ export const HIGHER_PRICE = "HIGHER_PRICE";
 export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
 export const LINK_MP = "LINK_MP"
+export const PRODUCTS_FILTER = "PRODUCTS_FILTER"
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -225,4 +226,18 @@ export const orderProduct = (products, id, location, input)=> {
       console.log(error)
     }
   }
+}
+
+export const productBrand = (name) => {
+   return async (dispatch) => {
+    try {
+      const productsBrand = await axios(`/products/brand?brand=${name}`)
+      return dispatch({
+        type : PRODUCTS_FILTER,
+        payload : productsBrand.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+   }
 }
