@@ -13,11 +13,9 @@ export const RESPONSE_CHANGE_PASSWORD_FORGOT =
   "RESPONSE_CHANGE_PASSWORD_FORGOT";
 export const RESPONSE_NEW_PASSWORD = "RESPONSE_NEW_PASSWORD";
 
-axios.defaults.baseURL = import.meta.env.VITE_API;//localhost 3000
+axios.defaults.baseURL =import.meta.env.VITE_API;
 
 export const userRegister = (user) => {
-  console.log(user);
-  console.log("hoa")
   return async (dispatch) => {
     try {
       const res = await axios.post("/register", user);
@@ -38,8 +36,8 @@ export const userLogin = (user) => {
   return async (dispatch) => {
     try {
       const token = await axios.post("/login", user);
-      console.log("desde user",user)
-      localStorage.setItem("token",JSON.stringify(token.data.token) );
+
+      localStorage.setItem("token", token.data.token);
 
       return dispatch({
         type: TOKEN,
@@ -59,8 +57,7 @@ export const getUserData = () => {
     try {
       const user = await axios.get("/perfil", {
         headers: {
-        
-          Bearer: JSON.parse(localStorage.getItem("token")) ,
+          Bearer: localStorage.getItem("token"),
         },
       });
 

@@ -19,8 +19,6 @@ const Auth = () => {
 
   const [click, setClick] = useState(false);
   //const [error , setError] = useState({})
-  const [cont,setCont] = useState(1)
-  
   const [active, setActive] = useState(false);
   const [input, setInput] = useState({
     username: "",
@@ -34,32 +32,22 @@ const Auth = () => {
     console.log('jwt =>' + response.credential)
     localStorage.setItem('user_google', JSON.stringify(jwt_decode(response.credential)))
   }
-  let cont1 = 1
   useEffect(() => {
-    
-    if(cont1 === 1){
-      console.log("desde if")
-      google.accounts.id.initialize({
-        // client_id: '2890899428-u9cjg4ihv7m8i9es40sb2quegdbqm0c3.apps.googleusercontent.com',
-        client_id: import.meta.env.VITE_GOGLE_BACK,
-        callback: handleResponseGoogle
-      })
-      google.accounts.id.renderButton(
-        document.getElementById("singInDiv"),
-        { theme: "outline", size: "large" }
-      )
-      
-    }
+    google.accounts.id.initialize({
+      // client_id: '2890899428-u9cjg4ihv7m8i9es40sb2quegdbqm0c3.apps.googleusercontent.com',
+      client_id: import.meta.env.VITE_GOGLE_BACK,
+      callback: handleResponseGoogle
+    })
 
+    google.accounts.id.renderButton(
+      document.getElementById("singInDiv"),
+      { theme: "outline", size: "large" }
+    )
     if (Object.keys(token).length > 0) {
       dispatch(getUserData());
       return navigate('/')
     }
-    cont1 = cont1+1
-    
-
-   
-  }, [dispatch,token])
+  }, [dispatch, token])
   console.log(token)
 
 

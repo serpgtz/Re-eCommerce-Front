@@ -41,8 +41,7 @@ const Register = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    localStorage.setItem('email_register_', JSON.stringify(input.email))
-    // localStorage.setItem('email_register_', input.email)
+    localStorage.setItem('email_register_', input.email)
     dispatch(userRegister(input))
 
     setInput({

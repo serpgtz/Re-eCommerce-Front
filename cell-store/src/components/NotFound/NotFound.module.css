@@ -9,7 +9,7 @@
 
 .btnNotFound {
     width: 180px;
-    height: 41px;
+    height: 40px;
     cursor: pointer;
     background-color: var(--background-NotFound-btnNotFound);
     border-radius: 10px;
