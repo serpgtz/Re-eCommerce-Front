@@ -17,6 +17,7 @@
     "@mui/styled-engine-sc": "^5.8.0",
     "@mui/x-data-grid": "^5.12.3",
     "axios": "^0.27.2",
+    "cloudinary": "^1.32.0",
     "framer-motion": "^7.5.1",
     "i": "^0.3.7",
     "jwt-decode": "^3.1.2",

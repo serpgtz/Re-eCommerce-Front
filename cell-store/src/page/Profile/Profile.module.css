@@ -18,6 +18,7 @@
 .display {
   display: inline-flex;
   margin-left: 5rem;
+  align-items: center;
 }
 
 .user {
