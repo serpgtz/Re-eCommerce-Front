@@ -146,10 +146,7 @@ const VentasTotales = () => {
               <KeyboardArrowUpOutlinedIcon fontSize="small" />
               <div
                 className={s.resultAmount}
-              >{`$ ${gananciasSemanaAnterior().toLocaleString("es", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}`}</div>
+              >{`$ ${gananciasSemanaAnterior().toLocaleString("es")}`}</div>
             </div>
           </div>
           <div className={s.itemVentas}>
@@ -158,10 +155,7 @@ const VentasTotales = () => {
               <KeyboardArrowUpOutlinedIcon fontSize="small" />
               <div
                 className={s.resultAmount}
-              >{`$ ${gananciasDelMesAnterior.toLocaleString("es", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}`}</div>
+              >{`$ ${gananciasDelMesAnterior.toLocaleString("es")}`}</div>
             </div>
           </div>
         </div>

@@ -83,7 +83,7 @@ const Chart = ({ aspect, title }) => {
       )
     );
     const ganancias = orders?.filter(
-      (t) => t.date?.slice(0, 7) < tresMesesAtras
+      (t) => t.date?.slice(0, 7) > tresMesesAtras
     );
     return gananciasPorFiltro(ganancias);
   };
