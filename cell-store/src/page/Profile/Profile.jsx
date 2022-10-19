@@ -10,6 +10,7 @@ import s from "./Profile.module.css"
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ReviewsByUser from "./ReviewsByUser";
 import { getReviewByUser, getAllReviews } from "../../redux/actions/reviewActions";
+import Order from "./Order"
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -67,7 +68,7 @@ const Profile = () => {
           null
         ) :
           <Button variant="outlined" color="primary"
-            onClick={() => setInput("reviews")}>
+            onClick={() => setInput("ordenes")}>
             Historial de compras
           </Button>
         }
@@ -82,6 +83,8 @@ const Profile = () => {
         {input === "mis datos" && <Datos />}
 
         {input === "reviews" && <ReviewsByUser />}
+
+        {input === "ordenes" && <Order />}
       </div>
     </div>
   )
