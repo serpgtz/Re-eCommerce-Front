@@ -48,13 +48,13 @@ const VentasTotales = () => {
     );
     return ganancias.map((p) => p.totalPrice).reduce((a, b) => a + b, 0);
   };
-  console.log("dia", gananciasDelDia);
+  /* console.log("dia", gananciasDelDia);
 
   console.log("semana", gananciasSemanaAnterior());
 
   console.log("Mes", gananciasDelMes);
 
-  console.log("Estos 3 Meses", ganancias3());
+  console.log("Estos 3 Meses", ganancias3()); */
 
   /* const { totalSalesToday, totalSales, lastSalesWeek, lastSalesMonth } = useSelector((state) => state.dashboard); */
   //const allusers = useSelector((state) => state.user.users);
@@ -109,14 +109,14 @@ const VentasTotales = () => {
             <div className={s.itemTitle}>Semana Pasada</div>
             <div className={s.itemResult_positive}>
               <KeyboardArrowUpOutlinedIcon fontSize="small"/>
-              <div className={s.resultAmount}>{`$ ${gananciasSemanaAnterior().toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</div>
+              <div className={s.resultAmount}>{`$ ${gananciasSemanaAnterior().toLocaleString('es', /* { minimumFractionDigits: 2, maximumFractionDigits: 2 } */)}`}</div>
             </div>
           </div>
           <div className={s.itemVentas}>
             <div className={s.itemTitle}>Mes Pasado</div>
             <div className={s.itemResult_positive}>
               <KeyboardArrowUpOutlinedIcon fontSize="small"/>
-              <div className={s.resultAmount}>{`$ ${gananciasDelMes.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</div>
+              <div className={s.resultAmount}>{`$ ${gananciasDelMes.toLocaleString('es', /* { minimumFractionDigits: 2, maximumFractionDigits: 2 } */)}`}</div>
             </div>
           </div>
         </div>

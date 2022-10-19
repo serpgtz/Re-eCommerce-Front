@@ -28,8 +28,8 @@ const Chart = ({ aspect, title }) => {
     const ganancias = orders?.filter(
       (t) => t.date?.slice(0, 10) > semanaAtras
     );
-    console.log("ORDENES DE LA SEMANA ANTERIOR", ganancias);
-    return ganancias.map((p) => p.totalPrice).reduce((a, b) => a + b, 0);
+    //console.log("ORDENES DE LA SEMANA ANTERIOR", ganancias);
+    return ganancias?.map((p) => p.totalPrice).reduce((a, b) => a + b, 0);
   };
 
   const ordersDelMes = orders?.filter(
@@ -48,7 +48,7 @@ const Chart = ({ aspect, title }) => {
     const mesAReemplazar = mes.slice(5, 7);
     const dosMesesAtrás = mes.replace(mesAReemplazar, mesAReemplazar - 2);
     const gananciasDosMeses = orders?.filter(
-        (t) => t.date?.slice(0, 7) < dosMesesAtrás
+        (t) => t.date?.slice(0, 7) > dosMesesAtrás
       );
       return gananciasDosMeses.map((p) => p.totalPrice).reduce((a, b) => a + b, 0);
   }
@@ -57,7 +57,7 @@ const Chart = ({ aspect, title }) => {
     const mesAReemplazar = mes.slice(5, 7);
     const tresMesesAtras = mes.replace(mesAReemplazar, mes.slice(5, 7) - 3);
     const ganancias = orders?.filter(
-      (t) => t.date?.slice(0, 7) < tresMesesAtras
+      (t) => t.date?.slice(0, 7) > tresMesesAtras
     );
     return ganancias.map((p) => p.totalPrice).reduce((a, b) => a + b, 0);
   };

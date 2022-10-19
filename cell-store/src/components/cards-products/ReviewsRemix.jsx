@@ -18,7 +18,7 @@ export default function ReviewsRemix({ id, name, image, user, setBox }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input?.comment?.length >= 4 && user) {
+    if (input?.comment?.length >= 4 && user && number > 0) {
       dispatch(postReview(id, input));
       setBox(false)
       setInput({
@@ -29,7 +29,7 @@ export default function ReviewsRemix({ id, name, image, user, setBox }) {
       });
       alert('Review completada!')
     } else {
-      alert("Comentarios de mínimo 4 caracteres");
+      alert("Comentarios de mínimo 4 caracteres, y mínimo 1 estrella");
     }
   };
    const handleText = () => {
