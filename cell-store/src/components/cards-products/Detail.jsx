@@ -5,7 +5,6 @@ import {
   getDetailId,
   resetState,
   ChangeByName2,
-  getProductsPerPage,
 } from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import styles from "./Detail.module.css";
@@ -17,14 +16,11 @@ import Reviews from "./Reviews";
 
 function Detail() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
+
   const myProduct = useSelector((state) => state.product.detail);
   const page = useSelector((state) => state.product.page);
-
-  const handleAddToCart = () => {
-    console.log("myProduct-----detail----------////", myProduct);
-    dispatch(addToCart(myProduct));
-  };
 
   useEffect(() => {
     dispatch(ChangeByName2());
@@ -34,16 +30,12 @@ function Detail() {
     };
   }, [dispatch, id]);
 
-  const navigate = useNavigate();
+  const handleAddToCart = () => {
+    dispatch(addToCart(myProduct));
+  };
   const handleGoBackBtn = () => {
     navigate(-1);
   };
-
-  /*  function handleBack() {
-     dispatch(getProductsPerPage(page))
-     console.log(page)
- 
-   } */
 
   return (
     <div className={styles.mainDetailContainer}>
