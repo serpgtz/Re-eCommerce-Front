@@ -4,8 +4,9 @@ import Cards from "../../components/cards-products/Cards";
 import Paginado from "../../components/Paginado/Paginado.jsx";
 import Carrusel from "../../components/carrusel/Carrusel";
 import { getAllOrders } from "../../redux/actions/ordersActions";
-import { useDispatch } from "react-redux";
-import Filters from "../../components/Filters/Filters";
+import { useDispatch } from 'react-redux';
+
+
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -16,14 +17,14 @@ const Home = () => {
 
   return (
     <div>
-      <Carrusel />
+        <Carrusel/>
       <div className={s.maxContainer}>
         <div className={s.container}>
-          <Filters />
           <Cards />
         </div>{" "}
       </div>
       <Paginado />
+      
     </div>
   );
 };
