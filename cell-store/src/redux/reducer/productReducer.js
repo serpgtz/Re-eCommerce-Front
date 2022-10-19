@@ -12,7 +12,9 @@ import {
   HIGHER_PRICE,
   LOWER_PRICE,
   TOP_RATED,
-  LINK_MP
+  LINK_MP,
+  PRODUCTS_FILTER,
+
 } from "../actions/productActions";
 
 const initialState = {
@@ -21,6 +23,7 @@ const initialState = {
   products2: [],
   page: 1,
   byName: "false",
+  productFilter: [],
 };
 export default function productReducer(state = initialState, action) {
   switch (action.type) {
@@ -96,7 +99,11 @@ export default function productReducer(state = initialState, action) {
           ...state,
           linkMP : action.payload
         }
-
+       case PRODUCTS_FILTER:
+        return {
+          ...state,
+          productFilter : action.payload
+        }
     default:
       return {
         ...state,

@@ -32,7 +32,7 @@ const Card = (p) => {
   };
   let likes = [];
   let likeTrue = [];
-  // console.log('myProduct', myProduct)
+
 
   useEffect(() => {
     if (localStorage.getItem("likes")) {
@@ -169,8 +169,9 @@ const Card = (p) => {
 
         <div className={s.right} onClick={(e) => handleAddLike(e)}>
           {/* <button className={s.like}  > */}
-          {/* {console.log("likeP", likeP)} */}
+
           {likeP.like ? (
+
             <img
               className={s.corazon}
               src={corazonRojo}

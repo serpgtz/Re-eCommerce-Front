@@ -76,7 +76,7 @@ function Cart() {
 		}
 	};
      
-
+ 
 	useEffect(()=>{
 		if(linkMP?.length > 0){
 			window.open(linkMP, "PAGO", "width=300, height=200")
@@ -206,7 +206,7 @@ function Cart() {
 									/>: 
 									<button
 									className={s.btnCheck}
-									onClick={handleCheckout}
+									onClick={()=> navigate('/account/login')}
 								>
 									Inicia sesion
 								</button>
