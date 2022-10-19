@@ -26,9 +26,6 @@ function Detail() {
   const myProduct = useSelector((state) => state.product.detail);
   const page = useSelector((state) => state.product.page);
 
-  const handleAddToCart = () => {
-    dispatch(addToCart(myProduct));
-  };
 
   const [likeP, setLikeP] = useState({
     like: false,
