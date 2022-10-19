@@ -1,6 +1,10 @@
 .container {
     width: 100%;
+<<<<<<< HEAD
    height: 100%;
+=======
+   
+>>>>>>> main
    
     background-color: var(--backgound-Cart);
  
@@ -12,7 +16,10 @@
     justify-content: center;
     align-items: flex-start;
    
+<<<<<<< HEAD
     height: 100%;
+=======
+>>>>>>> main
 }
 
 .titleCart {
@@ -114,6 +121,7 @@ thead th {
 }
 
 .tableSection {
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,6 +129,10 @@ thead th {
   
     overflow: auto;
     
+=======
+    height: 650px;
+    overflow: auto;
+>>>>>>> main
 }
 
 .imagencarrito {
@@ -231,6 +243,7 @@ td {
 .btnSeguirComp:hover {
     transform: scale(1.1)
 }
+<<<<<<< HEAD
 
 .container_2 {
     display: flex;
@@ -240,3 +253,5 @@ td {
     height: 100%;
    
 }
+=======
+>>>>>>> main

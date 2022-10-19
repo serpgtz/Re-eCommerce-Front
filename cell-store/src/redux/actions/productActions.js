@@ -14,7 +14,7 @@ export const NOT_FOUND = "NOT_FOUND";
 export const HIGHER_PRICE = "HIGHER_PRICE";
 export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
-export const LINK_MP = "LINK_MP"
+export const LINK_MP = "LINK_MP";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -67,10 +67,11 @@ export function getDetailId(id) {
 
 export function getFilter(query) {
   return async function (dispatch) {
-  
     try {
-     let filtersProduct= await axios.get(`/products?page=1&limit=8&name=${query}`);
-     console.log("desde dispatch",filtersProduct)
+      let filtersProduct = await axios.get(
+        `/products?page=1&limit=8&name=${query}`
+      );
+      console.log("desde dispatch", filtersProduct);
       return dispatch({
         type: GET_FILTERED,
         payload: filtersProduct.data,
@@ -128,7 +129,7 @@ export function higherPrice(page) {
   return async function (dispatch) {
     try {
       const json = await axios.get(`/products?page=${page}&limit=8&price=dsc`);
-      console.log("desde dispatch",json)
+      console.log("desde dispatch", json);
       return dispatch({
         type: HIGHER_PRICE,
         payload: json.data,
@@ -211,18 +212,18 @@ export function ChangeByName2() {
   };
 }
 
-export const orderProduct = (products, id, location, input)=> {
-  const data = [products,location, input]
+export const orderProduct = (products, id, location, input) => {
+  const data = [products, location, input];
   return async (dispatch) => {
-    console.log(products)
+    console.log(products);
     try {
-     const linkMP = await axios.post(`/post-order/${id}`, data)
-        return dispatch({
-          type : LINK_MP,
-          payload : linkMP.data
-        })
+      const linkMP = await axios.post(`/post-order/${id}`, data);
+      return dispatch({
+        type: LINK_MP,
+        payload: linkMP.data,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-}
+  };
+};

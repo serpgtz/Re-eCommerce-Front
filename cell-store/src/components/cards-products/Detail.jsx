@@ -5,7 +5,6 @@ import {
   getDetailId,
   resetState,
   ChangeByName2,
-  getProductsPerPage,
 } from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -16,17 +15,18 @@ import corazonRojo from '../../image/corazonrojo.png'
 import { addToCart } from "../../redux/actions/cartActions";
 import Reviews from "./Reviews";
 /* import ReviewsRemix from "./ReviewsRemix"; */
-import Box from '@mui/material/Box';
-import Rating from '@mui/material/Rating';
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
 
 function Detail() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
+
   const myProduct = useSelector((state) => state.product.detail);
   const page = useSelector((state) => state.product.page);
 
   const handleAddToCart = () => {
-    console.log("myProduct-----detail----------////", myProduct);
     dispatch(addToCart(myProduct));
   };
 
@@ -45,12 +45,11 @@ function Detail() {
   }
   let likes = [];
   let likeTrue = [];
-  console.log('myProduct', myProduct)
+
 
   useEffect(() => {
     if (localStorage.getItem('likes')) {
       likes = (JSON.parse(localStorage.getItem('likes')));
-      console.log('likes', likes)
       likeTrue = likes.filter((l) => {
         return l.id_product === id
       })
@@ -61,9 +60,6 @@ function Detail() {
           image: myProduct.image,
           name: myProduct.name,
         })
-
-        // console.log('likeTrue', likeTrue)
-        // console.log('likeP', likeP)
       }
     }
   }, [])
@@ -77,9 +73,7 @@ function Detail() {
       image: myProduct.image,
       name: myProduct.name,
     }
-    // console.log('like', like)
-    // console.log('likes', likes)
-    // console.log('id', id)
+
     if (localStorage.getItem('likes')) {
       likeTrue = [];
       likes = (JSON.parse(localStorage.getItem('likes')));
@@ -124,7 +118,6 @@ function Detail() {
     }
 
   }
-
   useEffect(() => {
     dispatch(ChangeByName2());
     dispatch(getDetailId(id));
@@ -133,16 +126,12 @@ function Detail() {
     };
   }, [dispatch, id]);
 
-  const navigate = useNavigate();
+  const handleAddToCart = () => {
+    dispatch(addToCart(myProduct));
+  };
   const handleGoBackBtn = () => {
     navigate(-1);
   };
-
-  /*  function handleBack() {
-     dispatch(getProductsPerPage(page))
-     console.log(page)
- 
-  } */
 
   const reviewPro = useSelector((state) => state.review);
   let score = 0;
@@ -151,14 +140,15 @@ function Detail() {
     const sumary = [];
     if (reviewPro?.reviews?.length > 0) {
       reviewPro?.reviews?.map((element) => {
-        sumary.push(element.rating)
-      })
+
+        sumary.push(element.rating);
+      });
       score = sumary.reduce(reducer) / sumary.length;
     }
   };
   sumaryScore();
 
-  const reviewsTotales = reviewPro?.reviews?.length
+  const reviewsTotales = reviewPro?.reviews?.length;
 
   return (
     <div className={styles.mainDetailContainer}>
@@ -189,7 +179,6 @@ function Detail() {
                   <div className={styles.priceLike}>
                     <p className={styles.price}>${myProduct.price}</p>
                     <p onClick={e => handleAddLike(e)}>
-                      {console.log('likeP', likeP)}
                       {likeP.like ?
                         <img
                           className={styles.corazon}
@@ -205,7 +194,14 @@ function Detail() {
                   </div>
 
                   <div id={styles.review_block}>
-                    <span id={styles.review_detail}>Rating: <strong>{score === 0 ? 'Sin calificación aún' : score.toFixed(1)}</strong> </span>
+                    <span id={styles.review_detail}>
+                      Rating:{" "}
+                      <strong>
+                        {score === 0
+                          ? "Sin calificación aún"
+                          : score.toFixed(1)}
+                      </strong>{" "}
+                    </span>
                     <div id={styles.review_block2}>
                       <span id={styles.review_detail}>
                         <Box
@@ -219,6 +215,7 @@ function Detail() {
                           />
                         </Box>
                       </span>
+
                       {reviewsTotales > 0 ? <span id={styles.review_letter}>{reviewsTotales} reviews</span> : null}
                     </div>
                   </div>

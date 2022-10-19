@@ -6,11 +6,9 @@ import s from "./Cards.module.css";
 import NotFound from "../NotFound/NotFound";
 
 const Cards = () => {
-  const products2 = useSelector((state) => state.product.products2);
+  const paginados = useSelector((state) => state.product.products2);
   const product = useSelector((state) => state.product.products);
-
   const byName = useSelector((state) => state.product.byName);
-
   return (
     <div className={s.cards}>
       {!product.hasOwnProperty("msj") ? (
@@ -31,7 +29,7 @@ const Cards = () => {
             );
           })
         ) : (
-          products2.products?.map((el) => {
+          paginados.products?.map((el) => {
             return (
               <div key={el._id}>
                 <Link className={s.link} key={el._id} to={`/detail/${el._id}`}>
