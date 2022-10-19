@@ -84,6 +84,8 @@ const Profile = () => {
 
         {input === "reviews" && <ReviewsByUser />}
 
+        {input === "favoritos" && <Favoritos />}
+
         {input === "ordenes" && <Order />}
       </div>
     </div>
