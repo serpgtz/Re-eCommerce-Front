@@ -10,6 +10,12 @@ import { getAllOrders } from "../../redux/actions/ordersActions";
 
 
 const Widget = ({ type }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllOrders());
+  }, [dispatch]);
+
   let data;
   
   const allusers = useSelector((state) => state.user.users);
@@ -94,21 +100,17 @@ const Widget = ({ type }) => {
   }
 
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllOrders());
-  }, []);
+  
 
   return (
     <div className={s.widget}>
       <div className={s.leftWit}>
         <span className={s.titleWit}>{data.title}</span>
         <span className={s.counter}>
-          {data.title === 'VENTAS TOTALES' && `$ ${spent.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+          {data.title === 'VENTAS TOTALES' && `$ ${spent.toLocaleString('es', /* { minimumFractionDigits: 2, maximumFractionDigits: 2 } */)}`}
           {data.title === "USUARIOS" && `${totalusers}`}
           {data.title === "ORDENES" && `${totalOrders}`}
-          {data.title === 'GANANCIAS' && `$ ${totalGanancias.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+          {data.title === 'GANANCIAS' && `$ ${totalGanancias.toLocaleString('es', /* { minimumFractionDigits: 2, maximumFractionDigits: 2 } */)}`}
         </span>
         <span className={s.linkR}>{data.link}</span>
       </div>

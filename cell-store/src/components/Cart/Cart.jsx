@@ -10,7 +10,6 @@ import { orderProduct } from '../../redux/actions/productActions';
 import { useEffect } from 'react';
 import ModalMsg from '../modal/ModalMsg';
 import BuyForm from '../buyForm/BuyForm';
-import { style } from '@mui/system';
 function Cart() {
 
 	const [location , setLocation] = useState('')
@@ -59,9 +58,25 @@ function Cart() {
 			payload: cart,
 		});
 	}
+	const handleCheckout = evt => {
+		if (localStorage.getItem('user')) {
+			const productArray = JSON.parse(localStorage.getItem('cart'))
+			
+			const id = JSON.parse(localStorage.getItem('user'))
+			
+			dispatch(orderProduct(productArray, id._id, location))
+			localStorage.removeItem('cart')
 
+			setTimeout(()=> {
+				window.location.reload();
+			},1500)
+		} else {
+			navigate('/account/login')
+			
+		}
+	};
      
-
+ 
 	useEffect(()=>{
 		if(linkMP?.length > 0){
 			window.open(linkMP, "PAGO", "width=300, height=200")
@@ -191,12 +206,17 @@ function Cart() {
 									/>: 
 									<button
 									className={s.btnCheck}
-									onClick={handleCheckout}
+									onClick={()=> navigate('/account/login')}
 								>
 									Inicia sesion
 								</button>
 									}
-									
+									{localStorage.getItem('user') && error === false && <button
+										className={s.btnCheck}
+										onClick={handleCheckout}
+									>
+										Proceder a la compra
+									</button> }
 									<button
 										className={s.btnSeguirComp}
 										onClick={handleGoBackBtn}
@@ -207,14 +227,11 @@ function Cart() {
 							</div>
 							
 						</div>}
-						<div className={s.container_2}>
-							<BuyForm error={error} location={location}/>
-						</div>
 					</div>
 				)}
 				
 			</section>
-			
+			<BuyForm/>
 		</div>
 		
 	)

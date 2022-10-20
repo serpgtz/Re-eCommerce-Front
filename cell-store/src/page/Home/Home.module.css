@@ -1,13 +1,27 @@
-.maxContainer {
+.container{
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-  
+    background-color: #ededed;
+    padding: 0;
+    margin: 0;
+}
+
+.div_ver_mas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 120px;
+    font-size: 25px;
+   font-weight: bold;
+   color: rgb(96, 177, 228);
+   
 }
 
 .filters {
-    padding: 10px;
-    margin-left: 50px;
+   
+   
     width: 250px;
     /* border-right: solid rgba(0, 0, 0, 0.5); */
 
