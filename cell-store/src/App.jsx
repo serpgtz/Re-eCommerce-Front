@@ -19,7 +19,6 @@ import Historia from "./page/historia/Historia";
 import { useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
-import Dashboard from "./page/Dashboard/Dashboard";
 import ConfirmEmail from "./page/ConfirmEmail/ConfirmEmail";
 import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
 import Cart from "./components/Cart/Cart";
@@ -91,8 +90,6 @@ function App() {
           <Route path="/interForm/:id" element={<InterForm />} />
           {/*autenticado y administrador*/}
           <Route path="/categoryForm/:id" element={<CategoryForm />} />
-          {/*autenticado y administrador*/}
-          <Route path="/adminDashboard" element={<Dashboard />} />
           {/*autenticado y administrador*/}
           <Route path="/adminDashboard/sidebar" element={<Sidebar />} />
           {/*autenticado y administrador*/}
