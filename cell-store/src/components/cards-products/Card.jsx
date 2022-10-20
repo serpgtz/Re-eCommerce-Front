@@ -32,7 +32,7 @@ const Card = (p) => {
   };
   let likes = [];
   let likeTrue = [];
-
+  // console.log('myProduct', myProduct)
 
   useEffect(() => {
     if (localStorage.getItem("likes")) {
@@ -48,13 +48,11 @@ const Card = (p) => {
           image: p.image,
           name: p.name,
         });
-
         // console.log('likeTrue', likeTrue)
         // console.log('likeP', likeP)
       }
     }
   }, []);
-
   const handleAddLike = (e) => {
     e.preventDefault();
     like = {
@@ -72,7 +70,6 @@ const Card = (p) => {
       likeTrue = likes.filter((l) => {
         return l.id_product === id;
       });
-
       if (likeTrue.length) {
         // alert('El producto se quitará de tus favoritos')
         likes = likes.filter((l) => {
@@ -108,7 +105,6 @@ const Card = (p) => {
       });
     }
   };
-
   const handleAddToCart = (e) => {
     const productId = myProduct.filter((e) => e._id === id);
     // console.log("productId---------//----card", productId[0]);
@@ -123,7 +119,6 @@ const Card = (p) => {
       null;
     }
   };
-
   return (
     <div className={s.card}>
       <div className={s.name}>
@@ -132,7 +127,6 @@ const Card = (p) => {
       <div className={s.imgContein}>
         <img className={s.imgProduct} src={p.image} alt="image not found" />
       </div>
-
       <div className={s.info}>
         <p className={s.cuotas}>12 CUOTAS SIN INTERÉS</p>
         <p className={s.precio}>
@@ -143,7 +137,6 @@ const Card = (p) => {
           })}
         </p>
       </div>
-
       <div className={s.footerCard}>
         <div className={s.left}></div>
         <Link className={s.agregarCarrito} to={`/`}>
@@ -169,31 +162,24 @@ const Card = (p) => {
 
         <div className={s.right} onClick={(e) => handleAddLike(e)}>
           {/* <button className={s.like}  > */}
-
-          {(user?.admin === false || user_redux?.admin === false || user === null) ?
-            <p>
-              {console.log('likeP', likeP)}
-              {likeP.like ?
-                <img
-                  className={s.corazon}
-                  src={corazonRojo}
-                  alt="image not found" />
-                :
-                <img
-                  className={s.corazon}
-                  src={corazonVacio}
-                  alt="image not found" />
-              }
-            </p>
-
-            : null
-          }
-
+          {/* {console.log("likeP", likeP)} */}
+          {likeP.like ? (
+            <img
+              className={s.corazon}
+              src={corazonRojo}
+              alt="image not found"
+            />
+          ) : (
+            <img
+              className={s.corazon}
+              src={corazonVacio}
+              alt="image not found"
+            />
+          )}
           {/* </button> */}
         </div>
       </div>
     </div>
   );
 };
-
 export default Card;

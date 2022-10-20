@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useActionData } from "react-router-dom";
-
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const GET_DETAILS = "GET_DETAILS";
@@ -14,9 +13,7 @@ export const NOT_FOUND = "NOT_FOUND";
 export const HIGHER_PRICE = "HIGHER_PRICE";
 export const LOWER_PRICE = "LOWER_PRICE";
 export const TOP_RATED = "TOP_RATED";
-export const LINK_MP = "LINK_MP"
-export const PRODUCTS_FILTER = "PRODUCTS_FILTER"
-
+export const LINK_MP = "LINK_MP";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -24,7 +21,6 @@ export const getAllProducts = () => {
   return async (dispatch) => {
     try {
       const products = await axios.get("/products");
-
       return dispatch({
         type: GET_ALL_PRODUCTS,
         payload: products.data,
@@ -34,7 +30,6 @@ export const getAllProducts = () => {
     }
   };
 };
-
 export function getProductByName(name) {
   return async function (dispatch) {
     try {
@@ -52,7 +47,6 @@ export function getProductByName(name) {
     }
   };
 }
-
 export function getDetailId(id) {
   return async function (dispatch) {
     try {
@@ -66,7 +60,6 @@ export function getDetailId(id) {
     }
   };
 }
-
 export function getFilter(query) {
   return async function (dispatch) {
     try {
@@ -83,13 +76,11 @@ export function getFilter(query) {
     }
   };
 }
-
 export function resetState() {
   return {
     type: RESET,
   };
 }
-
 export function postProduct(form, navigate) {
   return function (dispatch) {
     return axios
@@ -108,7 +99,6 @@ export function postProduct(form, navigate) {
       });
   };
 }
-
 export function postCategory(form, navigate, location) {
   return function (dispatch) {
     return axios
@@ -126,7 +116,6 @@ export function postCategory(form, navigate, location) {
       });
   };
 }
-
 export function higherPrice(page) {
   return async function (dispatch) {
     try {
@@ -145,7 +134,6 @@ export function higherPrice(page) {
     }
   };
 }
-
 export function lowerPrice(page) {
   return async function (dispatch) {
     try {
@@ -159,7 +147,6 @@ export function lowerPrice(page) {
     }
   };
 }
-
 export function topRated(page) {
   return async function (dispatch) {
     try {
@@ -173,7 +160,6 @@ export function topRated(page) {
     }
   };
 }
-
 export function changePage(page) {
   return function (dispatch) {
     return dispatch({
@@ -182,7 +168,6 @@ export function changePage(page) {
     });
   };
 }
-
 export function getProductsPerPage(page) {
   return async function (dispatch) {
     try {
@@ -196,7 +181,6 @@ export function getProductsPerPage(page) {
     }
   };
 }
-
 export function ChangeByName() {
   return function (dispatch) {
     return dispatch({
@@ -213,7 +197,6 @@ export function ChangeByName2() {
     });
   };
 }
-
 export const orderProduct = (products, id, location, input) => {
   const data = [products, location, input];
   return async (dispatch) => {
@@ -227,21 +210,5 @@ export const orderProduct = (products, id, location, input) => {
     } catch (error) {
       console.log(error);
     }
-
-  }
-}
-
-export const productBrand = (name) => {
-   return async (dispatch) => {
-    try {
-      const productsBrand = await axios(`/products/brand?brand=${name}`)
-      return dispatch({
-        type : PRODUCTS_FILTER,
-        payload : productsBrand.data
-      })
-    } catch (error) {
-      console.log(error)
-    }
-   }
-}
-
+  };
+};

@@ -10,7 +10,6 @@ import { orderProduct } from "../../redux/actions/productActions";
 import { useEffect } from "react";
 import ModalMsg from "../modal/ModalMsg";
 import BuyForm from "../buyForm/BuyForm";
-import { style } from "@mui/system";
 function Cart() {
   const [location, setLocation] = useState("");
   const [error, setError] = useState(true);
@@ -19,13 +18,10 @@ function Cart() {
 
   const { cart } = useSelector((state) => state.cart);
   const linkMP = useSelector((state) => state.product.linkMP);
-
   const dispatch = useDispatch();
-
   const handleGoBackBtn = () => {
     navigate("/");
   };
-
   const handleQtyClick = (e, product) => {
     if (e.target.name === "+") {
       console.log("entré en +");
@@ -43,18 +39,31 @@ function Cart() {
     const cart = localStorage.getItem("cart")
       ? JSON.parse(localStorage.getItem("cart"))
       : [];
-
     cart.forEach((cartItem) => {
       if (cartItem._id === product._id) {
         cartItem.count = value;
       }
     });
     localStorage.setItem("cart", JSON.stringify(cart));
-
     dispatch({
       type: ADD_TO_CART,
       payload: cart,
     });
+  };
+  const handleCheckout = (evt) => {
+    if (localStorage.getItem("user")) {
+      const productArray = JSON.parse(localStorage.getItem("cart"));
+
+      const id = JSON.parse(localStorage.getItem("user"));
+
+      dispatch(orderProduct(productArray, id._id, location));
+      localStorage.removeItem("cart");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    } else {
+      navigate("/account/login");
+    }
   };
 
   useEffect(() => {
@@ -70,7 +79,7 @@ function Cart() {
           <div>
             <h1 className="display-4">
               El carrito está vacío{" "}
-              <button onClick={() => navigate("/account/login")}>Volver</button>
+              <button onClick={handleGoBackBtn}>Volver</button>
             </h1>
           </div>
         ) : (
@@ -121,7 +130,6 @@ function Cart() {
                                   {product.name}
                                 </Link>
                               </div>
-
                               <button
                                 className={s.btnDelete}
                                 type="button"
@@ -136,7 +144,6 @@ function Cart() {
                                 />
                               </button>
                             </td>
-
                             <td>
                               <p className={s.botonesQ}>
                                 <button
@@ -159,7 +166,6 @@ function Cart() {
                                   +
                                 </button>
                               </p>
-
                               <label className={s.disponible}>
                                 disponible: {product.stock}
                               </label>
@@ -217,7 +223,11 @@ function Cart() {
                         Inicia sesion
                       </button>
                     )}
-
+                    {localStorage.getItem("user") && error === false && (
+                      <button className={s.btnCheck} onClick={handleCheckout}>
+                        Proceder a la compra
+                      </button>
+                    )}
                     <button
                       className={s.btnSeguirComp}
                       onClick={handleGoBackBtn}
@@ -228,14 +238,11 @@ function Cart() {
                 </div>
               </div>
             }
-            <div className={s.container_2}>
-              <BuyForm error={error} location={location} />
-            </div>
           </div>
         )}
       </section>
+      <BuyForm />
     </div>
   );
 }
-
 export default Cart;
