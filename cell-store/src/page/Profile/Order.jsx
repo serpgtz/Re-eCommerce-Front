@@ -36,16 +36,16 @@ export default function Orders(){
 
     return (
       
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 800 }} aria-label="simple table">
+    <TableContainer  component={Paper} >
+      <Table sx={{ maxWidth: 400 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-          <TableCell align="right">FECHA</TableCell>
-            <TableCell align="right">METODO DE PAGO</TableCell>
-            <TableCell align="right">ESTATUS</TableCell>
-            <TableCell align="right">ORDENES</TableCell>
-            <TableCell align="right">IMAGEN</TableCell>
-            <TableCell align="right">Numero de Orden</TableCell>
+          <TableCell  style={{ width: '5rem' }} align="left">FECHA</TableCell>
+            <TableCell  style={{ width: '9rem' }} align="center">METODO DE PAGO</TableCell>
+            <TableCell  style={{ width: '2rem' }} align="center">ESTATUS</TableCell>
+            <TableCell  style={{ width: '10rem' }} align="center">ORDENES</TableCell>
+            <TableCell  style={{ width: '3rem' }} align="center">IMAGEN</TableCell>
+            <TableCell  style={{ width: '12rem' }}  align="center" >NUMERO DE ORDEN</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -58,33 +58,32 @@ export default function Orders(){
                 {row.date}
               </TableCell>
               
-              <TableCell align="right">{row.PaymentMethod}</TableCell>
-              <TableCell align="right">{row.status}</TableCell>
-              <TableCell align="right">{row.orderItems?.map(or=>{
+              <TableCell align="center">{row.PaymentMethod}</TableCell>
+              <TableCell align="center">{row.status}</TableCell>
+              <TableCell align="center">{row.orderItems?.map(or=>{
                 return(
-                    // <TableRow>
+                  
                   <div>
                    
                     <p>{or.name}</p>
                   </div>  
                 
-                    // </TableRow>
-                    // <img src={or.image} alt="not found" width="50px" />
+                  
                 )
               })}</TableCell>
-              <TableCell align="right">{row.orderItems?.map(or=>{
+              <TableCell align="center">{row.orderItems?.map(or=>{
                 return(
-                    // <TableRow>
+                  
                   <div>
                    
                     <img src={or.image} alt="not found" width="55rem" />
                   </div>  
                 
-                    // </TableRow>
+              
                   
                 )
               })}</TableCell>
-             <TableCell align="right">{row._id}<br/></TableCell>
+             <TableCell align="center">{row._id}<br/></TableCell>
             </TableRow>
           ))}
         </TableBody>
