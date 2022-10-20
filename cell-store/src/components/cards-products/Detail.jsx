@@ -11,7 +11,7 @@ import { useState } from "react";
 import styles from "./Detail.module.css";
 import carrito from "../../image/carrito.png";
 import corazonVacio from "../../image/corazonVacio.png";
-import corazonRojo from '../../image/corazonrojo.png'
+import corazonRojo from "../../image/corazonrojo.png";
 import { addToCart } from "../../redux/actions/cartActions";
 import Reviews from "./Reviews";
 /* import ReviewsRemix from "./ReviewsRemix"; */
@@ -28,41 +28,37 @@ function Detail() {
   const user_redux = useSelector((state) => state.user.user);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
-
   const [likeP, setLikeP] = useState({
     like: false,
     id_product: id,
     image: myProduct.image,
     name: myProduct.name,
-
-  })
+  });
   let like = {
     like: false,
     id_product: id,
     image: myProduct.image,
     name: myProduct.name,
-  }
+  };
   let likes = [];
   let likeTrue = [];
 
-
   useEffect(() => {
-    if (localStorage.getItem('likes')) {
-      likes = (JSON.parse(localStorage.getItem('likes')));
+    if (localStorage.getItem("likes")) {
+      likes = JSON.parse(localStorage.getItem("likes"));
       likeTrue = likes.filter((l) => {
-        return l.id_product === id
-      })
+        return l.id_product === id;
+      });
       if (likeTrue.length) {
         setLikeP({
           like: true,
           id_product: id,
           image: myProduct.image,
           name: myProduct.name,
-        })
+        });
       }
     }
-  }, [])
-
+  }, []);
 
   const handleAddLike = (e) => {
     e.preventDefault();
@@ -71,27 +67,26 @@ function Detail() {
       id_product: id,
       image: myProduct.image,
       name: myProduct.name,
-    }
+    };
 
-    if (localStorage.getItem('likes')) {
+    if (localStorage.getItem("likes")) {
       likeTrue = [];
-      likes = (JSON.parse(localStorage.getItem('likes')));
+      likes = JSON.parse(localStorage.getItem("likes"));
       likeTrue = likes.filter((l) => {
-        return l.id_product === id
-      })
+        return l.id_product === id;
+      });
 
       if (likeTrue.length) {
         // alert('El producto se quitará de tus favoritos')
         likes = likes.filter((l) => {
-          return l.id_product !== id
-        })
+          return l.id_product !== id;
+        });
         setLikeP({
           like: false,
           id_product: id,
           image: myProduct.image,
           name: myProduct.name,
-        })
-
+        });
       } else {
         // alert('El producto se guardará en tus favoritos')
         likes.push(like);
@@ -100,23 +95,22 @@ function Detail() {
           id_product: id,
           image: myProduct.image,
           name: myProduct.name,
-        })
+        });
       }
-      localStorage.setItem("likes", JSON.stringify(likes))
+      localStorage.setItem("likes", JSON.stringify(likes));
     } else {
       // alert('El producto se guardará en tus favoritos')
       let likes = [];
       likes.push(like);
-      localStorage.setItem("likes", JSON.stringify(likes))
+      localStorage.setItem("likes", JSON.stringify(likes));
       setLikeP({
         like: true,
         id_product: id,
         image: myProduct.image,
         name: myProduct.name,
-      })
+      });
     }
-
-  }
+  };
   useEffect(() => {
     dispatch(ChangeByName2());
     dispatch(getDetailId(id));
@@ -125,9 +119,6 @@ function Detail() {
     };
   }, [dispatch, id]);
 
-  const handleAddToCart = () => {
-    dispatch(addToCart(myProduct));
-  };
   const handleGoBackBtn = () => {
     navigate(-1);
   };
@@ -139,7 +130,6 @@ function Detail() {
     const sumary = [];
     if (reviewPro?.reviews?.length > 0) {
       reviewPro?.reviews?.map((element) => {
-
         sumary.push(element.rating);
       });
       score = sumary.reduce(reducer) / sumary.length;
@@ -177,27 +167,27 @@ function Detail() {
                   <h3 className={styles.titleone}>{myProduct.name}</h3>
                   <div className={styles.priceLike}>
                     <p className={styles.price}>${myProduct.price}</p>
-                    <p onClick={e => handleAddLike(e)}>
-
-                      {(user?.admin === false || user_redux?.admin === false || user === null) ?
+                    <p onClick={(e) => handleAddLike(e)}>
+                      {user?.admin === false ||
+                      user_redux?.admin === false ||
+                      user === null ? (
                         <p>
-                          {console.log('likeP', likeP)}
-                          {likeP.like ?
+                          {console.log("likeP", likeP)}
+                          {likeP.like ? (
                             <img
                               className={styles.corazon}
                               src={corazonRojo}
-                              alt="image not found" />
-                            :
+                              alt="image not found"
+                            />
+                          ) : (
                             <img
                               className={styles.corazon}
                               src={corazonVacio}
-                              alt="image not found" />
-                          }
+                              alt="image not found"
+                            />
+                          )}
                         </p>
-                        : null
-
-                      }
-
+                      ) : null}
                     </p>
                   </div>
 
@@ -214,17 +204,24 @@ function Detail() {
                       <span id={styles.review_detail}>
                         <Box
                           sx={{
-                            '& > legend': { mt: 2 },
+                            "& > legend": { mt: 2 },
                           }}
                         >
                           <Rating
-                            name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly
+                            name="half-rating-read"
+                            defaultValue={2.5}
+                            precision={0.5}
+                            readOnly
                             value={score}
                           />
                         </Box>
                       </span>
 
-                      {reviewsTotales > 0 ? <span id={styles.review_letter}>{reviewsTotales} reviews</span> : null}
+                      {reviewsTotales > 0 ? (
+                        <span id={styles.review_letter}>
+                          {reviewsTotales} reviews
+                        </span>
+                      ) : null}
                     </div>
                   </div>
 
@@ -238,7 +235,7 @@ function Detail() {
                     <strong>stock : </strong>
                     {myProduct.stock} unidades.
                   </p>
-                  {(user?.admin === false || user_redux?.admin === false) ?
+                  {user?.admin === false || user_redux?.admin === false ? (
                     <div>
                       <div className={styles.btnBuy}>Proceder a la compra</div>
                       <div onClick={handleAddToCart} className={styles.btnCar}>
@@ -250,8 +247,7 @@ function Detail() {
                         Agregar al carrito
                       </div>
                     </div>
-                    : null
-                  }
+                  ) : null}
                 </div>
               </div>
               <Reviews id={id} image={myProduct.image} name={myProduct.name} />

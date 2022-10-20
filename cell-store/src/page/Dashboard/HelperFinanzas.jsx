@@ -73,41 +73,41 @@ const gananciasPorFiltro = (order) => {
 };
 
 //Para consoleloguear
-console.log(
-  gananciasPorFiltro(ordenesTresMeses),
-  tresMesesAtrás,
-  "SON=>",
-  ordenesTresMeses,
-  "CANTIDAD:",
-  ordenesTresMeses.length,
-  "<=3Meses"
-);
-console.log(
-  gananciasPorFiltro(ordenesDosMeses),
-  dosMesesAtrás,
-  "SON=>",
-  ordenesDosMeses,
-  "CANTIDAD:",
-  ordenesDosMeses.length,
-  "<=2Meses"
-);
-console.log(
-  gananciasPorFiltro(ordersDelMesAnterior),
-  mesAnterior,
-  "SON=>",
-  ordersDelMesAnterior.length,
-  "MesAnterior"
-);
-console.log(
-  gananciasPorFiltro(ordersDelMes),
-  "SON=>",
-  ordersDelMes.length,
-  "MES"
-);
-console.log(
-  gananciasPorFiltro(ordersSemanaAnterior),
-  "SON=>",
-  ordersSemanaAnterior.length,
-  "SEMANA"
-);
-console.log(gananciasPorFiltro(todayOrders), "HOY");
+// console.log(
+//   gananciasPorFiltro(ordenesTresMeses),
+//   tresMesesAtrás,
+//   "SON=>",
+//   ordenesTresMeses,
+//   "CANTIDAD:",
+//   ordenesTresMeses.length,
+//   "<=3Meses"
+// );
+// console.log(
+//   gananciasPorFiltro(ordenesDosMeses),
+//   dosMesesAtrás,
+//   "SON=>",
+//   ordenesDosMeses,
+//   "CANTIDAD:",
+//   ordenesDosMeses.length,
+//   "<=2Meses"
+// );
+// console.log(
+//   gananciasPorFiltro(ordersDelMesAnterior),
+//   mesAnterior,
+//   "SON=>",
+//   ordersDelMesAnterior.length,
+//   "MesAnterior"
+// );
+// console.log(
+//   gananciasPorFiltro(ordersDelMes),
+//   "SON=>",
+//   ordersDelMes.length,
+//   "MES"
+// );
+// console.log(
+//   gananciasPorFiltro(ordersSemanaAnterior),
+//   "SON=>",
+//   ordersSemanaAnterior.length,
+//   "SEMANA"
+// );
+// console.log(gananciasPorFiltro(todayOrders), "HOY");
