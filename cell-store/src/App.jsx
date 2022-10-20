@@ -19,7 +19,6 @@ import Historia from "./page/historia/Historia";
 import { useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
-import Dashboard from "./page/Dashboard/Dashboard";
 import ConfirmEmail from "./page/ConfirmEmail/ConfirmEmail";
 import ConfirmedEmail from "./page/ConfirmEmail/ConfirmedEmail";
 import Cart from "./components/Cart/Cart";
@@ -35,7 +34,7 @@ import OrdersList from "./page/Dashboard/OrdersList";
 import ReviewsList from "./page/Dashboard/ReviewsList";
 import Settings from "./page/Profile/Settings";
 import Faq from "./components/Faqs/Faq";
-import CardPagination from "./page/CardPagination/CardPagination";
+
 /* import Detail from './components/cards-products/Detail' */
 
 function App() {
@@ -47,7 +46,6 @@ function App() {
   useEffect(() => {
     dispatch(getAllProducts());
     dispatch(getProductsPerPage(page));
-    
   }, [dispatch]);
   return (
     <>
@@ -62,13 +60,12 @@ function App() {
         <Route path="/account/login" element={<Auth />} />
         <Route path="/confirm" element={<ConfirmEmail />} />
         <Route path="/faqs" element={<Faq />} />
-        <Route path="/store/discount/show" element={<CardPagination />} />
         {/* */}
         <Route path="/confirm/:id" element={<ConfirmedEmail />} />
         {/* */}
+
         <Route path="/changePassword/:id" element={<ChangePassword_forgot />} />
         <Route path="/historia" element={<Historia />} />
-
         <Route
           path="/account/profile"
           element={
@@ -86,7 +83,6 @@ function App() {
           }
         />
         {/*autenticado */}
-
         <Route element={<ProtectedRoute isAllowed={user?.admin} />}>
           <Route path="/newproduct" element={<ProductForm />} />
           {/*autenticado y administrador*/}
@@ -94,7 +90,6 @@ function App() {
           {/*autenticado y administrador*/}
           <Route path="/categoryForm/:id" element={<CategoryForm />} />
           {/*autenticado y administrador*/}
-          <Route path="/adminDashboard" element={<Dashboard />} />
           {/*autenticado y administrador*/}
           <Route path="/adminDashboard/sidebar" element={<Sidebar />} />
           {/*autenticado y administrador*/}
@@ -111,7 +106,6 @@ function App() {
           <Route path="/admin/reviewslist" element={<ReviewsList />} />
           {/*autenticado y administrador*/}
         </Route>
-
         <Route path="/account/register" element={<Register />} />
         {/*sin logear*/}
       </Routes>
@@ -119,9 +113,7 @@ function App() {
     </>
   );
 }
-
 export default App;
-
 /* 
     <Router>
       <Routes>

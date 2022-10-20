@@ -12,7 +12,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAllReviews } from "../../redux/actions/reviewActions";
 import styles from "./Reviews.module.css";
-import UsersContainer from "./UsersContainer";
 const Reviews = ({ users, products }) => {
   //Debe recibir todos los usuarios y productos para funcionar
   const dispatch = useDispatch();
@@ -24,7 +23,7 @@ const Reviews = ({ users, products }) => {
     navigate("/detail/" + id);
   };
   //La función de abajo me trae el nombre del usuario de la review
-  console.log('uers aqui:', users)
+  console.log("uers aqui:", users);
   const userbyName = (uId) => {
     const userById = users.find((u) => u._id === uId);
     return userById?.username;
@@ -113,27 +112,4 @@ const Reviews = ({ users, products }) => {
   );
 };
 
-// <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-//   <ListItem alignItems="flex-start">
-//     <ListItemAvatar>
-//       <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-//     </ListItemAvatar>
-//     <ListItemText
-//       primary="Brunch this weekend?"
-//       secondary={
-//         <React.Fragment>
-//           <Typography
-//             sx={{ display: "inline" }}
-//             component="span"
-//             variant="body2"
-//             color="text.primary"
-//           >
-//             Ali Connors
-//           </Typography>
-//           {" — I'll be in your neighborhood doing errands this…"}
-//         </React.Fragment>
-//       }
-//     />
-//   </ListItem>
-// </List>;
 export default Reviews;
