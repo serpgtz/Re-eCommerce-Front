@@ -89,7 +89,7 @@ const Profile = () => {
 
 
         {input === "ordenes" && <Order />}
->>>>>>>>> Temporary merge branch 2
+
       </div>
     </div>
   )
