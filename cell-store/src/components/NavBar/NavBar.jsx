@@ -13,7 +13,7 @@ import corazonRojo from "../../image/corazonrojo.png";
 
 export const NavBar = () => {
   // const [click, setClick] = useState(false)
-  // const user_redux = useSelector((state) => state.user.user);
+  const user_redux = useSelector((state) => state.user.user);
   // const dispatch = useDispatch();
 
   // function handleClick(e) {
@@ -44,24 +44,25 @@ export const NavBar = () => {
 
         <div className={styles.div_carrito_login}>
           <CartNavBar />
-          {(user?.admin === false || user_redux?.admin === false || user === null) ?
+          {user_redux?.admin === false ? (
             <Link to="/favoritos">
               <div>
                 <img
                   className={styles.corazon}
                   src={corazonRojo}
-                  alt="image not found" />
+                  alt="image not found"
+                />
               </div>
             </Link>
-            : null
-          }
+          ) : null}
 
           {localStorage.getItem("token") === null ? (
             <Link className={styles.link} to="/account/login">
               <button className={styles.navBtnLogin}>Iniciar sesión</button>
             </Link>
-
-          ) : <MenuAccount />}
+          ) : (
+            <MenuAccount />
+          )}
         </div>
       </nav>
     </>
