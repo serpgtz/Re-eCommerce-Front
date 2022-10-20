@@ -5,7 +5,7 @@ import Paginado from "../../components/Paginado/Paginado.jsx";
 import Carrusel from "../../components/carrusel/Carrusel";
 import { getAllOrders } from "../../redux/actions/ordersActions";
 import { useDispatch } from 'react-redux';
-import SliderCard from "../../components/sliderCard/SliderCard";
+// import SliderCard from "../../components/sliderCard/SliderCard";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { style } from "@mui/system";
@@ -28,7 +28,7 @@ const Home = () => {
       </div>
     
 
-      <SliderCard />
+      {/* <SliderCard /> */}
       
     </div>
   );
