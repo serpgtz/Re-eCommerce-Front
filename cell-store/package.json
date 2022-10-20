@@ -30,7 +30,7 @@
     "react-redux": "^8.0.4",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.1",
-    "recharts": "^2.1.15",
+    "recharts": "^0.22.5",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1"
