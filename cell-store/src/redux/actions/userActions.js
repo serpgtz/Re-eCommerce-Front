@@ -32,11 +32,46 @@ export const userRegister = (user) => {
   };
 };
 
+export const googleRegister = (user) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.post("/registerGoogle", user);
+      return dispatch({
+        type: REGISTER_ERROR,
+        payload: res.data,
+      });
+    } catch (error) {
+      return dispatch({
+        type: REGISTER_ERROR,
+        payload: error.response.data,
+      });
+    }
+  };
+};
+
 export const userLogin = (user) => {
   return async (dispatch) => {
     try {
       const token = await axios.post("/login", user);
 
+      localStorage.setItem("token", token.data.token);
+
+      return dispatch({
+        type: TOKEN,
+        payload: token.data,
+      });
+    } catch (error) {
+      return dispatch({
+        type: LOGIN_ERROR,
+        payload: error.response.data,
+      });
+    }
+  };
+};
+export const googleLogin = (user) => {
+  return async (dispatch) => {
+    try {
+      const token = await axios.post("/loginGoogle", user);
       localStorage.setItem("token", token.data.token);
 
       return dispatch({
