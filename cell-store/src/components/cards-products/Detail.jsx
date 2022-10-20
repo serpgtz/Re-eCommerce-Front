@@ -25,10 +25,8 @@ function Detail() {
 
   const myProduct = useSelector((state) => state.product.detail);
   const page = useSelector((state) => state.product.page);
-
-  const handleAddToCart = () => {
-    dispatch(addToCart(myProduct));
-  };
+  const user_redux = useSelector((state) => state.user.user);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   const [likeP, setLikeP] = useState({
     like: false,
@@ -170,19 +168,26 @@ function Detail() {
                   <div className={styles.priceLike}>
                     <p className={styles.price}>${myProduct.price}</p>
                     <p onClick={(e) => handleAddLike(e)}>
-                      {likeP.like ? (
-                        <img
-                          className={styles.corazon}
-                          src={corazonRojo}
-                          alt="image not found"
-                        />
-                      ) : (
-                        <img
-                          className={styles.corazon}
-                          src={corazonVacio}
-                          alt="image not found"
-                        />
-                      )}
+                      {user?.admin === false ||
+                      user_redux?.admin === false ||
+                      user === null ? (
+                        <p>
+                          {console.log("likeP", likeP)}
+                          {likeP.like ? (
+                            <img
+                              className={styles.corazon}
+                              src={corazonRojo}
+                              alt="image not found"
+                            />
+                          ) : (
+                            <img
+                              className={styles.corazon}
+                              src={corazonVacio}
+                              alt="image not found"
+                            />
+                          )}
+                        </p>
+                      ) : null}
                     </p>
                   </div>
 
@@ -230,16 +235,19 @@ function Detail() {
                     <strong>stock : </strong>
                     {myProduct.stock} unidades.
                   </p>
-
-                  <div className={styles.btnBuy}>Proceder a la compra</div>
-                  <div onClick={handleAddToCart} className={styles.btnCar}>
-                    <img
-                      className={styles.imgCarrito}
-                      src={carrito}
-                      alt="image not found"
-                    />
-                    Agregar al carrito
-                  </div>
+                  {user?.admin === false || user_redux?.admin === false ? (
+                    <div>
+                      <div className={styles.btnBuy}>Proceder a la compra</div>
+                      <div onClick={handleAddToCart} className={styles.btnCar}>
+                        <img
+                          className={styles.imgCarrito}
+                          src={carrito}
+                          alt="image not found"
+                        />
+                        Agregar al carrito
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               </div>
               <Reviews id={id} image={myProduct.image} name={myProduct.name} />

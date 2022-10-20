@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+   
+
+}
+
+.sub_container {
+   
+    width: 80%;
+    
+    
+}
